@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<ruleset>
+    <description>Plugin dev PHP_CodeSniffer ruleset.</description>
+
+    <!-- Only sniff PHP files -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Show sniff codes in all reports -->
+    <arg value="ps"/>
+
+    <!-- Help speed up checks -->
+    <arg name="parallel" value="10" />
+
+    <!-- Set the minimum supported WP version for the WordPress ruleset -->
+    <config name="minimum_wp_version" value="4.9"/>
+
+    <!-- Exclude these paths -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>languages</exclude-pattern>
+
+    <rule ref="PHPCompatibility">
+        <properties>
+            <property name="testVersion" value="7.4-"/>
+        </properties>
+    </rule>
+
+    <rule ref="WordPress">
+        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag" />
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment" />
+        <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows" />
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag" />
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />
+        <exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
+        <exclude name="Universal.Operators.DisallowShortTernary.Found" />
+        <exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents" />
+        <exclude name="Squiz.Commenting.VariableComment.MissingVar" />
+        <exclude name="Squiz.Commenting.FunctionComment.ParamNameNoMatch" />
+        <exclude name="Squiz.Commenting.FunctionComment.InvalidTypeHint" />
+        <exclude name="Squiz.Commenting.FunctionComment.IncorrectTypeHint" />
+    </rule>
+
+    <!-- some specific rules that rules ref="WordPress" does not have,
+    but we want to have them to make our code more neat -->
+
+    <!-- We need it to be compatible with php versions 7.4+ -->
+    <rule ref="SlevomatCodingStandard.TypeHints">
+        <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes" />
+
+        <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification" />
+        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification" />
+        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification" />
+        <exclude name="SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint" />
+        <properties>
+            <!-- if you want the sniff to prefer native typehints where possible -->
+            <property name="enableNativeTypeHint" value="true"/>
+        </properties>
+    </rule>
+
+    <rule ref="Generic.Metrics.NestingLevel">
+        <properties>
+            <property name="nestingLevel" value="4"/>
+        </properties>
+    </rule>
+
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property name="complexity" value="6"/>
+        </properties>
+    </rule>
+
+    <rule ref="CognitiveComplexity">
+        <properties>
+            <property name="maxCognitiveComplexity" value="10"/>
+        </properties>
+    </rule>
+
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
+</ruleset>

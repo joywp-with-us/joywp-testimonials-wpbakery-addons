@@ -1,0 +1,24 @@
+{
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*",
+    "wp-coding-standards/wpcs": "*",
+    "slevomat/coding-standard": "^8.15",
+    "phpcompatibility/php-compatibility": "^9.1",
+    "rarst/phpcs-cognitive-complexity": "^0.2",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "phpstan/phpstan": "^1.12",
+    "php-stubs/wordpress-stubs": "6.8.2"
+  },
+  "autoload": {
+    "psr-4": {"JoywpTestimonialsWpb\\": "src/"}
+  },
+  "config": {
+    "platform": {
+      "php": "7.4"
+    },
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "autoloader-suffix": "JoywpTestimonialsWpb"
+  }
+}

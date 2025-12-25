@@ -1,0 +1,11 @@
+[
+  {
+    "type": "textfield",
+    "param_name": "button_text",
+    "heading": {
+      "text": "Test Here",
+      "translate": "true",
+      "text_domain": "joywp-testimonials-wpbakery-addons"
+    }
+  }
+]
