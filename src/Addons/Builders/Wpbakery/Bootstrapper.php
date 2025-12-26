@@ -27,21 +27,12 @@ use WPBakeryShortCode;
  */
 class Bootstrapper extends AbstractBootstrapper {
 	/**
-	 * Addons files list that need to boostrap them.
-	 *
-	 * @since 1.0
-	 */
-	public array $addons;
-
-	/**
 	 * Constructor.
 	 *
 	 * @since 1.0
 	 */
-	public function __construct( array $addons ) {
+	public function __construct() {
 		add_action( 'admin_init', [ $this, 'init_custom_addon_params' ] );
-
-		$this->addons = $addons;
 	}
 
 	/**

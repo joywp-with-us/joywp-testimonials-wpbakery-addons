@@ -16,19 +16,12 @@ defined( 'ABSPATH' ) || exit;
  */
 abstract class AbstractBootstrapper {
 	/**
-	 * Addons files list that need to boostrap them.
-	 *
-	 * @since 1.0
-	 */
-	public array $addons;
-
-	/**
 	 * Class entry point.
 	 *
 	 * @since 1.0
 	 */
-	public function bootstrap(): void {
-		foreach ( $this->addons as $addons_name => $addon_data ) {
+	public function bootstrap( array $addons ): void {
+		foreach ( $addons as $addons_name => $addon_data ) {
 			$config = $this->process_addon_config( $addon_data );
 
 			if ( ! $config ) {

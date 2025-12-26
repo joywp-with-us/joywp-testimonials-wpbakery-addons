@@ -107,8 +107,8 @@ class Plugin {
 	 * @since 1.0
 	 */
 	public function setup_builder_addons( string $builder_slug, array $addons ): void {
-		$bootstrapper = $this->get_builder_bootstrapper( $builder_slug, $addons );
-		$bootstrapper->bootstrap();
+		$bootstrapper = $this->get_builder_bootstrapper( $builder_slug );
+		$bootstrapper->bootstrap( $addons );
 	}
 
 	/**
@@ -116,12 +116,12 @@ class Plugin {
 	 *
 	 * @since 1.0
 	 */
-	public function get_builder_bootstrapper( string $builder_slug, array $addons ): AbstractBootstrapper {
+	public function get_builder_bootstrapper( string $builder_slug ): AbstractBootstrapper {
 		$class = __NAMESPACE__ . '\\Addons\\Builders\\' . ucfirst( $builder_slug ) . '\\Bootstrapper';
 		if ( ! class_exists( $class ) ) {
 			function_exists( 'wp_trigger_error' ) && wp_trigger_error( 'JoywpTestimonialsWpb\Plugin::setup_builder_addons', 'Bootstrapper class for ' . $builder_slug . ' not found. ', E_USER_WARNING );
 		}
 
-		return new $class( $addons );
+		return new $class();
 	}
 }
