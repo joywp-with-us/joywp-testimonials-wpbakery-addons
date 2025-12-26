@@ -63,7 +63,7 @@ class Plugin {
 			return;
 		}
 
-		$builder_list = apply_filters( 'joywp_testimonials_wpb_builder_list', [ 'wpbakery' ] );
+		$builder_list = apply_filters( 'joywp_testimonials_builder_list', [ 'wpbakery' ] );
 
 		foreach ( $builder_list as $builder_slug ) {
 			$this->setup_builder( $builder_slug );

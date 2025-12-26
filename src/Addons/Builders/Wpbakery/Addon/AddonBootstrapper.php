@@ -22,46 +22,6 @@ use WPBakeryShortCode;
  */
 class AddonBootstrapper extends AbstractAddonBootstrapper {
 	/**
-	 * Get addon config.
-	 *
-	 * @since 1.0
-	 */
-	public function get_addon_config( array $addon_data ): array {
-		$config_manager = new ConfigManager();
-		try {
-			$config = $config_manager->
-			set_addon_data( $addon_data )->
-			get_file_content()->
-			decode()->
-			set_icon()->
-			set_params()->
-			get_config();
-		} catch ( WP_Exception $e ) {
-			function_exists( 'wp_trigger_error' ) && wp_trigger_error( 'process_config', 'Failed to process addon ' . $addon_data['config'] . ' config file: ' . $e->getMessage(), E_USER_WARNING );
-			return [];
-		}
-
-		return $this->localize_config( $config );
-	}
-
-	/**
-	 * Get addon template.
-	 *
-	 * @since 1.0
-	 */
-	public function get_addon_template( array $addon_data, array $config ): string {
-		$template_manager = new TemplateManager();
-
-		if ( ! isset( $config['template'] ) || ! is_string( $config['template'] ) ) {
-			return false;
-		}
-
-		$template_path = $addon_data['base_dir'] . '/' . $config['template'];
-
-		return $template_manager->validate( $template_path );
-	}
-
-	/**
 	 * Process addon template.
 	 *
 	 * @since 1.0
