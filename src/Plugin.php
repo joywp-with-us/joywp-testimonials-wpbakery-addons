@@ -10,7 +10,7 @@ namespace JoywpTestimonialsWpb;
 use JoywpTestimonialsWpb\Utils\Requirement;
 use JoywpTestimonialsWpb\Settings\SettingsManager;
 use JoywpTestimonialsWpb\Addons\Collector;
-use JoywpTestimonialsWpb\Addons\AbstractBootstrapper;
+use JoywpTestimonialsWpb\Addons\AbstractAddonBootstrapper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -108,7 +108,9 @@ class Plugin {
 	 */
 	public function setup_builder_addons( string $builder_slug, array $addons ): void {
 		$bootstrapper = $this->get_builder_bootstrapper( $builder_slug );
-		$bootstrapper->bootstrap( $addons );
+		foreach ( $addons as $addons_name => $addon_data ) {
+			$bootstrapper->bootstrap( $addons_name, $addon_data, $builder_slug );
+		}
 	}
 
 	/**
@@ -116,8 +118,9 @@ class Plugin {
 	 *
 	 * @since 1.0
 	 */
-	public function get_builder_bootstrapper( string $builder_slug ): AbstractBootstrapper {
-		$class = __NAMESPACE__ . '\\Addons\\Builders\\' . ucfirst( $builder_slug ) . '\\Bootstrapper';
+	public function get_builder_bootstrapper( string $builder_slug ): AbstractAddonBootstrapper {
+		$class = __NAMESPACE__ . '\\Addons\\Builders\\' . ucfirst( $builder_slug ) . '\\Addon\\AddonBootstrapper';
+
 		if ( ! class_exists( $class ) ) {
 			function_exists( 'wp_trigger_error' ) && wp_trigger_error( 'JoywpTestimonialsWpb\Plugin::setup_builder_addons', 'Bootstrapper class for ' . $builder_slug . ' not found. ', E_USER_WARNING );
 		}

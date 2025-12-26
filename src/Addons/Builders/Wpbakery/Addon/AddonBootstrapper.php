@@ -1,18 +1,15 @@
 <?php
 /**
- * Bootstrap WPBakery addons.
+ * Addon Bootstrapper for WPBakery.
  *
  * @since 1.0
  */
 
-namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery;
+namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon;
 
 defined( 'ABSPATH' ) || exit;
 
-use JoywpTestimonialsWpb\Addons\AbstractBootstrapper;
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\AddonManager;
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\AddonContainerManager;
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Addon;
+use JoywpTestimonialsWpb\Addons\AbstractAddonBootstrapper;
 use JoywpTestimonialsWpb\Addons\JsonTranslator;
 use JoywpTestimonialsWpb\Addons\ConfigManager;
 use JoywpTestimonialsWpb\Addons\TemplateManager;
@@ -25,7 +22,7 @@ use WPBakeryShortCode;
  *
  * @since 1.0
  */
-class Bootstrapper extends AbstractBootstrapper {
+class AddonBootstrapper extends AbstractAddonBootstrapper {
 	/**
 	 * Constructor.
 	 *
