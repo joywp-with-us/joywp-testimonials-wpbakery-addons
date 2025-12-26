@@ -102,35 +102,6 @@ class ConfigManager {
 	}
 
 	/**
-	 * Set icon to config.
-	 *
-	 * @since 1.0
-	 * @throws WP_Exception
-	 */
-	public function set_icon(): ConfigManager {
-		if ( ! isset( $this->config['icon'] ) || ! is_string( $this->config['icon'] ) ) {
-			return $this;
-		}
-
-		$icon_path = $this->addon_data['base_dir'] . '/' . $this->config['icon'];
-		if ( ! file_exists( $icon_path ) ) {
-			unset( $this->config['icon'] );
-			throw new WP_Exception(
-				'Failed to locate icon file: ' . esc_html( $icon_path )
-			);
-		}
-
-		$icon_url = joywptestimonialswpb_convert_path_to_uri( $icon_path );
-		if ( $icon_url ) {
-			$this->config['icon'] = $icon_url;
-		} else {
-			unset( $this->config['icon'] );
-		}
-
-		return $this;
-	}
-
-	/**
 	 * Set params to config.
 	 *
 	 * @since 1.0

@@ -72,7 +72,6 @@ abstract class AbstractAddonBootstrapper {
 			set_addon_data( $addon_data )->
 			get_file_content()->
 			decode()->
-			set_icon()->
 			set_params()->
 			get_config();
 		} catch ( WP_Exception $e ) {
@@ -80,7 +79,9 @@ abstract class AbstractAddonBootstrapper {
 			return [];
 		}
 
-		return apply_filters( 'joywp_testimonials_get_addon_config', $this->localize_config( $config ), $builder_slug );
+		$config = $this->localize_config( $config );
+
+		return apply_filters( 'joywp_testimonials_get_addon_config', $config, $builder_slug, $addon_data );
 	}
 
 	/**
@@ -98,7 +99,7 @@ abstract class AbstractAddonBootstrapper {
 		$template_path = $addon_data['base_dir'] . '/' . $config['template'];
 		$template      = $template_manager->validate( $template_path );
 
-		return apply_filters( 'joywp_testimonials_get_addon_template', $template, $builder_slug );
+		return apply_filters( 'joywp_testimonials_get_addon_template', $template, $builder_slug, $addon_data );
 	}
 
 	/**
