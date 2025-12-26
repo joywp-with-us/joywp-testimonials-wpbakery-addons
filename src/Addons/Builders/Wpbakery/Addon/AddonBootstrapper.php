@@ -10,10 +10,8 @@ namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon;
 defined( 'ABSPATH' ) || exit;
 
 use JoywpTestimonialsWpb\Addons\AbstractAddonBootstrapper;
-use JoywpTestimonialsWpb\Addons\JsonTranslator;
 use JoywpTestimonialsWpb\Addons\ConfigManager;
 use JoywpTestimonialsWpb\Addons\TemplateManager;
-use Exception;
 use WP_Exception;
 use WPBakeryShortCode;
 
@@ -24,35 +22,69 @@ use WPBakeryShortCode;
  */
 class AddonBootstrapper extends AbstractAddonBootstrapper {
 	/**
-	 * Process addon config.
+	 * Get addon config.
 	 *
 	 * @since 1.0
-	 * @return false|array
 	 */
-	public function process_addon_config( array $addon_data ) {
+	public function get_addon_config( array $addon_data ): array {
 		$config_manager = new ConfigManager();
 		try {
 			$config = $config_manager->
-				set_addon_data( $addon_data )->
-				get_file_content()->
-				decode()->
-				set_icon()->
-				set_params()->
-				get_config();
+			set_addon_data( $addon_data )->
+			get_file_content()->
+			decode()->
+			set_icon()->
+			set_params()->
+			get_config();
 		} catch ( WP_Exception $e ) {
 			function_exists( 'wp_trigger_error' ) && wp_trigger_error( 'process_config', 'Failed to process addon ' . $addon_data['config'] . ' config file: ' . $e->getMessage(), E_USER_WARNING );
+			return [];
+		}
+
+		return $this->localize_config( $config );
+	}
+
+	/**
+	 * Get addon template.
+	 *
+	 * @since 1.0
+	 */
+	public function get_addon_template( array $addon_data, array $config ): string {
+		$template_manager = new TemplateManager();
+
+		if ( ! isset( $config['template'] ) || ! is_string( $config['template'] ) ) {
 			return false;
 		}
 
-		$config = $this->localize_config( $config );
+		$template_path = $addon_data['base_dir'] . '/' . $config['template'];
 
-		$result = $this->map_addon( $config );
+		return $template_manager->validate( $template_path );
+	}
+
+	/**
+	 * Process addon template.
+	 *
+	 * @since 1.0
+	 */
+	public function init_addon( array $addon_data, array $config, string $template ): bool {
+		$addon_manager = $this->get_addon_manager( $config, false );
+
+		$addon = ( new Addon() )
+			->set_addon_slug( $config['base'] )
+			->set_config( $config )
+			->set_template( $template )
+			->set_addon_manager( $addon_manager )
+			->set_addon_base_dir( $addon_data['base_dir'] );
+
+		$result = $this->map_addon( $this->config );
 
 		if ( ! $result ) {
 			return false;
 		}
 
-		return $config;
+		add_shortcode( $config['base'], [ $addon, 'render_addon' ] );
+
+		return shortcode_exists( $config['base'] );
 	}
 
 	/**
@@ -69,49 +101,6 @@ class AddonBootstrapper extends AbstractAddonBootstrapper {
 		}
 
 		return $result;
-	}
-
-	/**
-	 * Localize addon config.
-	 *
-	 * @since 1.0
-	 */
-	public function localize_config( array $config ): array {
-		$json_translator = new JsonTranslator();
-		$json_translator->generate_php_localizer( $config );
-		return $json_translator->localize( $config );
-	}
-
-	/**
-	 * Process addon template.
-	 *
-	 * @since 1.0
-	 */
-	public function process_addon_template( array $addon_data, array $config ): bool {
-		$template_manager = new TemplateManager();
-
-		if ( ! isset( $config['template'] ) || ! is_string( $config['template'] ) ) {
-			return false;
-		}
-
-		$template_path = $addon_data['base_dir'] . '/' . $config['template'];
-
-		$template = $template_manager->validate( $template_path );
-		if ( ! $template ) {
-			return false;
-		}
-
-		$addon_manager = $this->get_addon_manager( $config, false );
-
-		( new Addon() )
-			->set_addon_slug( $config['base'] )
-			->set_config( $config )
-			->set_template( $template )
-			->set_addon_manager( $addon_manager )
-			->set_addon_base_dir( $addon_data['base_dir'] )
-			->init_addon();
-
-		return shortcode_exists( $config['base'] );
 	}
 
 	/**

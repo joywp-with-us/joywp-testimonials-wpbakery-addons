@@ -95,13 +95,6 @@ abstract class AbstractAddon {
 	}
 
 	/**
-	 * Addon initialization.
-	 *
-	 * @since 1.0
-	 */
-	abstract public function init_addon(): void;
-
-	/**
 	 * Render addon.
 	 *
 	 * @since 1.0

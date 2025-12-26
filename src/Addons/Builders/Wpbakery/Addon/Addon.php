@@ -53,15 +53,6 @@ class Addon extends AbstractAddon {
 	}
 
 	/**
-	 * Addon initialization.
-	 *
-	 * @since 1.0
-	 */
-	public function init_addon(): void {
-		add_shortcode( $this->addon_slug, [ $this, 'render_addon' ] );
-	}
-
-	/**
 	 * Render addon.
 	 *
 	 * @since 1.0
