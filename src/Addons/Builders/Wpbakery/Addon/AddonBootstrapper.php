@@ -30,6 +30,7 @@ class AddonBootstrapper extends AbstractAddonBootstrapper {
 		$addon_manager = $this->get_addon_manager( $config, false );
 
 		$addon = ( new Addon() )
+			->set_builder_slug( $this->builder_slug )
 			->set_addon_slug( $config['base'] )
 			->set_config( $config )
 			->set_template( $template )

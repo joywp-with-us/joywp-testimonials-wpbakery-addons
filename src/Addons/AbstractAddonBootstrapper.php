@@ -30,11 +30,20 @@ abstract class AbstractAddonBootstrapper {
 	public string $template;
 
 	/**
+	 * Builder slug.
+	 *
+	 * @since 1.0
+	 */
+	public string $builder_slug;
+
+	/**
 	 * Class entry point.
 	 *
 	 * @since 1.0
 	 */
 	public function bootstrap( string $addons_name, array $addon_data, string $builder_slug ): void {
+		$this->builder_slug = $builder_slug;
+
 		$this->config = $this->get_addon_config( $addon_data, $builder_slug );
 
 		if ( ! $this->config ) {

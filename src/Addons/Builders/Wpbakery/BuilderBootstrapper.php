@@ -10,6 +10,7 @@ namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery;
 defined( 'ABSPATH' ) || exit;
 
 use JoywpTestimonialsWpb\AbstractBuilderBootstrapper;
+use JoywpTestimonialsWpb\Addons\AbstractAddon;
 
 /**
  * Class bootstrap builder builder.
@@ -26,6 +27,8 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 		add_action( 'admin_init', [ $this, 'init_custom_addon_params' ] );
 		add_filter( 'joywp_testimonials_get_addon_config', [ $this, 'set_icon' ], 10, 3 );
 		add_filter( 'joywp_testimonials_get_addon_config', [ $this, 'set_default_params' ], 10, 2 );
+		add_filter( 'joywp_testimonials_atts_render_addon', [ $this, 'set_addon_default_atts' ], 10, 2 );
+		add_filter( 'joywp_testimonials_render_addon_output', [ $this, 'add_addon_output_default_wrapper' ], 10, 2 );
 	}
 
 	/**
@@ -121,5 +124,38 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 		);
 
 		return $config;
+	}
+
+	/**
+	 * Set default attributes for addon.
+	 *
+	 * @since 1.0
+	 */
+	public function set_addon_default_atts( array $atts, AbstractAddon $addon ): array {
+		if ( $this->builder_slug !== $addon->builder_slug ) {
+			return $atts;
+		}
+
+		return vc_map_get_attributes( $addon->addon_manager->getShortcode(), $atts );
+	}
+
+	/**
+	 * Add default wrapper each wpbakery to addon.
+	 *
+	 * @since 1.0
+	 */
+	public function add_addon_output_default_wrapper( string $output, AbstractAddon $addon ): string {
+		if ( $this->builder_slug !== $addon->builder_slug ) {
+			return $output;
+		}
+
+		return joywptestimonialswpb_get_template(
+			'builders/wpbakery/addon-wrapper-output.php',
+			[
+				'element_class' => $addon->addon_slug,
+				'output'        => $output,
+				'addon'         => $addon,
+			]
+		);
 	}
 }

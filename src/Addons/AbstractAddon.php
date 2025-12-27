@@ -55,6 +55,32 @@ abstract class AbstractAddon {
 	public string $id;
 
 	/**
+	 * Addon attributes.
+	 *
+	 * Attributes - builder ui addon options values that user set when edit addon.
+	 *
+	 * @since 1.0
+	 */
+	public array $atts;
+
+	/**
+	 * Builder slug.
+	 *
+	 * @since 1.0
+	 */
+	public string $builder_slug;
+
+	/**
+	 * Set builder slug.
+	 *
+	 * @since 1.0
+	 */
+	public function set_builder_slug( string $builder_slug ): Addon {
+		$this->builder_slug = $builder_slug;
+		return $this;
+	}
+
+	/**
 	 * Set addon slug.
 	 *
 	 * @since 1.0
@@ -99,7 +125,23 @@ abstract class AbstractAddon {
 	 *
 	 * @since 1.0
 	 */
-	abstract public function render_addon( array $atts ): string;
+	public function render_addon( array $atts ): string {
+		$atts = apply_filters( 'joywp_testimonials_atts_render_addon', $atts, $this );
+
+		$this->atts = $atts;
+		$this->id   = uniqid( $this->addon_slug . '-' );
+
+		$this->enqueue_addon_assets();
+
+		ob_start();
+		$output = require_once $this->template;
+		if ( 1 === $output ) {
+			$output = ob_get_contents();
+		}
+		ob_end_clean();
+
+		return apply_filters( 'joywp_testimonials_render_addon_output', $output, $this );
+	}
 
 	/**
 	 * Get path to addon asset.
