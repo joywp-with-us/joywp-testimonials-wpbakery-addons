@@ -125,7 +125,7 @@ class Plugin {
 			function_exists( 'wp_trigger_error' ) && wp_trigger_error( 'JoywpTestimonialsWpb\Plugin::get_builder_bootstrapper', 'Bootstrapper class for ' . $builder_slug . ' not found. ', E_USER_WARNING );
 		}
 
-		return new $class();
+		return new $class( $builder_slug );
 	}
 
 	/**

@@ -10,7 +10,6 @@ namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery;
 defined( 'ABSPATH' ) || exit;
 
 use JoywpTestimonialsWpb\AbstractBuilderBootstrapper;
-use JoywpTestimonialsWpb\Addons\ConfigManager;
 
 /**
  * Class bootstrap builder builder.
@@ -26,7 +25,7 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 	public function bootstrap(): void {
 		add_action( 'admin_init', [ $this, 'init_custom_addon_params' ] );
 		add_filter( 'joywp_testimonials_get_addon_config', [ $this, 'set_icon' ], 10, 3 );
-		add_filter( 'joywp_testimonials_get_addon_config', [ $this, 'set_default_configs' ], 10, 3 );
+		add_filter( 'joywp_testimonials_get_addon_config', [ $this, 'set_default_params' ], 10, 2 );
 	}
 
 	/**
@@ -56,7 +55,7 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 	 * @since 1.0
 	 */
 	public function set_icon( array $config, string $builder_slug, array $addon_data ): array {
-		if ( 'wpbakery' !== $builder_slug ) {
+		if ( $this->builder_slug !== $builder_slug ) {
 			return $config;
 		}
 
@@ -77,6 +76,49 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 		} else {
 			unset( $config['icon'] );
 		}
+
+		return $config;
+	}
+
+	/**
+	 * Set params that we will have for every addon by default.
+	 */
+	public function set_default_params( array $config, string $builder_slug ): array {
+		if ( $this->builder_slug !== $builder_slug ) {
+			return $config;
+		}
+
+		if ( function_exists( 'vc_config' ) && method_exists( vc_config(), 'get_css_animation' ) ) {
+			$css_animation_param = [ vc_config()->get_css_animation() ];
+		} else {
+			$css_animation_param = [ vc_map_add_css_animation() ];
+		}
+
+		$config['params'] = array_merge(
+			$config['params'],
+			$css_animation_param,
+			[
+				[
+					'type'        => 'el_id',
+					'heading'     => esc_html__( 'Element ID', 'joywp-testimonials-wpbakery-addons' ),
+					'param_name'  => 'el_id',
+					// translators: %1$s: link to w3c specification, %2$s: closing anchor tag.
+					'description' => sprintf( esc_html__( 'Enter element ID (Note: make sure it is unique and valid according to %1$sw3c specification%2$s).', 'joywp-testimonials-wpbakery-addons' ), '<a href="https://www.w3schools.com/tags/att_global_id.asp" target="_blank">', '</a>' ),
+				],
+				[
+					'type'        => 'textfield',
+					'heading'     => esc_html__( 'Extra class name', 'joywp-testimonials-wpbakery-addons' ),
+					'param_name'  => 'el_class',
+					'description' => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'joywp-testimonials-wpbakery-addons' ),
+				],
+				[
+					'type'       => 'css_editor',
+					'heading'    => esc_html__( 'CSS box', 'joywp-testimonials-wpbakery-addons' ),
+					'param_name' => 'css',
+					'group'      => esc_html__( 'Design Options', 'joywp-testimonials-wpbakery-addons' ),
+				],
+			]
+		);
 
 		return $config;
 	}
