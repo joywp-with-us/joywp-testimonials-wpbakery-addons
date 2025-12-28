@@ -10,29 +10,34 @@
 ?>
 
 <div>
-	<figure class="joywp-quote-card joywp-color-text-dark">
-		<div class="joywp-quote-text joywp-color-bg-light">
-			Sometimes I think the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us.
-			<div class="joywp-quote-arrow joywp-border-top-light"></div>
+	<figure class="joywp-testimonial-card-with-image-quote-card joywp-testimonial-card-with-image-color-text-dark">
+		<div class="joywp-testimonial-card-with-image-quote-text joywp-testimonial-card-with-image-color-bg-light">
+            <?php echo wp_kses_post( $atts['testimonial'] ); ?>
+			<div class="joywp-testimonial-card-with-image-quote-arrow joywp-testimonial-card-with-image-border-top-light"></div>
 		</div>
 		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample3.jpg" alt="sample3">
-		<div class="joywp-quote-author joywp-color-bg-light joywp-color-text-black">
-			<div>Pelican Steve <span>- LittleThemes</span></div>
+		<div class="joywp-testimonial-card-with-image-quote-author joywp-testimonial-card-with-image-color-bg-light joywp-testimonial-card-with-image-color-text-black">
+			<div>
+                <?php echo esc_html( $atts['name'] ); ?>
+                <span>
+                    <?php echo esc_html( $atts['surname'] ); ?>
+                </span>
+            </div>
 		</div>
 	</figure>
 </div>
 
 <style>
-	.joywp-color-bg-light { background-color: #ffffff; }
-	.joywp-color-text-dark { color: #333333; }
-	.joywp-color-text-black { color: #000000; }
+	.joywp-testimonial-card-with-image-color-bg-light { background-color: #ffffff; }
+	.joywp-testimonial-card-with-image-color-text-dark { color: #333333; }
+	.joywp-testimonial-card-with-image-color-text-black { color: #000000; }
 
-	.joywp-border-top-light { border-top-color: #ffffff; }
+	.joywp-testimonial-card-with-image-border-top-light { border-top-color: #ffffff; }
 
 	/* -----------------------------------
 	ELEMENT
 	----------------------------------- */
-	.joywp-quote-card {
+	.joywp-testimonial-card-with-image-quote-card {
 		font-family: 'Raleway', Arial, sans-serif;
 		position: relative;
 		overflow: hidden;
@@ -46,18 +51,18 @@
 		margin: 10px;
 	}
 
-	.joywp-quote-card * {
+	.joywp-testimonial-card-with-image-quote-card * {
 		box-sizing: border-box;
 		transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
 	}
 
-	.joywp-quote-card img {
+	.joywp-testimonial-card-with-image-quote-card img {
 		max-width: 100%;
 		height: auto;
 		display: block;
 	}
 
-	.joywp-quote-text {
+	.joywp-testimonial-card-with-image-quote-text {
 		position: relative;
 		padding: 25px 50px;
 		font-size: 0.8em;
@@ -66,8 +71,8 @@
 		font-style: italic;
 	}
 
-	.joywp-quote-text::before,
-	.joywp-quote-text::after {
+	.joywp-testimonial-card-with-image-quote-text::before,
+	.joywp-testimonial-card-with-image-quote-text::after {
 		font-family: 'FontAwesome';
 		font-style: normal;
 		font-size: 50px;
@@ -76,19 +81,19 @@
 		pointer-events: none;
 	}
 
-	.joywp-quote-text::before {
+	.joywp-testimonial-card-with-image-quote-text::before {
 		content: "\201C";
 		top: 25px;
 		left: 20px;
 	}
 
-	.joywp-quote-text::after {
+	.joywp-testimonial-card-with-image-quote-text::after {
 		content: "\201D";
 		right: 20px;
 		bottom: 0;
 	}
 
-	.joywp-quote-arrow {
+	.joywp-testimonial-card-with-image-quote-arrow {
 		top: 100%;
 		width: 0;
 		height: 0;
@@ -98,7 +103,7 @@
 		position: absolute;
 	}
 
-	.joywp-quote-author {
+	.joywp-testimonial-card-with-image-quote-author {
 		position: absolute;
 		bottom: 0;
 		width: 100%;
@@ -106,12 +111,12 @@
 		text-transform: uppercase;
 	}
 
-	.joywp-quote-author div {
+	.joywp-testimonial-card-with-image-quote-author div {
 		opacity: 0.8;
 		font-weight: 800;
 	}
 
-	.joywp-quote-author div span {
+	.joywp-testimonial-card-with-image-quote-author div span {
 		font-weight: 400;
 		text-transform: none;
 		padding-left: 5px;
