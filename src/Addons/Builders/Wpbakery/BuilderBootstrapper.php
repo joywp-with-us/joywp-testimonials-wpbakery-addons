@@ -136,6 +136,8 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 			return $atts;
 		}
 
+		$atts = $addon->get_addon_manager()->prepare_atts( $atts );
+
 		return vc_map_get_attributes( $addon->addon_manager->getShortcode(), $atts );
 	}
 

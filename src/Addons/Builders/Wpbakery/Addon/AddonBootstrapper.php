@@ -9,10 +9,8 @@ namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon;
 
 defined( 'ABSPATH' ) || exit;
 
+use Exception;
 use JoywpTestimonialsWpb\Addons\AbstractAddonBootstrapper;
-use JoywpTestimonialsWpb\Addons\ConfigManager;
-use JoywpTestimonialsWpb\Addons\TemplateManager;
-use WP_Exception;
 use WPBakeryShortCode;
 
 /**

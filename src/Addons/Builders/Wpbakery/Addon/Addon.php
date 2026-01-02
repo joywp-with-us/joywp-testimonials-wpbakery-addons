@@ -43,6 +43,15 @@ class Addon extends AbstractAddon {
 	}
 
 	/**
+	 * Get WPBakeryShortCode.
+	 *
+	 * @since 1.0
+	 */
+	public function get_addon_manager(): WPBakeryShortCode {
+		return $this->addon_manager;
+	}
+
+	/**
 	 * Here we combine initial markup attributes that has our addon wrapper
 	 * with all attributes that should contain regular addon
 	 * and output them escaped and ready to use in our addon wrapper.

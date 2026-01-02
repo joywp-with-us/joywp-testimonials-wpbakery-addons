@@ -12,17 +12,17 @@
 <div>
 	<figure class="joywp-testimonial-card-with-image-quote-card joywp-testimonial-card-with-image-color-text-dark">
 		<div class="joywp-testimonial-card-with-image-quote-text joywp-testimonial-card-with-image-color-bg-light">
-            <?php echo wp_kses_post( $atts['testimonial'] ); ?>
+			<?php echo wp_kses_post( $atts['testimonial'] ); ?>
 			<div class="joywp-testimonial-card-with-image-quote-arrow joywp-testimonial-card-with-image-border-top-light"></div>
 		</div>
 		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample3.jpg" alt="sample3">
 		<div class="joywp-testimonial-card-with-image-quote-author joywp-testimonial-card-with-image-color-bg-light joywp-testimonial-card-with-image-color-text-black">
 			<div>
-                <?php echo esc_html( $atts['name'] ); ?>
-                <span>
-                    <?php echo esc_html( $atts['surname'] ); ?>
-                </span>
-            </div>
+				<?php echo esc_html( $atts['name'] ); ?>
+				<span>
+					<?php echo esc_html( $atts['surname'] ); ?>
+				</span>
+			</div>
 		</div>
 	</figure>
 </div>
