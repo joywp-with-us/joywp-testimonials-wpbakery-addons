@@ -126,21 +126,22 @@ abstract class AbstractAddon {
 	 * @since 1.0
 	 */
 	public function render_addon( array $atts ): string {
-		$atts = apply_filters( 'joywp_testimonials_atts_render_addon', $atts, $this );
+		$addon = $this;
+		$atts  = apply_filters( 'joywp_testimonials_atts_render_addon', $atts, $addon );
 
-		$this->atts = $atts;
-		$this->id   = uniqid( $this->addon_slug . '-' );
+		$addon->atts = $atts;
+		$addon->id   = uniqid( $addon->addon_slug . '-' );
 
-		$this->enqueue_addon_assets();
+		$addon->enqueue_addon_assets();
 
 		ob_start();
-		$output = require_once $this->template;
+		$output = require_once $addon->template;
 		if ( 1 === $output ) {
 			$output = ob_get_contents();
 		}
 		ob_end_clean();
 
-		return apply_filters( 'joywp_testimonials_render_addon_output', $output, $this );
+		return apply_filters( 'joywp_testimonials_render_addon_output', $output, $addon );
 	}
 
 	/**

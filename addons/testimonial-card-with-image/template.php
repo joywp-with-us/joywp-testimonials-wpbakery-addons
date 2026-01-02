@@ -4,19 +4,19 @@
  *
  * @since 1.0
  * @var array $atts
- * @var JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Addon $_this
+ * @var JoywpTestimonialsWpb\Addons\AbstractAddon $addon
  */
 
 ?>
 
 <div>
-	<figure class="joywp-testimonial-card-with-image-quote-card joywp-testimonial-card-with-image-color-text-dark">
+	<figure class="joywp-testimonial-card-with-image-quote-card">
 		<div class="joywp-testimonial-card-with-image-quote-text joywp-testimonial-card-with-image-color-bg-light">
 			<?php echo wp_kses_post( $atts['testimonial'] ); ?>
-			<div class="joywp-testimonial-card-with-image-quote-arrow joywp-testimonial-card-with-image-border-top-light"></div>
+			<div class="joywp-testimonial-card-with-image-quote-arrow"></div>
 		</div>
 		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample3.jpg" alt="sample3">
-		<div class="joywp-testimonial-card-with-image-quote-author joywp-testimonial-card-with-image-color-bg-light joywp-testimonial-card-with-image-color-text-black">
+		<div class="joywp-testimonial-card-with-image-quote-author joywp-testimonial-card-with-image-color-bg-light">
 			<div>
 				<?php echo esc_html( $atts['name'] ); ?>
 				<span>
@@ -28,17 +28,24 @@
 </div>
 
 <style>
-	.joywp-testimonial-card-with-image-color-bg-light { background-color: #ffffff; }
-	.joywp-testimonial-card-with-image-color-text-dark { color: #333333; }
-	.joywp-testimonial-card-with-image-color-text-black { color: #000000; }
+	.joywp-testimonial-card-with-image-quote-text::before {
+		content: "\201C";
+		top: 25px;
+		left: 20px;
+	}
 
-	.joywp-testimonial-card-with-image-border-top-light { border-top-color: #ffffff; }
+	.joywp-testimonial-card-with-image-quote-text::after {
+		content: "\201D";
+		right: 20px;
+		bottom: 0;
+	}
+
+	.joywp-testimonial-card-with-image-color-bg-light { background-color: #ffffff; }
 
 	/* -----------------------------------
 	ELEMENT
 	----------------------------------- */
 	.joywp-testimonial-card-with-image-quote-card {
-		font-family: 'Raleway', Arial, sans-serif;
 		position: relative;
 		overflow: hidden;
 		max-width: 310px;
@@ -79,18 +86,6 @@
 		opacity: 0.3;
 		position: absolute;
 		pointer-events: none;
-	}
-
-	.joywp-testimonial-card-with-image-quote-text::before {
-		content: "\201C";
-		top: 25px;
-		left: 20px;
-	}
-
-	.joywp-testimonial-card-with-image-quote-text::after {
-		content: "\201D";
-		right: 20px;
-		bottom: 0;
 	}
 
 	.joywp-testimonial-card-with-image-quote-arrow {
