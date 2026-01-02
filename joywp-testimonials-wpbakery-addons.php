@@ -82,9 +82,6 @@ class Joywp_Wpb_Testimonials {
 	 */
 	private function define_constants(): void {
 		define( 'JOYWPTESTIMONIALSWPB_VERSION', '1.0' );
-		define( 'JOYWPTESTIMONIALSWPB_WPBAKERY_REQUIRED_VERSION', '5.0' );
-		define( 'JOYWPTESTIMONIALSWPB_WPBAKERY_REQUIRED_NAME', 'WPBakery Page Builder' );
-		define( 'JOYWPTESTIMONIALSWPB_WPBAKERY_REQUIRED_PATH', 'js_composer/js_composer.php' );
 
 		define( 'JOYWPTESTIMONIALSWPB_PLUGIN_SLUG', 'joywp-testimonials' );
 

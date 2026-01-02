@@ -81,9 +81,9 @@ class Plugin {
 		$requirement->plugins(
 			[
 				[
-					'path'    => JOYWPTESTIMONIALSWPB_WPBAKERY_REQUIRED_PATH,
-					'version' => JOYWPTESTIMONIALSWPB_WPBAKERY_REQUIRED_VERSION,
-					'name'    => JOYWPTESTIMONIALSWPB_WPBAKERY_REQUIRED_NAME,
+					'path'    => 'js_composer/js_composer.php',
+					'version' => '5.0',
+					'name'    => 'WPBakery Page Builder',
 				],
 			]
 		);
