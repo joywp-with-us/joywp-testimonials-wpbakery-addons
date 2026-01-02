@@ -3,8 +3,8 @@
  * The template for wpbakery addon wrapper output.
  *
  * @var string $output
- * @var \JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Addon $addon
  * @var string $element_class
+ * @var \JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Addon $addon
  * @since 1.0
  */
 

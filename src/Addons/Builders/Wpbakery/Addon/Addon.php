@@ -92,24 +92,6 @@ class Addon extends AbstractAddon {
 	}
 
 	/**
-	 * Output uniq id with data attribute that we can use in our styles.
-	 *
-	 * @since 1.0
-	 */
-	public function output_style_addon_id(): void {
-		echo '[' . esc_attr( $this->get_data_attribute_id() ) . '="' . esc_attr( $this->id ) . '"]';
-	}
-
-	/**
-	 * Get data attribute id.
-	 *
-	 * @since 1.0
-	 */
-	public function get_data_attribute_id(): string {
-		return 'data-joywp-addon-id';
-	}
-
-	/**
 	 * We use it when want to get output template addon shortcode
 	 * that was already integrated in current addon.
 	 *

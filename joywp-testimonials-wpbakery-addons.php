@@ -86,6 +86,8 @@ class Joywp_Wpb_Testimonials {
 		define( 'JOYWPTESTIMONIALSWPB_WPBAKERY_REQUIRED_NAME', 'WPBakery Page Builder' );
 		define( 'JOYWPTESTIMONIALSWPB_WPBAKERY_REQUIRED_PATH', 'js_composer/js_composer.php' );
 
+		define( 'JOYWPTESTIMONIALSWPB_PLUGIN_SLUG', 'joywp-testimonials' );
+
 		define( 'JOYWPTESTIMONIALSWPB_PLUGIN_FILE', __FILE__ );
 
 		define( 'JOYWPTESTIMONIALSWPB_URI', plugins_url( '', JOYWPTESTIMONIALSWPB_PLUGIN_FILE ) );

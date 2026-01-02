@@ -257,4 +257,22 @@ abstract class AbstractAddon {
 			'media' => $asset['media'] ?? 'all',
 		];
 	}
+
+	/**
+	 * Get data attribute id.
+	 *
+	 * @since 1.0
+	 */
+	public function get_data_attribute_id(): string {
+		return 'data-' . JOYWPTESTIMONIALSWPB_PLUGIN_SLUG . '-shortcode-id';
+	}
+
+	/**
+	 * Output uniq id with data attribute that we can use in our styles.
+	 *
+	 * @since 1.0
+	 */
+	public function output_style_shortcode_id(): void {
+		echo '[' . esc_attr( $this->get_data_attribute_id() ) . '="' . esc_attr( $this->id ) . '"]';
+	}
 }
