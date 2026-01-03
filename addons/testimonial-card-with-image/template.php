@@ -15,32 +15,56 @@
 			<?php echo wp_kses_post( $atts['testimonial'] ); ?>
 			<div class="joywp-testimonial-card-with-image-quote-arrow"></div>
 		</div>
-		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample3.jpg" alt="sample3">
-		<div class="joywp-testimonial-card-with-image-quote-author joywp-testimonial-card-with-image-color-bg-light">
-			<div>
-				<?php echo esc_html( $atts['name'] ); ?>
-				<span>
-					<?php echo esc_html( $atts['surname'] ); ?>
-				</span>
+		<?php
+		if ( 'true' === $atts['add_image'] ) :
+			?>
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample3.jpg" alt="sample3">
+			<?php
+		endif;
+		if ( 'true' === $atts['add_name'] ) :
+			?>
+			<div class="joywp-testimonial-card-with-image-quote-author joywp-testimonial-card-with-image-name-block-color-bg">
+				<div>
+					<?php echo wp_kses_post( $atts['name'] ); ?>
+				</div>
 			</div>
-		</div>
+			<?php
+		endif;
+		?>
 	</figure>
 </div>
 
 <style>
-	.joywp-testimonial-card-with-image-quote-text::before {
-		content: "\201C";
-		top: 25px;
-		left: 20px;
+	<?php
+	if ( 'true' === $atts['add_quotes'] ) {
+		$addon->output_style_shortcode_id();
+		?>
+		.joywp-testimonial-card-with-image-quote-text::before,
+		.joywp-testimonial-card-with-image-quote-text::after {
+			font-family: 'FontAwesome';
+			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
+			opacity: 0.3;
+			position: absolute;
+			pointer-events: none;
+		}
+		<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-card-with-image-quote-text::before {
+			content: "\201C";
+			top: 25px;
+			left: 20px;
+		}
+		<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-card-with-image-quote-text::after {
+			content: "\201D";
+			right: 20px;
+			bottom: 0;
+		}
+		<?php
 	}
 
-	.joywp-testimonial-card-with-image-quote-text::after {
-		content: "\201D";
-		right: 20px;
-		bottom: 0;
+	$addon->output_style_shortcode_id();
+	?>
+	.joywp-testimonial-card-with-image-name-block-color-bg {
+		background-color: <?php echo esc_attr( $atts['name_block_background'] ?: '#ffffff' ); ?>;
 	}
-
-	.joywp-testimonial-card-with-image-color-bg-light { background-color: #ffffff; }
 
 	/* -----------------------------------
 	ELEMENT
@@ -78,16 +102,6 @@
 		font-style: italic;
 	}
 
-	.joywp-testimonial-card-with-image-quote-text::before,
-	.joywp-testimonial-card-with-image-quote-text::after {
-		font-family: 'FontAwesome';
-		font-style: normal;
-		font-size: 50px;
-		opacity: 0.3;
-		position: absolute;
-		pointer-events: none;
-	}
-
 	.joywp-testimonial-card-with-image-quote-arrow {
 		top: 100%;
 		width: 0;
@@ -103,17 +117,5 @@
 		bottom: 0;
 		width: 100%;
 		padding: 5px 25px;
-		text-transform: uppercase;
-	}
-
-	.joywp-testimonial-card-with-image-quote-author div {
-		opacity: 0.8;
-		font-weight: 800;
-	}
-
-	.joywp-testimonial-card-with-image-quote-author div span {
-		font-weight: 400;
-		text-transform: none;
-		padding-left: 5px;
 	}
 </style>
