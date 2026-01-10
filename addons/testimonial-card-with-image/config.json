@@ -1,10 +1,6 @@
 {
   "name": {
-    "text": {
-      "text": "Testimonial Card With Image",
-      "translate": "true",
-      "text_domain": "joywp-testimonials-wpbakery-addons"
-    },
+    "text": "Testimonial Card With Image",
     "translate": "true",
     "text_domain": "joywp-testimonials-wpbakery-addons"
   },
