@@ -97,22 +97,37 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 			$css_animation_param = [ vc_map_add_css_animation() ];
 		}
 
+		$css_animation_param[0]['wcp_group']            = true;
+		$css_animation_param[0]['wcp_group_color']      = '#769e9f';
+		$css_animation_param[0]['wcp_group_margin_top'] = '20';
+
 		$config['params'] = array_merge(
 			$config['params'],
 			$css_animation_param,
 			[
 				[
-					'type'        => 'el_id',
-					'heading'     => esc_html__( 'Element ID', 'joywp-testimonials-wpbakery-addons' ),
-					'param_name'  => 'el_id',
-					// translators: %1$s: link to w3c specification, %2$s: closing anchor tag.
-					'description' => sprintf( esc_html__( 'Enter element ID (Note: make sure it is unique and valid according to %1$sw3c specification%2$s).', 'joywp-testimonials-wpbakery-addons' ), '<a href="https://www.w3schools.com/tags/att_global_id.asp" target="_blank">', '</a>' ),
+					'type'              => 'joywp_divider',
+					'param_name'        => 'advanced_divider',
+					'title'             => __( 'Advanced', 'joywp-testimonials-wpbakery-addons' ),
+					'title_description' => __( 'Advanced addon settings section', 'joywp-testimonials-wpbakery-addons' ),
+					'color'             => '#d1d5db',
 				],
 				[
-					'type'        => 'textfield',
-					'heading'     => esc_html__( 'Extra class name', 'joywp-testimonials-wpbakery-addons' ),
-					'param_name'  => 'el_class',
-					'description' => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'joywp-testimonials-wpbakery-addons' ),
+					'type'            => 'el_id',
+					'heading'         => esc_html__( 'Element ID', 'joywp-testimonials-wpbakery-addons' ),
+					'param_name'      => 'el_id',
+					// translators: %1$s: link to w3c specification, %2$s: closing anchor tag.
+					'description'     => sprintf( esc_html__( 'Enter element ID (Note: make sure it is unique and valid according to %1$sw3c specification%2$s).', 'joywp-testimonials-wpbakery-addons' ), '<a href="https://www.w3schools.com/tags/att_global_id.asp" target="_blank">', '</a>' ),
+					'wcp_group'       => true,
+					'wcp_group_color' => '#d1d5db',
+				],
+				[
+					'type'            => 'textfield',
+					'heading'         => esc_html__( 'Extra class name', 'joywp-testimonials-wpbakery-addons' ),
+					'param_name'      => 'el_class',
+					'description'     => esc_html__( 'If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.', 'joywp-testimonials-wpbakery-addons' ),
+					'wcp_group'       => true,
+					'wcp_group_color' => '#d1d5db',
 				],
 				[
 					'type'       => 'css_editor',
