@@ -1,9 +1,7 @@
 .joywp-testimonial-card-with-image-quote-card {
     position: relative;
     overflow: hidden;
-    max-width: 310px;
     width: 100%;
-    text-align: left;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
 }

@@ -45,6 +45,17 @@ return array_merge(
 			'value'       => '#ffffff',
 		],
 		[
+			'type'        => 'joywp_number',
+			'heading'     => esc_html__( 'Width', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'  => 'width',
+			'description' => esc_html__( 'Enter width for testimonial card.', 'joywp-testimonials-wpbakery-addons' ),
+			'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
+			'value'       => '310',
+			'min'         => '100',
+			'max'         => '1000',
+			'step'        => '1',
+		],
+		[
 			'type'        => 'joywp_switcher',
 			'param_name'  => 'add_quotes',
 			'heading'     => esc_html__( 'Add Quotes', 'joywp-testimonials-wpbakery-addons' ),
@@ -57,6 +68,7 @@ return array_merge(
 				],
 			],
 			'value'       => '',
+			'group'       => esc_html__( 'Quotes', 'joywp-testimonials-wpbakery-addons' ),
 		],
 		[
 			'type'        => 'joywp_number',
@@ -79,6 +91,7 @@ return array_merge(
 			'param_name'  => 'add_image',
 			'heading'     => esc_html__( 'Add Image', 'joywp-testimonials-wpbakery-addons' ),
 			'description' => esc_html__( 'Add image to the testimonial card.', 'joywp-testimonials-wpbakery-addons' ),
+			'group'       => esc_html__( 'Image', 'joywp-testimonials-wpbakery-addons' ),
 			'options'     => [
 				'true' => [
 					'label' => '',
@@ -104,6 +117,7 @@ return array_merge(
 				],
 			],
 			'value'       => '',
+			'group'       => esc_html__( 'Name', 'joywp-testimonials-wpbakery-addons' ),
 		],
 		[
 			'type'        => 'joywp_wysiwyg',
@@ -146,6 +160,7 @@ return array_merge(
 				],
 			],
 			'value'       => '',
+			'group'       => esc_html__( 'Pointer', 'joywp-testimonials-wpbakery-addons' ),
 		],
 		[
 			'type'        => 'joywp_number',

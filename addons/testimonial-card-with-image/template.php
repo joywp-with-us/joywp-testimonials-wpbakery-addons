@@ -42,6 +42,9 @@ defined( 'ABSPATH' ) || exit;
 </div>
 
 <style>
+	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-card-with-image-quote-card {
+		max-width: <?php echo esc_attr( $atts['width'] ); ?>px;
+	}
 	<?php
 	if ( 'true' === $atts['add_quotes'] ) {
 		$addon->output_style_shortcode_id();

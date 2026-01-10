@@ -1,6 +1,10 @@
 {
   "name": {
-    "text": "Testimonial Card With Image",
+    "text": {
+      "text": "Testimonial Card With Image",
+      "translate": "true",
+      "text_domain": "joywp-testimonials-wpbakery-addons"
+    },
     "translate": "true",
     "text_domain": "joywp-testimonials-wpbakery-addons"
   },
@@ -16,17 +20,9 @@
   "icon": "icon.svg",
 
   "assets": {
-    "external": {
-      "js": {
-        "url": "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
-      }
-    },
     "inner": {
       "css": {
         "file": "assets/css/addon.css"
-      },
-      "js": {
-        "file": "assets/js/addon.js"
       }
     }
   }
