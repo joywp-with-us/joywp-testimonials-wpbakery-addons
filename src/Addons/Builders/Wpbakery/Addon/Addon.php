@@ -92,21 +92,15 @@ class Addon extends AbstractAddon {
 	}
 
 	/**
-	 * We use it when want to get output template addon shortcode
+	 * We use it when want to get output template another addon
 	 * that was already integrated in current addon.
-	 *
-	 * @param string $integrated_prefix we use this prefix to find integrated shortcode atts,
-	 * that contains our current shortcode atts.
 	 *
 	 * @since 1.0
 	 */
-	public function get_integrated_shortcode_output( array $atts, string $integrated_slug, string $integrated_prefix ): string {
-		$data = vc_map_integrate_parse_atts( $this->addon_slug, $integrated_slug, $atts, $integrated_prefix );
-		if ( $data ) {
-			$integrated_shortcode = vc_manager()->vc()->getShortCode( 'vc_icon' );
-			if ( is_object( $integrated_shortcode ) ) {
-				return $integrated_shortcode->render( array_filter( $data ) );
-			}
+	public function get_integrated_addon_output( string $integrated_slug, array $atts ): string {
+		$integrated_addon = vc_manager()->vc()->getShortCode( $integrated_slug );
+		if ( is_object( $integrated_addon ) ) {
+			return $integrated_addon->render( array_filter( $atts ) );
 		}
 
 		return '';

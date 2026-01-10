@@ -1,3 +1,44 @@
-h1 {
-    color: red !important;
+.joywp-testimonial-card-with-image-quote-card {
+    position: relative;
+    overflow: hidden;
+    max-width: 310px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+.joywp-testimonial-card-with-image-quote-card * {
+    box-sizing: border-box;
+    transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+
+.joywp-testimonial-card-with-image-quote-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.joywp-testimonial-card-with-image-quote-text {
+    position: relative;
+    padding: 25px 50px;
+    font-size: 0.8em;
+    font-weight: 500;
+    line-height: 1.6em;
+    font-style: italic;
+}
+
+.joywp-testimonial-card-with-image-quote-arrow {
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 0 solid transparent;
+    position: absolute;
+}
+
+.joywp-testimonial-card-with-image-quote-author {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 25px;
 }
