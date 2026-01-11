@@ -2,8 +2,6 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
 }
 
 .joywp-testimonial-card-with-image-quote-card * {

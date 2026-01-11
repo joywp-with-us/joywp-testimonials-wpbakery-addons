@@ -6,6 +6,8 @@
  */
 
 use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\SingleImageIntegration;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Border;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\BoxShadow;
 
 $single_image_integration = new SingleImageIntegration();
 $exclude                  = [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ];
@@ -23,6 +25,9 @@ $image_integration_params = $single_image_integration->add_dependency(
 		'value'   => 'true',
 	]
 );
+
+$border     = new Border();
+$box_shadow = new BoxShadow();
 
 return array_merge(
 	[
@@ -206,5 +211,8 @@ return array_merge(
 				'value'   => 'true',
 			],
 		],
-	]
+
+	],
+	$border->get_config(),
+	$box_shadow->get_config()
 );
