@@ -69,26 +69,28 @@ defined( 'ABSPATH' ) || exit;
 	}
 <?php
 if ( 'true' === $atts['add_quotes'] ) :
-	$addon->output_style_shortcode_id();
+		$addon->output_style_shortcode_id();
 	?>
 		.joywp-testimonial-card-with-image-quote-text::before,
 		.joywp-testimonial-card-with-image-quote-text::after {
-				font-family: 'FontAwesome';
-				font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
-				opacity: 0.3;
-				position: absolute;
-				pointer-events: none;
-			}
+			font-family: 'FontAwesome';
+			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
+			position: absolute;
+			pointer-events: none;
+		}
 		<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-card-with-image-quote-text::before {
-				content: "\201C";
-				top: 25px;
-				left: 20px;
-			}
+			content: "\201C";
+			top: 25px;
+			left: 20px;
+		}
 		<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-card-with-image-quote-text::after {
-				content: "\201D";
-				right: 20px;
-				bottom: 0;
-			}
+			content: "\201D";
+			right: 20px;
+			bottom: 0;
+		}
+		<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-card-with-image-quote-text {
+			color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
+		}
 		<?php
 	endif;
 

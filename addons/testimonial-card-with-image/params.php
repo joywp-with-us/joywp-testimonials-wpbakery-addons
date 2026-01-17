@@ -92,6 +92,17 @@ return array_merge(
 			],
 		],
 		[
+			'type'        => 'colorpicker',
+			'heading'     => esc_html__( 'Color', 'chargewp-timeline-addons-for-wpbakery' ),
+			'param_name'  => 'quotes_color',
+			'description' => esc_html__( 'Select color for quotes.', 'chargewp-timeline-addons-for-wpbakery' ),
+			'group'       => esc_html__( 'Quotes', 'joywp-testimonials-wpbakery-addons' ),
+			'dependency'  => [
+				'element' => 'add_quotes',
+				'value'   => 'true',
+			],
+		],
+		[
 			'type'        => 'joywp_switcher',
 			'param_name'  => 'add_image',
 			'heading'     => esc_html__( 'Add Image', 'joywp-testimonials-wpbakery-addons' ),
@@ -211,7 +222,6 @@ return array_merge(
 				'value'   => 'true',
 			],
 		],
-
 	],
 	$border->get_config(),
 	$box_shadow->get_config()
