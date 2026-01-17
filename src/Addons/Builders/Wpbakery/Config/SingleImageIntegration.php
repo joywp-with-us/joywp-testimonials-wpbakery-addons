@@ -23,11 +23,26 @@ class SingleImageIntegration {
 	public array $exclude = [];
 
 	/**
+	 * Prefix for integrated params.
+	 */
+	public string $prefix = '';
+
+	/**
 	 * Set parameters to exclude from integration.
 	 *
 	 * @since 1.0
 	 */
 	public function set_exclude( array $exclude_params ): SingleImageIntegration {
+		$this->exclude = $exclude_params;
+		return $this;
+	}
+
+	/**
+	 * Set parameters to exclude from integration.
+	 *
+	 * @since 1.0
+	 */
+	public function set_prefix( array $exclude_params ): SingleImageIntegration {
 		$this->exclude = $exclude_params;
 		return $this;
 	}

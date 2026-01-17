@@ -131,9 +131,11 @@ class ConfigManager {
 			);
 		}
 
-		$params_content = $this->get_params_from_file();
+		$params = $this->get_params_from_file();
 
-		$this->config['params'] = $params_content;
+		$params = $this->set_params_defaults( $params );
+
+		$this->config['params'] = $params;
 		return $this;
 	}
 
@@ -143,11 +145,50 @@ class ConfigManager {
 	 * @throws WP_Exception
 	 */
 	public function get_params_from_file(): array {
-		$params_path = $this->addon_data['base_dir'] . '/' . $this->config['params'];
-		if ( ! file_exists( $params_path ) ) {
-			unset( $this->config['params'] );
+		$path = $this->addon_data['base_dir'] . '/' . $this->config['params'];
+
+		return $this->process_file( $path );
+	}
+
+	/**
+	 * Set default values for params.
+	 *
+	 * @since 1.0
+	 */
+	public function set_params_defaults( array $params ): array {
+		if ( ! isset( $this->config['defaults'] ) ) {
+			return $params;
+		}
+
+		$path = $this->addon_data['base_dir'] . '/' . $this->config['defaults'];
+
+		$defaults = $this->process_file( $path );
+
+		foreach ( $params as $param_key => $single_param ) {
+			if ( ! isset( $defaults[ $single_param['param_name'] ] ) ) {
+				continue;
+			}
+
+			if ( isset( $single_param['value'] ) ) {
+				$params[ $param_key ]['std'] = $defaults[ $single_param['param_name'] ];
+			} else {
+				$params[ $param_key ]['value'] = $defaults[ $single_param['param_name'] ];
+			}
+		}
+
+		return $params;
+	}
+
+	/**
+	 * Process file.
+	 *
+	 * @since 1.0
+	 * @throws WP_Exception
+	 */
+	public function process_file( string $path ): array {
+		if ( ! file_exists( $path ) ) {
 			throw new WP_Exception(
-				'Failed to locate addon params file: ' . esc_html( $params_path )
+				'Failed to locate addon file: ' . esc_html( $path )
 			);
 		}
 
@@ -155,10 +196,10 @@ class ConfigManager {
 
 		switch ( $extension ) {
 			case 'json':
-				$params = $this->process_params_from_json( $params_path );
+				$file_data = $this->process_from_json( $path );
 				break;
 			case 'php':
-				$params = $this->process_params_from_php( $params_path );
+				$file_data = $this->process_from_php( $path );
 				break;
 			default:
 				throw new WP_Exception(
@@ -170,55 +211,55 @@ class ConfigManager {
 				);
 		}
 
-		if ( ! is_array( $params ) ) {
+		if ( ! is_array( $file_data ) ) {
 			throw new WP_Exception(
 				sprintf(
 					'Invalid params format in PHP params file %s. Expected array.',
-					esc_html( $params_path ),
+					esc_html( $path ),
 				)
 			);
 		}
 
-		return $params;
+		return $file_data;
 	}
 
 	/**
-	 * Process params from JSON file.
+	 * Process from JSON file.
 	 *
 	 * @return mixed
 	 * @throws WP_Exception
 	 */
-	public function process_params_from_json( string $params_path ) {
-		$params_content = file_get_contents( $params_path );
-		if ( false === $params_content ) {
+	public function process_from_json( string $path ) {
+		$content = file_get_contents( $path );
+		if ( false === $content ) {
 			throw new WP_Exception(
 				sprintf(
-					'Failed to read addons params file: %s',
+					'Failed to read addons file: %s',
 					esc_html( $this->addon_data['config'] )
 				)
 			);
 		}
 
-		$params_content = json_decode( $params_content, true );
+		$content = json_decode( $content, true );
 		if ( json_last_error() !== JSON_ERROR_NONE ) {
 			throw new WP_Exception(
 				sprintf(
-					'Failed to decode JSON params file %s. Error: %s',
-					esc_html( $params_path ),
+					'Failed to decode JSON file %s. Error: %s',
+					esc_html( $path ),
 					esc_html( json_last_error_msg() )
 				)
 			);
 		}
-		return $params_content;
+		return $content;
 	}
 
 	/**
-	 * Process params from PHP file.
+	 * Process from PHP file.
 	 *
 	 * @throws WP_Exception
 	 * @return mixed
 	 */
-	public function process_params_from_php( string $params_path ) {
-		return include $params_path;
+	public function process_from_php( string $path ) {
+		return include $path;
 	}
 }

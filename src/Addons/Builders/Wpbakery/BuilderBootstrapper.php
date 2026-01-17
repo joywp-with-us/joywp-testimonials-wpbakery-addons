@@ -26,7 +26,7 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 	public function bootstrap(): void {
 		add_action( 'admin_init', [ $this, 'init_custom_addon_params' ] );
 		add_filter( 'joywp_testimonials_get_addon_config', [ $this, 'set_icon' ], 10, 3 );
-		add_filter( 'joywp_testimonials_get_addon_config', [ $this, 'set_default_params' ], 10, 2 );
+		add_filter( 'joywp_testimonials_get_addon_config', [ $this, 'set_common_params' ], 10, 2 );
 		add_filter( 'joywp_testimonials_atts_render_addon', [ $this, 'set_addon_default_atts' ], 10, 2 );
 		add_filter( 'joywp_testimonials_render_addon_output', [ $this, 'add_addon_output_default_wrapper' ], 10, 2 );
 	}
@@ -84,9 +84,9 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 	}
 
 	/**
-	 * Set params that we will have for every addon by default.
+	 * Set params that we will have for every addon.
 	 */
-	public function set_default_params( array $config, string $builder_slug ): array {
+	public function set_common_params( array $config, string $builder_slug ): array {
 		if ( $this->builder_slug !== $builder_slug ) {
 			return $config;
 		}
