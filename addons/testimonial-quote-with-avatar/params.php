@@ -44,6 +44,17 @@ return array_merge(
 			],
 		],
 		[
+			'type'        => 'joywp_wysiwyg',
+			'heading'     => esc_html__( 'Name', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => esc_html__( 'Enter testimonial author name.', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'  => 'name',
+			'value'       => '',
+			'scope'       => [
+				'use_menubar' => 'false',
+				'use_media'   => 'false',
+			],
+		],
+		[
 			'type'        => 'colorpicker',
 			'heading'     => esc_html__( 'Testimonial Background', 'chargewp-timeline-addons-for-wpbakery' ),
 			'param_name'  => 'testimonial_background',
@@ -121,49 +132,6 @@ return array_merge(
 	],
 	$image_integration_params,
 	[
-		[
-			'type'        => 'joywp_switcher',
-			'param_name'  => 'add_name',
-			'heading'     => esc_html__( 'Add Name', 'joywp-testimonials-wpbakery-addons' ),
-			'description' => esc_html__( 'Add block with name and surname.', 'joywp-testimonials-wpbakery-addons' ),
-			'options'     => [
-				'true' => [
-					'label' => '',
-					'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
-					'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
-				],
-			],
-			'value'       => '',
-			'group'       => esc_html__( 'Name', 'joywp-testimonials-wpbakery-addons' ),
-		],
-		[
-			'type'        => 'joywp_wysiwyg',
-			'heading'     => esc_html__( 'Name', 'joywp-testimonials-wpbakery-addons' ),
-			'description' => esc_html__( 'Enter testimonial author name.', 'joywp-testimonials-wpbakery-addons' ),
-			'param_name'  => 'name',
-			'value'       => '',
-			'scope'       => [
-				'use_menubar' => 'false',
-				'use_media'   => 'false',
-			],
-			'dependency'  => [
-				'element' => 'add_name',
-				'value'   => 'true',
-			],
-			'group'       => esc_html__( 'Name', 'joywp-testimonials-wpbakery-addons' ),
-		],
-		[
-			'type'        => 'colorpicker',
-			'heading'     => esc_html__( 'Background', 'chargewp-timeline-addons-for-wpbakery' ),
-			'param_name'  => 'name_block_background',
-			'description' => esc_html__( 'Select background color for name block.', 'chargewp-timeline-addons-for-wpbakery' ),
-			'value'       => '#ffffff',
-			'dependency'  => [
-				'element' => 'add_name',
-				'value'   => 'true',
-			],
-			'group'       => esc_html__( 'Name', 'joywp-testimonials-wpbakery-addons' ),
-		],
 		[
 			'type'        => 'joywp_switcher',
 			'param_name'  => 'add_pointer',

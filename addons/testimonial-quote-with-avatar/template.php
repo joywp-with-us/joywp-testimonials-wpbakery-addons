@@ -12,7 +12,6 @@ defined( 'ABSPATH' ) || exit;
 
 <div class="joywp-testimonial-quote-with-avatar-wrapper">
 	<figure class="joywp-testimonial-quote-with-avatar-unit" role="group" aria-label="Testimonial">
-
 		<div class="joywp-testimonial-quote-with-avatar-quote" role="note" aria-label="Testimonial quote">
 			<div class="joywp-testimonial-quote-with-avatar-quote-text">
 				<?php
@@ -27,10 +26,14 @@ defined( 'ABSPATH' ) || exit;
 				<?php
 			endif;
 			?>
-
-			<div class="joywp-testimonial-quote-with-avatar-arrow" aria-hidden="true"></div>
+			<?php
+			if ( 'true' === $atts['add_pointer'] ) :
+				?>
+				<div class="joywp-testimonial-quote-with-avatar-arrow" aria-hidden="true"></div>
+				<?php
+			endif;
+			?>
 		</div>
-
 		<div class="joywp-testimonial-quote-with-avatar-footer">
 			<?php
 			if ( 'true' === $atts['add_image'] ) :
@@ -43,16 +46,16 @@ defined( 'ABSPATH' ) || exit;
 				<?php
 			endif;
 			?>
-
 			<div class="joywp-testimonial-quote-with-avatar-author" aria-label="Author">
-				<div class="joywp-testimonial-quote-with-avatar-author-name">Eleanor Faint</div>
-				<div class="joywp-testimonial-quote-with-avatar-author-meta">LIttle Snippets.net</div>
+				<div class="joywp-testimonial-quote-with-avatar-author-name">
+					<?php
+						echo wp_kses_post( $atts['name'] )
+					?>
+				</div>
 			</div>
 		</div>
-
 	</figure>
 </div>
-
 
 <style>
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-quote {
@@ -71,11 +74,22 @@ defined( 'ABSPATH' ) || exit;
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-wrapper {
 		max-width: <?php echo esc_attr( $atts['width'] ); ?>%;
 	}
-
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-quote-mark {
 		font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
 		color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
 	}
+	<?php
+	if ( 'true' === $atts['add_pointer'] ) :
+		$addon->output_style_shortcode_id();
+		?>
+		.joywp-testimonial-quote-with-avatar-arrow {
+			left: <?php echo esc_attr( $atts['pointer_position'] ); ?>%;
+			border-right: <?php echo esc_attr( $atts['pointer_size'] ); ?>px solid transparent;
+			border-top: <?php echo esc_attr( $atts['pointer_size'] ); ?>px solid <?php echo esc_attr( $atts['pointer_color'] ); ?>;
+		}
+		<?php
+	endif;
+	?>
 </style>
 
 <style>
@@ -86,10 +100,8 @@ defined( 'ABSPATH' ) || exit;
 		max-width:100%;
 	}
 
-	.joywp-testimonial-quote-with-avatar-unit{
-		font-family:Arial, sans-serif;
+	.joywp-testimonial-quote-with-avatar-unit {
 		width:100%;
-		color:#333;
 	}
 
 	.joywp-testimonial-quote-with-avatar-unit,
@@ -124,18 +136,13 @@ defined( 'ABSPATH' ) || exit;
 		bottom:0;
 	}
 
-	/* Arrow */
 	.joywp-testimonial-quote-with-avatar-arrow{
 		position:absolute;
 		top:100%;
-		left:45px;
 		width:0;
 		height:0;
-		border-right:25px solid transparent;
-		border-top:25px solid #fafafa;
 	}
 
-	/* Footer (NEW layout instead of absolute) */
 	.joywp-testimonial-quote-with-avatar-footer{
 		display:flex;
 		align-items:center;
@@ -153,19 +160,7 @@ defined( 'ABSPATH' ) || exit;
 
 	/* Author */
 	.joywp-testimonial-quote-with-avatar-author{
-		text-transform:uppercase;
 		flex:1 1 auto;
-	}
-
-	.joywp-testimonial-quote-with-avatar-author-name{
-		font-weight:800;
-		opacity:0.8;
-	}
-
-	.joywp-testimonial-quote-with-avatar-author-meta{
-		text-transform:none;
-		font-weight:400;
-		opacity:0.8;
 	}
 
 	/* Responsive */
