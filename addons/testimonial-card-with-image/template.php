@@ -25,8 +25,7 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 		<?php
 		if ( 'true' === $atts['add_image'] ) :
-            // phpcs:ignore:WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo $addon->get_integrated_addon_output( 'vc_single_image', $atts );
+			$addon->output_integrated_addon( 'vc_single_image', $atts );
 		endif;
 		if ( 'true' === $atts['add_name'] ) :
 			?>

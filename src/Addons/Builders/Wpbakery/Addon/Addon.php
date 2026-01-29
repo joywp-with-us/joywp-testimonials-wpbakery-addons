@@ -92,7 +92,7 @@ class Addon extends AbstractAddon {
 	}
 
 	/**
-	 * We use it when want to get output template another addon
+	 * We use it when want to get output template of another addon
 	 * that was already integrated in current addon.
 	 *
 	 * @since 1.0
@@ -104,5 +104,16 @@ class Addon extends AbstractAddon {
 		}
 
 		return '';
+	}
+
+	/**
+	 * We use it when want to output template of another addon
+	 * that was already integrated in current addon.
+	 *
+	 * @since 1.0
+	 */
+	public function output_integrated_addon( string $integrated_slug, array $atts ): void {
+        // phpcs:ignore:WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $this->get_integrated_addon_output( $integrated_slug, $atts );
 	}
 }

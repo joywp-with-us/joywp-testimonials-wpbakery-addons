@@ -12,30 +12,44 @@ defined( 'ABSPATH' ) || exit;
 
 <div class="joywp-testimonial-quote-with-avatar-wrapper">
 	<figure class="joywp-testimonial-quote-with-avatar-unit" role="group" aria-label="Testimonial">
+
 		<div class="joywp-testimonial-quote-with-avatar-quote" role="note" aria-label="Testimonial quote">
 			<div class="joywp-testimonial-quote-with-avatar-quote-text">
 				<?php
 				echo wp_kses_post( $atts['testimonial'] );
 				?>
 			</div>
-
-			<span class="joywp-testimonial-quote-with-avatar-quote-mark joywp-testimonial-quote-with-avatar-quote-mark-start" aria-hidden="true">“</span>
-			<span class="joywp-testimonial-quote-with-avatar-quote-mark joywp-testimonial-quote-with-avatar-quote-mark-end" aria-hidden="true">”</span>
+			<?php
+			if ( 'true' === $atts['add_quotes'] ) :
+				?>
+				<span class="joywp-testimonial-quote-with-avatar-quote-mark joywp-testimonial-quote-with-avatar-quote-mark-start" aria-hidden="true">“</span>
+				<span class="joywp-testimonial-quote-with-avatar-quote-mark joywp-testimonial-quote-with-avatar-quote-mark-end" aria-hidden="true">”</span>
+				<?php
+			endif;
+			?>
 
 			<div class="joywp-testimonial-quote-with-avatar-arrow" aria-hidden="true"></div>
 		</div>
 
-		<img
-				class="joywp-testimonial-quote-with-avatar-avatar"
-				src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg"
-				alt="Portrait of Eleanor Faint"
-				loading="lazy"
-		/>
+		<div class="joywp-testimonial-quote-with-avatar-footer">
+			<?php
+			if ( 'true' === $atts['add_image'] ) :
+				?>
+				<div class="joywp-testimonial-quote-with-avatar-avatar">
+					<?php
+					$addon->output_integrated_addon( 'vc_single_image', $atts );
+					?>
+				</div>
+				<?php
+			endif;
+			?>
 
-		<div class="joywp-testimonial-quote-with-avatar-author" aria-label="Author">
-			<div class="joywp-testimonial-quote-with-avatar-author-name">Eleanor Faint</div>
-			<div class="joywp-testimonial-quote-with-avatar-author-meta">LIttleSnippets.net 1 1 1 1 1 1 1 1 1 1 sa da as dasda 1 1 1 1 1 1as da das das dasd asd as</div>
+			<div class="joywp-testimonial-quote-with-avatar-author" aria-label="Author">
+				<div class="joywp-testimonial-quote-with-avatar-author-name">Eleanor Faint</div>
+				<div class="joywp-testimonial-quote-with-avatar-author-meta">LIttle Snippets.net</div>
+			</div>
 		</div>
+
 	</figure>
 </div>
 
@@ -43,74 +57,60 @@ defined( 'ABSPATH' ) || exit;
 <style>
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-quote {
 		background-color: <?php echo esc_attr( $atts['testimonial_background'] ); ?>;
+		<?php
+		if ( 'true' === $atts['add_border'] ) :
+			?>
+				border-width: <?php echo esc_attr( $atts['border_width'] ); ?>px;
+				border-style: <?php echo esc_attr( $atts['border_style'] ); ?>;
+				border-color: <?php echo esc_attr( $atts['border_color'] ); ?>;
+				border-radius: <?php echo esc_attr( $atts['border_radius'] ); ?>px;
+			<?php
+		endif;
+		?>
 	}
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-wrapper {
 		max-width: <?php echo esc_attr( $atts['width'] ); ?>%;
 	}
+
+	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-quote-mark {
+		font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
+		color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
+	}
 </style>
+
 <style>
 	.joywp-testimonial-quote-with-avatar-wrapper{
+		overflow: hidden;
 		display:flex;
 		flex-wrap:wrap;
-		align-items:flex-start;
-		justify-content:flex-start;
+		max-width:100%;
 	}
 
 	.joywp-testimonial-quote-with-avatar-unit{
-		font-family: Arial, sans-serif;
-		position:relative;
-		overflow:hidden;
+		font-family:Arial, sans-serif;
 		width:100%;
-		color:#333333;
-		text-align:left;
-		box-shadow:none !important;
+		color:#333;
 	}
 
-	.joywp-testimonial-quote-with-avatar-unit .joywp-testimonial-quote-with-avatar-unit,
+	.joywp-testimonial-quote-with-avatar-unit,
 	.joywp-testimonial-quote-with-avatar-unit *{
-		-webkit-box-sizing:border-box;
 		box-sizing:border-box;
-		-webkit-transition:all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
 		transition:all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
 	}
 
-	.joywp-testimonial-quote-with-avatar-avatar{
-		display:block;
-		max-width:100%;
-		vertical-align:middle;
-		height:90px;
-		width:90px;
-		border-radius:50%;
-		margin-top:40px;
-		margin-left:10px;
-	}
-
+	/* Quote */
 	.joywp-testimonial-quote-with-avatar-quote{
-		display:block;
-		border-radius:8px;
 		position:relative;
-		padding:25px 50px 30px 50px;
-		font-size:0.8em;
-		font-weight:500;
-		line-height:1.6em;
-		font-style:italic;
-		max-width:100%;
+		padding:25px 50px 30px;
 	}
 
 	.joywp-testimonial-quote-with-avatar-quote-text{
 		position:relative;
 		z-index:1;
-		word-break:break-word;
-		overflow-wrap:break-word;
 	}
 
-	/* No pseudo-elements for quote marks; real elements so values are markup-regulated */
 	.joywp-testimonial-quote-with-avatar-quote-mark{
 		position:absolute;
-		font-size:50px;
-		opacity:0.3;
-		font-style:normal;
-		line-height:1;
 		z-index:0;
 	}
 
@@ -124,74 +124,63 @@ defined( 'ABSPATH' ) || exit;
 		bottom:0;
 	}
 
+	/* Arrow */
 	.joywp-testimonial-quote-with-avatar-arrow{
 		position:absolute;
 		top:100%;
 		left:45px;
 		width:0;
 		height:0;
-		border-left:0 solid transparent;
 		border-right:25px solid transparent;
 		border-top:25px solid #fafafa;
 	}
 
+	/* Footer (NEW layout instead of absolute) */
+	.joywp-testimonial-quote-with-avatar-footer{
+		display:flex;
+		align-items:center;
+		gap:20px;
+		margin-top:15px;
+		padding-left:10px;
+		flex-wrap:wrap;
+	}
+
+	/* Avatar */
+	.joywp-testimonial-quote-with-avatar-avatar{
+		border-radius:50%;
+		flex-shrink:0;
+	}
+
+	/* Author */
 	.joywp-testimonial-quote-with-avatar-author{
-		position:absolute;
-		left:0;
-		right:0;
-		bottom:45px;
-		padding-left:120px;
-		padding-right:10px;
 		text-transform:uppercase;
-		-webkit-transform:translateY(50%);
-		transform:translateY(50%);
-		max-width:100%;
+		flex:1 1 auto;
 	}
 
 	.joywp-testimonial-quote-with-avatar-author-name{
-		opacity:0.8;
 		font-weight:800;
-		overflow-wrap:break-word;
-		word-break:break-word;
+		opacity:0.8;
 	}
 
 	.joywp-testimonial-quote-with-avatar-author-meta{
-		font-weight:400;
 		text-transform:none;
-		padding-left:0;
+		font-weight:400;
 		opacity:0.8;
-		overflow-wrap:break-word;
-		word-break:break-word;
 	}
 
-	/* Responsive: keeps everything inside any container width (even 10%) */
-	@media (max-width: 360px){
-		.joywp-testimonial-quote-with-avatar-unit{
-			min-width:0;
-		}
-
+	/* Responsive */
+	@media (max-width:360px){
 		.joywp-testimonial-quote-with-avatar-quote{
-			padding:18px 18px 22px 18px;
+			padding:18px;
 		}
 
 		.joywp-testimonial-quote-with-avatar-avatar{
-			height:72px;
 			width:72px;
-			margin-top:16px;
-			margin-left:8px;
+			height:72px;
 		}
 
-		.joywp-testimonial-quote-with-avatar-author{
-			position:static;
-			-webkit-transform:none;
-			transform:none;
-			padding:10px 8px 0 8px;
-		}
-
-		.joywp-testimonial-quote-with-avatar-arrow{
-			left:28px;
-			border-right-width:18px;
-			border-top-width:18px;
+		.joywp-testimonial-quote-with-avatar-footer{
+			gap:12px;
 		}
 
 		.joywp-testimonial-quote-with-avatar-quote-mark{

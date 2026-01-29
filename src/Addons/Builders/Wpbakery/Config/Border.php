@@ -81,7 +81,7 @@ class Border {
 				'type'            => 'joywp_number_slider',
 				'wcp_group'       => true,
 				'wcp_group_color' => '#1f2937',
-				'value'           => '0',
+				'value'           => '1',
 				'min'             => '0',
 				'max'             => '100',
 				'step'            => '1',
