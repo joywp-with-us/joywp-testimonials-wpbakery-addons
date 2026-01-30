@@ -5,7 +5,7 @@
  * @since 1.0
  */
 
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\SingleImageIntegration;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Integration\SingleImageIntegration;
 use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Border;
 use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\BoxShadow;
 

@@ -1,22 +1,20 @@
 <?php
 /**
- * This class helps to integrate vc_single_image addon
- * to our addons with custom parameters.
+ * Abstraction for integrations with other addons.
  *
  * @since 1.0
  */
 
-namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config;
+namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Integration;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Class SingleImageIntegration
+ * Class AbstractIntegration
  *
  * @since 1.0
  */
-class SingleImageIntegration {
-
+abstract class AbstractIntegration {
 	/**
 	 * Parameters to exclude from integration.
 	 */
@@ -28,11 +26,27 @@ class SingleImageIntegration {
 	public string $prefix = '';
 
 	/**
+	 * Get integration config.
+	 *
+	 * @since 1.0
+	 */
+	abstract public function get_integration_config(): array;
+
+	/**
+	 * Get params list that we always exclude.
+	 *
+	 * @since 1.0
+	 */
+	public function get_always_exclude_params(): array {
+		return [];
+	}
+
+	/**
 	 * Set parameters to exclude from integration.
 	 *
 	 * @since 1.0
 	 */
-	public function set_exclude( array $exclude_params ): SingleImageIntegration {
+	public function set_exclude( array $exclude_params ): AbstractIntegration {
 		$this->exclude = $exclude_params;
 		return $this;
 	}
@@ -42,7 +56,7 @@ class SingleImageIntegration {
 	 *
 	 * @since 1.0
 	 */
-	public function set_prefix( array $exclude_params ): SingleImageIntegration {
+	public function set_prefix( array $exclude_params ): AbstractIntegration {
 		$this->exclude = $exclude_params;
 		return $this;
 	}
@@ -53,7 +67,7 @@ class SingleImageIntegration {
 	 * @since 1.0
 	 */
 	public function get_config(): array {
-		$image_config = include vc_path_dir( 'CONFIG_DIR', 'content/shortcode-vc-single-image.php' );
+		$integration_config = $this->get_integration_config();
 
 		$exclude = array_merge( $this->get_always_exclude_params(), $this->exclude );
 
@@ -61,28 +75,13 @@ class SingleImageIntegration {
 
 		$config =
 			vc_map_integrate_shortcode(
-				$image_config,
+				$integration_config,
 				'',
 				'',
 				$include_params
 			);
 
 		return $config;
-	}
-
-	/**
-	 * Get elements params list that we always exclude when integrate shortcode.
-	 *
-	 * @since 1.0
-	 */
-	public function get_always_exclude_params(): array {
-		return [
-			'title',
-			'css_animation',
-			'el_id',
-			'el_class',
-			'css',
-		];
 	}
 
 	/**

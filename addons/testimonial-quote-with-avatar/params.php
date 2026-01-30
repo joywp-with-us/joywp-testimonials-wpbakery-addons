@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\SingleImageIntegration;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Integration\SingleImageIntegration;
 use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Border;
 
 $single_image_integration = new SingleImageIntegration();
