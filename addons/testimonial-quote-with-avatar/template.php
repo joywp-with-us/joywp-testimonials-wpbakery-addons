@@ -77,6 +77,7 @@ defined( 'ABSPATH' ) || exit;
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-quote-mark {
 		font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
 		color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
+
 	}
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-footer {
 		margin-top: <?php echo esc_attr( $atts['gap'] ); ?>px;

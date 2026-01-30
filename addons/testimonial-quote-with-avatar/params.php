@@ -29,7 +29,6 @@ $image_integration_params = $single_image_integration->add_dependency(
 
 $border = new Border();
 
-
 return array_merge(
 	[
 		[
@@ -78,9 +77,9 @@ return array_merge(
 			'param_name'  => 'gap',
 			'description' => esc_html__( 'Gap between testimonial text and avatar.', 'joywp-testimonials-wpbakery-addons' ),
 			'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
-			'value'       => '1000',
+			'value'       => '100',
 			'min'         => '1',
-			'max'         => '100',
+			'max'         => '1000',
 			'step'        => '1',
 		],
 		[
