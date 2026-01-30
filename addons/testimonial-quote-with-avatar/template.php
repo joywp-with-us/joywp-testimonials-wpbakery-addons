@@ -78,6 +78,9 @@ defined( 'ABSPATH' ) || exit;
 		font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
 		color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
 	}
+	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-footer {
+		margin-top: <?php echo esc_attr( $atts['gap'] ); ?>px;
+	}
 	<?php
 	if ( 'true' === $atts['add_pointer'] ) :
 		$addon->output_style_shortcode_id();
@@ -145,9 +148,7 @@ defined( 'ABSPATH' ) || exit;
 
 	.joywp-testimonial-quote-with-avatar-footer{
 		display:flex;
-		align-items:center;
 		gap:20px;
-		margin-top:15px;
 		padding-left:10px;
 		flex-wrap:wrap;
 	}
