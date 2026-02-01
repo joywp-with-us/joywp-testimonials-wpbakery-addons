@@ -74,12 +74,20 @@ defined( 'ABSPATH' ) || exit;
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-wrapper {
 		max-width: <?php echo esc_attr( $atts['width'] ); ?>%;
 	}
-	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-quote-mark {
-		font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
-		color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
-
-	}
-	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-footer {
+	<?php
+	if ( 'true' === $atts['add_quotes'] ) :
+		$addon->output_style_shortcode_id();
+		?>
+		.joywp-testimonial-quote-with-avatar-quote-mark {
+			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
+			color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
+			font-family: <?php echo esc_attr( $atts['font_family'] ); ?>;
+		}
+		<?php
+	endif;
+	$addon->output_style_shortcode_id();
+	?>
+	.joywp-testimonial-quote-with-avatar-footer {
 		margin-top: <?php echo esc_attr( $atts['gap'] ); ?>px;
 	}
 	<?php
@@ -178,10 +186,6 @@ defined( 'ABSPATH' ) || exit;
 
 		.joywp-testimonial-quote-with-avatar-footer{
 			gap:12px;
-		}
-
-		.joywp-testimonial-quote-with-avatar-quote-mark{
-			font-size:40px;
 		}
 
 		.joywp-testimonial-quote-with-avatar-quote-mark-start{

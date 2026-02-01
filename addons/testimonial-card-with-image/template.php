@@ -72,7 +72,7 @@ if ( 'true' === $atts['add_quotes'] ) :
 	?>
 		.joywp-testimonial-card-with-image-quote-text::before,
 		.joywp-testimonial-card-with-image-quote-text::after {
-			font-family: 'FontAwesome';
+			font-family: <?php echo esc_attr( $atts['font_family'] ); ?>;
 			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
 			position: absolute;
 			pointer-events: none;

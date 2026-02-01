@@ -81,6 +81,18 @@ return array_merge(
 				'value'   => 'true',
 			],
 		],
+	],
+	$config
+		->get_params_collection( 'font' )
+		->set_additional_params( [ 'group' => __( 'Quotes', 'joywp-testimonials-wpbakery-addons' ) ] )
+		->set_dependency(
+			[
+				'element' => 'add_quotes',
+				'value'   => 'true',
+			]
+		)
+		->get_params(),
+	[
 		[
 			'type'        => 'joywp_switcher',
 			'param_name'  => 'add_image',
