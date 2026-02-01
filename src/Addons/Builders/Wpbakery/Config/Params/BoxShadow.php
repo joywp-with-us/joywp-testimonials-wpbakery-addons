@@ -5,7 +5,7 @@
  * @since 1.0
  */
 
-namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config;
+namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -14,29 +14,13 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-class BoxShadow {
-
-	/**
-	 * Config prefix.
-	 */
-	protected string $prefix = '';
-
-	/**
-	 * Set config prefix.
-	 *
-	 * @since 1.0
-	 */
-	public function set_prefix( string $prefix ): Border {
-		$this->prefix = $prefix . '_';
-		return $this;
-	}
-
+class BoxShadow extends AbstractParams {
 	/**
 	 * Get integration config.
 	 *
 	 * @since 1.0
 	 */
-	public function get_config(): array {
+	public function get_params(): array {
 		return [
 			[
 				'type'                 => 'joywp_switcher',

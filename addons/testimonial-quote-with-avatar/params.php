@@ -7,13 +7,14 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Integration\SingleImageIntegration;
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Border;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Integration\SingleImageIntegration;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Border;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Font;
 
 $single_image_integration = new SingleImageIntegration();
 $exclude                  = [ 'caption', 'add_caption', 'img_link_large', 'alignment', 'border_color' ];
-$image_integration_params = $single_image_integration->set_exclude( $exclude )->get_config();
-$image_integration_params = $single_image_integration->add_config_params(
+$image_integration_params = $single_image_integration->set_exclude( $exclude )->get_params();
+$image_integration_params = $single_image_integration->add_params(
 	$image_integration_params,
 	[
 		'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ),
@@ -28,6 +29,7 @@ $image_integration_params = $single_image_integration->add_dependency(
 );
 
 $border = new Border();
+$font   = new Font();
 
 return array_merge(
 	[
@@ -119,11 +121,15 @@ return array_merge(
 			'param_name'  => 'quotes_color',
 			'description' => esc_html__( 'Select color for quotes.', 'chargewp-timeline-addons-for-wpbakery' ),
 			'group'       => esc_html__( 'Quotes', 'joywp-testimonials-wpbakery-addons' ),
+			'value'       => '#000000',
 			'dependency'  => [
 				'element' => 'add_quotes',
 				'value'   => 'true',
 			],
 		],
+	],
+	$font->get_params(),
+	[
 		[
 			'type'        => 'joywp_switcher',
 			'param_name'  => 'add_image',
@@ -202,5 +208,5 @@ return array_merge(
 			],
 		],
 	],
-	$border->get_config(),
+	$border->get_params(),
 );
