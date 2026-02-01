@@ -49,14 +49,21 @@ abstract class AbstractParamsCollectionIntegration extends AbstractParamsCollect
 	 * @since 1.0
 	 */
 	public function get_params(): array {
-		$params = $this->get_collection_params();
+		$config = $this->get_collection_params();
+
+		if ( ! empty( $this->additional_params ) ) {
+			$config['params'] = $this->add_params( $config['params'], $this->additional_params );
+		}
+		if ( ! empty( $this->dependency ) ) {
+			$config['params'] = $this->add_dependency( $config['params'], $this->dependency );
+		}
 
 		$exclude = array_merge( $this->get_always_exclude_params(), $this->exclude );
 
 		$change_fields = [ 'exclude' => $exclude ];
 
 		return vc_map_integrate_shortcode(
-			$params,
+			$config,
 			$this->prefix,
 			'',
 			$change_fields
