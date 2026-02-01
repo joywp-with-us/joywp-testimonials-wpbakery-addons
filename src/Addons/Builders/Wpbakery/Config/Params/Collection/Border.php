@@ -5,7 +5,9 @@
  * @since 1.0
  */
 
-namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params;
+namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Collection;
+
+use JoywpTestimonialsWpb\Addons\AbstractParamsCollection;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -14,13 +16,13 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-class Border extends AbstractParams {
+class Border extends AbstractParamsCollection {
 	/**
 	 * Get integration config.
 	 *
 	 * @since 1.0
 	 */
-	public function get_params(): array {
+	public function get_collection_params(): array {
 		return [
 			[
 				'type'                 => 'joywp_switcher',

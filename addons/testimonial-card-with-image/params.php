@@ -6,30 +6,7 @@
  * @since 1.0
  */
 
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Integration\SingleImageIntegration;
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Border;
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\BoxShadow;
 use JoywpTestimonialsWpb\Addons\ConfigManager;
-
-$single_image_integration = new SingleImageIntegration();
-$exclude                  = [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ];
-$image_integration_params = $single_image_integration->set_exclude( $exclude )->get_params();
-$image_integration_params = $single_image_integration->add_params(
-	$image_integration_params,
-	[
-		'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ),
-	]
-);
-$image_integration_params = $single_image_integration->add_dependency(
-	$image_integration_params,
-	[
-		'element' => 'add_image',
-		'value'   => 'true',
-	]
-);
-
-$border     = new Border();
-$box_shadow = new BoxShadow();
 
 return array_merge(
 	[
@@ -120,7 +97,17 @@ return array_merge(
 			'value'       => '',
 		],
 	],
-	$image_integration_params,
+	$config->
+	get_params_collection( 'image' )->
+	set_exclude( [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ] )->
+	set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )->
+	set_dependency(
+		[
+			'element' => 'add_image',
+			'value'   => 'true',
+		]
+	)->
+	get_params(),
 	[
 		[
 			'type'        => 'joywp_switcher',
@@ -225,6 +212,6 @@ return array_merge(
 			],
 		],
 	],
-	$border->get_params(),
-	$box_shadow->get_params()
+	$config->get_params_collection( 'border' )->get_params(),
+	$config->get_params_collection( 'box-shadow' )->get_params(),
 );

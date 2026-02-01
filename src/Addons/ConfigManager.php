@@ -269,8 +269,6 @@ class ConfigManager {
 		return $content;
 	}
 
-
-
 	/**
 	 * Process from PHP file.
 	 *
@@ -281,5 +279,27 @@ class ConfigManager {
 		$config = $this;
 
 		return include $path;
+	}
+
+	/**
+	 * Get params collection.
+	 *
+	 * @throws WP_Exception
+	 * @since 1.0
+	 */
+	public function get_params_collection( string $name ): AbstractParamsCollection {
+		$class_name       = str_replace( ' ', '', ucwords( str_replace( '-', ' ', $name ) ) );
+		$builder          = str_replace( ' ', '', ucwords( str_replace( '_', ' ', $this->builder_slug ) ) );
+		$collection_class = 'JoywpTestimonialsWpb\\Addons\\Builders\\' . $builder . '\\Config\\Params\\Collection\\' . $class_name;
+		if ( ! class_exists( $collection_class ) ) {
+			throw new WP_Exception(
+				sprintf(
+					'Failed to find params collection class: %s for builder: %s',
+					esc_html( $collection_class ),
+					esc_html( $this->builder_slug )
+				)
+			);
+		}
+		return new $collection_class();
 	}
 }

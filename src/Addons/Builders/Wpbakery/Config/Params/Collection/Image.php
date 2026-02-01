@@ -6,7 +6,7 @@
  * @since 1.0
  */
 
-namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Integration;
+namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Collection;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -15,13 +15,13 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-class SingleImageIntegration extends AbstractIntegration {
+class Image extends AbstractParamsCollectionIntegration {
 	/**
 	 * Get integration addon params.
 	 *
 	 * @since 1.0
 	 */
-	public function get_integration_addon_params(): array {
+	public function get_collection_params(): array {
 		return include vc_path_dir( 'CONFIG_DIR', 'content/shortcode-vc-single-image.php' );
 	}
 
