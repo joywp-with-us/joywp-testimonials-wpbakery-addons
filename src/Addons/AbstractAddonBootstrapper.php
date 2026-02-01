@@ -79,6 +79,7 @@ abstract class AbstractAddonBootstrapper {
 		try {
 			$config = $config_manager->
 			set_addon_data( $addon_data )->
+			set_builder_slug( $builder_slug )->
 			get_file_content()->
 			decode()->
 			set_params()->

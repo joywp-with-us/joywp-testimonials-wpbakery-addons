@@ -17,6 +17,12 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 class ConfigManager {
+	/**
+	 * Builder slug.
+	 *
+	 * @since 1.0
+	 */
+	public string $builder_slug;
 
 	/**
 	 * Config file path.
@@ -46,6 +52,16 @@ class ConfigManager {
 	 */
 	public function get_config(): array {
 		return $this->config;
+	}
+
+	/**
+	 * Set builder slug.
+	 *
+	 * @since 1.0
+	 */
+	public function set_builder_slug( string $builder_slug ): ConfigManager {
+		$this->builder_slug = $builder_slug;
+		return $this;
 	}
 
 	/**
@@ -118,7 +134,7 @@ class ConfigManager {
 		}
 
 		if ( is_array( $this->config['params'] ) ) {
-			// params already set config directly.
+			// params already set in config directly.
 			return $this;
 		}
 
@@ -253,6 +269,8 @@ class ConfigManager {
 		return $content;
 	}
 
+
+
 	/**
 	 * Process from PHP file.
 	 *
@@ -260,6 +278,8 @@ class ConfigManager {
 	 * @return mixed
 	 */
 	public function process_from_php( string $path ) {
+		$config = $this;
+
 		return include $path;
 	}
 }

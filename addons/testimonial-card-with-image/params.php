@@ -2,12 +2,14 @@
 /**
  * Params for testimonial-card-with-image addon.
  *
+ * @var ConfigManager $config
  * @since 1.0
  */
 
 use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Integration\SingleImageIntegration;
 use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\Border;
 use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Config\Params\BoxShadow;
+use JoywpTestimonialsWpb\Addons\ConfigManager;
 
 $single_image_integration = new SingleImageIntegration();
 $exclude                  = [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ];
