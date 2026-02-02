@@ -1,0 +1,88 @@
+.joywp-testimonial-quote-with-avatar-wrapper{
+    overflow: hidden;
+    display:flex;
+    flex-wrap:wrap;
+    max-width:100%;
+}
+
+.joywp-testimonial-quote-with-avatar-unit {
+    width:100%;
+}
+
+.joywp-testimonial-quote-with-avatar-unit,
+.joywp-testimonial-quote-with-avatar-unit *{
+    box-sizing:border-box;
+    transition:all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+
+.joywp-testimonial-quote-with-avatar-quote{
+    position:relative;
+    padding:25px 50px 30px;
+}
+
+.joywp-testimonial-quote-with-avatar-quote-text{
+    position:relative;
+    z-index:1;
+}
+
+.joywp-testimonial-quote-with-avatar-quote-mark{
+    position:absolute;
+    z-index:0;
+}
+
+.joywp-testimonial-quote-with-avatar-quote-mark-start{
+    top:25px;
+    left:20px;
+}
+
+.joywp-testimonial-quote-with-avatar-quote-mark-end{
+    right:20px;
+    bottom:0;
+}
+
+.joywp-testimonial-quote-with-avatar-arrow{
+    position:absolute;
+    top:100%;
+    width:0;
+    height:0;
+}
+
+.joywp-testimonial-quote-with-avatar-footer{
+    display:flex;
+    gap:20px;
+    padding-left:10px;
+    flex-wrap:wrap;
+}
+
+.joywp-testimonial-quote-with-avatar-avatar{
+    border-radius:50%;
+    flex-shrink:0;
+}
+
+.joywp-testimonial-quote-with-avatar-author{
+    flex:1 1 auto;
+}
+
+@media (max-width:360px){
+    .joywp-testimonial-quote-with-avatar-quote{
+        padding:18px;
+    }
+
+    .joywp-testimonial-quote-with-avatar-avatar{
+        width:72px;
+        height:72px;
+    }
+
+    .joywp-testimonial-quote-with-avatar-footer{
+        gap:12px;
+    }
+
+    .joywp-testimonial-quote-with-avatar-quote-mark-start{
+        top:14px;
+        left:12px;
+    }
+
+    .joywp-testimonial-quote-with-avatar-quote-mark-end{
+        right:12px;
+    }
+}
