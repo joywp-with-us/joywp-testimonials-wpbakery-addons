@@ -7,7 +7,7 @@
     "rarst/phpcs-cognitive-complexity": "^0.2",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "phpstan/phpstan": "^1.12",
-    "php-stubs/wordpress-stubs": "6.8.2"
+    "php-stubs/wordpress-stubs": "^6.8.2"
   },
   "autoload": {
     "psr-4": {"JoywpTestimonialsWpb\\": "src/"}
