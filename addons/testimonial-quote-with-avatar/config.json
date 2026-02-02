@@ -13,5 +13,6 @@
   },
   "template": "template.php",
   "params": "params.php",
-  "icon": "icon.svg"
+  "icon": "icon.svg",
+  "defaults": "defaults.php"
 }
