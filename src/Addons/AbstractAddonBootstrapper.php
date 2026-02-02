@@ -7,6 +7,9 @@
 
 namespace JoywpTestimonialsWpb\Addons;
 
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Addon;
+use WP_Exception;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -103,13 +106,13 @@ abstract class AbstractAddonBootstrapper {
 		$template_manager = new TemplateManager();
 
 		if ( ! isset( $config['template'] ) || ! is_string( $config['template'] ) ) {
-			return false;
+			return '';
 		}
 
 		$template_path = $addon_data['base_dir'] . '/' . $config['template'];
 		$template      = $template_manager->validate( $template_path );
 
-		return apply_filters( 'joywp_testimonials_get_addon_template', $template, $builder_slug, $addon_data );
+		return (string) apply_filters( 'joywp_testimonials_get_addon_template', $template, $builder_slug, $addon_data );
 	}
 
 	/**

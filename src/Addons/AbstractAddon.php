@@ -71,11 +71,44 @@ abstract class AbstractAddon {
 	public string $builder_slug;
 
 	/**
+	 * External assets prefix.
+	 *
+	 * @since 1.0
+	 */
+	public string $external_assets_prefix = 'joywp';
+
+	/**
+	 * Addon manager class instance.
+	 *
+	 * @since 1.0
+	 */
+	public object $addon_manager;
+
+	/**
+	 * Set addon manager.
+	 *
+	 * @since 1.0
+	 */
+	public function set_addon_manager( object $addon_manager ): AbstractAddon {
+		$this->addon_manager = $addon_manager;
+		return $this;
+	}
+
+	/**
+	 * Get addon manager.
+	 *
+	 * @since 1.0
+	 */
+	public function get_addon_manager(): object {
+		return $this->addon_manager;
+	}
+
+	/**
 	 * Set builder slug.
 	 *
 	 * @since 1.0
 	 */
-	public function set_builder_slug( string $builder_slug ): Addon {
+	public function set_builder_slug( string $builder_slug ): AbstractAddon {
 		$this->builder_slug = $builder_slug;
 		return $this;
 	}
@@ -85,7 +118,7 @@ abstract class AbstractAddon {
 	 *
 	 * @since 1.0
 	 */
-	public function set_addon_slug( string $addon_slug ): Addon {
+	public function set_addon_slug( string $addon_slug ): AbstractAddon {
 		$this->addon_slug = $addon_slug;
 		return $this;
 	}
@@ -95,7 +128,7 @@ abstract class AbstractAddon {
 	 *
 	 * @since 1.0
 	 */
-	public function set_template( string $template ): Addon {
+	public function set_template( string $template ): AbstractAddon {
 		$this->template = $template;
 		return $this;
 	}
@@ -105,7 +138,7 @@ abstract class AbstractAddon {
 	 *
 	 * @since 1.0
 	 */
-	public function set_config( array $config ): Addon {
+	public function set_config( array $config ): AbstractAddon {
 		$this->config = $config;
 		return $this;
 	}
@@ -115,7 +148,7 @@ abstract class AbstractAddon {
 	 *
 	 * @since 1.0
 	 */
-	public function set_addon_base_dir( string $base_dir ): Addon {
+	public function set_addon_base_dir( string $base_dir ): AbstractAddon {
 		$this->base_dir = $base_dir;
 		return $this;
 	}

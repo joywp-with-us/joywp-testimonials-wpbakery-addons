@@ -19,39 +19,6 @@ defined( 'ABSPATH' ) || exit;
  */
 class Addon extends AbstractAddon {
 	/**
-	 * Addon manager class instance.
-	 *
-	 * @since 1.0
-	 */
-	public WPBakeryShortCode $addon_manager;
-
-	/**
-	 * External assets prefix.
-	 *
-	 * @since 1.0
-	 */
-	public string $external_assets_prefix = 'joywp';
-
-	/**
-	 * Set WPBakeryShortCode.
-	 *
-	 * @since 1.0
-	 */
-	public function set_addon_manager( WPBakeryShortCode $addon_manager ): Addon {
-		$this->addon_manager = $addon_manager;
-		return $this;
-	}
-
-	/**
-	 * Get WPBakeryShortCode.
-	 *
-	 * @since 1.0
-	 */
-	public function get_addon_manager(): WPBakeryShortCode {
-		return $this->addon_manager;
-	}
-
-	/**
 	 * Here we combine initial markup attributes that has our addon wrapper
 	 * with all attributes that should contain regular addon
 	 * and output them escaped and ready to use in our addon wrapper.
