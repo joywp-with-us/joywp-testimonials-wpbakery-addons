@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 		<?php
 		if ( 'true' === $atts['add_image'] ) :
-			$addon->output_integrated_addon( 'vc_single_image', $atts );
+			$addon->get_collection( 'image ' )->render( $atts );
 		endif;
 		if ( 'true' === $atts['add_name'] ) :
 			?>
@@ -46,23 +46,11 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php
 		if ( 'true' === $atts['add_border'] ) :
-			?>
-			border-width: <?php echo esc_attr( $atts['border_width'] ); ?>px;
-			border-style: <?php echo esc_attr( $atts['border_style'] ); ?>;
-			border-color: <?php echo esc_attr( $atts['border_color'] ); ?>;
-			border-radius: <?php echo esc_attr( $atts['border_radius'] ); ?>px;
-			<?php
+			$addon->get_collection( 'border ' )->render( $atts );
 		endif;
 
 		if ( 'true' === $atts['add_box_shadow'] ) :
-			?>
-			box-shadow:
-					<?php echo esc_attr( $atts['box_shadow_horizontal'] ); ?>px
-					<?php echo esc_attr( $atts['box_shadow_vertical'] ); ?>px
-					<?php echo esc_attr( $atts['box_shadow_blur'] ); ?>px
-					<?php echo esc_attr( $atts['box_shadow_spread'] ); ?>px
-					<?php echo esc_attr( $atts['box_shadow_color'] ); ?>;
-			<?php
+			$addon->get_collection( 'box-shadow' )->render( $atts );
 		endif;
 		?>
 	}
@@ -72,7 +60,7 @@ if ( 'true' === $atts['add_quotes'] ) :
 	?>
 		.joywp-testimonial-card-with-image-quote-text::before,
 		.joywp-testimonial-card-with-image-quote-text::after {
-			font-family: <?php echo esc_attr( $atts['font_family'] ); ?>;
+			<?php $addon->get_collection( 'font-family' )->render( $atts ); ?>
 			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
 			position: absolute;
 			pointer-events: none;

@@ -8,8 +8,6 @@
 
 namespace JoywpTestimonialsWpb\Addons;
 
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Addon;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -307,5 +305,22 @@ abstract class AbstractAddon {
 	 */
 	public function output_style_shortcode_id(): void {
 		echo '[' . esc_attr( $this->get_data_attribute_id() ) . '="' . esc_attr( $this->id ) . '"]';
+	}
+
+	/**
+	 * Get addon collection.
+	 *
+	 * @since 1.0
+	 */
+	public function get_collection( string $name ): AbstractAddonCollection {
+		$class_name       = str_replace( ' ', '', ucwords( str_replace( '-', ' ', $name ) ) );
+		$builder          = str_replace( ' ', '', ucwords( str_replace( '_', ' ', $this->builder_slug ) ) );
+		$collection_class = 'JoywpTestimonialsWpb\\Addons\\Builders\\' . $builder . '\\Addon\\Collection\\' . $class_name;
+
+		$collection = new $collection_class();
+
+		$collection->set_addon( $this );
+
+		return $collection;
 	}
 }

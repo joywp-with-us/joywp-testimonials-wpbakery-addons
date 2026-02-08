@@ -1,6 +1,6 @@
 <?php
 /**
- * This class helps add font configurations to our addons.
+ * This class helps add font-family configurations to our addons.
  *
  * @since 1.0
  */
@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-class Font extends AbstractParamsCollection {
+class FontFamily extends AbstractParamsCollection {
 	/**
 	 * Get integration config.
 	 *

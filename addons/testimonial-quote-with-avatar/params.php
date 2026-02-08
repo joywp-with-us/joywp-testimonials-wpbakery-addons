@@ -106,7 +106,7 @@ return array_merge(
 		],
 	],
 	$config
-		->get_params_collection( 'font' )
+		->get_params_collection( 'font-family' )
 		->set_additional_params( [ 'group' => __( 'Quotes', 'joywp-testimonials-wpbakery-addons' ) ] )
 		->set_dependency(
 			[

@@ -10,7 +10,7 @@ namespace JoywpTestimonialsWpb\Addons;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Class AbstractParams
+ * Class AbstractParamsCollection
  * We call 'Params Collection' array of params that we correspond for some specific
  * addon property that we can separate to collection (e.g., Border, Box Shadow, Image, etc.).
  *

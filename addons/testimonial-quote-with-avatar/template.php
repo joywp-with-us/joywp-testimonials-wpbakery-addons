@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 				?>
 				<div class="joywp-testimonial-quote-with-avatar-avatar">
 					<?php
-					$addon->output_integrated_addon( 'vc_single_image', $atts );
+					$addon->get_collection( 'image ' )->render( $atts );
 					?>
 				</div>
 				<?php
@@ -62,12 +62,7 @@ defined( 'ABSPATH' ) || exit;
 		background-color: <?php echo esc_attr( $atts['testimonial_background'] ); ?>;
 		<?php
 		if ( 'true' === $atts['add_border'] ) :
-			?>
-				border-width: <?php echo esc_attr( $atts['border_width'] ); ?>px;
-				border-style: <?php echo esc_attr( $atts['border_style'] ); ?>;
-				border-color: <?php echo esc_attr( $atts['border_color'] ); ?>;
-				border-radius: <?php echo esc_attr( $atts['border_radius'] ); ?>px;
-			<?php
+			$addon->get_collection( 'border ' )->render( $atts );
 		endif;
 		?>
 	}
@@ -81,7 +76,7 @@ defined( 'ABSPATH' ) || exit;
 		.joywp-testimonial-quote-with-avatar-quote-mark {
 			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
 			color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
-			font-family: <?php echo esc_attr( $atts['font_family'] ); ?>;
+			<?php $addon->get_collection( 'font-family' )->render( $atts ); ?>
 		}
 		<?php
 	endif;
