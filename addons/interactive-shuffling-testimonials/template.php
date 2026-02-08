@@ -103,7 +103,6 @@ defined( 'ABSPATH' ) || exit;
     .joywp-horizontal-testimonial-card__container {
         position: relative;
         width: 100%;
-        max-width: 700px;
         min-height: 700px;
         padding: 20px;
         overflow: hidden;

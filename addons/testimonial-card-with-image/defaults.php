@@ -18,7 +18,7 @@ return [
 	'box_shadow_vertical'   => '1',
 	'box_shadow_blur'       => '4',
 	'advanced_divider'      => '1',
-	'custom_src'            => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample3.jpg',
+	'custom_src'            => 'https://i.pravatar.cc/500?img=12',
 	'quotes_color'          => '#33333333',
 	'box_shadow_color'      => '#00000082',
 ];

@@ -23,5 +23,5 @@ return [
 	'border_width'           => '0',
 	'border_radius'          => '5',
 	'advanced_divider'       => '1',
-	'custom_src'             => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg',
+	'custom_src'             => 'https://i.pravatar.cc/150?img=16',
 ];
