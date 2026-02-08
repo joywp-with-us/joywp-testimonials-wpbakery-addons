@@ -17,7 +17,6 @@ return array_merge(
 			'heading'     => esc_html__( 'Testimonial', 'joywp-testimonials-wpbakery-addons' ),
 			'description' => esc_html__( 'Enter testimonial text.', 'joywp-testimonials-wpbakery-addons' ),
 			'param_name'  => 'testimonial',
-			'value'       => '',
 			'scope'       => [
 				'use_menubar' => 'false',
 				'use_media'   => 'false',
@@ -28,7 +27,6 @@ return array_merge(
 			'heading'     => esc_html__( 'Name', 'joywp-testimonials-wpbakery-addons' ),
 			'description' => esc_html__( 'Enter testimonial author name.', 'joywp-testimonials-wpbakery-addons' ),
 			'param_name'  => 'name',
-			'value'       => '',
 			'scope'       => [
 				'use_menubar' => 'false',
 				'use_media'   => 'false',
