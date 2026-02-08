@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-class Image extends AbstractParamsCollectionIntegration {
+class Image extends AbstractCollection {
 	/**
 	 * Get integration addon params.
 	 *

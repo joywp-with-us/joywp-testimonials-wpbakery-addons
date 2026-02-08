@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-abstract class AbstractParamsCollectionIntegration extends AbstractParamsCollection {
+abstract class AbstractCollection extends AbstractParamsCollection {
 	/**
 	 * Parameters to exclude from integration.
 	 *
