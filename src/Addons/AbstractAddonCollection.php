@@ -39,11 +39,4 @@ abstract class AbstractAddonCollection {
 	public function set_addon( AbstractAddon $addon ): void {
 		$this->addon = $addon;
 	}
-
-	/**
-	 * Render collection output.
-	 *
-	 * @since 1.0
-	 */
-	abstract public function render( array $atts ): void;
 }

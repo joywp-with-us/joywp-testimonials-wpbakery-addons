@@ -25,12 +25,29 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 	public array $exclude = [];
 
 	/**
+	 * Parameters to include only for integration.
+	 *
+	 * @since 1.0
+	 */
+	public array $include_only = [];
+
+	/**
 	 * Set parameters to exclude from integration.
 	 *
 	 * @since 1.0
 	 */
 	public function set_exclude( array $exclude_params ): AbstractParamsCollection {
 		$this->exclude = $exclude_params;
+		return $this;
+	}
+
+	/**
+	 * Set parameters to include only for integration.
+	 *
+	 * @since 1.0
+	 */
+	public function set_include_only( array $include_only ): AbstractParamsCollection {
+		$this->include_only = $include_only;
 		return $this;
 	}
 
@@ -58,9 +75,12 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 			$config['params'] = $this->add_dependency( $config['params'], $this->dependency );
 		}
 
-		$exclude = array_merge( $this->get_always_exclude_params(), $this->exclude );
-
-		$change_fields = [ 'exclude' => $exclude ];
+		if ( $this->include_only ) {
+			$change_fields = [ 'include_only' => $this->include_only ];
+		} else {
+			$exclude       = array_merge( $this->get_always_exclude_params(), $this->exclude );
+			$change_fields = [ 'exclude' => $exclude ];
+		}
 
 		return vc_map_integrate_shortcode(
 			$config,

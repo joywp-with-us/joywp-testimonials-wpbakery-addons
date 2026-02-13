@@ -23,9 +23,9 @@ defined( 'ABSPATH' ) || exit;
 			<?php
 		endif;
 		?>
-		<div class="joywp-horizontal-testimonial-card__grid" id="joywp-testimonialGrid" role="list" aria-label="Client testimonials"></div>
+		<div class="joywp-horizontal-testimonial-card__grid" id="joywp-testimonialGrid" role="list" aria-label="<?php echo esc_attr__( 'Testimonials', 'joywp-testimonials-wpbakery-addons' ); ?>"></div>
 
-		<button class="joywp-horizontal-testimonial-card__btn-rotate" id="joywp-rotateBtn" aria-label="Shuffle testimonials to see different reviews">Shuffle Testimonials</button>
+		<button class="joywp-horizontal-testimonial-card__btn-rotate" id="joywp-rotateBtn">Shuffle Testimonials</button>
 
 		<div class="joywp-horizontal-testimonial-card__particles" id="joywp-particles" aria-hidden="true"></div>
 	</div>
@@ -188,7 +188,6 @@ defined( 'ABSPATH' ) || exit;
 		font-size: 80px;
 		line-height: 1;
 		font-family: Georgia, serif;
-		opacity: 0.06;
 		transition: opacity 0.3s ease;
 		pointer-events: none;
 		user-select: none;
@@ -387,70 +386,23 @@ defined( 'ABSPATH' ) || exit;
 		'use strict';
 
 		var testimonials = [
-			{
-				name: "Sophie Crawford",
-				title: "Art Director, Prisma Studios",
-				avatar: "https://i.pravatar.cc/150?img=1",
-				text: "The branding exploration we did together transformed how our audience perceives us. Emily has an incredible ability to translate abstract concepts into visual storytelling that resonates deeply.",
-				size: "large",
-				color: "#cccccc"
-			},
-			{
-				name: "Marcus Chen",
-				title: "Founder, Evergreen Coffee",
-				avatar: "https://i.pravatar.cc/150?img=2",
-				text: "Our packaging redesign led to a 47% increase in retail placement. The new identity perfectly captures our sustainable approach while standing out on crowded shelves.",
-				size: "medium",
-				color: "#4ecdc4"
-			},
-			{
-				name: "Olivia Sanchez",
-				title: "Marketing Lead, TechSphere",
-				avatar: "https://i.pravatar.cc/150?img=3",
-				text: "Working with a designer who truly understands UX psychology made all the difference in our product launch. Conversion rates jumped 32% with the new landing page design.",
-				size: "medium",
-				color: "#ffe66d"
-			},
-			{
-				name: "Jordan Taylor",
-				title: "Creative Director, Lumen Agency",
-				avatar: "https://i.pravatar.cc/150?img=4",
-				text: "The editorial layouts created for our magazine completely elevated our visual narrative. Sophisticated yet accessible - exactly what we needed.",
-				size: "small",
-				color: "#6a0572"
-			},
-			{
-				name: "Aisha Patel",
-				title: "CEO, Nomad Collective",
-				avatar: "https://i.pravatar.cc/150?img=5",
-				text: "The immersive brand experience designed for our pop-up installations created genuine emotional connections with visitors. Three months later, people are still talking about it.",
-				size: "large",
-				color: "#1a2a6c"
-			},
-			{
-				name: "Leo Washington",
-				title: "Product Manager, Wavelength",
-				avatar: "https://i.pravatar.cc/150?img=6",
-				text: "Our app redesign not only looks beautiful but dramatically improved our user retention metrics by 28%. The thoughtful micro-interactions make all the difference.",
-				size: "medium",
-				color: "#ff6b6b"
-			},
-			{
-				name: "Emma Blackwood",
-				title: "Author & Publisher",
-				avatar: "https://i.pravatar.cc/150?img=7",
-				text: "The book cover design perfectly captured the essence of my story. Several readers mentioned they purchased based on the cover alone!",
-				size: "small",
-				color: "#4ecdc4"
-			},
-			{
-				name: "Thomas Eriksen",
-				title: "Festival Director, SoundWave",
-				avatar: "https://i.pravatar.cc/150?img=8",
-				text: "The dynamic motion graphics package created for our music festival received industry recognition and elevated our digital presence to a new level.",
-				size: "small",
-				color: "#ffe66d"
-			}
+			<?php
+			$items = $addon->get_collection( 'param-group' )->get_items( $atts );
+
+
+			foreach ( $items as $item ) :
+				?>
+				{
+					name: "<?php echo isset( $item['title'] ) ? esc_html( $item['title'] ) : ''; ?>",
+					title: "<?php echo isset( $item['subtitle'] ) ? esc_html( $item['subtitle'] ) : ''; ?>",
+					text: "<?php echo isset( $item['testimonial'] ) ? esc_html( $item['testimonial'] ) : ''; ?>",
+					avatar: "<?php echo esc_url( $addon->get_collection( 'image' )->get_image_link( $item ) ); ?>",
+					size: "<?php echo isset( $item['size'] ) ? esc_html( $item['size'] ) : 'small'; ?>",
+					color: "<?php echo isset( $item['quot_color'] ) ? esc_html( $item['quot_color'] ) : ''; ?>"
+				},
+				<?php
+			endforeach;
+			?>
 		];
 
 		var grid = document.getElementById('joywp-testimonialGrid');

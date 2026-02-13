@@ -25,4 +25,18 @@ class Image extends AbstractAddonCollection {
 	public function render( array $atts ): void {
 		$this->addon->output_integrated_addon( 'vc_single_image', $atts );
 	}
+
+
+	/**
+	 * Get image link.
+	 *
+	 * @since 1.0
+	 */
+	public function get_image_link( array $atts ): string {
+		$html = $this->addon->get_integrated_addon_output( 'vc_single_image', $atts );
+
+		preg_match( '/<img.*?src=["\'](.*?)["\'].*?>/i', $html, $matches );
+
+		return $matches[1] ?? '';
+	}
 }

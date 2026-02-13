@@ -44,17 +44,19 @@ return array_merge(
 						'type'        => 'textfield',
 						'param_name'  => 'title',
 						'heading'     => esc_html__( 'Title', 'joywp-testimonials-wpbakery-addons' ),
-						'description' => esc_html__( 'Title of testimonial, here you can put the job title of the person', 'joywp-testimonials-wpbakery-addons' ),
+						'description' => esc_html__( 'Title of testimonial, here you can put the name of the person', 'joywp-testimonials-wpbakery-addons' ),
 					],
 					[
-						'type'        => 'joywp_wysiwyg',
+						'type'        => 'textfield',
+						'param_name'  => 'subtitle',
+						'heading'     => esc_html__( 'Subtitle', 'joywp-testimonials-wpbakery-addons' ),
+						'description' => esc_html__( 'Sub title of testimonial, here you can put the job title of the person', 'joywp-testimonials-wpbakery-addons' ),
+					],
+					[
+						'type'        => 'textfield',
 						'param_name'  => 'testimonial',
 						'heading'     => esc_html__( 'Testimonial', 'joywp-testimonials-wpbakery-addons' ),
 						'description' => esc_html__( 'Testimonial content', 'joywp-testimonials-wpbakery-addons' ),
-						'scope'       => [
-							'use_menubar' => 'false',
-							'use_media'   => 'false',
-						],
 					],
 					[
 						'type'        => 'joywp_switcher',
@@ -73,8 +75,8 @@ return array_merge(
 					],
 				],
 				$config->
-				get_params_collection( 'image' )->
-				set_exclude( [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color', 'alignment', 'onclick', 'link', 'img_link_target' ] )->
+				get_collection( 'image' )->
+				set_include_only( [ 'source', 'image', 'custom_src' ] )->
 				set_dependency(
 					[
 						'element' => 'add_image',
@@ -87,6 +89,7 @@ return array_merge(
 						'type'       => 'colorpicker',
 						'param_name' => 'quot_color',
 						'heading'    => esc_html__( 'Color of quotation marks', 'joywp-testimonials-wpbakery-addons' ),
+						'value'      => '#CCCCCC00',
 					],
 				],
 			),

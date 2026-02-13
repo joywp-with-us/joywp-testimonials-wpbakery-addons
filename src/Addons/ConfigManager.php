@@ -287,7 +287,7 @@ class ConfigManager {
 	 * @throws WP_Exception
 	 * @since 1.0
 	 */
-	public function get_params_collection( string $name ): AbstractParamsCollection {
+	public function get_collection( string $name ): AbstractParamsCollection {
 		$class_name       = str_replace( ' ', '', ucwords( str_replace( '-', ' ', $name ) ) );
 		$builder          = str_replace( ' ', '', ucwords( str_replace( '_', ' ', $this->builder_slug ) ) );
 		$collection_class = 'JoywpTestimonialsWpb\\Addons\\Builders\\' . $builder . '\\Config\\Params\\Collection\\' . $class_name;

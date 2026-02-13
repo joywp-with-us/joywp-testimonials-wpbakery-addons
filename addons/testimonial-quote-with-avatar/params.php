@@ -106,7 +106,7 @@ return array_merge(
 		],
 	],
 	$config
-		->get_params_collection( 'font-family' )
+		->get_collection( 'font-family' )
 		->set_additional_params( [ 'group' => __( 'Quotes', 'joywp-testimonials-wpbakery-addons' ) ] )
 		->set_dependency(
 			[
@@ -133,7 +133,7 @@ return array_merge(
 		],
 	],
 	$config->
-	get_params_collection( 'image' )->
+	get_collection( 'image' )->
 	set_exclude( [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ] )->
 	set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )->
 	set_dependency(
@@ -204,5 +204,5 @@ return array_merge(
 			],
 		],
 	],
-	$config->get_params_collection( 'border' )->get_params(),
+	$config->get_collection( 'border' )->get_params(),
 );
