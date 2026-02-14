@@ -44,6 +44,7 @@ return array_merge(
 						'type'        => 'textfield',
 						'param_name'  => 'title',
 						'heading'     => esc_html__( 'Title', 'joywp-testimonials-wpbakery-addons' ),
+						'admin_label' => true,
 						'description' => esc_html__( 'Title of testimonial, here you can put the name of the person', 'joywp-testimonials-wpbakery-addons' ),
 					],
 					[

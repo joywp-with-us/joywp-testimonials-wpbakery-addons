@@ -26,7 +26,6 @@ class Image extends AbstractAddonCollection {
 		$this->addon->output_integrated_addon( 'vc_single_image', $atts );
 	}
 
-
 	/**
 	 * Get image link.
 	 *
