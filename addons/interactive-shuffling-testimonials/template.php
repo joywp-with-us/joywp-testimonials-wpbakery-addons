@@ -385,25 +385,24 @@ defined( 'ABSPATH' ) || exit;
 	(function() {
 		'use strict';
 
-		var testimonials = [
-			<?php
-			$items = $addon->get_collection( 'param-group' )->get_items( $atts );
+		<?php
+		$items = $addon->get_collection( 'param-group' )->get_items( $atts );
 
 
-			foreach ( $items as $item ) :
-				?>
-				{
-					name: "<?php echo isset( $item['title'] ) ? esc_html( $item['title'] ) : ''; ?>",
-					title: "<?php echo isset( $item['subtitle'] ) ? esc_html( $item['subtitle'] ) : ''; ?>",
-					text: "<?php echo isset( $item['testimonial'] ) ? esc_html( $item['testimonial'] ) : ''; ?>",
-					avatar: "<?php echo esc_url( $addon->get_collection( 'image' )->get_image_link( $item ) ); ?>",
-					size: "<?php echo isset( $item['size'] ) ? esc_html( $item['size'] ) : 'small'; ?>",
-					color: "<?php echo isset( $item['quot_color'] ) ? esc_html( $item['quot_color'] ) : ''; ?>"
-				},
-				<?php
-			endforeach;
+		foreach ( $items as $item ) :
+			$testimonials[] = [
+				'name'   => $item['title'] ?? '',
+				'title'  => $item['subtitle'] ?? '',
+				'text'   => $item['testimonial'] ?? '',
+				'avatar' => $addon->get_collection( 'image' )->get_image_link( $item ),
+				'size'   => $item['size'] ?? 'small',
+				'color'  => $item['quot_color'] ?? '',
+			];
 			?>
-		];
+			<?php
+		endforeach;
+		?>
+		var testimonials = <?php echo wp_json_encode( $testimonials ); ?>;
 
 		var grid = document.getElementById('joywp-testimonialGrid');
 		var particlesContainer = document.getElementById('joywp-particles');
@@ -412,7 +411,28 @@ defined( 'ABSPATH' ) || exit;
 		if (!grid || !particlesContainer || !rotateBtn) return;
 
 		renderTestimonials();
-		createParticles();
+		<?php
+		if ( 'true' === $atts['is_animated'] ) {
+			?>
+			var colors = ['#ff6b6b', '#4ecdc4'];
+
+			for (var i = 0; i < 15; i++) {
+				var particle = document.createElement('div');
+				particle.className = 'joywp-horizontal-testimonial-card__particle';
+
+				var size = Math.random() * 8 + 3;
+				particle.style.width = size + 'px';
+				particle.style.height = size + 'px';
+				particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+				particle.style.left = Math.random() * 100 + '%';
+				particle.style.top = Math.random() * 100 + '%';
+				particle.style.animationDelay = Math.random() * 5 + 's';
+
+				particlesContainer.appendChild(particle);
+			}
+			<?php
+		}
+		?>
 
 		rotateBtn.addEventListener('click', function() {
 			var cards = grid.querySelectorAll('.joywp-horizontal-testimonial-card__card');
@@ -513,25 +533,6 @@ defined( 'ABSPATH' ) || exit;
 
 				grid.appendChild(card);
 			});
-		}
-
-		function createParticles() {
-			var colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
-
-			for (var i = 0; i < 15; i++) {
-				var particle = document.createElement('div');
-				particle.className = 'joywp-horizontal-testimonial-card__particle';
-
-				var size = Math.random() * 8 + 3;
-				particle.style.width = size + 'px';
-				particle.style.height = size + 'px';
-				particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-				particle.style.left = Math.random() * 100 + '%';
-				particle.style.top = Math.random() * 100 + '%';
-				particle.style.animationDelay = Math.random() * 5 + 's';
-
-				particlesContainer.appendChild(particle);
-			}
 		}
 
 		function createParticleBurst() {

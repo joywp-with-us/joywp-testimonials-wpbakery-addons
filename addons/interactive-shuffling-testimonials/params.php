@@ -23,6 +23,18 @@ return array_merge(
 			],
 		],
 		[
+			'type'        => 'joywp_switcher',
+			'param_name'  => 'is_animated',
+			'heading'     => esc_html__( 'Animation', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => esc_html__( 'Enable animation for testimonial module.', 'joywp-testimonials-wpbakery-addons' ),
+			'options'     => [
+				'true' => [
+					'on'  => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
+					'off' => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
+				],
+			],
+		],
+		[
 			'type'       => 'param_group',
 			'group'      => esc_html__( 'Testimonials', 'chargewp-timeline-addons-for-wpbakery' ),
 			'heading'    => esc_html__( 'Testimonials Items', 'chargewp-timeline-addons-for-wpbakery' ),
@@ -54,7 +66,7 @@ return array_merge(
 						'description' => esc_html__( 'Sub title of testimonial, here you can put the job title of the person', 'joywp-testimonials-wpbakery-addons' ),
 					],
 					[
-						'type'        => 'textfield',
+						'type'        => 'textarea',
 						'param_name'  => 'testimonial',
 						'heading'     => esc_html__( 'Testimonial', 'joywp-testimonials-wpbakery-addons' ),
 						'description' => esc_html__( 'Testimonial content', 'joywp-testimonials-wpbakery-addons' ),
