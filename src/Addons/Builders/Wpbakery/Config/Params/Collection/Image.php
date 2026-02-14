@@ -39,4 +39,21 @@ class Image extends AbstractCollection {
 			'css',
 		];
 	}
+
+	/**
+	 * Get integration params.
+	 *
+	 * @since 1.0
+	 */
+	public function get_params(): array {
+		$params = parent::get_params();
+
+		foreach ( $params as $key => $value ) {
+			if ( isset( $value['admin_label'] ) ) {
+				unset( $params[ $key ]['admin_label'] );
+			}
+		}
+
+		return $params;
+	}
 }
