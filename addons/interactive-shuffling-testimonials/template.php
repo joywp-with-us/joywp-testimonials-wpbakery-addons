@@ -205,7 +205,6 @@ defined( 'ABSPATH' ) || exit;
 		margin-right: 10px;
 		background-size: cover;
 		background-position: center;
-		border: 2px solid;
 		flex-shrink: 0;
 	}
 
@@ -390,15 +389,19 @@ defined( 'ABSPATH' ) || exit;
 		$testimonial_list = [];
 		foreach ( $items as $item ) :
 			$testimonial = [
-				'name'                => $item['title'] ?? '',
-				'title'               => $item['subtitle'] ?? '',
-				'text'                => $item['testimonial'] ?? '',
-				'size'                => $item['size'] ?? 'small',
-				'color'               => $item['quot_color'] ?? '',
-				'avatar_border_color' => '#111111',
+				'name'  => $item['title'] ?? '',
+				'title' => $item['subtitle'] ?? '',
+				'text'  => $item['testimonial'] ?? '',
+				'size'  => $item['size'] ?? 'small',
+				'color' => $item['quot_color'] ?? '',
 			];
 			if ( 'true' === $item['add_image'] ) {
 				$testimonial['avatar'] = $addon->get_collection( 'image' )->get_image_link( $item );
+			}
+			if ( 'true' === $item['add_border'] ) {
+				$testimonial['avatar_border_color'] = $item['border_color'] ?? '';
+				$testimonial['avatar_border_width'] = $item['border_width'] ?? 0;
+				$testimonial['avatar_border_style'] = $item['border_style'] ?? 'solid';
 			}
 			$testimonial_list[] = $testimonial;
 			?>
@@ -507,6 +510,8 @@ defined( 'ABSPATH' ) || exit;
 				// set style for avatar border color based on quote color
 				if (testimonial.avatar_border_color) {
 					avatar.style.borderColor = testimonial.avatar_border_color;
+					avatar.style.borderWidth = testimonial.avatar_border_width + 'px';
+					avatar.style.borderStyle = testimonial.avatar_border_style;
 				}
 
 				var clientDetails = document.createElement('div');

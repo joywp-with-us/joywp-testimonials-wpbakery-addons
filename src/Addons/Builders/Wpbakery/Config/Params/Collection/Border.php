@@ -87,6 +87,7 @@ class Border extends AbstractParamsCollection {
 				'heading'         => esc_html__( 'Border color', 'joywp-testimonials-wpbakery-addons' ),
 				'param_name'      => $this->prefix . 'border_color',
 				'description'     => esc_html__( 'Select custom color for border.', 'joywp-testimonials-wpbakery-addons' ),
+				'value'           => '#cccccc00',
 				'dependency'      => [
 					'element' => $this->prefix . 'add_border',
 					'value'   => 'true',
