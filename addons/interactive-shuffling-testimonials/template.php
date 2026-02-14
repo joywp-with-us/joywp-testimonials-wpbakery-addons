@@ -79,7 +79,6 @@ defined( 'ABSPATH' ) || exit;
 	.joywp-horizontal-testimonial-card__root {
 		--joywp-primary: #ff6b6b;
 		--joywp-secondary: #4ecdc4;
-		--joywp-accent1: #ffe66d;
 		--joywp-accent2: #6a0572;
 		--joywp-accent3: #1a2a6c;
 		--joywp-light: #f7f7f7;
@@ -206,7 +205,7 @@ defined( 'ABSPATH' ) || exit;
 		margin-right: 10px;
 		background-size: cover;
 		background-position: center;
-		border: 2px solid var(--joywp-accent1);
+		border: 2px solid;
 		flex-shrink: 0;
 	}
 
@@ -388,21 +387,25 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		$items = $addon->get_collection( 'param-group' )->get_items( $atts );
 
-
+		$testimonial_list = [];
 		foreach ( $items as $item ) :
-			$testimonials[] = [
-				'name'   => $item['title'] ?? '',
-				'title'  => $item['subtitle'] ?? '',
-				'text'   => $item['testimonial'] ?? '',
-				'avatar' => $addon->get_collection( 'image' )->get_image_link( $item ),
-				'size'   => $item['size'] ?? 'small',
-				'color'  => $item['quot_color'] ?? '',
+			$testimonial = [
+				'name'                => $item['title'] ?? '',
+				'title'               => $item['subtitle'] ?? '',
+				'text'                => $item['testimonial'] ?? '',
+				'size'                => $item['size'] ?? 'small',
+				'color'               => $item['quot_color'] ?? '',
+				'avatar_border_color' => '#111111',
 			];
+			if ( 'true' === $item['add_image'] ) {
+				$testimonial['avatar'] = $addon->get_collection( 'image' )->get_image_link( $item );
+			}
+			$testimonial_list[] = $testimonial;
 			?>
 			<?php
 		endforeach;
 		?>
-		var testimonials = <?php echo wp_json_encode( $testimonials ); ?>;
+		var testimonials = <?php echo wp_json_encode( $testimonial_list ); ?>;
 
 		var grid = document.getElementById('joywp-testimonialGrid');
 		var particlesContainer = document.getElementById('joywp-particles');
@@ -500,6 +503,11 @@ defined( 'ABSPATH' ) || exit;
 				avatar.style.backgroundImage = 'url(' + testimonial.avatar + ')';
 				avatar.setAttribute('role', 'img');
 				avatar.setAttribute('aria-label', 'Photo of ' + testimonial.name);
+				avatar.setAttribute('alt', 'Photo of ' + testimonial.name);
+				// set style for avatar border color based on quote color
+				if (testimonial.avatar_border_color) {
+					avatar.style.borderColor = testimonial.avatar_border_color;
+				}
 
 				var clientDetails = document.createElement('div');
 				clientDetails.className = 'joywp-horizontal-testimonial-card__client-details';
