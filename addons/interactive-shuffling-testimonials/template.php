@@ -234,16 +234,19 @@ defined( 'ABSPATH' ) || exit;
 		font-size: 0.8rem;
 		max-height: 85px;
 		overflow: hidden;
+		white-space: pre-line;
 	}
 
 	.joywp-horizontal-testimonial-card__card-medium .joywp-horizontal-testimonial-card__text {
 		max-height: 125px;
 		overflow: hidden;
+		white-space: pre-line;
 	}
 
 	.joywp-horizontal-testimonial-card__card-large .joywp-horizontal-testimonial-card__text {
 		max-height: 165px;
 		overflow: hidden;
+		white-space: pre-line;
 	}
 
 	.joywp-horizontal-testimonial-card__btn-rotate {
