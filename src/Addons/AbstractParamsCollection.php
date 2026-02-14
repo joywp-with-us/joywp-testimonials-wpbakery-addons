@@ -39,6 +39,20 @@ abstract class AbstractParamsCollection {
 	protected array $dependency = [];
 
 	/**
+	 * Parameters to exclude from integration.
+	 *
+	 * @since 1.0
+	 */
+	public array $exclude = [];
+
+	/**
+	 * Parameters to include only for integration.
+	 *
+	 * @since 1.0
+	 */
+	public array $include_only = [];
+
+	/**
 	 * Collection specific params.
 	 *
 	 * @since 1.0
@@ -61,7 +75,74 @@ abstract class AbstractParamsCollection {
 			$params = $this->add_dependency( $params, $this->dependency );
 		}
 
+		if ( $this->include_only ) {
+			$params = $this->implement_include_only( $params );
+		} else {
+			$params = $this->implement_exclude( $params );
+		}
+
 		return $params;
+	}
+
+	/**
+	 * Implement include only logic to params.
+	 *
+	 * @since 1.0
+	 */
+	public function implement_include_only( array $params ): array {
+		$result = [];
+		foreach ( $params as $param_data ) {
+			if ( in_array( $param_data['param_name'], $this->include_only, true ) ) {
+				$result[] = $param_data;
+			}
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Implement exclude logic to params.
+	 *
+	 * @since 1.0
+	 */
+	public function implement_exclude( array $params ): array {
+		if ( ! $this->exclude ) {
+			return $params;
+		}
+
+		foreach ( $params as $key => $param_data ) {
+			if ( in_array( $param_data['param_name'], $this->exclude, true ) ) {
+				unset( $params[ $key ] );
+			}
+		}
+
+		return $params;
+	}
+
+	/**
+	 * Set parameters to exclude from integration.
+	 *
+	 * @since 1.0
+	 */
+	public function set_exclude( array $exclude_params ): AbstractParamsCollection {
+		$this->exclude = $exclude_params;
+		foreach ( $exclude_params as $key => $param_name ) {
+			$exclude_params[ $key ] = $this->prefix . $param_name;
+		}
+		return $this;
+	}
+
+	/**
+	 * Set parameters to include only for integration.
+	 *
+	 * @since 1.0
+	 */
+	public function set_include_only( array $include_only ): AbstractParamsCollection {
+		$this->include_only = $include_only;
+		foreach ( $include_only as $key => $param_name ) {
+			$include_only[ $key ] = $this->prefix . $param_name;
+		}
+		return $this;
 	}
 
 	/**

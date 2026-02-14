@@ -87,17 +87,6 @@ return array_merge(
 						'value'       => '',
 					],
 				],
-				// $config->
-				// get_collection( 'border' )->
-				// set_dependency(
-				// [
-				// 'element' => 'add_image',
-				// 'value'   => 'true',
-				// ]
-				// )->
-				// set_exclude( [ 'border_radius', ] )->
-				// get_params(),
-
 				$config->
 				get_collection( 'image' )->
 				set_include_only( [ 'source', 'image', 'custom_src' ] )->
@@ -107,6 +96,16 @@ return array_merge(
 						'value'   => 'true',
 					]
 				)->
+				get_params(),
+				$config->
+				get_collection( 'border' )->
+				set_dependency(
+					[
+						'element' => 'add_image',
+						'value'   => 'true',
+					]
+				)->
+				set_exclude( [ 'border_radius' ] )->
 				get_params(),
 				[
 					[

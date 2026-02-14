@@ -18,40 +18,6 @@ defined( 'ABSPATH' ) || exit;
  */
 abstract class AbstractCollection extends AbstractParamsCollection {
 	/**
-	 * Parameters to exclude from integration.
-	 *
-	 * @since 1.0
-	 */
-	public array $exclude = [];
-
-	/**
-	 * Parameters to include only for integration.
-	 *
-	 * @since 1.0
-	 */
-	public array $include_only = [];
-
-	/**
-	 * Set parameters to exclude from integration.
-	 *
-	 * @since 1.0
-	 */
-	public function set_exclude( array $exclude_params ): AbstractParamsCollection {
-		$this->exclude = $exclude_params;
-		return $this;
-	}
-
-	/**
-	 * Set parameters to include only for integration.
-	 *
-	 * @since 1.0
-	 */
-	public function set_include_only( array $include_only ): AbstractParamsCollection {
-		$this->include_only = $include_only;
-		return $this;
-	}
-
-	/**
 	 * Get params list that we always exclude.
 	 *
 	 * @since 1.0
