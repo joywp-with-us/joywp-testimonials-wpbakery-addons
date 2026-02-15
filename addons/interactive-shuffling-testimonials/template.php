@@ -8,6 +8,29 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$items = $addon->get_collection( 'param-group' )->get_items( $atts );
+
+$testimonial_list = [];
+foreach ( $items as $item ) :
+	$testimonial = [
+		'name'  => $item['title'] ?? '',
+		'title' => $item['subtitle'] ?? '',
+		'text'  => $item['testimonial'] ?? '',
+		'size'  => $item['size'] ?? 'small',
+		'color' => $item['quot_color'] ?? '',
+		'id'    => ( $item['id'] ),
+	];
+	if ( 'true' === $item['add_image'] ) {
+		$testimonial['avatar'] = $addon->get_collection( 'image' )->get_image_link( $item );
+	}
+	if ( isset( $item['add_border'] ) && 'true' === $item['add_border'] ) {
+		$testimonial['avatar_border_color'] = $item['border_color'] ?? '';
+		$testimonial['avatar_border_width'] = $item['border_width'] ?? 0;
+		$testimonial['avatar_border_style'] = $item['border_style'] ?? 'solid';
+	}
+	$testimonial_list[] = $testimonial;
+endforeach;
 ?>
 
 <div class="joywp-horizontal-testimonial-card__root">
@@ -72,7 +95,26 @@ defined( 'ABSPATH' ) || exit;
 				font-size: 1.5rem;
 			}
 		}
-	<?php endif; ?>
+		<?php
+	endif;
+	foreach ( $items as $index => $item ) :
+		if ( ! empty( $item['add_top_accent'] ) ) :
+			$addon->output_style_shortcode_id();
+			?>
+				[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"]::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 4px;
+					background-color: <?php echo esc_attr( $item['top_accent_color'] ); ?>;
+					/*background: linear-gradient(to right, var(--joywp-primary), var(--joywp-secondary));*/
+				}
+				<?php
+			endif;
+		endforeach;
+	?>
 </style>
 
 <style>
@@ -138,16 +180,6 @@ defined( 'ABSPATH' ) || exit;
 		border-top: 4px solid transparent;
 		background-clip: padding-box;
 		position: relative;
-	}
-
-	.joywp-horizontal-testimonial-card__card::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 4px;
-		background: linear-gradient(to right, var(--joywp-primary), var(--joywp-secondary));
 	}
 
 	.joywp-horizontal-testimonial-card__card:hover {
@@ -386,31 +418,6 @@ defined( 'ABSPATH' ) || exit;
 	(function() {
 		'use strict';
 
-		<?php
-		$items = $addon->get_collection( 'param-group' )->get_items( $atts );
-
-		$testimonial_list = [];
-		foreach ( $items as $item ) :
-			$testimonial = [
-				'name'  => $item['title'] ?? '',
-				'title' => $item['subtitle'] ?? '',
-				'text'  => $item['testimonial'] ?? '',
-				'size'  => $item['size'] ?? 'small',
-				'color' => $item['quot_color'] ?? '',
-			];
-			if ( 'true' === $item['add_image'] ) {
-				$testimonial['avatar'] = $addon->get_collection( 'image' )->get_image_link( $item );
-			}
-			if ( 'true' === $item['add_border'] ) {
-				$testimonial['avatar_border_color'] = $item['border_color'] ?? '';
-				$testimonial['avatar_border_width'] = $item['border_width'] ?? 0;
-				$testimonial['avatar_border_style'] = $item['border_style'] ?? 'solid';
-			}
-			$testimonial_list[] = $testimonial;
-			?>
-			<?php
-		endforeach;
-		?>
 		var testimonials = <?php echo wp_json_encode( $testimonial_list ); ?>;
 
 		var grid = document.getElementById('joywp-testimonialGrid');
@@ -423,7 +430,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		if ( 'true' === $atts['is_animated'] ) {
 			?>
-			var colors = ['#ff6b6b', '#4ecdc4'];
+			var colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
 
 			for (var i = 0; i < 15; i++) {
 				var particle = document.createElement('div');
@@ -481,6 +488,7 @@ defined( 'ABSPATH' ) || exit;
 				card.setAttribute('role', 'listitem');
 				card.setAttribute('tabindex', '0');
 				card.setAttribute('aria-label', 'Testimonial from ' + testimonial.name + ', ' + testimonial.title);
+				card.setAttribute('data-item-id', testimonial.id);
 
 				if (positions[index]) {
 					if (window.innerWidth > 500) {

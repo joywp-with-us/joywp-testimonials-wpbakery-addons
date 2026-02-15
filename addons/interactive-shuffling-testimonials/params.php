@@ -72,11 +72,37 @@ return array_merge(
 						'description' => esc_html__( 'Testimonial content', 'joywp-testimonials-wpbakery-addons' ),
 					],
 					[
+						'type'            => 'joywp_switcher',
+						'param_name'      => 'add_top_accent',
+						'heading'         => esc_html__( 'Add Top Accent', 'joywp-testimonials-wpbakery-addons' ),
+						'description'     => esc_html__( 'Add top accent to the testimonial card.', 'joywp-testimonials-wpbakery-addons' ),
+						'options'         => [
+							'true' => [
+								'label' => '',
+								'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
+								'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
+							],
+						],
+						'wcp_group'       => true,
+						'wcp_group_color' => '#B8860B',
+					],
+					[
+						'type'            => 'colorpicker',
+						'param_name'      => 'top_accent_color',
+						'heading'         => esc_html__( 'Color', 'joywp-testimonials-wpbakery-addons' ),
+						'value'           => '#ff757c',
+						'wcp_group'       => true,
+						'wcp_group_color' => '#B8860B',
+						'dependency'      => [
+							'element' => 'add_top_accent',
+							'value'   => 'true',
+						],
+					],
+					[
 						'type'        => 'joywp_switcher',
 						'param_name'  => 'add_image',
 						'heading'     => esc_html__( 'Add Image', 'joywp-testimonials-wpbakery-addons' ),
 						'description' => esc_html__( 'Add image to the testimonial card.', 'joywp-testimonials-wpbakery-addons' ),
-						'group'       => esc_html__( 'Image', 'joywp-testimonials-wpbakery-addons' ),
 						'options'     => [
 							'true' => [
 								'label' => '',
