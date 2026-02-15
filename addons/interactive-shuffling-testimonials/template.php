@@ -18,16 +18,18 @@ foreach ( $items as $item ) :
 		'title' => $item['subtitle'] ?? '',
 		'text'  => $item['testimonial'] ?? '',
 		'size'  => $item['size'] ?? 'small',
-		'color' => $item['quot_color'] ?? '',
 		'id'    => ( $item['id'] ),
 	];
-	if ( 'true' === $item['add_image'] ) {
-		$testimonial['avatar'] = $addon->get_collection( 'image' )->get_image_link( $item );
+	if ( isset( $item['add_quot'] ) && 'true' === $item['add_quot'] ) {
+		$testimonial['quot_color'] = $item['quot_color'];
 	}
-	if ( isset( $item['add_border'] ) && 'true' === $item['add_border'] ) {
-		$testimonial['avatar_border_color'] = $item['border_color'] ?? '';
-		$testimonial['avatar_border_width'] = $item['border_width'] ?? 0;
-		$testimonial['avatar_border_style'] = $item['border_style'] ?? 'solid';
+	if ( isset( $item['add_image'] ) && 'true' === $item['add_image'] ) {
+		$testimonial['avatar'] = $addon->get_collection( 'image' )->get_image_link( $item );
+		if ( isset( $item['add_border'] ) && 'true' === $item['add_border'] ) {
+			$testimonial['avatar_border_color'] = $item['border_color'] ?? '';
+			$testimonial['avatar_border_width'] = $item['border_width'] ?? 0;
+			$testimonial['avatar_border_style'] = $item['border_style'] ?? 'solid';
+		}
 	}
 	$testimonial_list[] = $testimonial;
 endforeach;
@@ -108,8 +110,7 @@ endforeach;
 					left: 0;
 					width: 100%;
 					height: 4px;
-					background-color: <?php echo esc_attr( $item['top_accent_color'] ); ?>;
-					/*background: linear-gradient(to right, var(--joywp-primary), var(--joywp-secondary));*/
+					<?php $addon->get_collection( 'background' )->render( $item ); ?>
 				}
 				<?php
 			endif;
@@ -545,15 +546,19 @@ endforeach;
 				textDiv.className = 'joywp-horizontal-testimonial-card__text';
 				textDiv.textContent = testimonial.text;
 
-				var quote = document.createElement('div');
-				quote.className = 'joywp-horizontal-testimonial-card__quote';
-				quote.textContent = '"';
-				quote.style.color = testimonial.color;
-				quote.setAttribute('aria-hidden', 'true');
+
 
 				card.appendChild(clientInfo);
 				card.appendChild(textDiv);
-				card.appendChild(quote);
+				console.log(testimonial.quot_color);
+				if (testimonial.quot_color) {
+					var quote = document.createElement('div');
+					quote.className = 'joywp-horizontal-testimonial-card__quote';
+					quote.textContent = '"';
+					quote.style.color = testimonial.quot_color
+					quote.setAttribute('aria-hidden', 'true');
+					card.appendChild(quote);
+				}
 
 				grid.appendChild(card);
 			});

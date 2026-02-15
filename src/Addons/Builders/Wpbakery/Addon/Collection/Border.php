@@ -25,10 +25,10 @@ class Border extends AbstractAddonCollection {
 	public function render( array $atts ): void {
 		printf(
 			'border-width: %spx; border-style: %s; border-color: %s; border-radius: %spx;',
-			esc_attr( $atts['border_width'] ),
-			esc_attr( $atts['border_style'] ),
-			esc_attr( $atts['border_color'] ),
-			esc_attr( $atts['border_radius'] )
+			esc_attr( $atts[ $this->prefix . 'border_width' ] ),
+			esc_attr( $atts[ $this->prefix . 'border_style' ] ),
+			esc_attr( $atts[ $this->prefix . 'border_color' ] ),
+			esc_attr( $atts[ $this->prefix . 'border_radius' ] )
 		);
 	}
 }

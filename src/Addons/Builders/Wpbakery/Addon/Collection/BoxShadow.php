@@ -25,11 +25,11 @@ class BoxShadow extends AbstractAddonCollection {
 	public function render( array $atts ): void {
 		printf(
 			'box-shadow: %spx %spx %spx %spx %s;',
-			esc_attr( $atts['box_shadow_horizontal'] ),
-			esc_attr( $atts['box_shadow_vertical'] ),
-			esc_attr( $atts['box_shadow_blur'] ),
-			esc_attr( $atts['box_shadow_spread'] ),
-			esc_attr( $atts['box_shadow_color'] )
+			esc_attr( $atts[ $this->prefix . 'box_shadow_horizontal' ] ),
+			esc_attr( $atts[ $this->prefix . 'box_shadow_vertical' ] ),
+			esc_attr( $atts[ $this->prefix . 'box_shadow_blur' ] ),
+			esc_attr( $atts[ $this->prefix . 'box_shadow_spread' ] ),
+			esc_attr( $atts[ $this->prefix . 'box_shadow_color' ] )
 		);
 	}
 }
