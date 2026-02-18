@@ -43,14 +43,35 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	public array $exclude = [];
+	protected array $exclude = [];
 
 	/**
 	 * Parameters to include only for integration.
 	 *
 	 * @since 1.0
 	 */
-	public array $include_only = [];
+	protected array $include_only = [];
+
+	/**
+	 * Flag to determine if we need add switcher for this collection.
+	 *
+	 * @since 1.0
+	 */
+	protected bool $is_switcher = true;
+
+	/**
+	 * Get collection slug.
+	 *
+	 * @since 1.0
+	 */
+	abstract public function get_slug(): string;
+
+	/**
+	 * Get collection name.
+	 *
+	 * @since 1.0
+	 */
+	abstract public function get_name(): string;
 
 	/**
 	 * Collection specific params.
@@ -60,12 +81,56 @@ abstract class AbstractParamsCollection {
 	abstract public function get_collection_params(): array;
 
 	/**
+	 * Set group color for this collection.
+	 *
+	 * @since 1.0
+	 */
+	abstract public function get_color_group(): string;
+
+	/**
+	 * Remove switcher for this collection.
+	 *
+	 * @since 1.0
+	 */
+	public function remove_switcher(): AbstractParamsCollection {
+		$this->is_switcher = false;
+		return $this;
+	}
+
+	/**
+	 * Switcher specific params.
+	 *
+	 * @since 1.0
+	 */
+	public function get_switcher_param(): array {
+		return [
+			'type'            => 'joywp_switcher',
+			'wcp_group'       => true,
+			'wcp_group_color' => $this->get_color_group(),
+			'param_name'      => $this->prefix . 'add_' . $this->get_slug(),
+			'heading'         => esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->get_name() ),
+			'description'     => esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' ),
+			'options'         => [
+				'true' => [
+					'label' => '',
+					'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
+					'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
+				],
+			],
+		];
+	}
+
+	/**
 	 * Get integration config.
 	 *
 	 * @since 1.0
 	 */
 	public function get_params(): array {
 		$params = $this->get_collection_params();
+
+		if ( $this->is_switcher ) {
+			$params = $this->add_switcher( $params );
+		}
 
 		if ( ! empty( $this->additional_params ) ) {
 			$params = $this->add_params( $params, $this->additional_params );
@@ -80,6 +145,29 @@ abstract class AbstractParamsCollection {
 		} else {
 			$params = $this->implement_exclude( $params );
 		}
+
+		return $params;
+	}
+
+	/**
+	 * Add switcher params to the beginning of params array.
+	 *
+	 * @since 1.0
+	 */
+	public function add_switcher( array $params ): array {
+		$switcher_param = $this->get_switcher_param();
+		if ( ! $switcher_param ) {
+			return $params;
+		}
+
+		foreach ( $params as $key => $param ) {
+			$params[ $key ]['dependency'] = [
+				'element' => $this->prefix . 'add_' . $this->get_slug(),
+				'value'   => 'true',
+			];
+		}
+
+		array_unshift( $params, $this->get_switcher_param() );
 
 		return $params;
 	}

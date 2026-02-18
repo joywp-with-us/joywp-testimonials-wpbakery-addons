@@ -18,6 +18,33 @@ defined( 'ABSPATH' ) || exit;
  */
 class Border extends AbstractParamsCollection {
 	/**
+	 * Get collection slug.
+	 *
+	 * @since 1.0
+	 */
+	public function get_slug(): string {
+		return 'border';
+	}
+
+	/**
+	 * Get collection name.
+	 *
+	 * @since 1.0
+	 */
+	public function get_name(): string {
+		return 'border';
+	}
+
+	/**
+	 * Get collection color group.
+	 *
+	 * @since 1.0
+	 */
+	public function get_color_group(): string {
+		return '#1c1e21';
+	}
+
+	/**
 	 * Get integration config.
 	 *
 	 * @since 1.0
@@ -25,25 +52,8 @@ class Border extends AbstractParamsCollection {
 	public function get_collection_params(): array {
 		return [
 			[
-				'type'                 => 'joywp_switcher',
-				'wcp_group'            => true,
-				'wcp_group_color'      => '#1c1e21',
-				'param_name'           => $this->prefix . 'add_border',
-				'wcp_group_margin_top' => '20',
-				'heading'              => esc_html__( 'Add Border', 'joywp-testimonials-wpbakery-addons' ),
-				'description'          => esc_html__( 'Set border configurations.', 'joywp-testimonials-wpbakery-addons' ),
-				'options'              => [
-					'true' => [
-						'label' => '',
-						'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
-						'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
-					],
-				],
-				'value'                => '',
-			],
-			[
 				'type'            => 'dropdown',
-				'param_name'      => $this->prefix . 'border_style',
+				'param_name'      => $this->prefix . $this->get_slug() . '_style',
 				'wcp_group'       => true,
 				'wcp_group_color' => '#1f2937',
 				'value'           => [
@@ -58,10 +68,6 @@ class Border extends AbstractParamsCollection {
 				],
 				'heading'         => esc_html__( 'Border Style', 'joywp-testimonials-wpbakery-addons' ),
 				'description'     => esc_html__( 'Choose border style.', 'joywp-testimonials-wpbakery-addons' ),
-				'dependency'      => [
-					'element' => $this->prefix . 'add_border',
-					'value'   => 'true',
-				],
 			],
 			[
 				'type'            => 'joywp_number_slider',
@@ -72,26 +78,18 @@ class Border extends AbstractParamsCollection {
 				'max'             => '100',
 				'step'            => '1',
 				'heading'         => esc_html__( 'Border Width', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'      => $this->prefix . 'border_width',
+				'param_name'      => $this->prefix . $this->get_slug() . '_width',
 				'title'           => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description'     => esc_html__( 'Set custom border width in px from 0 to 10.', 'joywp-testimonials-wpbakery-addons' ),
-				'dependency'      => [
-					'element' => $this->prefix . 'add_border',
-					'value'   => 'true',
-				],
 			],
 			[
 				'type'            => 'colorpicker',
 				'wcp_group'       => true,
 				'wcp_group_color' => '#1f2937',
 				'heading'         => esc_html__( 'Border color', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'      => $this->prefix . 'border_color',
+				'param_name'      => $this->prefix . $this->get_slug() . '_color',
 				'description'     => esc_html__( 'Select custom color for border.', 'joywp-testimonials-wpbakery-addons' ),
 				'value'           => '#cccccc00',
-				'dependency'      => [
-					'element' => $this->prefix . 'add_border',
-					'value'   => 'true',
-				],
 			],
 			[
 				'type'            => 'joywp_number_slider',
@@ -102,13 +100,9 @@ class Border extends AbstractParamsCollection {
 				'max'             => '100',
 				'step'            => '1',
 				'heading'         => esc_html__( 'Border Radius', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'      => $this->prefix . 'border_radius',
+				'param_name'      => $this->prefix . $this->get_slug() . '_radius',
 				'title'           => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description'     => esc_html__( 'Set custom border radius in px from 0 to 100.', 'joywp-testimonials-wpbakery-addons' ),
-				'dependency'      => [
-					'element' => $this->prefix . 'add_border',
-					'value'   => 'true',
-				],
 			],
 		];
 	}

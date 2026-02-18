@@ -17,6 +17,34 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 class Background extends AbstractParamsCollection {
+
+	/**
+	 * Get collection slug.
+	 *
+	 * @since 1.0
+	 */
+	public function get_slug(): string {
+		return 'background';
+	}
+
+	/**
+	 * Get collection name.
+	 *
+	 * @since 1.0
+	 */
+	public function get_name(): string {
+		return 'background';
+	}
+
+	/**
+	 * Get collection color group.
+	 *
+	 * @since 1.0
+	 */
+	public function get_color_group(): string {
+		return '#8B0000';
+	}
+
 	/**
 	 * Get integration config.
 	 *

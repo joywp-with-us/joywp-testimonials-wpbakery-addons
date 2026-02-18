@@ -17,6 +17,33 @@ defined( 'ABSPATH' ) || exit;
  */
 class Image extends AbstractCollection {
 	/**
+	 * Get collection slug.
+	 *
+	 * @since 1.0
+	 */
+	public function get_slug(): string {
+		return 'image';
+	}
+
+	/**
+	 * Get collection name.
+	 *
+	 * @since 1.0
+	 */
+	public function get_name(): string {
+		return 'image';
+	}
+
+	/**
+	 * Get collection color group.
+	 *
+	 * @since 1.0
+	 */
+	public function get_color_group(): string {
+		return '#8B0000';
+	}
+
+	/**
 	 * Get integration addon params.
 	 *
 	 * @since 1.0
