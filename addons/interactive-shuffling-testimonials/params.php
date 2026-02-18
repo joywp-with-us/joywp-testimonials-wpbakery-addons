@@ -178,6 +178,12 @@ return array_merge(
 						'value'   => 'true',
 					]
 				)->
+				set_additional_params(
+					[
+						'wcp_group'       => true,
+						'wcp_group_color' => '#8B0000',
+					]
+				)->
 				set_exclude( [ 'border_radius' ] )->
 				get_params(),
 			),
