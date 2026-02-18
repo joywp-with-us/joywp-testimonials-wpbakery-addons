@@ -71,6 +71,10 @@ return array_merge(
 						'heading'     => esc_html__( 'Testimonial', 'joywp-testimonials-wpbakery-addons' ),
 						'description' => esc_html__( 'Testimonial content', 'joywp-testimonials-wpbakery-addons' ),
 					],
+				],
+				$config->get_collection( 'border' )->get_params(),
+				$config->get_collection( 'box-shadow' )->get_params(),
+				[
 					[
 						'type'                 => 'joywp_switcher',
 						'param_name'           => 'add_quot',

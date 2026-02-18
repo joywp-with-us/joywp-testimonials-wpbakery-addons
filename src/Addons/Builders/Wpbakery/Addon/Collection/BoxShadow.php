@@ -23,6 +23,10 @@ class BoxShadow extends AbstractAddonCollection {
 	 * @since 1.0
 	 */
 	public function render( array $atts ): void {
+		if ( ! isset( $atts[ $this->prefix . 'add_box_shadow' ] ) || 'true' !== $atts[ $this->prefix . 'add_box_shadow' ] ) {
+			return;
+		}
+
 		printf(
 			'box-shadow: %spx %spx %spx %spx %s;',
 			esc_attr( $atts[ $this->prefix . 'box_shadow_horizontal' ] ),

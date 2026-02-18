@@ -114,6 +114,14 @@ endforeach;
 				}
 				<?php
 			endif;
+			$addon->output_style_shortcode_id();
+		?>
+				[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"] {
+					background-color: white;
+					<?php $addon->get_collection( 'border' )->render( $item ); ?>
+					<?php $addon->get_collection( 'box-shadow' )->render( $item ); ?>
+				}
+			<?php
 		endforeach;
 	?>
 </style>
@@ -168,17 +176,13 @@ endforeach;
 	}
 
 	.joywp-horizontal-testimonial-card__card {
-		background: white;
-		border-radius: 12px;
 		padding: 20px;
-		box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
 		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		cursor: pointer;
 		overflow: hidden;
 		opacity: 0;
 		transform: translateY(30px) scale(0.95);
 		animation: joywp-fadeInUp 0.8s ease forwards;
-		border-top: 4px solid transparent;
 		background-clip: padding-box;
 		position: relative;
 	}

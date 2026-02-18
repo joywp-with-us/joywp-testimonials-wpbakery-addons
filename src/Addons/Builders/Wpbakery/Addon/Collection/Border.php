@@ -23,6 +23,10 @@ class Border extends AbstractAddonCollection {
 	 * @since 1.0
 	 */
 	public function render( array $atts ): void {
+		if ( ! isset( $atts[ $this->prefix . 'add_border' ] ) || 'true' !== $atts[ $this->prefix . 'add_border' ] ) {
+			return;
+		}
+
 		printf(
 			'border-width: %spx; border-style: %s; border-color: %s; border-radius: %spx;',
 			esc_attr( $atts[ $this->prefix . 'border_width' ] ),
