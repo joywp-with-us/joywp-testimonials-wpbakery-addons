@@ -32,6 +32,17 @@ abstract class AbstractAddonCollection {
 	protected AbstractAddon $addon;
 
 	/**
+	 * Set config prefix.
+	 *
+	 * @since 1.0
+	 * @return $this
+	 */
+	public function set_prefix( string $prefix ): self {
+		$this->prefix = $prefix;
+		return $this;
+	}
+
+	/**
 	 * Set addon instance.
 	 *
 	 * @since 1.0

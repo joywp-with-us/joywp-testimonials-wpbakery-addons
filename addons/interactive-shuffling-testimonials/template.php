@@ -25,10 +25,10 @@ foreach ( $items as $item ) :
 	}
 	if ( isset( $item['add_image'] ) && 'true' === $item['add_image'] ) {
 		$testimonial['avatar'] = $addon->get_collection( 'image' )->get_image_link( $item );
-		if ( isset( $item['add_border'] ) && 'true' === $item['add_border'] ) {
-			$testimonial['avatar_border_color'] = $item['border_color'] ?? '';
-			$testimonial['avatar_border_width'] = $item['border_width'] ?? 0;
-			$testimonial['avatar_border_style'] = $item['border_style'] ?? 'solid';
+		if ( isset( $item['avatar_add_border'] ) && 'true' === $item['avatar_add_border'] ) {
+			$testimonial['avatar_border_color'] = $item['avatar_border_color'] ?? '';
+			$testimonial['avatar_border_width'] = $item['avatar_border_width'] ?? 0;
+			$testimonial['avatar_border_style'] = $item['avatar_border_style'] ?? 'solid';
 		}
 	}
 	$testimonial_list[] = $testimonial;

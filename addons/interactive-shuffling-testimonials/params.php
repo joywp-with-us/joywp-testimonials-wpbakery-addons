@@ -167,6 +167,7 @@ return array_merge(
 				get_params(),
 				$config->
 				get_collection( 'border' )->
+				set_prefix( 'avatar_' )->
 				set_dependency(
 					[
 						'element' => 'add_image',
