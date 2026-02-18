@@ -1,6 +1,6 @@
 <?php
 /**
- * Params for interactive-shuffling-restimonials addon.
+ * Params for interactive-shuffling-testimonials addon.
  *
  * @var ConfigManager $config
  * @since 1.0
@@ -73,7 +73,7 @@ return array_merge(
 					],
 				],
 				$config->get_collection( 'border' )->get_params(),
-				$config->get_collection( 'box-shadow' )->get_params(),
+				$config->get_collection( 'box-shadow' )->set_gap( 20 )->get_params(),
 				[
 					[
 						'type'                 => 'joywp_switcher',

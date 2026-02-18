@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying interactive-shuffling-testimonials output.
+ * The template for displaying interactive-shuffling-testimonials addon output.
  *
  * @since 1.0
  * @var array $atts

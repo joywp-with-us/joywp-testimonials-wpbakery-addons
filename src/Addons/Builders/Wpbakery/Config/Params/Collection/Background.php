@@ -68,7 +68,7 @@ class Background extends AbstractParamsCollection {
 				'value'            => '#cccccc00',
 				'dependency'       => [
 					'element' => $this->prefix . 'background_type',
-					'value'   => 'gradient',
+					'value'   => $this->prefix . 'gradient',
 				],
 				'edit_field_class' => 'vc_col-sm-6',
 			],

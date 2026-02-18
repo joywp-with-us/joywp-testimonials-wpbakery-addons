@@ -60,6 +60,13 @@ abstract class AbstractParamsCollection {
 	protected bool $is_switcher = true;
 
 	/**
+	 * Set top margin for collection params.
+	 *
+	 * @since 1.0
+	 */
+	protected int $gap;
+
+	/**
 	 * Get collection slug.
 	 *
 	 * @since 1.0
@@ -94,6 +101,16 @@ abstract class AbstractParamsCollection {
 	 */
 	public function remove_switcher(): AbstractParamsCollection {
 		$this->is_switcher = false;
+		return $this;
+	}
+
+	/**
+	 * Set top margin for params collection.
+	 *
+	 * @since 1.0
+	 */
+	public function set_gap( int $gap ): AbstractParamsCollection {
+		$this->gap = $gap;
 		return $this;
 	}
 
@@ -146,6 +163,10 @@ abstract class AbstractParamsCollection {
 			$params = $this->implement_exclude( $params );
 		}
 
+		if ( ! empty( $this->gap ) ) {
+			$params = $this->add_gap( $params );
+		}
+
 		return $params;
 	}
 
@@ -154,7 +175,7 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	public function add_switcher( array $params ): array {
+	protected function add_switcher( array $params ): array {
 		$switcher_param = $this->get_switcher_param();
 		if ( ! $switcher_param ) {
 			return $params;
@@ -177,7 +198,7 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	public function implement_include_only( array $params ): array {
+	protected function implement_include_only( array $params ): array {
 		$result = [];
 		foreach ( $params as $param_data ) {
 			if ( in_array( $param_data['param_name'], $this->include_only, true ) ) {
@@ -193,7 +214,7 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	public function implement_exclude( array $params ): array {
+	protected function implement_exclude( array $params ): array {
 		if ( ! $this->exclude ) {
 			return $params;
 		}
@@ -268,7 +289,7 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	public function add_params( array $init_param, array $additional_params ): array {
+	protected function add_params( array $init_param, array $additional_params ): array {
 		foreach ( $init_param as $init_param_key => $init_param_value ) {
 			$init_param[ $init_param_key ] = array_merge(
 				$init_param_value,
@@ -285,7 +306,7 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	public function add_dependency( array $init_param, array $dependency ): array {
+	protected function add_dependency( array $init_param, array $dependency ): array {
 		foreach ( $init_param as $init_param_key => $init_param_value ) {
 			if ( isset( $init_param_value['dependency'] ) ) {
 				$init_param[ $init_param_key ]['dependency'] = $init_param_value['dependency'];
@@ -295,5 +316,15 @@ abstract class AbstractParamsCollection {
 		}
 
 		return $init_param;
+	}
+
+	/**
+	 * Add margin top to first param in collection.
+	 *
+	 * @since 1.0
+	 */
+	protected function add_gap( array $param ): array {
+		$param[0]['wcp_group_margin_top'] = $this->gap;
+		return $param;
 	}
 }
