@@ -88,14 +88,16 @@ return array_merge(
 						'wcp_group_margin_top' => '20',
 					],
 					[
-						'type'       => 'colorpicker',
-						'param_name' => 'quot_color',
-						'heading'    => esc_html__( 'Color of quotation marks', 'joywp-testimonials-wpbakery-addons' ),
-						'value'      => '#CCCCCC00',
-						'dependency' => [
+						'type'            => 'colorpicker',
+						'param_name'      => 'quot_color',
+						'heading'         => esc_html__( 'Color of quotation marks', 'joywp-testimonials-wpbakery-addons' ),
+						'value'           => '#CCCCCC00',
+						'dependency'      => [
 							'element' => 'add_quot',
 							'value'   => 'true',
 						],
+						'wcp_group'       => true,
+						'wcp_group_color' => '#006400',
 					],
 					[
 						'type'                 => 'joywp_switcher',
@@ -120,6 +122,12 @@ return array_merge(
 					[
 						'element' => 'add_top_accent',
 						'value'   => 'true',
+					]
+				)->
+				set_additional_params(
+					[
+						'wcp_group'       => true,
+						'wcp_group_color' => '#B8860B',
 					]
 				)->
 				get_params(),
@@ -148,6 +156,12 @@ return array_merge(
 					[
 						'element' => 'add_image',
 						'value'   => 'true',
+					]
+				)->
+				set_additional_params(
+					[
+						'wcp_group'       => true,
+						'wcp_group_color' => '#8B0000',
 					]
 				)->
 				get_params(),
