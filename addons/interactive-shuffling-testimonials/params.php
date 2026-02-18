@@ -134,6 +134,7 @@ return array_merge(
 						'wcp_group_color' => '#B8860B',
 					]
 				)->
+				remove_switcher()->
 				get_params(),
 				[
 					[

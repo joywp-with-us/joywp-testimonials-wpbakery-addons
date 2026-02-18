@@ -182,6 +182,10 @@ abstract class AbstractParamsCollection {
 		}
 
 		foreach ( $params as $key => $param ) {
+			if ( isset( $params[ $key ]['dependency'] ) ) {
+				continue;
+			}
+
 			$params[ $key ]['dependency'] = [
 				'element' => $this->prefix . 'add_' . $this->get_slug(),
 				'value'   => 'true',
