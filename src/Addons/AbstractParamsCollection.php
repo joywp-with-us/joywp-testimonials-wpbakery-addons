@@ -67,6 +67,13 @@ abstract class AbstractParamsCollection {
 	protected int $gap = 0;
 
 	/**
+	 * Set collection color group.
+	 *
+	 * @since 1.0
+	 */
+	protected bool $is_color = false;
+
+	/**
 	 * Get collection slug.
 	 *
 	 * @since 1.0
@@ -114,6 +121,16 @@ abstract class AbstractParamsCollection {
 	}
 
 	/**
+	 * Remove switcher for this collection.
+	 *
+	 * @since 1.0
+	 */
+	public function set_color(): AbstractParamsCollection {
+		$this->is_color = true;
+		return $this;
+	}
+
+	/**
 	 * Set top margin for params collection.
 	 *
 	 * @since 1.0
@@ -138,14 +155,12 @@ abstract class AbstractParamsCollection {
 	 * @since 1.0
 	 */
 	public function get_switcher_param(): array {
-		return [
-			'type'            => 'joywp_switcher',
-			'wcp_group'       => true,
-			'wcp_group_color' => $this->get_color_group(),
-			'param_name'      => $this->prefix . 'add_' . $this->get_slug(),
-			'heading'         => esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->get_name() ),
-			'description'     => esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' ),
-			'options'         => [
+		$switcher = [
+			'type'        => 'joywp_switcher',
+			'param_name'  => $this->prefix . 'add_' . $this->get_slug(),
+			'heading'     => esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->get_name() ),
+			'description' => esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' ),
+			'options'     => [
 				'true' => [
 					'label' => '',
 					'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
@@ -153,6 +168,13 @@ abstract class AbstractParamsCollection {
 				],
 			],
 		];
+
+		if ( $this->is_color() ) {
+			$switcher['wcp_group']       = true;
+			$switcher['wcp_group_color'] = $this->get_color_group();
+		}
+
+		return $switcher;
 	}
 
 	/**
@@ -183,6 +205,10 @@ abstract class AbstractParamsCollection {
 
 		if ( ! empty( $this->get_gap() ) ) {
 			$params = $this->add_gap( $params );
+		}
+
+		if ( $this->is_color() ) {
+			$params = $this->add_color( $params );
 		}
 
 		return $params;
@@ -347,6 +373,29 @@ abstract class AbstractParamsCollection {
 	 */
 	protected function add_gap( array $param ): array {
 		$param[0]['wcp_group_margin_top'] = $this->get_gap();
+		return $param;
+	}
+
+	/**
+	 * Check if we need add color group for this collection.
+	 *
+	 * @since 1.0
+	 */
+	public function is_color(): bool {
+		return $this->is_color;
+	}
+
+	/**
+	 * Add color group to each param in collection.
+	 *
+	 * @since 1.0
+	 */
+	protected function add_color( array $param ): array {
+		foreach ( $param as $key => $param_data ) {
+			$param[ $key ]['wcp_group_color'] = $this->get_color_group();
+			$param[ $key ]['wcp_group']       = true;
+		}
+
 		return $param;
 	}
 }

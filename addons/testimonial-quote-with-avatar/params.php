@@ -125,7 +125,7 @@ return array_merge(
 				'value'   => 'true',
 			]
 		)
-        ->set_switcher()
+		->set_switcher()
 		->get_params(),
 	[
 		[
@@ -188,5 +188,5 @@ return array_merge(
 			],
 		],
 	],
-	$config->get_collection( 'border' )->set_switcher()->get_params(),
+	$config->get_collection( 'border' )->set_switcher()->set_color()->get_params(),
 );

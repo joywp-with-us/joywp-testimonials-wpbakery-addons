@@ -72,8 +72,8 @@ return array_merge(
 						'description' => esc_html__( 'Testimonial content', 'joywp-testimonials-wpbakery-addons' ),
 					],
 				],
-				$config->get_collection( 'border' )->set_gap( 20 )->set_switcher()->get_params(),
-				$config->get_collection( 'box-shadow' )->set_gap( 20 )->set_switcher()->get_params(),
+				$config->get_collection( 'border' )->set_gap( 20 )->set_switcher()->set_color()->get_params(),
+				$config->get_collection( 'box-shadow' )->set_gap( 20 )->set_switcher()->set_color()->get_params(),
 				[
 					[
 						'type'                 => 'joywp_switcher',
@@ -121,42 +121,45 @@ return array_merge(
 					],
 				],
 				$config
-                    ->get_collection( 'background' )
-                    ->set_dependency(
-					[
-						'element' => 'add_top_accent',
-						'value'   => 'true',
-					])
-                    ->set_additional_params(
-					[
-						'wcp_group'       => true,
-						'wcp_group_color' => '#B8860B',
-					])
-                    ->get_params(),
-
+					->get_collection( 'background' )
+					->set_dependency(
+						[
+							'element' => 'add_top_accent',
+							'value'   => 'true',
+						]
+					)
+					->set_additional_params(
+						[
+							'wcp_group'       => true,
+							'wcp_group_color' => '#B8860B',
+						]
+					)
+					->get_params(),
 				$config
-                    ->get_collection( 'image' )
-                    ->set_include_only( [ 'source', 'image', 'custom_src' ] )
-                    ->set_gap( 20 )
-                    ->set_switcher()
-                    ->get_params(),
-
+					->get_collection( 'image' )
+					->set_include_only( [ 'source', 'image', 'custom_src' ] )
+					->set_gap( 20 )
+					->set_switcher()
+					->set_color()
+					->get_params(),
 				$config
-                    ->get_collection( 'border' )
-                    ->set_prefix( 'avatar_' )
-                    ->set_dependency(
-					[
-						'element' => 'add_image',
-						'value'   => 'true',
-					])
-                    ->set_additional_params(
-					[
-						'wcp_group'       => true,
-						'wcp_group_color' => '#8B0000',
-					])
-                    ->set_exclude( [ 'border_radius' ] )
-                    ->set_switcher()
-                    ->get_params(),
+					->get_collection( 'border' )
+					->set_prefix( 'avatar_' )
+					->set_dependency(
+						[
+							'element' => 'add_image',
+							'value'   => 'true',
+						]
+					)
+					->set_additional_params(
+						[
+							'wcp_group'       => true,
+							'wcp_group_color' => '#8B0000',
+						]
+					)
+					->set_exclude( [ 'border_radius' ] )
+					->set_switcher()
+					->get_params(),
 			),
 		],
 	],

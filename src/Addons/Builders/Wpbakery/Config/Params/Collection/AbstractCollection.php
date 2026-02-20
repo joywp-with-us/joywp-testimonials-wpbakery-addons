@@ -67,6 +67,10 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 			$params = $this->add_params( $params, $this->additional_params );
 		}
 
+		if ( $this->is_color() ) {
+			$params = $this->add_color( $params );
+		}
+
 		return $params;
 	}
 }
