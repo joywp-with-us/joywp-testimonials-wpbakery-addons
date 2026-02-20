@@ -40,7 +40,7 @@ class Border extends AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	public function get_color_group(): string {
+	public function get_color(): string {
 		return '#1c1e21';
 	}
 

@@ -99,7 +99,7 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	abstract public function get_color_group(): string;
+	abstract public function get_color(): string;
 
 	/**
 	 * Check if we need add switcher for this collection.
@@ -171,7 +171,7 @@ abstract class AbstractParamsCollection {
 
 		if ( $this->is_color() ) {
 			$switcher['wcp_group']       = true;
-			$switcher['wcp_group_color'] = $this->get_color_group();
+			$switcher['wcp_group_color'] = $this->get_color();
 		}
 
 		return $switcher;
@@ -392,7 +392,7 @@ abstract class AbstractParamsCollection {
 	 */
 	protected function add_color( array $param ): array {
 		foreach ( $param as $key => $param_data ) {
-			$param[ $key ]['wcp_group_color'] = $this->get_color_group();
+			$param[ $key ]['wcp_group_color'] = $this->get_color();
 			$param[ $key ]['wcp_group']       = true;
 		}
 
