@@ -108,7 +108,6 @@ return array_merge(
 	$config
 		->get_collection( 'font-family' )
 		->set_additional_params( [ 'group' => __( 'Quotes', 'joywp-testimonials-wpbakery-addons' ) ] )
-		->remove_switcher()
 		->set_dependency(
 			[
 				'element' => 'add_quotes',
@@ -126,6 +125,7 @@ return array_merge(
 				'value'   => 'true',
 			]
 		)
+        ->set_switcher()
 		->get_params(),
 	[
 		[
@@ -188,5 +188,5 @@ return array_merge(
 			],
 		],
 	],
-	$config->get_collection( 'border' )->get_params(),
+	$config->get_collection( 'border' )->set_switcher()->get_params(),
 );

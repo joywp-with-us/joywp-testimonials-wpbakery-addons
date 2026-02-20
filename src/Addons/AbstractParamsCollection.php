@@ -57,7 +57,7 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	protected bool $is_switcher = true;
+	protected bool $is_switcher = false;
 
 	/**
 	 * Set top margin for collection params.
@@ -108,8 +108,8 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	public function remove_switcher(): AbstractParamsCollection {
-		$this->is_switcher = false;
+	public function set_switcher(): AbstractParamsCollection {
+		$this->is_switcher = true;
 		return $this;
 	}
 

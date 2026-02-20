@@ -91,7 +91,6 @@ return array_merge(
 				'value'   => 'true',
 			]
 		)
-		->remove_switcher()
 		->get_params(),
 	$config
 		->get_collection( 'image' )
@@ -103,6 +102,7 @@ return array_merge(
 				'value'   => 'true',
 			]
 		)
+        ->set_switcher()
 		->get_params(),
 	[
 		[
@@ -208,6 +208,6 @@ return array_merge(
 			],
 		],
 	],
-	$config->get_collection( 'border' )->set_gap( 20 )->get_params(),
-	$config->get_collection( 'box-shadow' )->set_gap( 20 )->get_params(),
+	$config->get_collection( 'border' )->set_gap( 20 )->set_switcher()->get_params(),
+	$config->get_collection( 'box-shadow' )->set_gap( 20 )->set_switcher()->get_params(),
 );

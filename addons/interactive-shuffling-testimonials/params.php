@@ -72,8 +72,8 @@ return array_merge(
 						'description' => esc_html__( 'Testimonial content', 'joywp-testimonials-wpbakery-addons' ),
 					],
 				],
-				$config->get_collection( 'border' )->get_params(),
-				$config->get_collection( 'box-shadow' )->set_gap( 20 )->get_params(),
+				$config->get_collection( 'border' )->set_gap( 20 )->set_switcher()->get_params(),
+				$config->get_collection( 'box-shadow' )->set_gap( 20 )->set_switcher()->get_params(),
 				[
 					[
 						'type'                 => 'joywp_switcher',
@@ -120,44 +120,43 @@ return array_merge(
 						'wcp_group_margin_top' => '20',
 					],
 				],
-				$config->
-				get_collection( 'background' )->
-				set_dependency(
+				$config
+                    ->get_collection( 'background' )
+                    ->set_dependency(
 					[
 						'element' => 'add_top_accent',
 						'value'   => 'true',
-					]
-				)->
-				set_additional_params(
+					])
+                    ->set_additional_params(
 					[
 						'wcp_group'       => true,
 						'wcp_group_color' => '#B8860B',
-					]
-				)->
-				remove_switcher()->
-				get_params(),
-				$config->
-				get_collection( 'image' )->
-				set_include_only( [ 'source', 'image', 'custom_src' ] )->
-				set_gap( 20 )->
-				get_params(),
-				$config->
-				get_collection( 'border' )->
-				set_prefix( 'avatar_' )->
-				set_dependency(
+					])
+                    ->get_params(),
+
+				$config
+                    ->get_collection( 'image' )
+                    ->set_include_only( [ 'source', 'image', 'custom_src' ] )
+                    ->set_gap( 20 )
+                    ->set_switcher()
+                    ->get_params(),
+
+				$config
+                    ->get_collection( 'border' )
+                    ->set_prefix( 'avatar_' )
+                    ->set_dependency(
 					[
 						'element' => 'add_image',
 						'value'   => 'true',
-					]
-				)->
-				set_additional_params(
+					])
+                    ->set_additional_params(
 					[
 						'wcp_group'       => true,
 						'wcp_group_color' => '#8B0000',
-					]
-				)->
-				set_exclude( [ 'border_radius' ] )->
-				get_params(),
+					])
+                    ->set_exclude( [ 'border_radius' ] )
+                    ->set_switcher()
+                    ->get_params(),
 			),
 		],
 	],
