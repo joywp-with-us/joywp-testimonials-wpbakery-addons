@@ -35,10 +35,6 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 		$config = $this->get_collection_params();
 		$params = $config['params'];
 
-		if ( ! empty( $this->additional_params ) ) {
-			$params = $this->add_params( $params, $this->additional_params );
-		}
-
 		if ( ! empty( $this->dependency ) ) {
 			$params = $this->add_dependency( $params, $this->dependency );
 		}
@@ -63,8 +59,12 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 			$params = $this->add_switcher( $params );
 		}
 
-		if ( ! empty( $this->get_gap() ) ) {
+		if ( $this->get_gap() ) {
 			$params = $this->add_gap( $params );
+		}
+
+		if ( $this->additional_params ) {
+			$params = $this->add_params( $params, $this->additional_params );
 		}
 
 		return $params;

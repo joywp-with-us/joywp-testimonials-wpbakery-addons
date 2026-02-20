@@ -91,35 +91,19 @@ return array_merge(
 				'value'   => 'true',
 			]
 		)
+		->remove_switcher()
 		->get_params(),
-	[
-		[
-			'type'        => 'joywp_switcher',
-			'param_name'  => 'add_image',
-			'heading'     => esc_html__( 'Add Image', 'joywp-testimonials-wpbakery-addons' ),
-			'description' => esc_html__( 'Add image to the testimonial card.', 'joywp-testimonials-wpbakery-addons' ),
-			'group'       => esc_html__( 'Image', 'joywp-testimonials-wpbakery-addons' ),
-			'options'     => [
-				'true' => [
-					'label' => '',
-					'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
-					'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
-				],
-			],
-			'value'       => '',
-		],
-	],
-	$config->
-	get_collection( 'image' )->
-	set_exclude( [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ] )->
-	set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )->
-	set_dependency(
-		[
-			'element' => 'add_image',
-			'value'   => 'true',
-		]
-	)->
-	get_params(),
+	$config
+		->get_collection( 'image' )
+		->set_exclude( [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ] )
+		->set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )
+		->set_dependency(
+			[
+				'element' => 'add_image',
+				'value'   => 'true',
+			]
+		)
+		->get_params(),
 	[
 		[
 			'type'        => 'joywp_switcher',
@@ -224,6 +208,6 @@ return array_merge(
 			],
 		],
 	],
-	$config->get_collection( 'border' )->get_params(),
-	$config->get_collection( 'box-shadow' )->get_params(),
+	$config->get_collection( 'border' )->set_gap( 20 )->get_params(),
+	$config->get_collection( 'box-shadow' )->set_gap( 20 )->get_params(),
 );

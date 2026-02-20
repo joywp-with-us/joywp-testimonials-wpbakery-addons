@@ -136,13 +136,11 @@ return array_merge(
 				)->
 				remove_switcher()->
 				get_params(),
-
 				$config->
 				get_collection( 'image' )->
 				set_include_only( [ 'source', 'image', 'custom_src' ] )->
 				set_gap( 20 )->
 				get_params(),
-
 				$config->
 				get_collection( 'border' )->
 				set_prefix( 'avatar_' )->
