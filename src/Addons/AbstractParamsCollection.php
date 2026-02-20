@@ -64,7 +64,7 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	protected int $gap;
+	protected int $gap = 0;
 
 	/**
 	 * Get collection slug.
@@ -95,6 +95,15 @@ abstract class AbstractParamsCollection {
 	abstract public function get_color_group(): string;
 
 	/**
+	 * Check if we need add switcher for this collection.
+	 *
+	 * @since 1.0
+	 */
+	public function is_switcher(): bool {
+		return $this->is_switcher;
+	}
+
+	/**
 	 * Remove switcher for this collection.
 	 *
 	 * @since 1.0
@@ -112,6 +121,15 @@ abstract class AbstractParamsCollection {
 	public function set_gap( int $gap ): AbstractParamsCollection {
 		$this->gap = $gap;
 		return $this;
+	}
+
+	/**
+	 * Get top margin for params collection.
+	 *
+	 * @since 1.0
+	 */
+	public function get_gap(): int {
+		return $this->gap;
 	}
 
 	/**
@@ -145,7 +163,7 @@ abstract class AbstractParamsCollection {
 	public function get_params(): array {
 		$params = $this->get_collection_params();
 
-		if ( $this->is_switcher ) {
+		if ( $this->is_switcher() ) {
 			$params = $this->add_switcher( $params );
 		}
 
@@ -163,7 +181,7 @@ abstract class AbstractParamsCollection {
 			$params = $this->implement_exclude( $params );
 		}
 
-		if ( ! empty( $this->gap ) ) {
+		if ( ! empty( $this->get_gap() ) ) {
 			$params = $this->add_gap( $params );
 		}
 
@@ -192,7 +210,7 @@ abstract class AbstractParamsCollection {
 			];
 		}
 
-		array_unshift( $params, $this->get_switcher_param() );
+		array_unshift( $params, $switcher_param );
 
 		return $params;
 	}
@@ -328,7 +346,7 @@ abstract class AbstractParamsCollection {
 	 * @since 1.0
 	 */
 	protected function add_gap( array $param ): array {
-		$param[0]['wcp_group_margin_top'] = $this->gap;
+		$param[0]['wcp_group_margin_top'] = $this->get_gap();
 		return $param;
 	}
 }

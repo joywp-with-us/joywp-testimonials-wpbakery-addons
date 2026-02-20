@@ -33,12 +33,14 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 	 */
 	public function get_params(): array {
 		$config = $this->get_collection_params();
+		$params = $config['params'];
 
 		if ( ! empty( $this->additional_params ) ) {
-			$config['params'] = $this->add_params( $config['params'], $this->additional_params );
+			$params = $this->add_params( $params, $this->additional_params );
 		}
+
 		if ( ! empty( $this->dependency ) ) {
-			$config['params'] = $this->add_dependency( $config['params'], $this->dependency );
+			$params = $this->add_dependency( $params, $this->dependency );
 		}
 
 		if ( $this->include_only ) {
@@ -48,11 +50,23 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 			$change_fields = [ 'exclude' => $exclude ];
 		}
 
-		return vc_map_integrate_shortcode(
+		$config['params'] = $params;
+
+		$params = vc_map_integrate_shortcode(
 			$config,
 			$this->prefix,
 			'',
 			$change_fields
 		);
+
+		if ( $this->is_switcher() ) {
+			$params = $this->add_switcher( $params );
+		}
+
+		if ( ! empty( $this->get_gap() ) ) {
+			$params = $this->add_gap( $params );
+		}
+
+		return $params;
 	}
 }

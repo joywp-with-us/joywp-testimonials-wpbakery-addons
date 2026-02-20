@@ -136,40 +136,13 @@ return array_merge(
 				)->
 				remove_switcher()->
 				get_params(),
-				[
-					[
-						'type'                 => 'joywp_switcher',
-						'param_name'           => 'add_image',
-						'heading'              => esc_html__( 'Add Image', 'joywp-testimonials-wpbakery-addons' ),
-						'description'          => esc_html__( 'Add image to the testimonial card.', 'joywp-testimonials-wpbakery-addons' ),
-						'options'              => [
-							'true' => [
-								'label' => '',
-								'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
-								'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
-							],
-						],
-						'wcp_group_margin_top' => '20',
-						'wcp_group'            => true,
-						'wcp_group_color'      => '#8B0000',
-					],
-				],
+
 				$config->
 				get_collection( 'image' )->
 				set_include_only( [ 'source', 'image', 'custom_src' ] )->
-				set_dependency(
-					[
-						'element' => 'add_image',
-						'value'   => 'true',
-					]
-				)->
-				set_additional_params(
-					[
-						'wcp_group'       => true,
-						'wcp_group_color' => '#8B0000',
-					]
-				)->
+				set_gap( 20 )->
 				get_params(),
+
 				$config->
 				get_collection( 'border' )->
 				set_prefix( 'avatar_' )->
