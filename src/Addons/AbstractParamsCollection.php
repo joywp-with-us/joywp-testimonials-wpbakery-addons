@@ -194,33 +194,21 @@ abstract class AbstractParamsCollection {
 	 * @since 1.0
 	 */
 	protected function integrate_specific_params( array $params ): array {
-		if ( $this->is_switcher() ) {
-			$params = $this->add_switcher( $params );
-		}
-
-		if ( ! empty( $this->additional_params ) ) {
-			$params = $this->add_params( $params, $this->additional_params );
-		}
-
-		if ( ! empty( $this->dependency ) ) {
-			$params = $this->add_dependency( $params, $this->dependency );
-		}
-
 		if ( $this->include_only ) {
 			$params = $this->implement_include_only( $params );
 		} else {
 			$params = $this->implement_exclude( $params );
 		}
 
-		if ( ! empty( $this->get_gap() ) ) {
-			$params = $this->add_gap( $params );
-		}
+		$params = $this->add_switcher( $params );
 
-		if ( $this->is_color() ) {
-			$params = $this->add_color( $params );
-		}
+		$params = $this->add_params( $params );
 
-		return $params;
+		$params = $this->add_dependency( $params );
+
+		$params = $this->add_gap( $params );
+
+		return $this->add_color( $params );
 	}
 
 	/**
@@ -229,6 +217,10 @@ abstract class AbstractParamsCollection {
 	 * @since 1.0
 	 */
 	protected function add_switcher( array $params ): array {
+		if ( ! $this->is_switcher() ) {
+			return $params;
+		}
+
 		$switcher_param = $this->get_switcher_param();
 		if ( ! $switcher_param ) {
 			return $params;
@@ -304,9 +296,8 @@ abstract class AbstractParamsCollection {
 	 * @since 1.0
 	 */
 	public function set_include_only( array $include_only ): AbstractParamsCollection {
-		$this->include_only = $include_only;
 		foreach ( $include_only as $key => $param_name ) {
-			$include_only[ $key ] = $this->prefix . $param_name;
+            $this->include_only[ $key ] = $this->prefix . $param_name;
 		}
 		return $this;
 	}
@@ -346,11 +337,15 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	protected function add_params( array $init_param, array $additional_params ): array {
+	protected function add_params( array $init_param ): array {
+		if ( empty( $this->additional_params ) ) {
+			return $init_param;
+		}
+
 		foreach ( $init_param as $init_param_key => $init_param_value ) {
 			$init_param[ $init_param_key ] = array_merge(
 				$init_param_value,
-				$additional_params
+				$this->additional_params
 			);
 		}
 
@@ -363,12 +358,16 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	protected function add_dependency( array $init_param, array $dependency ): array {
+	protected function add_dependency( array $init_param ): array {
+		if ( empty( $this->dependency ) ) {
+			return $init_param;
+		}
+
 		foreach ( $init_param as $init_param_key => $init_param_value ) {
 			if ( isset( $init_param_value['dependency'] ) ) {
 				$init_param[ $init_param_key ]['dependency'] = $init_param_value['dependency'];
 			} else {
-				$init_param[ $init_param_key ]['dependency'] = $dependency;
+				$init_param[ $init_param_key ]['dependency'] = $this->dependency;
 			}
 		}
 
@@ -380,9 +379,13 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	protected function add_gap( array $param ): array {
-		$param[0]['wcp_group_margin_top'] = $this->get_gap();
-		return $param;
+	protected function add_gap( array $params ): array {
+		if ( empty( $this->get_gap() ) ) {
+			return $params;
+		}
+
+		$params[0]['wcp_group_margin_top'] = $this->get_gap();
+		return $params;
 	}
 
 	/**
@@ -399,12 +402,16 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	protected function add_color( array $param ): array {
-		foreach ( $param as $key => $param_data ) {
-			$param[ $key ]['wcp_group_color'] = $this->get_color();
-			$param[ $key ]['wcp_group']       = true;
+	protected function add_color( array $params ): array {
+		if ( ! $this->is_color() ) {
+			return $params;
 		}
 
-		return $param;
+		foreach ( $params as $key => $param_data ) {
+			$params[ $key ]['wcp_group_color'] = $this->get_color();
+			$params[ $key ]['wcp_group']       = true;
+		}
+
+		return $params;
 	}
 }

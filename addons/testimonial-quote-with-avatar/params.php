@@ -119,12 +119,6 @@ return array_merge(
 		->get_collection( 'image' )
 		->set_exclude( [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ] )
 		->set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )
-		->set_dependency(
-			[
-				'element' => 'add_image',
-				'value'   => 'true',
-			]
-		)
 		->set_switcher()
 		->get_params(),
 	[
