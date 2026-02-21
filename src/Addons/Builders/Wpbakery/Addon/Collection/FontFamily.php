@@ -17,6 +17,25 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 class FontFamily extends AbstractAddonCollection {
+
+	/**
+	 * Get collection slug.
+	 *
+	 * @since 1.0
+	 */
+	public function get_slug(): string {
+		return 'font_family';
+	}
+
+	/**
+	 * Get collection name.
+	 *
+	 * @since 1.0
+	 */
+	public function get_name(): string {
+		return 'font family';
+	}
+
 	/**
 	 * Render collection output.
 	 *

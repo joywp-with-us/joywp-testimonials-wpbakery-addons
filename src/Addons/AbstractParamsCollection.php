@@ -16,14 +16,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-abstract class AbstractParamsCollection {
-	/**
-	 * Config prefix.
-	 *
-	 * @since 1.0
-	 */
-	protected string $prefix = '';
-
+abstract class AbstractParamsCollection extends AbstractCollection {
 	/**
 	 * Additional params to add to each param set.
 	 *
@@ -72,20 +65,6 @@ abstract class AbstractParamsCollection {
 	 * @since 1.0
 	 */
 	protected bool $is_color = false;
-
-	/**
-	 * Get collection slug.
-	 *
-	 * @since 1.0
-	 */
-	abstract public function get_slug(): string;
-
-	/**
-	 * Get collection name.
-	 *
-	 * @since 1.0
-	 */
-	abstract public function get_name(): string;
 
 	/**
 	 * Collection specific params.
@@ -162,16 +141,6 @@ abstract class AbstractParamsCollection {
 		foreach ( $include_only as $key => $param_name ) {
 			$this->include_only[ $key ] = $this->prefix . $param_name;
 		}
-		return $this;
-	}
-
-	/**
-	 * Set prefix for params.
-	 *
-	 * @since 1.0
-	 */
-	public function set_prefix( string $prefix ): self {
-		$this->prefix = $prefix;
 		return $this;
 	}
 
@@ -295,15 +264,6 @@ abstract class AbstractParamsCollection {
 		array_unshift( $params, $switcher_param );
 
 		return $params;
-	}
-
-	/**
-	 * Get switcher slug for this collection.
-	 *
-	 * @since 1.0
-	 */
-	public function get_switcher_slug(): string {
-		return $this->prefix . 'add_' . $this->get_slug();
 	}
 
 	/**

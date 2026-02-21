@@ -17,6 +17,25 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 class BoxShadow extends AbstractAddonCollection {
+
+	/**
+	 * Get collection slug.
+	 *
+	 * @since 1.0
+	 */
+	public function get_slug(): string {
+		return 'box_shadow';
+	}
+
+	/**
+	 * Get collection name.
+	 *
+	 * @since 1.0
+	 */
+	public function get_name(): string {
+		return 'box shadow';
+	}
+
 	/**
 	 * Render collection output.
 	 *

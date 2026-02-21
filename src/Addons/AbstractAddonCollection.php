@@ -16,31 +16,13 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-abstract class AbstractAddonCollection {
-	/**
-	 * Config prefix.
-	 *
-	 * @since 1.0
-	 */
-	protected string $prefix = '';
-
+abstract class AbstractAddonCollection extends AbstractCollection {
 	/**
 	 * The addon instance.
 	 *
 	 * @since 1.0
 	 */
 	protected AbstractAddon $addon;
-
-	/**
-	 * Set config prefix.
-	 *
-	 * @since 1.0
-	 * @return $this
-	 */
-	public function set_prefix( string $prefix ): self {
-		$this->prefix = $prefix;
-		return $this;
-	}
 
 	/**
 	 * Set addon instance.

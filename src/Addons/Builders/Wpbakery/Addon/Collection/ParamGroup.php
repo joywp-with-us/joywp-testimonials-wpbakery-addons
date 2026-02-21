@@ -17,6 +17,25 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 class ParamGroup extends AbstractAddonCollection {
+
+	/**
+	 * Get collection slug.
+	 *
+	 * @since 1.0
+	 */
+	public function get_slug(): string {
+		return 'param_group';
+	}
+
+	/**
+	 * Get collection name.
+	 *
+	 * @since 1.0
+	 */
+	public function get_name(): string {
+		return 'param group';
+	}
+
 	/**
 	 * Get items for param_group.
 	 *
