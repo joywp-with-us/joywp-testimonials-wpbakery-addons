@@ -73,18 +73,17 @@ return array_merge(
 					],
 				],
 				$config
-                    ->get_collection( 'border' )
-                    ->set_gap( 20 )
-                    ->set_switcher()
-                    ->set_color()
-                    ->get_params(),
-
+					->get_collection( 'border' )
+					->set_gap( 20 )
+					->set_switcher()
+					->set_color()
+					->get_params(),
 				$config
-                    ->get_collection( 'box-shadow' )
-                    ->set_gap( 20 )
-                    ->set_switcher()
-                    ->set_color()
-                    ->get_params(),
+					->get_collection( 'box-shadow' )
+					->set_gap( 20 )
+					->set_switcher()
+					->set_color()
+					->get_params(),
 				[
 					[
 						'type'                 => 'joywp_switcher',
@@ -146,7 +145,6 @@ return array_merge(
 						]
 					)
 					->get_params(),
-
 				$config
 					->get_collection( 'image' )
 					->set_include_only( [ 'source', 'image', 'custom_src' ] )

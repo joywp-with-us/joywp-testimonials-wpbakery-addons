@@ -111,32 +111,87 @@ abstract class AbstractParamsCollection {
 	}
 
 	/**
-	 * Remove switcher for this collection.
+	 * Switcher setter.
 	 *
 	 * @since 1.0
 	 */
-	public function set_switcher(): AbstractParamsCollection {
+	public function set_switcher(): self {
 		$this->is_switcher = true;
 		return $this;
 	}
 
 	/**
-	 * Remove switcher for this collection.
+	 * Color setter.
 	 *
 	 * @since 1.0
 	 */
-	public function set_color(): AbstractParamsCollection {
+	public function set_color(): self {
 		$this->is_color = true;
 		return $this;
 	}
 
 	/**
-	 * Set top margin for params collection.
+	 * Setter top margin for params collection.
 	 *
 	 * @since 1.0
 	 */
-	public function set_gap( int $gap ): AbstractParamsCollection {
+	public function set_gap( int $gap ): self {
 		$this->gap = $gap;
+		return $this;
+	}
+
+	/**
+	 * Set parameters to exclude from integration.
+	 *
+	 * @since 1.0
+	 */
+	public function set_exclude( array $exclude_params ): self {
+		$this->exclude = $exclude_params;
+		foreach ( $exclude_params as $key => $param_name ) {
+			$exclude_params[ $key ] = $this->prefix . $param_name;
+		}
+		return $this;
+	}
+
+	/**
+	 * Set parameters to include only for integration.
+	 *
+	 * @since 1.0
+	 */
+	public function set_include_only( array $include_only ): self {
+		foreach ( $include_only as $key => $param_name ) {
+			$this->include_only[ $key ] = $this->prefix . $param_name;
+		}
+		return $this;
+	}
+
+	/**
+	 * Set prefix for params.
+	 *
+	 * @since 1.0
+	 */
+	public function set_prefix( string $prefix ): self {
+		$this->prefix = $prefix;
+		return $this;
+	}
+
+	/**
+	 * Set additional params that we apply to each param set.
+	 *
+	 * @since 1.0
+	 */
+	public function set_additional_params( array $additional_params ): self {
+		$this->additional_params = $additional_params;
+		return $this;
+	}
+
+	/**
+	 * Set dependency that we apply to each param set.
+	 *
+	 * @since 1.0
+	 */
+	public function set_dependency( array $dependency ): self {
+		$this->dependency = $dependency;
 		return $this;
 	}
 
@@ -157,7 +212,7 @@ abstract class AbstractParamsCollection {
 	public function get_switcher_param(): array {
 		$switcher = [
 			'type'        => 'joywp_switcher',
-			'param_name'  => $this->prefix . 'add_' . $this->get_slug(),
+			'param_name'  => $this->get_switcher_slug(),
 			'heading'     => esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->get_name() ),
 			'description' => esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' ),
 			'options'     => [
@@ -232,7 +287,7 @@ abstract class AbstractParamsCollection {
 			}
 
 			$params[ $key ]['dependency'] = [
-				'element' => $this->prefix . 'add_' . $this->get_slug(),
+				'element' => $this->get_switcher_slug(),
 				'value'   => 'true',
 			];
 		}
@@ -240,6 +295,15 @@ abstract class AbstractParamsCollection {
 		array_unshift( $params, $switcher_param );
 
 		return $params;
+	}
+
+	/**
+	 * Get switcher slug for this collection.
+	 *
+	 * @since 1.0
+	 */
+	public function get_switcher_slug(): string {
+		return $this->prefix . 'add_' . $this->get_slug();
 	}
 
 	/**
@@ -275,61 +339,6 @@ abstract class AbstractParamsCollection {
 		}
 
 		return $params;
-	}
-
-	/**
-	 * Set parameters to exclude from integration.
-	 *
-	 * @since 1.0
-	 */
-	public function set_exclude( array $exclude_params ): AbstractParamsCollection {
-		$this->exclude = $exclude_params;
-		foreach ( $exclude_params as $key => $param_name ) {
-			$exclude_params[ $key ] = $this->prefix . $param_name;
-		}
-		return $this;
-	}
-
-	/**
-	 * Set parameters to include only for integration.
-	 *
-	 * @since 1.0
-	 */
-	public function set_include_only( array $include_only ): AbstractParamsCollection {
-		foreach ( $include_only as $key => $param_name ) {
-            $this->include_only[ $key ] = $this->prefix . $param_name;
-		}
-		return $this;
-	}
-
-	/**
-	 * Set prefix for params.
-	 *
-	 * @since 1.0
-	 */
-	public function set_prefix( string $prefix ): AbstractParamsCollection {
-		$this->prefix = $prefix;
-		return $this;
-	}
-
-	/**
-	 * Set additional params that we apply to each param set.
-	 *
-	 * @since 1.0
-	 */
-	public function set_additional_params( array $additional_params ): AbstractParamsCollection {
-		$this->additional_params = $additional_params;
-		return $this;
-	}
-
-	/**
-	 * Set dependency that we apply to each param set.
-	 *
-	 * @since 1.0
-	 */
-	public function set_dependency( array $dependency ): AbstractParamsCollection {
-		$this->dependency = $dependency;
-		return $this;
 	}
 
 	/**
