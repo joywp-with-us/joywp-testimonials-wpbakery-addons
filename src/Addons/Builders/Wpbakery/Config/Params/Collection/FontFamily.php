@@ -17,25 +17,6 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 class FontFamily extends AbstractParamsCollection {
-
-	/**
-	 * Get collection slug.
-	 *
-	 * @since 1.0
-	 */
-	public function get_slug(): string {
-		return 'font_family';
-	}
-
-	/**
-	 * Get collection name.
-	 *
-	 * @since 1.0
-	 */
-	public function get_name(): string {
-		return 'font family';
-	}
-
 	/**
 	 * Get collection color group.
 	 *
@@ -54,7 +35,7 @@ class FontFamily extends AbstractParamsCollection {
 		return [
 			[
 				'type'        => 'dropdown',
-				'param_name'  => $this->prefix . 'font_family',
+				'param_name'  => $this->get_param_prefix(),
 				'value'       => [
 					'Arial'           => 'Arial, Helvetica, sans-serif',
 					'Helvetica'       => 'Helvetica, Arial, sans-serif',

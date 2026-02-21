@@ -36,7 +36,7 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 
 		$params = vc_map_integrate_shortcode(
 			$config,
-			$this->prefix,
+			$this->collection->prefix,
 		);
 
 		return $this->integrate_specific_params( $params );

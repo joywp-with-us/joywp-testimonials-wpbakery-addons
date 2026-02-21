@@ -16,7 +16,14 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-abstract class AbstractParamsCollection extends AbstractCollection {
+abstract class AbstractParamsCollection {
+	/**
+	 * The collection instance.
+	 *
+	 * @since 1.0
+	 */
+	public AbstractCollection $collection;
+
 	/**
 	 * Additional params to add to each param set.
 	 *
@@ -81,12 +88,32 @@ abstract class AbstractParamsCollection extends AbstractCollection {
 	abstract public function get_color(): string;
 
 	/**
+	 * AbstractParamsCollection constructor.
+	 *
+	 * @since 1.0
+	 */
+	public function __construct( AbstractCollection $collection ) {
+		$this->collection = $collection;
+	}
+
+	/**
 	 * Check if we need add switcher for this collection.
 	 *
 	 * @since 1.0
 	 */
 	public function is_switcher(): bool {
 		return $this->is_switcher;
+	}
+
+	/**
+	 * Set config prefix.
+	 *
+	 * @since 1.0
+	 * @return $this
+	 */
+	public function set_prefix( string $prefix ): self {
+		$this->collection->prefix = $prefix;
+		return $this;
 	}
 
 	/**
@@ -127,7 +154,7 @@ abstract class AbstractParamsCollection extends AbstractCollection {
 	public function set_exclude( array $exclude_params ): self {
 		$this->exclude = $exclude_params;
 		foreach ( $exclude_params as $key => $param_name ) {
-			$exclude_params[ $key ] = $this->prefix . $param_name;
+			$exclude_params[ $key ] = $this->collection->prefix . $param_name;
 		}
 		return $this;
 	}
@@ -139,7 +166,7 @@ abstract class AbstractParamsCollection extends AbstractCollection {
 	 */
 	public function set_include_only( array $include_only ): self {
 		foreach ( $include_only as $key => $param_name ) {
-			$this->include_only[ $key ] = $this->prefix . $param_name;
+			$this->include_only[ $key ] = $this->collection->prefix . $param_name;
 		}
 		return $this;
 	}
@@ -181,9 +208,9 @@ abstract class AbstractParamsCollection extends AbstractCollection {
 	public function get_switcher_param(): array {
 		$switcher = [
 			'type'        => 'joywp_switcher',
-			'param_name'  => $this->get_switcher_slug(),
-			'heading'     => esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->get_name() ),
-			'description' => esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'  => $this->collection->get_switcher_slug(),
+			'heading'     => esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->collection->get_name() ),
+			'description' => esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->collection->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' ),
 			'options'     => [
 				'true' => [
 					'label' => '',
@@ -256,7 +283,7 @@ abstract class AbstractParamsCollection extends AbstractCollection {
 			}
 
 			$params[ $key ]['dependency'] = [
-				'element' => $this->get_switcher_slug(),
+				'element' => $this->collection->get_switcher_slug(),
 				'value'   => 'true',
 			];
 		}
@@ -382,5 +409,14 @@ abstract class AbstractParamsCollection extends AbstractCollection {
 		}
 
 		return $params;
+	}
+
+	/**
+	 * Get param prefix for this collection.
+	 *
+	 * @since 1.0
+	 */
+	public function get_param_prefix(): string {
+		return $this->collection->prefix . $this->collection->get_slug();
 	}
 }

@@ -18,24 +18,6 @@ defined( 'ABSPATH' ) || exit;
  */
 class BoxShadow extends AbstractParamsCollection {
 	/**
-	 * Get collection slug.
-	 *
-	 * @since 1.0
-	 */
-	public function get_slug(): string {
-		return 'box_shadow';
-	}
-
-	/**
-	 * Get collection name.
-	 *
-	 * @since 1.0
-	 */
-	public function get_name(): string {
-		return 'shadow';
-	}
-
-	/**
 	 * Get collection color group.
 	 *
 	 * @since 1.0
@@ -58,7 +40,7 @@ class BoxShadow extends AbstractParamsCollection {
 				'max'         => '100',
 				'step'        => '1',
 				'heading'     => esc_html__( 'Horizontal Size', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->prefix . $this->get_slug() . '_horizontal',
+				'param_name'  => $this->get_param_prefix() . '_horizontal',
 				'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description' => esc_html__( 'Set custom horizontal size for box shadow.', 'joywp-testimonials-wpbakery-addons' ),
 			],
@@ -69,7 +51,7 @@ class BoxShadow extends AbstractParamsCollection {
 				'max'         => '100',
 				'step'        => '1',
 				'heading'     => esc_html__( 'Vertical Size', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->prefix . $this->get_slug() . '_vertical',
+				'param_name'  => $this->get_param_prefix() . '_vertical',
 				'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description' => esc_html__( 'Set custom vertical size for box shadow.', 'joywp-testimonials-wpbakery-addons' ),
 			],
@@ -80,7 +62,7 @@ class BoxShadow extends AbstractParamsCollection {
 				'max'         => '100',
 				'step'        => '1',
 				'heading'     => esc_html__( 'Blur Effect', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->prefix . $this->get_slug() . '_blur',
+				'param_name'  => $this->get_param_prefix() . '_blur',
 				'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description' => esc_html__( 'Set custom blur effect for box shadow.', 'joywp-testimonials-wpbakery-addons' ),
 			],
@@ -91,14 +73,14 @@ class BoxShadow extends AbstractParamsCollection {
 				'max'         => '100',
 				'step'        => '1',
 				'heading'     => esc_html__( 'Spread Radius', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->prefix . $this->get_slug() . '_spread',
+				'param_name'  => $this->get_param_prefix() . '_spread',
 				'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description' => esc_html__( 'Set custom spread radius for box shadow.', 'joywp-testimonials-wpbakery-addons' ),
 			],
 			[
 				'type'        => 'colorpicker',
 				'heading'     => esc_html__( 'Color', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->prefix . $this->get_slug() . '_color',
+				'param_name'  => $this->get_param_prefix() . '_color',
 				'description' => esc_html__( 'Select custom color for box shadow.', 'joywp-testimonials-wpbakery-addons' ),
 			],
 		];

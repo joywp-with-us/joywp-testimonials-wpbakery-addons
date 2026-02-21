@@ -17,25 +17,6 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 class Image extends AbstractAddonCollection {
-
-	/**
-	 * Get collection slug.
-	 *
-	 * @since 1.0
-	 */
-	public function get_slug(): string {
-		return 'image';
-	}
-
-	/**
-	 * Get collection name.
-	 *
-	 * @since 1.0
-	 */
-	public function get_name(): string {
-		return 'image';
-	}
-
 	/**
 	 * Render collection output.
 	 *

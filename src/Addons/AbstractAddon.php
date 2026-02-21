@@ -313,14 +313,16 @@ abstract class AbstractAddon {
 	 * @since 1.0
 	 */
 	public function get_collection( string $name ): AbstractAddonCollection {
-		$class_name       = str_replace( ' ', '', ucwords( str_replace( '-', ' ', $name ) ) );
-		$builder          = str_replace( ' ', '', ucwords( str_replace( '_', ' ', $this->builder_slug ) ) );
-		$collection_class = 'JoywpTestimonialsWpb\\Addons\\Builders\\' . $builder . '\\Addon\\Collection\\' . $class_name;
+		$class_name             = str_replace( ' ', '', ucwords( str_replace( '-', ' ', $name ) ) );
+		$builder                = str_replace( ' ', '', ucwords( str_replace( '_', ' ', $this->builder_slug ) ) );
+		$collection_class       = 'JoywpTestimonialsWpb\\Addons\\Builders\\' . $builder . '\\Collection\\' . $class_name;
+		$addon_collection_class = 'JoywpTestimonialsWpb\\Addons\\Builders\\' . $builder . '\\Addon\\Collection\\' . $class_name;
 
-		$collection = new $collection_class();
+		$collection       = new $collection_class();
+		$addon_collection = new $addon_collection_class( $collection );
 
-		$collection->set_addon( $this );
+		$addon_collection->set_addon( $this );
 
-		return $collection;
+		return $addon_collection;
 	}
 }

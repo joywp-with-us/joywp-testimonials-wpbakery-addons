@@ -16,13 +16,29 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-abstract class AbstractAddonCollection extends AbstractCollection {
+abstract class AbstractAddonCollection {
+	/**
+	 * The collection instance.
+	 *
+	 * @since 1.0
+	 */
+	public AbstractCollection $collection;
+
 	/**
 	 * The addon instance.
 	 *
 	 * @since 1.0
 	 */
 	protected AbstractAddon $addon;
+
+	/**
+	 * AbstractAddonCollection constructor.
+	 *
+	 * @since 1.0
+	 */
+	public function __construct( AbstractCollection $collection ) {
+		$this->collection = $collection;
+	}
 
 	/**
 	 * Set addon instance.

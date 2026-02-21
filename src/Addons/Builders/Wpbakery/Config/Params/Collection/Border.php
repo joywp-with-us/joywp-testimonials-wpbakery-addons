@@ -18,24 +18,6 @@ defined( 'ABSPATH' ) || exit;
  */
 class Border extends AbstractParamsCollection {
 	/**
-	 * Get collection slug.
-	 *
-	 * @since 1.0
-	 */
-	public function get_slug(): string {
-		return 'border';
-	}
-
-	/**
-	 * Get collection name.
-	 *
-	 * @since 1.0
-	 */
-	public function get_name(): string {
-		return 'border';
-	}
-
-	/**
 	 * Get collection color group.
 	 *
 	 * @since 1.0
@@ -53,7 +35,7 @@ class Border extends AbstractParamsCollection {
 		return [
 			[
 				'type'        => 'dropdown',
-				'param_name'  => $this->prefix . $this->get_slug() . '_style',
+				'param_name'  => $this->get_param_prefix() . '_style',
 				'value'       => [
 					esc_html__( 'Solid', 'joywp-testimonials-wpbakery-addons' )  => 'solid',
 					esc_html__( 'Dashed', 'joywp-testimonials-wpbakery-addons' ) => 'dashed',
@@ -74,14 +56,14 @@ class Border extends AbstractParamsCollection {
 				'max'         => '100',
 				'step'        => '1',
 				'heading'     => esc_html__( 'Border Width', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->prefix . $this->get_slug() . '_width',
+				'param_name'  => $this->get_param_prefix() . '_width',
 				'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description' => esc_html__( 'Set custom border width in px from 0 to 10.', 'joywp-testimonials-wpbakery-addons' ),
 			],
 			[
 				'type'        => 'colorpicker',
 				'heading'     => esc_html__( 'Border color', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->prefix . $this->get_slug() . '_color',
+				'param_name'  => $this->get_param_prefix() . '_color',
 				'description' => esc_html__( 'Select custom color for border.', 'joywp-testimonials-wpbakery-addons' ),
 				'value'       => '#cccccc00',
 			],
@@ -92,7 +74,7 @@ class Border extends AbstractParamsCollection {
 				'max'         => '100',
 				'step'        => '1',
 				'heading'     => esc_html__( 'Border Radius', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->prefix . $this->get_slug() . '_radius',
+				'param_name'  => $this->get_param_prefix() . '_radius',
 				'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description' => esc_html__( 'Set custom border radius in px from 0 to 100.', 'joywp-testimonials-wpbakery-addons' ),
 			],

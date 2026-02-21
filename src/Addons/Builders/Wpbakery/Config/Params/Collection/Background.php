@@ -17,25 +17,6 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 class Background extends AbstractParamsCollection {
-
-	/**
-	 * Get collection slug.
-	 *
-	 * @since 1.0
-	 */
-	public function get_slug(): string {
-		return 'background';
-	}
-
-	/**
-	 * Get collection name.
-	 *
-	 * @since 1.0
-	 */
-	public function get_name(): string {
-		return 'background';
-	}
-
 	/**
 	 * Get collection color group.
 	 *
@@ -54,7 +35,7 @@ class Background extends AbstractParamsCollection {
 		return [
 			[
 				'type'       => 'dropdown',
-				'param_name' => $this->prefix . 'background_type',
+				'param_name' => $this->get_param_prefix() . '_type',
 				'value'      => [
 					__( 'Color', 'joywp-testimonials-wpbakery-addons' )    => 'color',
 					__( 'Gradient', 'joywp-testimonials-wpbakery-addons' ) => 'gradient',
@@ -63,23 +44,23 @@ class Background extends AbstractParamsCollection {
 			[
 				'type'             => 'colorpicker',
 				'heading'          => esc_html__( 'From', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'       => $this->prefix . 'from_gradient_color',
+				'param_name'       => $this->collection->prefix . 'from_gradient_color',
 				'description'      => esc_html__( 'Choose the starting color of the gradient.', 'joywp-testimonials-wpbakery-addons' ),
 				'value'            => '#cccccc00',
 				'dependency'       => [
-					'element' => $this->prefix . 'background_type',
-					'value'   => $this->prefix . 'gradient',
+					'element' => $this->get_param_prefix() . '_type',
+					'value'   => $this->collection->prefix . 'gradient',
 				],
 				'edit_field_class' => 'vc_col-sm-6',
 			],
 			[
 				'type'             => 'colorpicker',
 				'heading'          => esc_html__( 'To', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'       => $this->prefix . 'to_gradient_color',
+				'param_name'       => $this->collection->prefix . 'to_gradient_color',
 				'description'      => esc_html__( 'Choose the ending color of the gradient.', 'joywp-testimonials-wpbakery-addons' ),
 				'value'            => '#cccccc00',
 				'dependency'       => [
-					'element' => $this->prefix . 'background_type',
+					'element' => $this->get_param_prefix() . '_type',
 					'value'   => 'gradient',
 				],
 				'edit_field_class' => 'vc_col-sm-6',
@@ -87,11 +68,11 @@ class Background extends AbstractParamsCollection {
 			[
 				'type'        => 'colorpicker',
 				'heading'     => esc_html__( 'Background Color', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->prefix . 'background_color',
+				'param_name'  => $this->get_param_prefix() . '_color',
 				'description' => esc_html__( 'Choose background color.', 'joywp-testimonials-wpbakery-addons' ),
 				'value'       => '#cccccc00',
 				'dependency'  => [
-					'element' => $this->prefix . 'background_type',
+					'element' => $this->get_param_prefix() . '_type',
 					'value'   => 'color',
 				],
 			],

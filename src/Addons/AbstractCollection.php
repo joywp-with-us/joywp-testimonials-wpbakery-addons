@@ -22,7 +22,7 @@ abstract class AbstractCollection {
 	 *
 	 * @since 1.0
 	 */
-	protected string $prefix = '';
+	public string $prefix = '';
 
 	/**
 	 * Get collection slug.
@@ -37,17 +37,6 @@ abstract class AbstractCollection {
 	 * @since 1.0
 	 */
 	abstract public function get_name(): string;
-
-	/**
-	 * Set config prefix.
-	 *
-	 * @since 1.0
-	 * @return $this
-	 */
-	public function set_prefix( string $prefix ): self {
-		$this->prefix = $prefix;
-		return $this;
-	}
 
 	/**
 	 * Get switcher slug for this collection.
