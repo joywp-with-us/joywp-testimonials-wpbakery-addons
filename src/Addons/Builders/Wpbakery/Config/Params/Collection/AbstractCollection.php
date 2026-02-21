@@ -33,42 +33,13 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 	 */
 	public function get_params(): array {
 		$config = $this->get_collection_params();
-		$params = $config['params'];
-
-		if ( ! empty( $this->dependency ) ) {
-			$params = $this->add_dependency( $params, $this->dependency );
-		}
-
-		$config['params'] = $params;
 
 		$params = vc_map_integrate_shortcode(
 			$config,
 			$this->prefix,
 		);
 
-		if ( $this->is_switcher() ) {
-			$params = $this->add_switcher( $params );
-		}
-
-		if ( $this->include_only ) {
-			$params = $this->implement_include_only( $params );
-		} else {
-			$params = $this->implement_exclude( $params );
-		}
-
-		if ( $this->get_gap() ) {
-			$params = $this->add_gap( $params );
-		}
-
-		if ( $this->additional_params ) {
-			$params = $this->add_params( $params, $this->additional_params );
-		}
-
-		if ( $this->is_color() ) {
-			$params = $this->add_color( $params );
-		}
-
-		return $params;
+		return $this->integrate_specific_params( $params );
 	}
 
 	/**

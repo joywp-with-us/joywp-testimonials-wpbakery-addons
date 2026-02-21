@@ -185,6 +185,15 @@ abstract class AbstractParamsCollection {
 	public function get_params(): array {
 		$params = $this->get_collection_params();
 
+		return $this->integrate_specific_params( $params );
+	}
+
+	/**
+	 * Integrate specific params that we can specify in setters.
+	 *
+	 * @since 1.0
+	 */
+	protected function integrate_specific_params( array $params ): array {
 		if ( $this->is_switcher() ) {
 			$params = $this->add_switcher( $params );
 		}
