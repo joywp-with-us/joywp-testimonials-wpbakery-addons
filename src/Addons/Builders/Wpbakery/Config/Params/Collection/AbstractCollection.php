@@ -39,24 +39,21 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 			$params = $this->add_dependency( $params, $this->dependency );
 		}
 
-		if ( $this->include_only ) {
-			$change_fields = [ 'include_only' => $this->include_only ];
-		} else {
-			$exclude       = array_merge( $this->get_always_exclude_params(), $this->exclude );
-			$change_fields = [ 'exclude' => $exclude ];
-		}
-
 		$config['params'] = $params;
 
 		$params = vc_map_integrate_shortcode(
 			$config,
 			$this->prefix,
-			'',
-			$change_fields
 		);
 
 		if ( $this->is_switcher() ) {
 			$params = $this->add_switcher( $params );
+		}
+
+		if ( $this->include_only ) {
+			$params = $this->implement_include_only( $params );
+		} else {
+			$params = $this->implement_exclude( $params );
 		}
 
 		if ( $this->get_gap() ) {
@@ -69,6 +66,29 @@ abstract class AbstractCollection extends AbstractParamsCollection {
 
 		if ( $this->is_color() ) {
 			$params = $this->add_color( $params );
+		}
+
+		return $params;
+	}
+
+	/**
+	 * Implement include only params.
+	 *
+	 * @since 1.0
+	 */
+	protected function implement_exclude( array $params ): array {
+		$always_exclude = $this->get_always_exclude_params();
+		if ( ! $this->exclude && ! $always_exclude ) {
+			return $params;
+		}
+
+		foreach ( $params as $key => $param_data ) {
+			if ( in_array( $param_data['param_name'], $this->exclude, true ) ) {
+				unset( $params[ $key ] );
+			}
+			if ( in_array( $param_data['param_name'], $always_exclude, true ) ) {
+				unset( $params[ $key ] );
+			}
 		}
 
 		return $params;
