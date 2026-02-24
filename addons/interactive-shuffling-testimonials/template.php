@@ -550,8 +550,6 @@ endforeach;
 				textDiv.className = 'joywp-horizontal-testimonial-card__text';
 				textDiv.textContent = testimonial.text;
 
-
-
 				card.appendChild(clientInfo);
 				card.appendChild(textDiv);
 				console.log(testimonial.quot_color);

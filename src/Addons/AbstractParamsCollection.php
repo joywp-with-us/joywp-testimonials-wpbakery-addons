@@ -211,6 +211,7 @@ abstract class AbstractParamsCollection {
 			'param_name'  => $this->collection->get_switcher_slug(),
 			'heading'     => esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->collection->get_name() ),
 			'description' => esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->collection->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' ),
+			'value'       => 'false',
 			'options'     => [
 				'true' => [
 					'label' => '',
