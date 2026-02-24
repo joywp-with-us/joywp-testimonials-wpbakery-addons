@@ -24,18 +24,29 @@ class Background extends AbstractAddonCollection {
 	 */
 	public function get_render_output( array $atts ): string {
 		$output = '';
-		switch ( $atts[ $this->collection->prefix . 'background_type' ] ) {
+		switch ( $atts[ $this->collection->get_param_prefix() . 'type' ] ) {
 			case 'color':
 				$output = sprintf(
 					'background-color: %s;',
-					esc_attr( $atts[ $this->collection->prefix . 'background_color' ] )
+					esc_attr( $atts[ $this->collection->get_param_prefix() . 'background_color' ] )
 				);
 				break;
 			case 'gradient':
 				$output = sprintf(
 					'background: linear-gradient(to right, %s, %s);',
-					esc_attr( $atts[ $this->collection->prefix . 'from_gradient_color' ] ),
-					esc_attr( $atts[ $this->collection->prefix . 'to_gradient_color' ] )
+					esc_attr( $atts[ $this->collection->get_param_prefix() . 'from_gradient_color' ] ),
+					esc_attr( $atts[ $this->collection->get_param_prefix() . 'to_gradient_color' ] )
+				);
+				break;
+			case 'image':
+				if ( 'external_link' === $atts[ $this->collection->get_param_prefix() . 'image_source' ] ) {
+					$url = $atts[ $this->collection->get_param_prefix() . 'custom_src' ];
+				} else {
+					$url = wp_get_attachment_url( $atts[ $this->collection->get_param_prefix() . 'image' ] );
+				}
+				$output = sprintf(
+					'background-image: url("%s");',
+					esc_url( $url )
 				);
 				break;
 		}

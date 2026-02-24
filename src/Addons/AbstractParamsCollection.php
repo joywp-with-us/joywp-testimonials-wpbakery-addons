@@ -411,13 +411,4 @@ abstract class AbstractParamsCollection {
 
 		return $params;
 	}
-
-	/**
-	 * Get param prefix for this collection.
-	 *
-	 * @since 1.0
-	 */
-	public function get_param_prefix(): string {
-		return $this->collection->prefix . $this->collection->get_slug();
-	}
 }

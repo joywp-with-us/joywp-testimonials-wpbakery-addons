@@ -46,4 +46,14 @@ abstract class AbstractCollection {
 	public function get_switcher_slug(): string {
 		return $this->prefix . 'add_' . $this->get_slug();
 	}
+
+
+	/**
+	 * Get param prefix for this collection.
+	 *
+	 * @since 1.0
+	 */
+	public function get_param_prefix(): string {
+		return $this->prefix . $this->get_slug() . '_';
+	}
 }
