@@ -182,5 +182,10 @@ return array_merge(
 			],
 		],
 	],
-	$config->get_collection( 'border' )->set_switcher()->set_color()->get_params(),
+	$config
+        ->get_collection( 'border' )
+        ->set_switcher()
+        ->set_color()
+        ->set_gap(10)
+        ->get_params(),
 );

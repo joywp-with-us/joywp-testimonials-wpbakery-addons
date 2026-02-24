@@ -167,7 +167,7 @@ return array_merge(
 							'wcp_group_color' => '#8B0000',
 						]
 					)
-					->set_exclude( [ 'border_radius' ] )
+					->set_exclude( [ 'avatar_border_radius' ] )
 					->set_switcher()
 					->get_params(),
 			),
