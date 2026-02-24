@@ -18,12 +18,12 @@ defined( 'ABSPATH' ) || exit;
  */
 class Image extends AbstractAddonCollection {
 	/**
-	 * Render collection output.
+	 * Get render collection output.
 	 *
 	 * @since 1.0
 	 */
-	public function render( array $atts ): void {
-		$this->addon->output_integrated_addon( 'vc_single_image', $atts );
+	public function get_render_output( array $atts ): string {
+		return $this->addon->get_integrated_addon_output( 'vc_single_image', $atts );
 	}
 
 	/**

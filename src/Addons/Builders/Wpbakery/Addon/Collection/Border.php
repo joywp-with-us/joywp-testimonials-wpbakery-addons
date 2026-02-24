@@ -18,16 +18,12 @@ defined( 'ABSPATH' ) || exit;
  */
 class Border extends AbstractAddonCollection {
 	/**
-	 * Render collection output.
+	 * Get render collection output.
 	 *
 	 * @since 1.0
 	 */
-	public function render( array $atts ): void {
-		if ( ! isset( $atts[ $this->collectiion->prefix . 'add_border' ] ) || 'true' !== $atts[ $this->collection->prefix . 'add_border' ] ) {
-			return;
-		}
-
-		printf(
+	public function get_render_output( array $atts ): string {
+		return sprintf(
 			'border-width: %spx; border-style: %s; border-color: %s; border-radius: %spx;',
 			esc_attr( $atts[ $this->collection->prefix . 'border_width' ] ),
 			esc_attr( $atts[ $this->collection->prefix . 'border_style' ] ),

@@ -18,25 +18,28 @@ defined( 'ABSPATH' ) || exit;
  */
 class Background extends AbstractAddonCollection {
 	/**
-	 * Render collection output.
+	 * Get render collection output.
 	 *
 	 * @since 1.0
 	 */
-	public function render( array $atts ): void {
+	public function get_render_output( array $atts ): string {
+		$output = '';
 		switch ( $atts[ $this->collection->prefix . 'background_type' ] ) {
 			case 'color':
-				printf(
+				$output = sprintf(
 					'background-color: %s;',
 					esc_attr( $atts[ $this->collection->prefix . 'background_color' ] )
 				);
 				break;
 			case 'gradient':
-				printf(
+				$output = sprintf(
 					'background: linear-gradient(to right, %s, %s);',
 					esc_attr( $atts[ $this->collection->prefix . 'from_gradient_color' ] ),
 					esc_attr( $atts[ $this->collection->prefix . 'to_gradient_color' ] )
 				);
 				break;
 		}
+
+		return $output;
 	}
 }

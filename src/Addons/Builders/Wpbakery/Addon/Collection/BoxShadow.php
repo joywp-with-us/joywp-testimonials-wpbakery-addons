@@ -18,16 +18,12 @@ defined( 'ABSPATH' ) || exit;
  */
 class BoxShadow extends AbstractAddonCollection {
 	/**
-	 * Render collection output.
+	 * Get render collection output.
 	 *
 	 * @since 1.0
 	 */
-	public function render( array $atts ): void {
-		if ( ! isset( $atts[ $this->collection->prefix . 'add_box_shadow' ] ) || 'true' !== $atts[ $this->collection->prefix . 'add_box_shadow' ] ) {
-			return;
-		}
-
-		printf(
+	public function get_render_output( array $atts ): string {
+		return sprintf(
 			'box-shadow: %spx %spx %spx %spx %s;',
 			esc_attr( $atts[ $this->collection->prefix . 'box_shadow_horizontal' ] ),
 			esc_attr( $atts[ $this->collection->prefix . 'box_shadow_vertical' ] ),

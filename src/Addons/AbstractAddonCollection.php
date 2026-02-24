@@ -48,4 +48,37 @@ abstract class AbstractAddonCollection {
 	public function set_addon( AbstractAddon $addon ): void {
 		$this->addon = $addon;
 	}
+
+	/**
+	 * Render collection output.
+	 *
+	 * @since 1.0
+	 */
+	public function is_witcher_on( array $atts ): bool {
+		$switcher_slug = $this->collection->get_switcher_slug();
+		return isset( $atts[ $switcher_slug ] ) && 'true' === $atts[ $switcher_slug ];
+	}
+
+	/**
+	 * Render collection output.
+	 *
+	 * @since 1.0
+	 */
+	public function render( array $atts ): void {
+		if ( ! $this->is_witcher_on( $atts ) ) {
+			return;
+		}
+
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $this->get_render_output( $atts ); // on this step everything escaped already.
+	}
+
+	/**
+	 * Get render collection output.
+	 *
+	 * @since 1.0
+	 */
+	public function get_render_output( array $atts ): string { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+		return '';
+	}
 }

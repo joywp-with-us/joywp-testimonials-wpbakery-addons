@@ -18,12 +18,12 @@ defined( 'ABSPATH' ) || exit;
  */
 class FontFamily extends AbstractAddonCollection {
 	/**
-	 * Render collection output.
+	 * Get render collection output.
 	 *
 	 * @since 1.0
 	 */
-	public function render( array $atts ): void {
-		printf(
+	public function get_render_output( array $atts ): string {
+		return sprintf(
 			'font-family: %s;',
 			esc_attr( $atts[ $this->collection->prefix . 'font_family' ] )
 		);
