@@ -154,7 +154,7 @@ abstract class AbstractParamsCollection {
 	public function set_exclude( array $exclude_params ): self {
 		$this->exclude = $exclude_params;
 		foreach ( $exclude_params as $key => $param_name ) {
-			$exclude_params[ $key ] = $this->collection->prefix . $param_name;
+			$exclude_params[ $key ] = $this->collection->get_param_slug($param_name);
 		}
 		return $this;
 	}
@@ -166,7 +166,7 @@ abstract class AbstractParamsCollection {
 	 */
 	public function set_include_only( array $include_only ): self {
 		foreach ( $include_only as $key => $param_name ) {
-			$this->include_only[ $key ] = $this->collection->prefix . $param_name;
+			$this->include_only[ $key ] = $this->collection->get_param_slug($param_name);
 		}
 		return $this;
 	}
@@ -212,6 +212,7 @@ abstract class AbstractParamsCollection {
 			'heading'     => esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->collection->get_name() ),
 			'description' => esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->collection->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => 'false',
+			'default_set' => 'false',
 			'options'     => [
 				'true' => [
 					'label' => '',
