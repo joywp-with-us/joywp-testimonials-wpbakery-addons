@@ -171,7 +171,9 @@ return array_merge(
 					->get_params(),
 				$config
 					->get_collection( 'background', 'item' )
+					->set_gap( 20 )
 					->set_switcher()
+					->set_color()
 					->get_params(),
 			),
 		],

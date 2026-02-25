@@ -23,7 +23,7 @@ class Background extends AbstractParamsCollection {
 	 * @since 1.0
 	 */
 	public function get_color(): string {
-		return '#8B0000';
+		return '#D8CCFF';
 	}
 
 	/**
