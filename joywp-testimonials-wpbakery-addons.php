@@ -13,6 +13,8 @@
  *
  * Requires at least: 4.9
  * Requires PHP:      7.1
+ *
+ * @since 1.0
  */
 
 defined( 'ABSPATH' ) || exit;

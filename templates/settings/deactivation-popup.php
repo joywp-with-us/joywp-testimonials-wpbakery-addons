@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for displaying plugin deactivation feedback popup.
+ *
+ * @since 1.0
  */
 
 defined( 'ABSPATH' ) || exit;

@@ -17,6 +17,8 @@ defined( 'ABSPATH' ) || exit;
 class JsonTranslator {
 	/**
 	 * Recursively translate JSON data and remove translation keys.
+	 *
+	 * @since 1.0
 	 */
 	public function localize( array $data ): array {
 		return $this->recursive_translate( $data );

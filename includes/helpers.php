@@ -60,6 +60,7 @@ if ( ! function_exists( 'joywptestimonialswpb_config' ) ) :
 	/**
 	 * Retrieve a configuration value from a file in the config directory.
 	 *
+	 * @since 1.0
 	 * @return mixed The configuration value.
 	 */
 	function joywptestimonialswpb_config( string $config_path ) {

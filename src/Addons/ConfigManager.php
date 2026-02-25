@@ -158,6 +158,7 @@ class ConfigManager {
 	/**
 	 * Get params content from file.
 	 *
+	 * @since 1.0
 	 * @throws WP_Exception
 	 */
 	public function get_params_from_file(): array {
@@ -242,6 +243,7 @@ class ConfigManager {
 	/**
 	 * Process from JSON file.
 	 *
+	 * @since 1.0
 	 * @return mixed
 	 * @throws WP_Exception
 	 */
@@ -272,6 +274,7 @@ class ConfigManager {
 	/**
 	 * Process from PHP file.
 	 *
+	 * @since 1.0
 	 * @throws WP_Exception
 	 * @return mixed
 	 */

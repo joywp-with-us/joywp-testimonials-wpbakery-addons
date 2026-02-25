@@ -17,6 +17,7 @@
     <!-- Exclude these paths -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>languages</exclude-pattern>
+    <exclude-pattern>ci</exclude-pattern>
 
     <rule ref="PHPCompatibility">
         <properties>
@@ -77,5 +78,10 @@
     </rule>
 
     <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
+    <!-- custom sniff -->
+    <rule ref="ci/phpcs-custom-sniff/Custom/ruleset.xml">
+        <exclude-pattern>includes/wpbakery-custom-param-collection</exclude-pattern>
+    </rule>
 
 </ruleset>

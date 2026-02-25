@@ -85,6 +85,8 @@ class BuilderBootstrapper extends AbstractBuilderBootstrapper {
 
 	/**
 	 * Set params that we will have for every addon.
+	 *
+	 * @since 1.0
 	 */
 	public function set_common_params( array $config, string $builder_slug ): array {
 		if ( $this->builder_slug !== $builder_slug ) {
