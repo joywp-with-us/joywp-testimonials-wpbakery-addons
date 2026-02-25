@@ -110,16 +110,18 @@ endforeach;
 					left: 0;
 					width: 100%;
 					height: 4px;
-					<?php $addon->get_collection( 'background', 'item' )->render( $item ); ?>
+					<?php $addon->get_collection( 'background', 'accent' )->render( $item ); ?>
 				}
 				<?php
 			endif;
 			$addon->output_style_shortcode_id();
 		?>
 				[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"] {
-					background-color: white;
-					<?php $addon->get_collection( 'border', 'item' )->render( $item ); ?>
-					<?php $addon->get_collection( 'box-shadow', 'item' )->render( $item ); ?>
+					<?php
+					$addon->get_collection( 'background', 'item' )->render( $item );
+					$addon->get_collection( 'border', 'item' )->render( $item );
+					$addon->get_collection( 'box-shadow', 'item' )->render( $item );
+					?>
 				}
 			<?php
 		endforeach;

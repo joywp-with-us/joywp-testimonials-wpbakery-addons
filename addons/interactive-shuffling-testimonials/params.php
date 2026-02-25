@@ -169,6 +169,10 @@ return array_merge(
 					->set_exclude( [ 'avatar_border_radius' ] )
 					->set_switcher()
 					->get_params(),
+				$config
+					->get_collection( 'background', 'item' )
+					->set_switcher()
+					->get_params(),
 			),
 		],
 	],
