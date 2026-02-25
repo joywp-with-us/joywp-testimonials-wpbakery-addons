@@ -154,7 +154,7 @@ abstract class AbstractParamsCollection {
 	public function set_exclude( array $exclude_params ): self {
 		$this->exclude = $exclude_params;
 		foreach ( $exclude_params as $key => $param_name ) {
-			$exclude_params[ $key ] = $this->collection->get_param_slug($param_name);
+			$exclude_params[ $key ] = $this->collection->get_param_slug( $param_name );
 		}
 		return $this;
 	}
@@ -166,7 +166,7 @@ abstract class AbstractParamsCollection {
 	 */
 	public function set_include_only( array $include_only ): self {
 		foreach ( $include_only as $key => $param_name ) {
-			$this->include_only[ $key ] = $this->collection->get_param_slug($param_name);
+			$this->include_only[ $key ] = $this->collection->get_param_slug( $param_name );
 		}
 		return $this;
 	}
@@ -303,7 +303,7 @@ abstract class AbstractParamsCollection {
 	protected function implement_include_only( array $params ): array {
 		$result = [];
 		foreach ( $params as $param_data ) {
-			if ( in_array( $param_data['param_name'], $this->include_only, true ) ) {
+			if ( in_array( $this->collection->get_param_slug( $param_data['param_name'] ), $this->include_only, true ) ) {
 				$result[] = $param_data;
 			}
 		}
@@ -322,7 +322,7 @@ abstract class AbstractParamsCollection {
 		}
 
 		foreach ( $params as $key => $param_data ) {
-			if ( in_array( $param_data['param_name'], $this->exclude, true ) ) {
+			if ( in_array( $this->collection->get_param_slug( $param_data['param_name'] ), $this->exclude, true ) ) {
 				unset( $params[ $key ] );
 			}
 		}
