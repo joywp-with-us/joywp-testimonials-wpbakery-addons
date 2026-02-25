@@ -35,7 +35,7 @@ class FontFamily extends AbstractParamsCollection {
 		return [
 			[
 				'type'        => 'dropdown',
-				'param_name'  => $this->collection->get_param_prefix(),
+				'param_name'  => $this->collection->get_param_slug(),
 				'value'       => [
 					'Arial'           => 'Arial, Helvetica, sans-serif',
 					'Helvetica'       => 'Helvetica, Arial, sans-serif',

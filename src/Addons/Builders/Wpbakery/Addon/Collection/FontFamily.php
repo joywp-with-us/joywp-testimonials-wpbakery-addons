@@ -25,7 +25,7 @@ class FontFamily extends AbstractAddonCollection {
 	public function get_render_output( array $atts ): string {
 		return sprintf(
 			'font-family: %s;',
-			esc_attr( $atts[ $this->collection->prefix . 'font_family' ] )
+			esc_attr( $atts[ $this->collection->get_param_slug() ] )
 		);
 	}
 }

@@ -47,7 +47,6 @@ abstract class AbstractCollection {
 		return $this->prefix . 'add_' . $this->get_slug();
 	}
 
-
 	/**
 	 * Get param prefix for this collection.
 	 *
@@ -55,5 +54,18 @@ abstract class AbstractCollection {
 	 */
 	public function get_param_prefix(): string {
 		return $this->prefix . $this->get_slug() . '_';
+	}
+
+	/**
+	 * Get param prefix for this collection.
+	 *
+	 * @since 1.0
+	 */
+	public function get_param_slug( string $param_slug = '' ): string {
+		if ( '' === $param_slug ) {
+			return $this->prefix . $this->get_slug();
+		} else {
+			return $this->prefix . $this->get_slug() . '_' . $param_slug;
+		}
 	}
 }
