@@ -106,17 +106,6 @@ abstract class AbstractParamsCollection {
 	}
 
 	/**
-	 * Set config prefix.
-	 *
-	 * @since 1.0
-	 * @return $this
-	 */
-	public function set_prefix( string $prefix ): self {
-		$this->collection->prefix = $prefix;
-		return $this;
-	}
-
-	/**
 	 * Switcher setter.
 	 *
 	 * @since 1.0

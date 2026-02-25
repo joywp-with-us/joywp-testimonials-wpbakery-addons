@@ -106,7 +106,7 @@ return array_merge(
 		],
 	],
 	$config
-		->get_collection( 'font-family' )
+		->get_collection( 'font-family', 'main' )
 		->set_additional_params( [ 'group' => __( 'Quotes', 'joywp-testimonials-wpbakery-addons' ) ] )
 		->set_dependency(
 			[
@@ -116,7 +116,7 @@ return array_merge(
 		)
 		->get_params(),
 	$config
-		->get_collection( 'image' )
+		->get_collection( 'image', 'main' )
 		->set_exclude( [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ] )
 		->set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )
 		->set_switcher()
@@ -183,7 +183,7 @@ return array_merge(
 		],
 	],
 	$config
-		->get_collection( 'border' )
+		->get_collection( 'border', 'main' )
 		->set_switcher()
 		->set_color()
 		->set_gap( 10 )

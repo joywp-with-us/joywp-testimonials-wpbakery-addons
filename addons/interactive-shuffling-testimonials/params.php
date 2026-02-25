@@ -73,13 +73,13 @@ return array_merge(
 					],
 				],
 				$config
-					->get_collection( 'border' )
+					->get_collection( 'border', 'item' )
 					->set_gap( 20 )
 					->set_switcher()
 					->set_color()
 					->get_params(),
 				$config
-					->get_collection( 'box-shadow' )
+					->get_collection( 'box-shadow', 'item' )
 					->set_gap( 20 )
 					->set_switcher()
 					->set_color()
@@ -131,7 +131,7 @@ return array_merge(
 					],
 				],
 				$config
-					->get_collection( 'background' )
+					->get_collection( 'background', 'accent' )
 					->set_dependency(
 						[
 							'element' => 'add_top_accent',
@@ -146,18 +146,17 @@ return array_merge(
 					)
 					->get_params(),
 				$config
-					->get_collection( 'image' )
+					->get_collection( 'image', 'avatar' )
 					->set_include_only( [ 'source', 'image', 'custom_src' ] )
 					->set_gap( 20 )
 					->set_switcher()
 					->set_color()
 					->get_params(),
 				$config
-					->get_collection( 'border' )
-					->set_prefix( 'avatar_' )
+					->get_collection( 'border', 'avatar' )
 					->set_dependency(
 						[
-							'element' => 'add_image',
+							'element' => 'avatar_add_image',
 							'value'   => 'true',
 						]
 					)

@@ -9,7 +9,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$items = $addon->get_collection( 'param-group' )->get_items( $atts );
+$items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 
 $testimonial_list = [];
 foreach ( $items as $item ) :
@@ -23,8 +23,8 @@ foreach ( $items as $item ) :
 	if ( isset( $item['add_quot'] ) && 'true' === $item['add_quot'] ) {
 		$testimonial['quot_color'] = $item['quot_color'];
 	}
-	if ( isset( $item['add_image'] ) && 'true' === $item['add_image'] ) {
-		$testimonial['avatar'] = $addon->get_collection( 'image' )->get_image_link( $item );
+	if ( isset( $item['avatar_add_image'] ) && 'true' === $item['avatar_add_image'] ) {
+		$testimonial['avatar'] = $addon->get_collection( 'image', 'avatar' )->get_image_link( $item );
 		if ( isset( $item['avatar_add_border'] ) && 'true' === $item['avatar_add_border'] ) {
 			$testimonial['avatar_border_color'] = $item['avatar_border_color'] ?? '';
 			$testimonial['avatar_border_width'] = $item['avatar_border_width'] ?? 0;
@@ -110,7 +110,7 @@ endforeach;
 					left: 0;
 					width: 100%;
 					height: 4px;
-					<?php $addon->get_collection( 'background' )->render( $item ); ?>
+					<?php $addon->get_collection( 'background', 'item' )->render( $item ); ?>
 				}
 				<?php
 			endif;
@@ -118,8 +118,8 @@ endforeach;
 		?>
 				[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"] {
 					background-color: white;
-					<?php $addon->get_collection( 'border' )->render( $item ); ?>
-					<?php $addon->get_collection( 'box-shadow' )->render( $item ); ?>
+					<?php $addon->get_collection( 'border', 'item' )->render( $item ); ?>
+					<?php $addon->get_collection( 'box-shadow', 'item' )->render( $item ); ?>
 				}
 			<?php
 		endforeach;

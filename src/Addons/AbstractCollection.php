@@ -22,7 +22,16 @@ abstract class AbstractCollection {
 	 *
 	 * @since 1.0
 	 */
-	public string $prefix = '';
+	private string $prefix;
+
+	/**
+	 * AbstractCollection constructor.
+	 *
+	 * @since 1.0
+	 */
+	public function __construct( string $prefix ) {
+		$this->prefix = $prefix . '_';
+	}
 
 	/**
 	 * Get collection slug.
@@ -53,7 +62,7 @@ abstract class AbstractCollection {
 	 * @since 1.0
 	 */
 	public function get_param_prefix(): string {
-		return $this->prefix . $this->get_slug() . '_';
+		return $this->prefix . $this->get_slug();
 	}
 
 	/**
@@ -63,9 +72,9 @@ abstract class AbstractCollection {
 	 */
 	public function get_param_slug( string $param_slug = '' ): string {
 		if ( '' === $param_slug ) {
-			return $this->prefix . $this->get_slug();
+			return $this->get_param_prefix();
 		} else {
-			return $this->prefix . $this->get_slug() . '_' . $param_slug;
+			return $this->get_param_prefix() . '_' . $param_slug;
 		}
 	}
 }

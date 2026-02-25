@@ -24,9 +24,7 @@ defined( 'ABSPATH' ) || exit;
 			?>
 		</div>
 		<?php
-		if ( 'true' === $atts['add_image'] ) :
-			$addon->get_collection( 'image ' )->render( $atts );
-		endif;
+		$addon->get_collection( 'image ', 'main' )->render( $atts );
 		if ( 'true' === $atts['add_name'] ) :
 			?>
 			<div class="joywp-testimonial-card-with-image-quote-author joywp-testimonial-card-with-image-name-block-color-bg">
@@ -45,13 +43,8 @@ defined( 'ABSPATH' ) || exit;
 		max-width: <?php echo esc_attr( $atts['width'] ); ?>px;
 
 		<?php
-		if ( 'true' === $atts['add_border'] ) :
-			$addon->get_collection( 'border ' )->render( $atts );
-		endif;
-
-		if ( 'true' === $atts['add_box_shadow'] ) :
-			$addon->get_collection( 'box-shadow' )->render( $atts );
-		endif;
+		$addon->get_collection( 'border', 'main' )->render( $atts );
+		$addon->get_collection( 'box-shadow', 'main' )->render( $atts );
 		?>
 	}
 <?php
@@ -60,7 +53,7 @@ if ( 'true' === $atts['add_quotes'] ) :
 	?>
 		.joywp-testimonial-card-with-image-quote-text::before,
 		.joywp-testimonial-card-with-image-quote-text::after {
-			<?php $addon->get_collection( 'font-family' )->render( $atts ); ?>
+			<?php $addon->get_collection( 'font-family', 'main' )->render( $atts ); ?>
 			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
 			position: absolute;
 			pointer-events: none;

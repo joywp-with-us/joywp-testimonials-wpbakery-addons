@@ -35,17 +35,11 @@ defined( 'ABSPATH' ) || exit;
 			?>
 		</div>
 		<div class="joywp-testimonial-quote-with-avatar-footer">
-			<?php
-			if ( 'true' === $atts['add_image'] ) :
-				?>
-				<div class="joywp-testimonial-quote-with-avatar-avatar">
-					<?php
-					$addon->get_collection( 'image ' )->render( $atts );
-					?>
-				</div>
+			<div class="joywp-testimonial-quote-with-avatar-avatar">
 				<?php
-			endif;
-			?>
+				$addon->get_collection( 'image ', 'main' )->render( $atts );
+				?>
+			</div>
 			<div class="joywp-testimonial-quote-with-avatar-author" aria-label="Author">
 				<div class="joywp-testimonial-quote-with-avatar-author-name">
 					<?php
@@ -61,9 +55,7 @@ defined( 'ABSPATH' ) || exit;
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-quote {
 		background-color: <?php echo esc_attr( $atts['testimonial_background'] ); ?>;
 		<?php
-		if ( 'true' === $atts['add_border'] ) :
-			$addon->get_collection( 'border ' )->render( $atts );
-		endif;
+		$addon->get_collection( 'border', 'main' )->render( $atts );
 		?>
 	}
 	<?php $addon->output_style_shortcode_id(); ?> .joywp-testimonial-quote-with-avatar-wrapper {
@@ -76,7 +68,9 @@ defined( 'ABSPATH' ) || exit;
 		.joywp-testimonial-quote-with-avatar-quote-mark {
 			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
 			color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
-			<?php $addon->get_collection( 'font-family' )->render( $atts ); ?>
+			<?php
+			$addon->get_collection( 'font-family', 'main' )->render( $atts );
+			?>
 		}
 		<?php
 	endif;
