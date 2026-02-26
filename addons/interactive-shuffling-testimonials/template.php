@@ -503,7 +503,6 @@ endforeach;
 				var card = document.createElement('div');
 				card.className = 'joywp-horizontal-testimonial-card__card joywp-horizontal-testimonial-card__card-' + testimonial.size;
 				card.setAttribute('role', 'listitem');
-				card.setAttribute('tabindex', '0');
 				card.setAttribute('aria-label', 'Testimonial from ' + testimonial.name + ', ' + testimonial.title);
 				card.setAttribute('data-item-id', testimonial.id);
 
