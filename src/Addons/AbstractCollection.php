@@ -77,4 +77,23 @@ abstract class AbstractCollection {
 			return $this->get_param_prefix() . '_' . $param_slug;
 		}
 	}
+
+	/**
+	 * Remove collection prefix from params atts.
+	 *
+	 * @since 1.0
+	 */
+	public function remove_prefix( array $atts ): array {
+		$prefix = $this->get_param_prefix() . '_';
+		$result = [];
+		foreach ( $atts as $key => $value ) {
+			if ( str_starts_with( $key, $prefix ) ) {
+				$new_key = substr( $key, strlen( $prefix ) );
+				unset( $atts[ $key ] );
+				$result[ $new_key ] = $value;
+			}
+		}
+
+		return $result;
+	}
 }

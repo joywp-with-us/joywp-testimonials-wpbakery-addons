@@ -32,7 +32,7 @@ class Image extends AbstractAddonCollection {
 	 * @since 1.0
 	 */
 	public function get_image_link( array $atts ): string {
-		$html = $this->addon->get_integrated_addon_output( 'vc_single_image', $atts );
+		$html = $this->addon->get_integrated_addon_output( 'vc_single_image', $this->collection->remove_prefix( $atts ) );
 
 		preg_match( '/<img.*?src=["\'](.*?)["\'].*?>/i', $html, $matches );
 
