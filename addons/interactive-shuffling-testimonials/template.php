@@ -441,8 +441,6 @@ endforeach;
 		var particlesContainer = document.getElementById('joywp-particles');
 		var rotateBtn = document.getElementById('joywp-rotateBtn');
 
-		if (!grid || !particlesContainer || !rotateBtn) return;
-
 		renderTestimonials();
 		<?php
 		if ( 'true' === $atts['is_animated'] ) {
