@@ -48,15 +48,6 @@ abstract class AbstractCollection {
 	abstract public function get_name(): string;
 
 	/**
-	 * Get collection prefix.
-	 *
-	 * @since 1.0
-	 */
-	public function get_prefix(): string {
-		return $this->prefix;
-	}
-
-	/**
 	 * Get switcher slug for this collection.
 	 *
 	 * @since 1.0
