@@ -175,6 +175,56 @@ return array_merge(
 					->set_switcher()
 					->set_color()
 					->get_params(),
+				[
+					[
+						'type'                 => 'joywp_switcher',
+						'param_name'           => 'add_item_hover',
+						'heading'              => esc_html__( 'Add Hover Effect', 'joywp-testimonials-wpbakery-addons' ),
+						'description'          => esc_html__( 'Add hover effect to the testimonial card.', 'joywp-testimonials-wpbakery-addons' ),
+						'options'              => [
+							'true' => [
+								'label' => '',
+								'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
+								'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
+							],
+						],
+						'wcp_group'            => true,
+						'wcp_group_color'      => '#ff757c',
+						'wcp_group_margin_top' => '20',
+					],
+				],
+				$config
+					->get_collection( 'box-shadow', 'item_hover' )
+					->set_switcher()
+					->set_dependency(
+						[
+							'element' => 'add_item_hover',
+							'value'   => 'true',
+						]
+					)
+					->set_additional_params(
+						[
+							'wcp_group'       => true,
+							'wcp_group_color' => '#ff757c',
+						]
+					)
+					->get_params(),
+				$config
+					->get_collection( 'border', 'item_hover' )
+					->set_switcher()
+					->set_dependency(
+						[
+							'element' => 'add_item_hover',
+							'value'   => 'true',
+						]
+					)
+					->set_additional_params(
+						[
+							'wcp_group'       => true,
+							'wcp_group_color' => '#ff757c',
+						]
+					)
+					->get_params(),
 			),
 		],
 	],

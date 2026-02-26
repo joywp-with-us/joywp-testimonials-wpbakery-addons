@@ -116,7 +116,7 @@ endforeach;
 			endif;
 			$addon->output_style_shortcode_id();
 		?>
-				[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"] {
+			[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"] {
 					<?php
 					$addon->get_collection( 'background', 'item' )->render( $item );
 					$addon->get_collection( 'border', 'item' )->render( $item );
@@ -124,7 +124,18 @@ endforeach;
 					?>
 				}
 			<?php
-		endforeach;
+			if ( $item['add_item_hover'] ) :
+				$addon->output_style_shortcode_id();
+				?>
+				[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"]:hover {
+				<?php
+					$addon->get_collection( 'box-shadow', 'item_hover' )->render( $item );
+					$addon->get_collection( 'border', 'item_hover' )->render( $item );
+				?>
+				}
+				<?php
+			endif;
+endforeach;
 	?>
 </style>
 
@@ -191,7 +202,6 @@ endforeach;
 
 	.joywp-horizontal-testimonial-card__card:hover {
 		transform: translateY(-10px) scale(1.02);
-		box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.12);
 		z-index: 10;
 	}
 
