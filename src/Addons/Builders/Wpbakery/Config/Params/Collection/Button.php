@@ -41,10 +41,10 @@ class Button extends AbstractCollection {
 	 */
 	public function get_always_exclude_params(): array {
 		return [
-			'css_animation',
-			'el_id',
-			'el_class',
-			'css',
+			$this->collection->get_param_slug( 'css_animation' ),
+			$this->collection->get_param_slug( 'el_id' ),
+			$this->collection->get_param_slug( 'el_class' ),
+			$this->collection->get_param_slug( 'css' ),
 		];
 	}
 
