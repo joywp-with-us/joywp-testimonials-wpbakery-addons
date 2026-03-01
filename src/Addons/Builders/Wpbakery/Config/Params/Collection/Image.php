@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-class Image extends AbstractCollection {
+class Image extends AbstractWpbakeryCollection {
 	/**
 	 * Get collection color group.
 	 *

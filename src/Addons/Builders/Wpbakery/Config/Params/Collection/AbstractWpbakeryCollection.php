@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-abstract class AbstractCollection extends AbstractParamsCollection {
+abstract class AbstractWpbakeryCollection extends AbstractParamsCollection {
 	/**
 	 * Get params list that we always exclude.
 	 *

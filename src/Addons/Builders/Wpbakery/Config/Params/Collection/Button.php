@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.0
  */
-class Button extends AbstractCollection {
+class Button extends AbstractWpbakeryCollection {
 	/**
 	 * Get collection color group.
 	 *
