@@ -94,7 +94,7 @@ return array_merge(
 		->get_params(),
 	$config
 		->get_collection( 'image', 'main' )
-		->set_exclude( [ 'caption', 'add_caption', 'img_link_large', 'style', 'border_color' ] )
+		->set_exclude( [ 'main_image_caption', 'main_image_add_caption', 'main_image_img_link_large', 'main_image_style', 'main_image_border_color' ] )
 		->set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )
 		->set_switcher()
 		->get_params(),

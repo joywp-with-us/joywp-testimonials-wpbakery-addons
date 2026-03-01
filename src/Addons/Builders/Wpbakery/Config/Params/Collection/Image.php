@@ -41,11 +41,11 @@ class Image extends AbstractWpbakeryCollection {
 	 */
 	public function get_always_exclude_params(): array {
 		return [
-			'title',
-			'css_animation',
-			'el_id',
-			'el_class',
-			'css',
+			$this->collection->get_param_slug( 'title' ),
+			$this->collection->get_param_slug( 'css_animation' ),
+			$this->collection->get_param_slug( 'el_id' ),
+			$this->collection->get_param_slug( 'el_class' ),
+			$this->collection->get_param_slug( 'css' ),
 		];
 	}
 
