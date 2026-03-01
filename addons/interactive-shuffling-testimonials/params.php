@@ -22,31 +22,34 @@ return array_merge(
 				'use_media'   => 'false',
 			],
 		],
-		[
-			'type'        => 'joywp_switcher',
-			'param_name'  => 'is_animated',
-			'heading'     => esc_html__( 'Animation', 'joywp-testimonials-wpbakery-addons' ),
-			'description' => esc_html__( 'Enable animation for testimonial module.', 'joywp-testimonials-wpbakery-addons' ),
-			'options'     => [
-				'true' => [
-					'on'  => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
-					'off' => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
-				],
-			],
-		],
-	],
-	$config
-		->get_collection( 'button', 'shuffle' )
-		->set_exclude(
-			[
-				'shuffle_button_align',
-				'shuffle_button_button_block',
-				'shuffle_button_custom_onclick',
-				'shuffle_button_custom_onclick_code',
-				'shuffle_button_link',
-			]
-		)
-		->get_params(),
+        [
+            'type'        => 'joywp_switcher',
+            'param_name'  => 'is_animated',
+            'heading'     => esc_html__( 'Animation', 'joywp-testimonials-wpbakery-addons' ),
+            'description' => esc_html__( 'Enable animation for testimonial module.', 'joywp-testimonials-wpbakery-addons' ),
+            'options'     => [
+                'true' => [
+                    'on'  => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
+                    'off' => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
+                ],
+            ],
+        ],
+    ],
+    $config
+        ->get_collection( 'button', 'shuffle' )
+        ->set_exclude(
+            [
+                'shuffle_button_align',
+                'shuffle_button_button_block',
+                'shuffle_button_custom_onclick',
+                'shuffle_button_custom_onclick_code',
+                'shuffle_button_link',
+            ]
+        )
+        ->set_switcher()
+        ->set_gap(20)
+        ->set_color()
+        ->get_params(),
 	[
 		[
 			'type'       => 'param_group',
