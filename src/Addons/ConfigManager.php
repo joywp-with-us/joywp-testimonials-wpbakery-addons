@@ -168,6 +168,20 @@ class ConfigManager {
 	}
 
 	/**
+	 * Get additional params.
+	 * We call additional params that we keep in separate files
+	 * that helps to simplify the main params file content reading.
+	 *
+	 * @since 1.0
+	 * @throws WP_Exception
+	 */
+	public function get_additional_params( string $file_name ): array {
+		$path = $this->addon_data['base_dir'] . '/' . $file_name;
+
+		return $this->process_file( $path );
+	}
+
+	/**
 	 * Set default values for params.
 	 *
 	 * @since 1.0
