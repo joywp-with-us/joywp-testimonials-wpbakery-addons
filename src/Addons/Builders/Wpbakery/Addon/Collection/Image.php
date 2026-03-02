@@ -23,7 +23,7 @@ class Image extends AbstractAddonCollection {
 	 * @since 1.0
 	 */
 	public function get_render_output( array $atts ): string {
-		return $this->addon->get_integrated_addon_output( 'vc_single_image', $atts );
+		return $this->addon->get_integrated_addon_output( 'vc_single_image', $this->collection->remove_prefix( $atts ) );
 	}
 
 	/**
