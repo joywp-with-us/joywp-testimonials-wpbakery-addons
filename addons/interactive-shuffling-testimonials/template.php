@@ -50,7 +50,13 @@ endforeach;
 		?>
 		<div class="joywp-horizontal-testimonial-card__grid" id="joywp-testimonialGrid" role="list" aria-label="<?php echo esc_attr__( 'Testimonials', 'joywp-testimonials-wpbakery-addons' ); ?>"></div>
 
-		<button class="joywp-horizontal-testimonial-card__btn-rotate" id="joywp-rotateBtn">Shuffle Testimonials</button>
+		<?php
+		$atts['shuffle_button_el_id'] = 'joywp-rotateBtn';
+
+		$addon
+			->get_collection( 'button', 'shuffle' )
+			->render( $atts );
+		?>
 
 		<div class="joywp-horizontal-testimonial-card__particles" id="joywp-particles" aria-hidden="true"></div>
 	</div>

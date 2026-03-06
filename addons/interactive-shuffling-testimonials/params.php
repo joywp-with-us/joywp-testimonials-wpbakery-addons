@@ -39,7 +39,6 @@ return array_merge(
 		->get_collection( 'button', 'shuffle' )
 		->set_exclude(
 			[
-				'shuffle_button_align',
 				'shuffle_button_button_block',
 				'shuffle_button_custom_onclick',
 				'shuffle_button_custom_onclick_code',
