@@ -161,7 +161,7 @@ endforeach;
 				<?php
 			endif;
 			$addon->output_style_shortcode_id();
-            ?>
+		?>
 			[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"] {
 					<?php
 					$addon->get_collection( 'background', 'item' )->render( $item );
@@ -217,71 +217,71 @@ endforeach;
 			}
 			<?php
 		endif;
-		?>
-
-		rotateBtn.addEventListener('click', function() {
-			var cards = grid.querySelectorAll('.joywp-horizontal-testimonial-card__card');
-			cards.forEach(function(card, index) {
-				setTimeout(function() {
-					card.style.opacity = '0';
-					card.style.transform = 'translateY(30px) scale(0.95)';
-				}, index * 50);
-			});
-
-			setTimeout(function() {
-				grid.innerHTML = '';
-				renderTestimonials();
-				<?php
-				if ( 'true' === $atts['is_button_animated'] ) :
-					?>
-					createParticleBurst();
-					<?php
-				endif;
-				?>
-			}, cards.length * 50 + 300);
-		});
-
-		<?php
-		if ( 'true' === $atts['is_button_animated'] ) :
+		if ( 'none' !== $atts['select_button'] ) :
 			?>
-			function createParticleBurst() {
-				var colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
+			rotateBtn.addEventListener('click', function() {
+				var cards = grid.querySelectorAll('.joywp-horizontal-testimonial-card__card');
+				cards.forEach(function(card, index) {
+					setTimeout(function() {
+						card.style.opacity = '0';
+						card.style.transform = 'translateY(30px) scale(0.95)';
+					}, index * 50);
+				});
 
-				for (var i = 0; i < 20; i++) {
-					var particle = document.createElement('div');
-					particle.className = 'joywp-horizontal-testimonial-card__particle';
-
-					var size = Math.random() * 10 + 5;
-					particle.style.width = size + 'px';
-					particle.style.height = size + 'px';
-					particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-					particle.style.left = '50%';
-					particle.style.top = '50%';
-					particle.style.animation = 'none';
-					particle.style.opacity = '0.8';
-
-					var angle = Math.random() * Math.PI * 2;
-					var distance = 100 + Math.random() * 100;
-					var duration = 1 + Math.random() * 2;
-
-					particlesContainer.appendChild(particle);
-
-					(function(p, a, d, dur) {
-						setTimeout(function() {
-							p.style.transition = 'all ' + dur + 's ease-out';
-							p.style.transform = 'translate(' + (Math.cos(a) * d) + 'px, ' + (Math.sin(a) * d) + 'px) rotate(' + (Math.random() * 360) + 'deg)';
-							p.style.opacity = '0';
-						}, 10);
-
-						setTimeout(function() {
-							if (p.parentNode) {
-								p.parentNode.removeChild(p);
-							}
-						}, dur * 1000 + 100);
-					})(particle, angle, distance, duration);
-				}
-			}
+				setTimeout(function() {
+					grid.innerHTML = '';
+					renderTestimonials();
+					<?php
+					if ( 'true' === $atts['is_button_animated'] ) :
+						?>
+					createParticleBurst();
+						<?php
+					endif;
+					?>
+				}, cards.length * 50 + 300);
+			});
 			<?php
+			if ( 'true' === $atts['is_button_animated'] ) :
+				?>
+				function createParticleBurst() {
+					var colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
+
+					for (var i = 0; i < 20; i++) {
+						var particle = document.createElement('div');
+						particle.className = 'joywp-horizontal-testimonial-card__particle';
+
+						var size = Math.random() * 10 + 5;
+						particle.style.width = size + 'px';
+						particle.style.height = size + 'px';
+						particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+						particle.style.left = '50%';
+						particle.style.top = '50%';
+						particle.style.animation = 'none';
+						particle.style.opacity = '0.8';
+
+						var angle = Math.random() * Math.PI * 2;
+						var distance = 100 + Math.random() * 100;
+						var duration = 1 + Math.random() * 2;
+
+						particlesContainer.appendChild(particle);
+
+						(function(p, a, d, dur) {
+							setTimeout(function() {
+								p.style.transition = 'all ' + dur + 's ease-out';
+								p.style.transform = 'translate(' + (Math.cos(a) * d) + 'px, ' + (Math.sin(a) * d) + 'px) rotate(' + (Math.random() * 360) + 'deg)';
+								p.style.opacity = '0';
+							}, 10);
+
+							setTimeout(function() {
+								if (p.parentNode) {
+									p.parentNode.removeChild(p);
+								}
+							}, dur * 1000 + 100);
+						})(particle, angle, distance, duration);
+					}
+				}
+				<?php
+			endif;
 		endif;
 		?>
 
