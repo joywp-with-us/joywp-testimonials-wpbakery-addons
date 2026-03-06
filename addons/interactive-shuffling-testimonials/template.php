@@ -51,11 +51,18 @@ endforeach;
 		<div class="joywp-horizontal-testimonial-card__grid" id="joywp-testimonialGrid" role="list" aria-label="<?php echo esc_attr__( 'Testimonials', 'joywp-testimonials-wpbakery-addons' ); ?>"></div>
 
 		<?php
-		$atts['shuffle_button_el_id'] = 'joywp-rotateBtn';
-
-		$addon
-			->get_collection( 'button', 'shuffle' )
-			->render( $atts );
+		if ( 'builder' === $atts['select_button'] ) {
+			$atts['shuffle_button_el_id'] = 'joywp-rotateBtn';
+			$addon
+				->get_collection( 'button', 'shuffle' )
+				->render( $atts );
+		} elseif ( 'fancy' === $atts['select_button'] ) {
+			?>
+			<button class="joywp-horizontal-testimonial-card__btn-rotate" id="joywp-rotateBtn">
+				<?php echo esc_attr( $atts['button_text'] ); ?>
+			</button>
+			<?php
+		}
 		?>
 
 		<div class="joywp-horizontal-testimonial-card__particles" id="joywp-particles" aria-hidden="true"></div>
@@ -64,6 +71,39 @@ endforeach;
 
 <style>
 	<?php
+	if ( 'fancy' === $atts['select_button'] ) :
+		?>
+		.joywp-horizontal-testimonial-card__btn-rotate {
+			position: relative;
+			margin-top: 30px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			background: linear-gradient(45deg, var(--joywp-accent2), var(--joywp-primary));
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 30px;
+			cursor: pointer;
+			font-weight: 600;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+			transition: all 0.3s ease;
+			z-index: 20;
+			opacity: 0;
+			animation: joywp-fadeIn 1s ease 1s forwards;
+		}
+
+		.joywp-horizontal-testimonial-card__btn-rotate:hover {
+			transform: scale(1.05);
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+		}
+
+		.joywp-horizontal-testimonial-card__btn-rotate:focus {
+			outline: 2px solid white;
+			outline-offset: 2px;
+		}
+		<?php
+	endif;
 	if ( $atts['top_heading'] ) :
 		$addon->output_style_shortcode_id();
 		?>
@@ -141,7 +181,7 @@ endforeach;
 				}
 				<?php
 			endif;
-endforeach;
+	endforeach;
 	?>
 </style>
 
@@ -304,36 +344,6 @@ endforeach;
 		white-space: pre-line;
 	}
 
-	.joywp-horizontal-testimonial-card__btn-rotate {
-		position: relative;
-		margin-top: 30px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		background: linear-gradient(45deg, var(--joywp-accent2), var(--joywp-primary));
-		color: white;
-		border: none;
-		padding: 10px 20px;
-		border-radius: 30px;
-		cursor: pointer;
-		font-weight: 600;
-		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-		transition: all 0.3s ease;
-		z-index: 20;
-		opacity: 0;
-		animation: joywp-fadeIn 1s ease 1s forwards;
-	}
-
-	.joywp-horizontal-testimonial-card__btn-rotate:hover {
-		transform: scale(1.05);
-		box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-	}
-
-	.joywp-horizontal-testimonial-card__btn-rotate:focus {
-		outline: 2px solid white;
-		outline-offset: 2px;
-	}
-
 	.joywp-horizontal-testimonial-card__particles {
 		position: absolute;
 		top: 0;
@@ -449,7 +459,7 @@ endforeach;
 
 		renderTestimonials();
 		<?php
-		if ( 'true' === $atts['is_animated'] ) {
+		if ( 'true' === $atts['is_animated'] ) :
 			?>
 			var colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
 
@@ -468,7 +478,7 @@ endforeach;
 				particlesContainer.appendChild(particle);
 			}
 			<?php
-		}
+		endif;
 		?>
 
 		rotateBtn.addEventListener('click', function() {
@@ -483,9 +493,59 @@ endforeach;
 			setTimeout(function() {
 				grid.innerHTML = '';
 				renderTestimonials();
-				createParticleBurst();
+				<?php
+				if ( 'true' === $atts['is_button_animated'] ) :
+					?>
+					createParticleBurst();
+					<?php
+				endif;
+				?>
 			}, cards.length * 50 + 300);
 		});
+
+		<?php
+		if ( 'true' === $atts['is_button_animated'] ) :
+			?>
+			function createParticleBurst() {
+				var colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
+
+				for (var i = 0; i < 20; i++) {
+					var particle = document.createElement('div');
+					particle.className = 'joywp-horizontal-testimonial-card__particle';
+
+					var size = Math.random() * 10 + 5;
+					particle.style.width = size + 'px';
+					particle.style.height = size + 'px';
+					particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+					particle.style.left = '50%';
+					particle.style.top = '50%';
+					particle.style.animation = 'none';
+					particle.style.opacity = '0.8';
+
+					var angle = Math.random() * Math.PI * 2;
+					var distance = 100 + Math.random() * 100;
+					var duration = 1 + Math.random() * 2;
+
+					particlesContainer.appendChild(particle);
+
+					(function(p, a, d, dur) {
+						setTimeout(function() {
+							p.style.transition = 'all ' + dur + 's ease-out';
+							p.style.transform = 'translate(' + (Math.cos(a) * d) + 'px, ' + (Math.sin(a) * d) + 'px) rotate(' + (Math.random() * 360) + 'deg)';
+							p.style.opacity = '0';
+						}, 10);
+
+						setTimeout(function() {
+							if (p.parentNode) {
+								p.parentNode.removeChild(p);
+							}
+						}, dur * 1000 + 100);
+					})(particle, angle, distance, duration);
+				}
+			}
+			<?php
+		endif;
+		?>
 
 		function renderTestimonials() {
 			var shuffled = testimonials.slice().sort(function() {
@@ -567,7 +627,6 @@ endforeach;
 
 				card.appendChild(clientInfo);
 				card.appendChild(textDiv);
-				console.log(testimonial.quot_color);
 				if (testimonial.quot_color) {
 					var quote = document.createElement('div');
 					quote.className = 'joywp-horizontal-testimonial-card__quote';
@@ -579,44 +638,6 @@ endforeach;
 
 				grid.appendChild(card);
 			});
-		}
-
-		function createParticleBurst() {
-			var colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
-
-			for (var i = 0; i < 20; i++) {
-				var particle = document.createElement('div');
-				particle.className = 'joywp-horizontal-testimonial-card__particle';
-
-				var size = Math.random() * 10 + 5;
-				particle.style.width = size + 'px';
-				particle.style.height = size + 'px';
-				particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-				particle.style.left = '50%';
-				particle.style.top = '50%';
-				particle.style.animation = 'none';
-				particle.style.opacity = '0.8';
-
-				var angle = Math.random() * Math.PI * 2;
-				var distance = 100 + Math.random() * 100;
-				var duration = 1 + Math.random() * 2;
-
-				particlesContainer.appendChild(particle);
-
-				(function(p, a, d, dur) {
-					setTimeout(function() {
-						p.style.transition = 'all ' + dur + 's ease-out';
-						p.style.transform = 'translate(' + (Math.cos(a) * d) + 'px, ' + (Math.sin(a) * d) + 'px) rotate(' + (Math.random() * 360) + 'deg)';
-						p.style.opacity = '0';
-					}, 10);
-
-					setTimeout(function() {
-						if (p.parentNode) {
-							p.parentNode.removeChild(p);
-						}
-					}, dur * 1000 + 100);
-				})(particle, angle, distance, duration);
-			}
 		}
 
 		document.addEventListener('mousemove', function(e) {
