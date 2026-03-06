@@ -79,7 +79,7 @@ endforeach;
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
-			background: linear-gradient(45deg, var(--joywp-accent2), var(--joywp-primary));
+			background: linear-gradient(45deg, #6a0572, #ff6b6b);
 			color: white;
 			border: none;
 			padding: 10px 20px;
@@ -125,7 +125,7 @@ endforeach;
 		}
 		<?php $addon->output_style_shortcode_id(); ?> .joywp-horizontal-testimonial-card__header-description {
 			font-size: 1rem;
-			color: var(--joywp-dark);
+			color: #333333;
 			opacity: 0.8;
 			max-width: 80%;
 			margin: 0 auto;
@@ -161,7 +161,7 @@ endforeach;
 				<?php
 			endif;
 			$addon->output_style_shortcode_id();
-		?>
+            ?>
 			[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"] {
 					<?php
 					$addon->get_collection( 'background', 'item' )->render( $item );
