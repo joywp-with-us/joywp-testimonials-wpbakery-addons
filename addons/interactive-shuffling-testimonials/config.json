@@ -13,5 +13,13 @@
   },
   "template": "template.php",
   "params": "params.php",
-  "icon": "icon.svg"
+  "icon": "icon.svg",
+
+  "assets": {
+    "inner": {
+      "css": {
+        "file": "assets/css/addon.css"
+      }
+    }
+  }
 }
