@@ -188,16 +188,16 @@ endforeach;
 	(function() {
 		'use strict';
 
-		var addonId = <?php echo wp_json_encode( $addon->id ); ?>;
-		var dataAttr = <?php echo wp_json_encode( $addon->get_data_attribute_id() ); ?>;
-		var root = document.querySelector('[' + dataAttr + '="' + addonId + '"]');
+		const addonId = <?php echo wp_json_encode( $addon->id ); ?>;
+		const dataAttr = <?php echo wp_json_encode( $addon->get_data_attribute_id() ); ?>;
+		const root = document.querySelector('[' + dataAttr + '="' + addonId + '"]');
 		if (!root) return;
 
-		var testimonials = <?php echo wp_json_encode( $testimonial_list ); ?>;
+		const testimonials = <?php echo wp_json_encode( $testimonial_list ); ?>;
 
-		var grid = root.querySelector('.joywp-horizontal-testimonial-card__grid');
-		var particlesContainer = root.querySelector('.joywp-horizontal-testimonial-card__particles');
-		var rotateBtn = root.querySelector('.joywp-horizontal-testimonial-card__btn-rotate');
+		const grid = root.querySelector('.joywp-horizontal-testimonial-card__grid');
+		const particlesContainer = root.querySelector('.joywp-horizontal-testimonial-card__particles');
+		const rotateBtn = root.querySelector('.joywp-horizontal-testimonial-card__btn-rotate') || root.querySelector('.joywp-horizontal-testimonial-card__container button, .joywp-horizontal-testimonial-card__container a');
 
 		if (!grid || !particlesContainer) return;
 
@@ -205,13 +205,13 @@ endforeach;
 		<?php
 		if ( 'true' === $atts['is_animated'] ) :
 			?>
-			var colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
+			const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
 
-			for (var i = 0; i < 15; i++) {
-				var particle = document.createElement('div');
+			for (let i = 0; i < 15; i++) {
+				const particle = document.createElement('div');
 				particle.className = 'joywp-horizontal-testimonial-card__particle';
 
-				var size = Math.random() * 8 + 3;
+				const size = Math.random() * 8 + 3;
 				particle.style.width = size + 'px';
 				particle.style.height = size + 'px';
 				particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
@@ -226,7 +226,7 @@ endforeach;
 		if ( 'none' !== $atts['select_button'] ) :
 			?>
 			rotateBtn.addEventListener('click', function() {
-				var cards = grid.querySelectorAll('.joywp-horizontal-testimonial-card__card');
+				const cards = grid.querySelectorAll('.joywp-horizontal-testimonial-card__card');
 				cards.forEach(function(card, index) {
 					setTimeout(function() {
 						card.style.opacity = '0';
@@ -250,13 +250,13 @@ endforeach;
 			if ( 'true' === $atts['is_button_animated'] ) :
 				?>
 				function createParticleBurst() {
-					var colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
+					const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
 
-					for (var i = 0; i < 20; i++) {
-						var particle = document.createElement('div');
+					for (let i = 0; i < 20; i++) {
+						const particle = document.createElement('div');
 						particle.className = 'joywp-horizontal-testimonial-card__particle';
 
-						var size = Math.random() * 10 + 5;
+						const size = Math.random() * 10 + 5;
 						particle.style.width = size + 'px';
 						particle.style.height = size + 'px';
 						particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
@@ -265,9 +265,9 @@ endforeach;
 						particle.style.animation = 'none';
 						particle.style.opacity = '0.8';
 
-						var angle = Math.random() * Math.PI * 2;
-						var distance = 100 + Math.random() * 100;
-						var duration = 1 + Math.random() * 2;
+						const angle = Math.random() * Math.PI * 2;
+						const distance = 100 + Math.random() * 100;
+						const duration = 1 + Math.random() * 2;
 
 						particlesContainer.appendChild(particle);
 
@@ -292,14 +292,14 @@ endforeach;
 		?>
 
 		function renderTestimonials() {
-			var shuffled = testimonials.slice().sort(function() {
+			const shuffled = testimonials.slice().sort(function() {
 				return Math.random() - 0.5;
 			});
 
-            var positions = generatePositions(shuffled.length);
+			const positions = generatePositions(shuffled.length);
 
 			shuffled.forEach(function(testimonial, index) {
-				var card = document.createElement('div');
+				const card = document.createElement('div');
 				card.className = 'joywp-horizontal-testimonial-card__card joywp-horizontal-testimonial-card__card-' + testimonial.size;
 				card.setAttribute('role', 'listitem');
 				card.setAttribute('aria-label', 'Testimonial from ' + testimonial.name + ', ' + testimonial.title);
@@ -308,12 +308,12 @@ endforeach;
 				if (positions[index]) {
 					if (window.innerWidth > 500) {
 						card.style.position = 'absolute';
-						var maxLeft = parseInt(positions[index].left);
-						var cardWidth = testimonial.size === 'large' ? 300 : (testimonial.size === 'medium' ? 240 : 200);
+						let maxLeft = parseInt(positions[index].left, 10);
+						let cardWidth = testimonial.size === 'large' ? 300 : (testimonial.size === 'medium' ? 240 : 200);
 						if (window.innerWidth <= 700) {
 							cardWidth = testimonial.size === 'large' ? 240 : (testimonial.size === 'medium' ? 200 : 160);
 						}
-						var containerWidth = grid.offsetWidth;
+						const containerWidth = grid.offsetWidth;
 						if (maxLeft + cardWidth > containerWidth) {
 							maxLeft = containerWidth - cardWidth - 10;
 						}
@@ -324,10 +324,10 @@ endforeach;
 
 				card.style.animationDelay = (index * 0.1) + 's';
 
-				var clientInfo = document.createElement('div');
+				const clientInfo = document.createElement('div');
 				clientInfo.className = 'joywp-horizontal-testimonial-card__client-info';
 
-				var avatar = document.createElement('div');
+				const avatar = document.createElement('div');
 				avatar.className = 'joywp-horizontal-testimonial-card__client-avatar';
 				avatar.style.backgroundImage = 'url(' + testimonial.avatar + ')';
 				avatar.setAttribute('role', 'img');
@@ -340,14 +340,14 @@ endforeach;
 					avatar.style.borderStyle = testimonial.avatar_border_style;
 				}
 
-				var clientDetails = document.createElement('div');
+				const clientDetails = document.createElement('div');
 				clientDetails.className = 'joywp-horizontal-testimonial-card__client-details';
 
-				var clientName = document.createElement('div');
+				const clientName = document.createElement('div');
 				clientName.className = 'joywp-horizontal-testimonial-card__client-name';
 				clientName.textContent = testimonial.name;
 
-				var clientTitle = document.createElement('div');
+				const clientTitle = document.createElement('div');
 				clientTitle.className = 'joywp-horizontal-testimonial-card__client-title';
 				clientTitle.textContent = testimonial.title;
 
@@ -356,17 +356,17 @@ endforeach;
 				clientInfo.appendChild(avatar);
 				clientInfo.appendChild(clientDetails);
 
-				var textDiv = document.createElement('div');
+				const textDiv = document.createElement('div');
 				textDiv.className = 'joywp-horizontal-testimonial-card__text';
 				textDiv.textContent = testimonial.text;
 
 				card.appendChild(clientInfo);
 				card.appendChild(textDiv);
 				if (testimonial.quot_color) {
-					var quote = document.createElement('div');
+					const quote = document.createElement('div');
 					quote.className = 'joywp-horizontal-testimonial-card__quote';
 					quote.textContent = '"';
-					quote.style.color = testimonial.quot_color
+					quote.style.color = testimonial.quot_color;
 					quote.setAttribute('aria-hidden', 'true');
 					card.appendChild(quote);
 				}
@@ -375,54 +375,53 @@ endforeach;
 			});
 		}
 
-        function generatePositions(count) {
-            var positions = [];
+		function generatePositions(count) {
+			const positions = [];
 
-            var pattern = [
-                [10, 220, 440], // row 1
-                [50, 300],      // row 2
-                [10, 240, 440]  // row 3
-            ];
+			const pattern = [
+				[10, 220, 440], // row 1
+				[50, 300],      // row 2
+				[10, 240, 440]  // row 3
+			];
 
-            var rowHeight = 190;
+			const rowHeight = 190;
 
-            var i = 0;
-            var row = 0;
+			let i = 0;
+			let row = 0;
 
-            while (i < count) {
+			while (i < count) {
+				const cols = pattern[row % pattern.length];
 
-                var cols = pattern[row % pattern.length];
+				for (let c = 0; c < cols.length && i < count; c++) {
+					positions.push({
+						top: (10 + row * rowHeight) + 'px',
+						left: cols[c] + 'px'
+					});
+					i++;
+				}
 
-                for (var c = 0; c < cols.length && i < count; c++) {
-                    positions.push({
-                        top: (10 + row * rowHeight) + 'px',
-                        left: cols[c] + 'px'
-                    });
-                    i++;
-                }
+				row++;
+			}
 
-                row++;
-            }
-
-            return positions;
-        }
+			return positions;
+		}
 
 		document.addEventListener('mousemove', function(e) {
-			var cards = root.querySelectorAll('.joywp-horizontal-testimonial-card__card');
+			const cards = root.querySelectorAll('.joywp-horizontal-testimonial-card__card');
 
 			cards.forEach(function(card) {
-				var rect = card.getBoundingClientRect();
-				var cardCenterX = rect.left + rect.width / 2;
-				var cardCenterY = rect.top + rect.height / 2;
+				const rect = card.getBoundingClientRect();
+				const cardCenterX = rect.left + rect.width / 2;
+				const cardCenterY = rect.top + rect.height / 2;
 
-				var distanceX = (e.clientX - cardCenterX) / 30;
-				var distanceY = (e.clientY - cardCenterY) / 30;
+				const distanceX = (e.clientX - cardCenterX) / 30;
+				const distanceY = (e.clientY - cardCenterY) / 30;
 
-				var maxTilt = 3;
-				var tiltX = Math.max(Math.min(distanceY, maxTilt), -maxTilt);
-				var tiltY = Math.max(Math.min(-distanceX, maxTilt), -maxTilt);
+				const maxTilt = 3;
+				const tiltX = Math.max(Math.min(distanceY, maxTilt), -maxTilt);
+				const tiltY = Math.max(Math.min(-distanceX, maxTilt), -maxTilt);
 
-				var distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+				const distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
 
 				if (distance < 10) {
 					card.style.transform = 'rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) scale(1.05)';
