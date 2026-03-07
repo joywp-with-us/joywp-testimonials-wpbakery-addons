@@ -290,16 +290,7 @@ endforeach;
 				return Math.random() - 0.5;
 			});
 
-			var positions = [
-				{ top: '10px', left: '10px' },
-				{ top: '10px', left: '220px' },
-				{ top: '10px', left: '440px' },
-				{ top: '200px', left: '50px' },
-				{ top: '200px', left: '300px' },
-				{ top: '380px', left: '10px' },
-				{ top: '380px', left: '240px' },
-				{ top: '380px', left: '440px' }
-			];
+            var positions = generatePositions(shuffled.length);
 
 			shuffled.forEach(function(testimonial, index) {
 				var card = document.createElement('div');
@@ -377,6 +368,38 @@ endforeach;
 				grid.appendChild(card);
 			});
 		}
+
+        function generatePositions(count) {
+            var positions = [];
+
+            var pattern = [
+                [10, 220, 440], // row 1
+                [50, 300],      // row 2
+                [10, 240, 440]  // row 3
+            ];
+
+            var rowHeight = 190;
+
+            var i = 0;
+            var row = 0;
+
+            while (i < count) {
+
+                var cols = pattern[row % pattern.length];
+
+                for (var c = 0; c < cols.length && i < count; c++) {
+                    positions.push({
+                        top: (10 + row * rowHeight) + 'px',
+                        left: cols[c] + 'px'
+                    });
+                    i++;
+                }
+
+                row++;
+            }
+
+            return positions;
+        }
 
 		document.addEventListener('mousemove', function(e) {
 			var cards = document.querySelectorAll('.joywp-horizontal-testimonial-card__card');
