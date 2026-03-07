@@ -166,7 +166,7 @@ abstract class AbstractAddon {
 		$addon->enqueue_addon_assets();
 
 		ob_start();
-		$output = require_once $addon->template;
+		$output = require $addon->template;
 		if ( 1 === $output ) {
 			$output = ob_get_contents();
 		}
