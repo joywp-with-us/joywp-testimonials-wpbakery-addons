@@ -74,6 +74,7 @@ endforeach;
 		?>
 		.joywp-horizontal-testimonial-card__btn-rotate {
 			position: relative;
+			margin-top: 30px;
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
@@ -184,7 +185,7 @@ endforeach;
 </style>
 
 <script>
-	(function() {
+	window.addEventListener('load', function() {
 		'use strict';
 
 		const addonId = <?php echo wp_json_encode( $addon->id ); ?>;
@@ -290,5 +291,5 @@ endforeach;
 			endif;
 		endif;
 		?>
-	})();
+	});
 </script>
