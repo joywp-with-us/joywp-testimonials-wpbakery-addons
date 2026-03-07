@@ -52,13 +52,12 @@ endforeach;
 
 		<?php
 		if ( 'builder' === $atts['select_button'] ) {
-			$atts['shuffle_button_el_id'] = 'joywp-rotateBtn';
 			$addon
 				->get_collection( 'button', 'shuffle' )
 				->render( $atts );
 		} elseif ( 'fancy' === $atts['select_button'] ) {
 			?>
-			<button class="joywp-horizontal-testimonial-card__btn-rotate" id="joywp-rotateBtn">
+			<button class="joywp-horizontal-testimonial-card__btn-rotate">
 				<?php echo esc_attr( $atts['button_text'] ); ?>
 			</button>
 			<?php
@@ -75,7 +74,6 @@ endforeach;
 		?>
 		.joywp-horizontal-testimonial-card__btn-rotate {
 			position: relative;
-			margin-top: 30px;
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
@@ -225,7 +223,7 @@ endforeach;
 			}
 			<?php
 		endif;
-		if ( 'none' !== $atts['select_button'] && rotateBtn ) :
+		if ( 'none' !== $atts['select_button'] ) :
 			?>
 			rotateBtn.addEventListener('click', function() {
 				const cards = grid.querySelectorAll('.joywp-horizontal-testimonial-card__card');

@@ -160,6 +160,10 @@
     animation: joywp-float 3s infinite ease-in-out;
 }
 
+.joywp-horizontal-testimonial-card__root button {
+    margin-top: 30px;
+}
+
 @keyframes joywp-float {
     0%, 100% {
         transform: translateY(0) rotate(0deg);
