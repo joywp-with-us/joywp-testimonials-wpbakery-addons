@@ -48,24 +48,23 @@ endforeach;
 			<?php
 		endif;
 		?>
-		<div class="joywp-horizontal-testimonial-card__grid" id="joywp-testimonialGrid" role="list" aria-label="<?php echo esc_attr__( 'Testimonials', 'joywp-testimonials-wpbakery-addons' ); ?>"></div>
+		<div class="joywp-horizontal-testimonial-card__grid" role="list" aria-label="<?php echo esc_attr__( 'Testimonials', 'joywp-testimonials-wpbakery-addons' ); ?>"></div>
 
 		<?php
 		if ( 'builder' === $atts['select_button'] ) {
-			$atts['shuffle_button_el_id'] = 'joywp-rotateBtn';
 			$addon
 				->get_collection( 'button', 'shuffle' )
 				->render( $atts );
 		} elseif ( 'fancy' === $atts['select_button'] ) {
 			?>
-			<button class="joywp-horizontal-testimonial-card__btn-rotate" id="joywp-rotateBtn">
+			<button class="joywp-horizontal-testimonial-card__btn-rotate">
 				<?php echo esc_attr( $atts['button_text'] ); ?>
 			</button>
 			<?php
 		}
 		?>
 
-		<div class="joywp-horizontal-testimonial-card__particles" id="joywp-particles" aria-hidden="true"></div>
+		<div class="joywp-horizontal-testimonial-card__particles" aria-hidden="true"></div>
 	</div>
 </div>
 
@@ -189,11 +188,18 @@ endforeach;
 	(function() {
 		'use strict';
 
+		var addonId = <?php echo wp_json_encode( $addon->id ); ?>;
+		var dataAttr = <?php echo wp_json_encode( $addon->get_data_attribute_id() ); ?>;
+		var root = document.querySelector('[' + dataAttr + '="' + addonId + '"]');
+		if (!root) return;
+
 		var testimonials = <?php echo wp_json_encode( $testimonial_list ); ?>;
 
-		var grid = document.getElementById('joywp-testimonialGrid');
-		var particlesContainer = document.getElementById('joywp-particles');
-		var rotateBtn = document.getElementById('joywp-rotateBtn');
+		var grid = root.querySelector('.joywp-horizontal-testimonial-card__grid');
+		var particlesContainer = root.querySelector('.joywp-horizontal-testimonial-card__particles');
+		var rotateBtn = root.querySelector('.joywp-horizontal-testimonial-card__btn-rotate');
+
+		if (!grid || !particlesContainer) return;
 
 		renderTestimonials();
 		<?php
@@ -402,7 +408,7 @@ endforeach;
         }
 
 		document.addEventListener('mousemove', function(e) {
-			var cards = document.querySelectorAll('.joywp-horizontal-testimonial-card__card');
+			var cards = root.querySelectorAll('.joywp-horizontal-testimonial-card__card');
 
 			cards.forEach(function(card) {
 				var rect = card.getBoundingClientRect();
