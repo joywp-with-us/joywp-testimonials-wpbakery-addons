@@ -80,8 +80,8 @@ class Background extends AbstractAddonCollection {
 			case 'contain':
 				return 'background-size: contain;';
 			case 'custom':
-				$width  = $atts[ $this->collection->get_param_slug( 'img_width' ) ] . 'px' ?? 'auto';
-				$height = $atts[ $this->collection->get_param_slug( 'img_height' ) ] . 'px' ?? 'auto';
+				$width  = $this->get_size( 'img_width', $atts );
+				$height = $this->get_size( 'img_height', $atts );
 
 				if ( 'auto' === $width && 'auto' === $height ) {
 					return '';
@@ -95,6 +95,20 @@ class Background extends AbstractAddonCollection {
 		}
 
 		return '';
+	}
+
+	/**
+	 * Get custom background size.
+	 *
+	 * @since 1.0
+	 */
+	public function get_size( string $size_name, array $atts ): string {
+		$size = 'auto';
+		if ( '' !== $atts[ $this->collection->get_param_slug( $size_name ) ] ) {
+			$size = $atts[ $this->collection->get_param_slug( $size_name ) ] . 'px';
+		}
+
+		return $size;
 	}
 
 	/**
