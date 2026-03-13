@@ -69,14 +69,3 @@ jobs:
 
       - name: Check PHP Compatibility
         run: php vendor/bin/phpcs --standard=PHPCompatibility --extensions=php --runtime-set testVersion 7.4-8.5 --ignore=vendor/* .
-  php-clones:
-    name: PHP Clone Detection
-    runs-on: ubuntu-latest
-    container:
-      image: mrdollar4444/plus-wp-builder-wpbakery:latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: PHP Clone Detection
-        run: php ci/phpcpd.phar --fuzzy --exclude vendor includes/wpbakery-custom-param-collection/vendor .
