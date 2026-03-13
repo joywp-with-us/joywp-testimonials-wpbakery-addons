@@ -22,7 +22,7 @@ class TemplateManager {
 	 */
 	public function validate( string $template_path ): string {
 		if ( ! is_readable( $template_path ) ) {
-			function_exists( 'wp_trigger_error' ) && wp_trigger_error( 'JoywpTestimonialsWpb\Addons\Builders\Wpbakery\TemplateManager::validate', 'Failed to read template file ' . $template_path, E_USER_WARNING );
+			function_exists( 'wp_trigger_error' ) && wp_trigger_error( 'JoywpTestimonialsWpb\Addons\TemplateManager::validate', 'Failed to read template file ' . $template_path, E_USER_WARNING );
 			return '';
 		}
 

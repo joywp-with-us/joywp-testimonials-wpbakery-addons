@@ -106,8 +106,8 @@ return array_merge(
 	[
 		[
 			'type'       => 'param_group',
-			'group'      => esc_html__( 'Testimonials', 'chargewp-timeline-addons-for-wpbakery' ),
-			'heading'    => esc_html__( 'Testimonials Items', 'chargewp-timeline-addons-for-wpbakery' ),
+			'group'      => esc_html__( 'Testimonials', 'joywp-testimonials-wpbakery-addons' ),
+			'heading'    => esc_html__( 'Testimonials Items', 'joywp-testimonials-wpbakery-addons' ),
 			'param_name' => 'items',
 			'params'     => $config->get_additional_params( 'group.php' ),
 		],

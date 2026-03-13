@@ -11,7 +11,6 @@ use JoywpTestimonialsWpb\Utils\Requirement;
 use JoywpTestimonialsWpb\Settings\SettingsManager;
 use JoywpTestimonialsWpb\Addons\Collector;
 use JoywpTestimonialsWpb\Addons\AbstractAddonBootstrapper;
-use JoywpTestimonialsWpb\AbstractBuilderBootstrapper;
 
 defined( 'ABSPATH' ) || exit;
 

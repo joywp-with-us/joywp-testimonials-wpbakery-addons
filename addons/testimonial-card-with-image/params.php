@@ -23,9 +23,9 @@ return array_merge(
 		],
 		[
 			'type'        => 'colorpicker',
-			'heading'     => esc_html__( 'Testimonial Background', 'chargewp-timeline-addons-for-wpbakery' ),
+			'heading'     => esc_html__( 'Testimonial Background', 'joywp-testimonials-wpbakery-addons' ),
 			'param_name'  => 'testimonial_background',
-			'description' => esc_html__( 'Select background color for testimonial block.', 'chargewp-timeline-addons-for-wpbakery' ),
+			'description' => esc_html__( 'Select background color for testimonial block.', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => '#ffffff',
 		],
 		[
@@ -72,9 +72,9 @@ return array_merge(
 		],
 		[
 			'type'        => 'colorpicker',
-			'heading'     => esc_html__( 'Color', 'chargewp-timeline-addons-for-wpbakery' ),
+			'heading'     => esc_html__( 'Color', 'joywp-testimonials-wpbakery-addons' ),
 			'param_name'  => 'quotes_color',
-			'description' => esc_html__( 'Select color for quotes.', 'chargewp-timeline-addons-for-wpbakery' ),
+			'description' => esc_html__( 'Select color for quotes.', 'joywp-testimonials-wpbakery-addons' ),
 			'group'       => esc_html__( 'Quotes', 'joywp-testimonials-wpbakery-addons' ),
 			'dependency'  => [
 				'element' => 'add_quotes',
@@ -132,9 +132,9 @@ return array_merge(
 		],
 		[
 			'type'        => 'colorpicker',
-			'heading'     => esc_html__( 'Background', 'chargewp-timeline-addons-for-wpbakery' ),
+			'heading'     => esc_html__( 'Background', 'joywp-testimonials-wpbakery-addons' ),
 			'param_name'  => 'name_block_background',
-			'description' => esc_html__( 'Select background color for name block.', 'chargewp-timeline-addons-for-wpbakery' ),
+			'description' => esc_html__( 'Select background color for name block.', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => '#ffffff',
 			'dependency'  => [
 				'element' => 'add_name',
@@ -175,9 +175,9 @@ return array_merge(
 		],
 		[
 			'type'        => 'colorpicker',
-			'heading'     => esc_html__( 'Color', 'chargewp-timeline-addons-for-wpbakery' ),
+			'heading'     => esc_html__( 'Color', 'joywp-testimonials-wpbakery-addons' ),
 			'param_name'  => 'pointer_color',
-			'description' => esc_html__( 'Select color for pointer.', 'chargewp-timeline-addons-for-wpbakery' ),
+			'description' => esc_html__( 'Select color for pointer.', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => '#000000',
 			'group'       => esc_html__( 'Pointer', 'joywp-testimonials-wpbakery-addons' ),
 			'dependency'  => [
