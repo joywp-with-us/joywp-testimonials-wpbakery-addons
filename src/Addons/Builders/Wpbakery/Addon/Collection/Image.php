@@ -8,11 +8,14 @@
 namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Collection;
 
 use JoywpTestimonialsWpb\Addons\AbstractAddonCollection;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Addon;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Class Image
+ *
+ * @extends AbstractAddonCollection<Addon>
  *
  * @since 1.0
  */

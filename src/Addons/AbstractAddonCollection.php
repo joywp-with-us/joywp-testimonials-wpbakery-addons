@@ -14,6 +14,8 @@ defined( 'ABSPATH' ) || exit;
  * We call 'Collection' specific
  * addon property that we can separate to collection (e.g., Border, Box Shadow, Image, etc.).
  *
+ * @template ConcreteAddon of AbstractAddon
+ *
  * @since 1.0
  */
 abstract class AbstractAddonCollection {
@@ -26,6 +28,8 @@ abstract class AbstractAddonCollection {
 
 	/**
 	 * The addon instance.
+	 *
+	 * @var ConcreteAddon
 	 *
 	 * @since 1.0
 	 */
@@ -42,6 +46,8 @@ abstract class AbstractAddonCollection {
 
 	/**
 	 * Set addon instance.
+	 *
+	 * @param ConcreteAddon $addon
 	 *
 	 * @since 1.0
 	 */

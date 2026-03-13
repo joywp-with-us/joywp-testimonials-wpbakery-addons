@@ -8,17 +8,18 @@
 namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Collection;
 
 use JoywpTestimonialsWpb\Addons\AbstractAddonCollection;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Addon;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Class Button
  *
+ * @extends AbstractAddonCollection<Addon>
+ *
  * @since 1.0
  */
 class Button extends AbstractAddonCollection {
-
-
 	/**
 	 * Get render collection output.
 	 *
