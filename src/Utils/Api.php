@@ -59,6 +59,12 @@ class Api {
 		$plugin_slug = basename( dirname( JOYWPTESTIMONIALSWPB_PLUGIN_FILE ) );
 		$theme       = wp_get_theme();
 
+		$endpoint = self::get_endpoint( 'plugin_deactivation_feedback' );
+
+		if ( '' === $endpoint ) {
+			return new WP_Error( 'invalid_endpoint', __( 'The API endpoint is invalid.', 'joywp-testimonials-wpbakery-addons' ) );
+		}
+
 		return wp_remote_post(
 			self::get_endpoint( 'plugin_deactivation_feedback' ),
 			[

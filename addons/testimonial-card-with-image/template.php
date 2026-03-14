@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 			?>
 		</div>
 		<?php
-		$addon->get_collection( 'image ', 'main' )->render( $atts );
+		$addon->get_collection( 'image', 'main' )->render( $atts );
 		if ( 'true' === $atts['add_name'] ) :
 			?>
 			<div class="joywp-testimonial-card-with-image-quote-author joywp-testimonial-card-with-image-name-block-color-bg">
