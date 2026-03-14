@@ -85,7 +85,7 @@ endif;
 
 if ( ! function_exists( 'joywptestimonialswpb_file_put_contents' ) ) :
 	/**
-	 * Helper for file_put_contents with wp file system user.
+	 * Helper for appending content with WP filesystem.
 	 *
 	 * @since 1.0
 	 */
@@ -97,7 +97,13 @@ if ( ! function_exists( 'joywptestimonialswpb_file_put_contents' ) ) :
 			WP_Filesystem();
 		}
 
-		$wp_filesystem->put_contents( $file_path, $content );
+		$existing_content = '';
+
+		if ( $wp_filesystem->exists( $file_path ) ) {
+			$existing_content = $wp_filesystem->get_contents( $file_path );
+		}
+
+		$wp_filesystem->put_contents( $file_path, $existing_content . $content );
 	}
 endif;
 
