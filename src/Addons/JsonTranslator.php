@@ -30,6 +30,10 @@ class JsonTranslator {
 	 * @since 1.0
 	 */
 	public function generate_php_localizer( array $data ): void {
+		if ( ! is_admin() || ! is_user_logged_in() || ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( ! isset( $_GET['joywp_json_localize'] ) ) {
 			return;
