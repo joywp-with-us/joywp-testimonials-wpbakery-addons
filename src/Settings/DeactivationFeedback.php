@@ -105,6 +105,10 @@ class DeactivationFeedback {
 			wp_send_json_error();
 		}
 
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			wp_send_json_error();
+		}
+
         //phpcs:disable WordPress.Security.ValidatedSanitizedInput
 		if ( ! wp_verify_nonce( $_POST['_wpnonce'], '_joywp_deactivate_feedback_action' ) ) {
 			wp_send_json_error();

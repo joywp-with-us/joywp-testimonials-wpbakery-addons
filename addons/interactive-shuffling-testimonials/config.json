@@ -4,7 +4,7 @@
     "translate": "true",
     "text_domain": "joywp-testimonials-wpbakery-addons"
   },
-  "base": "joywp_interactive_shuffling_restimonials",
+  "base": "joywp_interactive_shuffling_testimonials",
   "category": "JoyWP",
   "description": {
     "text": "Interactive shuffling testimonials module.",

@@ -87,7 +87,7 @@ abstract class AbstractCollection {
 		$prefix = $this->get_param_prefix() . '_';
 		$result = [];
 		foreach ( $atts as $key => $value ) {
-			if ( str_starts_with( $key, $prefix ) ) {
+			if ( 0 === strpos( $key, $prefix ) ) {
 				$new_key = substr( $key, strlen( $prefix ) );
 				unset( $atts[ $key ] );
 				$result[ $new_key ] = $value;

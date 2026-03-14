@@ -60,7 +60,7 @@ abstract class AbstractAddonCollection {
 	 *
 	 * @since 1.0
 	 */
-	public function is_witcher_on( array $atts ): bool {
+	public function is_switcher_on( array $atts ): bool {
 		$switcher_slug = $this->collection->get_switcher_slug();
 		if ( ! isset( $atts[ $switcher_slug ] ) ) {
 			// switcher for this param collection don't sent in params.
@@ -76,7 +76,7 @@ abstract class AbstractAddonCollection {
 	 * @since 1.0
 	 */
 	public function render( array $atts ): void {
-		if ( ! $this->is_witcher_on( $atts ) ) {
+		if ( ! $this->is_switcher_on( $atts ) ) {
 			return;
 		}
 

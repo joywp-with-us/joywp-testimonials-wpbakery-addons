@@ -71,9 +71,9 @@ class AddonBootstrapper extends AbstractAddonBootstrapper {
 	 */
 	public function get_addon_manager( array $config, bool $is_container ): WPBakeryShortCode {
 		if ( $is_container ) {
-			$instance = new AddonManager( $config );
-		} else {
 			$instance = new AddonContainerManager( $config );
+		} else {
+			$instance = new AddonManager( $config );
 		}
 
 		return $instance;
