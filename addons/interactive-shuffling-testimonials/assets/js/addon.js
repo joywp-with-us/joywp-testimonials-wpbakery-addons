@@ -73,7 +73,6 @@
 			avatar.style.backgroundImage = 'url(' + testimonial.avatar + ')';
 			avatar.setAttribute('role', 'img');
 			avatar.setAttribute('aria-label', 'Photo of ' + testimonial.name);
-			avatar.setAttribute('alt', 'Photo of ' + testimonial.name);
 			if (testimonial.avatar_border_color) {
 				avatar.style.borderColor = testimonial.avatar_border_color;
 				avatar.style.borderWidth = testimonial.avatar_border_width + 'px';

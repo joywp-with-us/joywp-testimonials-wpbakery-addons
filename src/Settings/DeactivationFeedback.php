@@ -122,9 +122,6 @@ class DeactivationFeedback {
 			$reason_text = wp_kses_post_deep( wp_unslash( $_POST[ $details_key ] ) );
 		}
 
-		$reason_text = wp_kses_post_deep( wp_unslash( $reason_text ) );
-        //phpcs:enable WordPress.Security.ValidatedSanitizedInput
-
 		Api::send_feedback( $reason_key, $reason_text );
 
 		wp_send_json_success();

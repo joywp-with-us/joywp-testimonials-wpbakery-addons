@@ -37,7 +37,7 @@ defined( 'ABSPATH' ) || exit;
 		<div class="joywp-testimonial-quote-with-avatar-footer">
 			<div class="joywp-testimonial-quote-with-avatar-avatar">
 				<?php
-				$addon->get_collection( 'image ', 'main' )->render( $atts );
+				$addon->get_collection( 'image', 'main' )->render( $atts );
 				?>
 			</div>
 			<div class="joywp-testimonial-quote-with-avatar-author" aria-label="Author">

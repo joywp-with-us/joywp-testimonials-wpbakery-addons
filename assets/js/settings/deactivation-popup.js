@@ -7,7 +7,7 @@
         $('#joywp-deactivation-popup').show();
     });
 
-    $('#joywp-deactivation-popup .joywp-deactivation-popup-close, #joywp-deactivation-popup .joywp-deactivation-skip').on('click', function() {
+    $('#joywp-deactivation-popup .joywp-deactivation-skip').on('click', function() {
         window.location.href = deactivationUrl;
     });
 
