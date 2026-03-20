@@ -53,7 +53,7 @@ defined( 'ABSPATH' ) || exit;
 		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__quote {
 			<?php $addon->get_collection( 'font-family', 'quotes' )->render( $atts ); ?>
 			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
-			color: <?php echo esc_attr( $atts['quote_background_size'] ); ?>;
+			color: <?php echo esc_attr( $atts['quotes_color'] ); ?>;
 			width: <?php echo esc_attr( $atts['quote_background_size'] ); ?>px;
 			height: <?php echo esc_attr( $atts['quote_background_size'] ); ?>px;
 			<?php $addon->get_collection( 'background', 'quotes' )->render( $atts ); ?>
