@@ -18,15 +18,6 @@ defined( 'ABSPATH' ) || exit;
  */
 class FontFamily extends AbstractParamsCollection {
 	/**
-	 * Get collection color group.
-	 *
-	 * @since 1.0
-	 */
-	public function get_color(): string {
-		return '#8B0000';
-	}
-
-	/**
 	 * Get integration config.
 	 *
 	 * @since 1.0

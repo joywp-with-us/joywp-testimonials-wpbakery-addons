@@ -18,15 +18,6 @@ defined( 'ABSPATH' ) || exit;
  */
 class Border extends AbstractParamsCollection {
 	/**
-	 * Get collection color group.
-	 *
-	 * @since 1.0
-	 */
-	public function get_color(): string {
-		return '#1c1e21';
-	}
-
-	/**
 	 * Get integration config.
 	 *
 	 * @since 1.0
