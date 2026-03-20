@@ -18,15 +18,6 @@ defined( 'ABSPATH' ) || exit;
  */
 class BoxShadow extends AbstractParamsCollection {
 	/**
-	 * Get collection color group.
-	 *
-	 * @since 1.0
-	 */
-	public function get_color(): string {
-		return '#6b7280';
-	}
-
-	/**
 	 * Get integration config.
 	 *
 	 * @since 1.0
