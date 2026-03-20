@@ -18,15 +18,6 @@ defined( 'ABSPATH' ) || exit;
  */
 class Background extends AbstractParamsCollection {
 	/**
-	 * Get collection color group.
-	 *
-	 * @since 1.0
-	 */
-	public function get_color(): string {
-		return '#D8CCFF';
-	}
-
-	/**
 	 * Get integration config.
 	 *
 	 * @since 1.0

@@ -53,7 +53,7 @@ jobs:
         run:  cd /var/www/html; wp plugin activate joywp-testimonials-wpbakery-addons --allow-root; wp plugin list --allow-root
 
       - name: PHP stan check
-        run:  cd /var/www/html/wp-content/plugins/joywp-testimonials-wpbakery-addons/ci; ../vendor/bin/phpstan analyse --memory-limit=512M
+        run:  cd /var/www/html/wp-content/plugins/joywp-testimonials-wpbakery-addons/ci; ../vendor/bin/phpstan analyse --memory-limit=2G
 
   compatibility-php:
     name: PHP Code Compatibility

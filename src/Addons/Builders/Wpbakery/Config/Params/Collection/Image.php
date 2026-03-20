@@ -17,15 +17,6 @@ defined( 'ABSPATH' ) || exit;
  */
 class Image extends AbstractWpbakeryCollection {
 	/**
-	 * Get collection color group.
-	 *
-	 * @since 1.0
-	 */
-	public function get_color(): string {
-		return '#8B0000';
-	}
-
-	/**
 	 * Get integration addon params.
 	 *
 	 * @since 1.0

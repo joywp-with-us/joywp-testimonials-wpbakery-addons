@@ -81,11 +81,33 @@ abstract class AbstractParamsCollection {
 	abstract public function get_collection_params(): array;
 
 	/**
+	 * Get the library of collections colors.
+	 *
+	 * @since 1.0
+	 */
+	public function get_color_lib(): array {
+		return apply_filters(
+			'joywp_testimonials_get_color_lib_collection',
+			[
+				'background'  => '#d8ccff',
+				'border'      => '#1c1e21',
+				'image'       => '#8b0000',
+				'box_shadow'  => '#6b7280',
+				'button'      => '#5c4db1',
+				'font_family' => '#2c2c2c',
+			]
+		);
+	}
+
+	/**
 	 * Set group color for this collection.
 	 *
 	 * @since 1.0
 	 */
-	abstract public function get_color(): string;
+	public function get_color(): string {
+		$lib = $this->get_color_lib();
+		return $lib[ $this->collection->get_slug() ] ?? '#ffffff';
+	}
 
 	/**
 	 * AbstractParamsCollection constructor.
@@ -269,7 +291,7 @@ abstract class AbstractParamsCollection {
 		}
 
 		foreach ( $params as $key => $param ) {
-			if ( isset( $params[ $key ]['dependency'] ) ) {
+			if ( isset( $param['dependency'] ) ) {
 				continue;
 			}
 
