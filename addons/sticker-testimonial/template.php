@@ -61,7 +61,6 @@ defined( 'ABSPATH' ) || exit;
 
 			position: absolute;
 			text-align: center;
-			line-height: 1.25;
 		}
 		<?php
 endif;
