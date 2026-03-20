@@ -1,0 +1,16 @@
+{
+  "name": {
+    "text": "Template",
+    "translate": "true",
+    "text_domain": "joywp-testimonials-wpbakery-addons"
+  },
+  "base": "joywp_template",
+  "category": "JoyWP",
+  "description": {
+    "text": "",
+    "translate": "true",
+    "text_domain": "joywp-testimonials-wpbakery-addons"
+  },
+  "template": "template.php",
+  "params": "params.php"
+}
