@@ -12,7 +12,13 @@ defined( 'ABSPATH' ) || exit;
 
 <div class="joywp-sticker-testimonial-wrapper">
 	<div class="joywp-sticker-testimonial" role="figure" aria-label="Testimonial">
-		<span class="joywp-sticker-testimonial__quote joywp-sticker-testimonial__quote--open" aria-hidden="true">"</span>
+		<?php
+		if ( 'true' === $atts['add_quotes'] ) :
+			?>
+			<span class="joywp-sticker-testimonial__quote joywp-sticker-testimonial__quote--open" aria-hidden="true">"</span>
+			<?php
+		endif;
+		?>
 		<div class="joywp-sticker-testimonial__image" aria-hidden="true">
 			<div class="joywp-sticker-testimonial__clip"></div>
 			<img src="https://placehold.co/100" alt="Testimonial author photo">
@@ -29,9 +35,40 @@ defined( 'ABSPATH' ) || exit;
 				?>
 			</div>
 		</div>
-		<span class="joywp-sticker-testimonial__quote joywp-sticker-testimonial__quote--close" aria-hidden="true">"</span>
+		<?php
+		if ( 'true' === $atts['add_quotes'] ) :
+			?>
+			<span class="joywp-sticker-testimonial__quote joywp-sticker-testimonial__quote--close" aria-hidden="true">"</span>
+			<?php
+		endif;
+		?>
 	</div>
 </div>
+
+<style>
+	<?php
+	if ( 'true' === $atts['add_quotes'] ) :
+		$addon->output_style_shortcode_id();
+		?>
+		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__quote {
+			<?php $addon->get_collection( 'font-family', 'quotes' )->render( $atts ); ?>
+			font-size: <?php echo esc_attr( $atts['quotes_size'] ); ?>px;
+			color: <?php echo esc_attr( $atts['quote_background_size'] ); ?>;
+			width: <?php echo esc_attr( $atts['quote_background_size'] ); ?>px;
+			height: <?php echo esc_attr( $atts['quote_background_size'] ); ?>px;
+			<?php $addon->get_collection( 'background', 'quotes' )->render( $atts ); ?>
+
+
+			position: absolute;
+			text-align: center;
+			line-height: 1.25;
+		}
+		<?php
+endif;
+
+	$addon->output_style_shortcode_id();
+	?>
+</style>
 
 <style>
 	.joywp-sticker-testimonial-wrapper *,
@@ -100,17 +137,6 @@ defined( 'ABSPATH' ) || exit;
 		border-style: solid;
 		border-width: var(--triangle-height) min(calc(var(--triangle-height) * 3 / 2), 40cqw) 0 0;
 		border-color: navy transparent transparent transparent;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__quote {
-		position: absolute;
-		font-size: 3em;
-		width: 40px;
-		height: 40px;
-		background: navy;
-		color: #fff;
-		text-align: center;
-		line-height: 1.25;
 	}
 
 	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__quote--open {

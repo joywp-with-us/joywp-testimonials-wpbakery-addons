@@ -10,7 +10,7 @@ use JoywpTestimonialsWpb\Addons\ConfigManager;
 
 defined( 'ABSPATH' ) || exit;
 
-return array_merge(
+$params = array_merge(
 	[
 		[
 			'type'        => 'joywp_wysiwyg',
@@ -76,7 +76,7 @@ return array_merge(
 		],
 	],
 	$config
-		->get_collection( 'font-family', 'main' )
+		->get_collection( 'font-family', 'quotes' )
 		->set_additional_params( [ 'group' => __( 'Quotes', 'joywp-testimonials-wpbakery-addons' ) ] )
 		->set_dependency(
 			[
@@ -85,4 +85,38 @@ return array_merge(
 			]
 		)
 		->get_params(),
+	$config
+		->get_collection( 'background', 'quotes' )
+		->set_additional_params( [ 'group' => __( 'Quotes', 'joywp-testimonials-wpbakery-addons' ) ] )
+		->set_switcher()
+		->set_color()
+		->set_dependency(
+			[
+				'element' => 'add_quotes',
+				'value'   => 'true',
+			]
+		)
+		->get_params(),
+	[
+		[
+			'type'            => 'joywp_number',
+			'heading'         => esc_html__( 'Size', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'      => 'quote_background_size',
+			'description'     => esc_html__( 'Enter size for quotes background.', 'joywp-testimonials-wpbakery-addons' ),
+			'title'           => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
+			'value'           => '40',
+			'min'             => '1',
+			'max'             => '100',
+			'step'            => '1',
+			'group'           => esc_html__( 'Quotes', 'joywp-testimonials-wpbakery-addons' ),
+			'dependency'      => [
+				'element' => 'quotes_add_background',
+				'value'   => 'true',
+			],
+			'wcp_group'       => true,
+			'wcp_group_color' => '#d8ccff',
+		],
+	],
 );
+
+return $params;
