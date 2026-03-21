@@ -61,6 +61,7 @@ defined( 'ABSPATH' ) || exit;
 
 			position: absolute;
 			text-align: center;
+			line-height: <?php echo esc_attr( $atts['quotes_line_height'] ); ?>;
 		}
 		<?php
 endif;

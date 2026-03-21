@@ -116,6 +116,22 @@ $params = array_merge(
 			'wcp_group'       => true,
 			'wcp_group_color' => '#d8ccff',
 		],
+		[
+			'type'            => 'joywp_number',
+			'heading'         => esc_html__( 'Vertical Align', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'      => 'quotes_line_height',
+			'description'     => esc_html__( 'Vertical align content inside block quotes', 'joywp-testimonials-wpbakery-addons' ),
+			'min'             => '0.1',
+			'max'             => '10',
+			'step'            => '0.1',
+			'group'           => esc_html__( 'Quotes', 'joywp-testimonials-wpbakery-addons' ),
+			'dependency'      => [
+				'element' => 'quotes_add_background',
+				'value'   => 'true',
+			],
+			'wcp_group'       => true,
+			'wcp_group_color' => '#d8ccff',
+		],
 	],
 );
 
