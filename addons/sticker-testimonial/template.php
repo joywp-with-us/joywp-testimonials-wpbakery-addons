@@ -20,7 +20,13 @@ defined( 'ABSPATH' ) || exit;
 		endif;
 		?>
 		<div class="joywp-sticker-testimonial__image" aria-hidden="true">
-			<div class="joywp-sticker-testimonial__clip"></div>
+			<?php
+			if ( 'true' === $atts['add_clip'] ) :
+				?>
+				<div class="joywp-sticker-testimonial__clip"></div>
+				<?php
+			endif;
+			?>
 			<img src="https://placehold.co/100" alt="Testimonial author photo">
 		</div>
 		<div class="joywp-sticker-testimonial__text">
@@ -57,16 +63,61 @@ defined( 'ABSPATH' ) || exit;
 			width: <?php echo esc_attr( $atts['quote_background_size'] ); ?>px;
 			height: <?php echo esc_attr( $atts['quote_background_size'] ); ?>px;
 			<?php $addon->get_collection( 'background', 'quotes' )->render( $atts ); ?>
-
-
 			position: absolute;
 			text-align: center;
 			line-height: <?php echo esc_attr( $atts['quotes_line_height'] ); ?>;
 		}
 		<?php
-endif;
+	endif;
+	if ( 'true' === $atts['add_clip'] ) :
+		$addon->output_style_shortcode_id();
+		?>
+		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__clip {
+			<?php $addon->get_collection( 'border', 'clip' )->render( $atts ); ?>
+			border-right: none;
+			height: 75px;
+			width: 20px;
+			position: absolute;
+			right: <?php echo esc_attr( $atts['clip_right'] ); ?>%;
+			top: <?php echo esc_attr( $atts['clip_top'] ); ?>%;
+			border-radius: 25px;
+		}
 
-	$addon->output_style_shortcode_id();
+		<?php $addon->output_style_shortcode_id(); ?> .joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__clip::before {
+			content: "";
+			position: absolute;
+			top: -1px;
+			right: 0;
+			height: 10px;
+			width: 16px;
+			<?php $addon->get_collection( 'border', 'clip' )->render( $atts ); ?>
+			border-bottom: none;
+			border-top-left-radius: 25px;
+			border-top-right-radius: 25px;
+			z-index: 99;
+		}
+
+		<?php $addon->output_style_shortcode_id(); ?> .joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__clip::after {
+			content: "";
+			position: absolute;
+			bottom: -1px;
+			right: 0;
+			height: 40px;
+			width: 16px;
+			<?php $addon->get_collection( 'border', 'clip' )->render( $atts ); ?>
+			border-top: none;
+			border-bottom-left-radius: 25px;
+			border-bottom-right-radius: 25px;
+			z-index: 99;
+		}
+
+		@container (max-width: 450px) {
+			<?php $addon->output_style_shortcode_id(); ?> .joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__clip {
+				top: -20%;
+			}
+		}
+		<?php
+	endif;
 	?>
 </style>
 
@@ -179,45 +230,6 @@ endif;
 		margin: 0;
 		padding: 0;
 		display: block;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__clip {
-		border: 2px solid #222;
-		border-right: none;
-		height: 75px;
-		width: 20px;
-		position: absolute;
-		right: 30%;
-		top: -15%;
-		border-radius: 25px;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__clip::before {
-		content: "";
-		position: absolute;
-		top: -1px;
-		right: 0;
-		height: 10px;
-		width: 16px;
-		border: 2px solid #222;
-		border-bottom: none;
-		border-top-left-radius: 25px;
-		border-top-right-radius: 25px;
-		z-index: 99;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__clip::after {
-		content: "";
-		position: absolute;
-		bottom: -1px;
-		right: 0;
-		height: 40px;
-		width: 16px;
-		border: 2px solid #222;
-		border-top: none;
-		border-bottom-left-radius: 25px;
-		border-bottom-right-radius: 25px;
-		z-index: 99;
 	}
 
 	@container (max-width: 450px) {

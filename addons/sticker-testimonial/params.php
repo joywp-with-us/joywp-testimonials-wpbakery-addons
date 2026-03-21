@@ -44,7 +44,6 @@ $params = array_merge(
 					'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
 				],
 			],
-			'value'       => '',
 			'group'       => esc_html__( 'Quotes', 'joywp-testimonials-wpbakery-addons' ),
 		],
 		[
@@ -132,7 +131,66 @@ $params = array_merge(
 			'wcp_group'       => true,
 			'wcp_group_color' => '#d8ccff',
 		],
+		[
+			'type'        => 'joywp_switcher',
+			'param_name'  => 'add_clip',
+			'heading'     => esc_html__( 'Add Clip', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => esc_html__( 'Add image clip.', 'joywp-testimonials-wpbakery-addons' ),
+			'options'     => [
+				'true' => [
+					'label' => '',
+					'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
+					'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
+				],
+			],
+			'group'       => esc_html__( 'Clip', 'joywp-testimonials-wpbakery-addons' ),
+		],
+		[
+			'type'             => 'joywp_number',
+			'heading'          => esc_html__( 'X Positions', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'       => 'clip_right',
+			'description'      => esc_html__( 'Enter horizontal position for image clip.', 'joywp-testimonials-wpbakery-addons' ),
+			'value'            => '30',
+			'min'              => '-100',
+			'max'              => '100',
+			'step'             => '1',
+			'group'            => esc_html__( 'Clip', 'joywp-testimonials-wpbakery-addons' ),
+			'dependency'       => [
+				'element' => 'add_clip',
+				'value'   => 'true',
+			],
+			'edit_field_class' => 'vc_col-sm-6',
+		],
+		[
+			'type'             => 'joywp_number',
+			'heading'          => esc_html__( 'Y Positions', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'       => 'clip_top',
+			'description'      => esc_html__( 'Enter vertical position for image clip.', 'joywp-testimonials-wpbakery-addons' ),
+			'value'            => '-15',
+			'min'              => '-100',
+			'max'              => '100',
+			'step'             => '1',
+			'group'            => esc_html__( 'Clip', 'joywp-testimonials-wpbakery-addons' ),
+			'dependency'       => [
+				'element' => 'add_clip',
+				'value'   => 'true',
+			],
+			'edit_field_class' => 'vc_col-sm-6',
+		],
 	],
+	$config
+		->get_collection( 'border', 'clip' )
+		->set_additional_params( [ 'group' => __( 'Clip', 'joywp-testimonials-wpbakery-addons' ) ] )
+		->set_color()
+		->set_gap( 20 )
+		->set_exclude( [ 'clip_border_radius' ] )
+		->set_dependency(
+			[
+				'element' => 'add_clip',
+				'value'   => 'true',
+			]
+		)
+		->get_params(),
 );
 
 return $params;
