@@ -26,8 +26,8 @@ defined( 'ABSPATH' ) || exit;
 				<div class="joywp-sticker-testimonial__clip"></div>
 				<?php
 			endif;
+			$addon->get_collection( 'image', 'main' )->render( $atts );
 			?>
-			<img src="https://placehold.co/100" alt="Testimonial author photo">
 		</div>
 		<div class="joywp-sticker-testimonial__text">
 			<?php
@@ -118,6 +118,24 @@ defined( 'ABSPATH' ) || exit;
 		}
 		<?php
 	endif;
+	if ( 'true' === $atts['main_add_image'] ) :
+		$addon->output_style_shortcode_id();
+		?>
+		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__image {
+			transform: rotate(-5deg);
+			position: absolute;
+			top: 0.5em;
+			right: 1.5em;
+		}
+
+		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__image img {
+			margin: 0;
+			padding: 0;
+			display: block;
+		}
+		<?php
+	endif;
+
 	?>
 </style>
 
@@ -216,20 +234,6 @@ defined( 'ABSPATH' ) || exit;
 		display: inline-block;
 		position: relative;
 		margin-left: 1rem;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__image {
-		transform: rotate(-5deg);
-		position: absolute;
-		top: 0.5em;
-		right: 1.5em;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__image img {
-		border: 10px solid #fff;
-		margin: 0;
-		padding: 0;
-		display: block;
 	}
 
 	@container (max-width: 450px) {

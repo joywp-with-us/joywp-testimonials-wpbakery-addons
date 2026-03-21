@@ -191,6 +191,12 @@ $params = array_merge(
 			]
 		)
 		->get_params(),
+	$config
+		->get_collection( 'image', 'main' )
+		->set_exclude( [ 'main_image_caption', 'main_image_add_caption', 'main_image_alignment', 'main_image_onclick', 'main_image_link' ] )
+		->set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )
+		->set_switcher()
+		->get_params(),
 );
 
 return $params;
