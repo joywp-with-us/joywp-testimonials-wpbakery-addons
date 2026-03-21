@@ -17,6 +17,14 @@ defined( 'ABSPATH' ) || exit;
  * @since 1.0
  */
 class Position extends AbstractCollection {
+
+	/**
+	 * Unit for position values.
+	 *
+	 * @since 1.0
+	 */
+	public string $unit = 'px';
+
 	/**
 	 * Get collection slug.
 	 *
@@ -33,5 +41,14 @@ class Position extends AbstractCollection {
 	 */
 	public function get_name(): string {
 		return 'position';
+	}
+
+	/**
+	 * Get unit for position values.
+	 *
+	 * @since 1.0
+	 */
+	public function get_unit(): string {
+		return $this->unit;
 	}
 }

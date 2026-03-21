@@ -78,8 +78,7 @@ defined( 'ABSPATH' ) || exit;
 			height: 75px;
 			width: 20px;
 			position: absolute;
-			right: <?php echo esc_attr( $atts['clip_right'] ); ?>%;
-			top: <?php echo esc_attr( $atts['clip_top'] ); ?>%;
+			<?php $addon->get_collection( 'position', 'clip' )->with_unit( '%' )->render( $atts ); ?>
 			border-radius: 25px;
 		}
 
@@ -124,8 +123,7 @@ defined( 'ABSPATH' ) || exit;
 		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__image {
 			transform: rotate(-5deg);
 			position: absolute;
-			top: 0.5em;
-			right: 1.5em;
+			<?php $addon->get_collection( 'position', 'image' )->with_unit( 'em' )->render( $atts ); ?>
 		}
 
 		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__image img {

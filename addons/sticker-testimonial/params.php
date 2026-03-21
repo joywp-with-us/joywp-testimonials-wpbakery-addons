@@ -145,38 +145,6 @@ $params = array_merge(
 			],
 			'group'       => esc_html__( 'Clip', 'joywp-testimonials-wpbakery-addons' ),
 		],
-		[
-			'type'             => 'joywp_number',
-			'heading'          => esc_html__( 'X Positions', 'joywp-testimonials-wpbakery-addons' ),
-			'param_name'       => 'clip_right',
-			'description'      => esc_html__( 'Enter horizontal position for image clip.', 'joywp-testimonials-wpbakery-addons' ),
-			'value'            => '30',
-			'min'              => '-100',
-			'max'              => '100',
-			'step'             => '1',
-			'group'            => esc_html__( 'Clip', 'joywp-testimonials-wpbakery-addons' ),
-			'dependency'       => [
-				'element' => 'add_clip',
-				'value'   => 'true',
-			],
-			'edit_field_class' => 'vc_col-sm-6',
-		],
-		[
-			'type'             => 'joywp_number',
-			'heading'          => esc_html__( 'Y Positions', 'joywp-testimonials-wpbakery-addons' ),
-			'param_name'       => 'clip_top',
-			'description'      => esc_html__( 'Enter vertical position for image clip.', 'joywp-testimonials-wpbakery-addons' ),
-			'value'            => '-15',
-			'min'              => '-100',
-			'max'              => '100',
-			'step'             => '1',
-			'group'            => esc_html__( 'Clip', 'joywp-testimonials-wpbakery-addons' ),
-			'dependency'       => [
-				'element' => 'add_clip',
-				'value'   => 'true',
-			],
-			'edit_field_class' => 'vc_col-sm-6',
-		],
 	],
 	$config
 		->get_collection( 'border', 'clip' )
@@ -192,11 +160,33 @@ $params = array_merge(
 		)
 		->get_params(),
 	$config
+		->get_collection( 'position', 'clip' )
+		->set_additional_params( [ 'group' => __( 'Clip', 'joywp-testimonials-wpbakery-addons' ) ] )
+		->set_switcher()
+		->set_dependency(
+			[
+				'element' => 'add_clip',
+				'value'   => 'true',
+			]
+		)
+		->get_params(),
+	$config
 		->get_collection( 'image', 'main' )
 		->set_exclude( [ 'main_image_caption', 'main_image_add_caption', 'main_image_alignment', 'main_image_onclick', 'main_image_link' ] )
 		->set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )
 		->set_switcher()
 		->get_params(),
+	$config
+		->get_collection( 'position', 'image' )
+		->set_additional_params( [ 'group' => __( 'Image', 'joywp-testimonials-wpbakery-addons' ) ] )
+		->set_switcher()
+		->set_dependency(
+			[
+				'element' => 'main_add_image',
+				'value'   => 'true',
+			]
+		)
+		->get_params()
 );
 
 return $params;

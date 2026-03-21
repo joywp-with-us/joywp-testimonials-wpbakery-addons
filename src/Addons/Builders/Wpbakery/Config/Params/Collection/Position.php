@@ -26,8 +26,7 @@ class Position extends AbstractParamsCollection {
 		return [
 			[
 				'type'             => 'joywp_number',
-				'value'            => '0',
-				'step'             => '1',
+				'step'             => '0.1',
 				'heading'          => esc_html__( 'Top', 'joywp-testimonials-wpbakery-addons' ),
 				'param_name'       => $this->collection->get_param_slug( 'top' ),
 				'description'      => esc_html__( 'Top position', 'joywp-testimonials-wpbakery-addons' ),
@@ -35,8 +34,7 @@ class Position extends AbstractParamsCollection {
 			],
 			[
 				'type'             => 'joywp_number',
-				'value'            => '0',
-				'step'             => '1',
+				'step'             => '0.1',
 				'heading'          => esc_html__( 'Right', 'joywp-testimonials-wpbakery-addons' ),
 				'param_name'       => $this->collection->get_param_slug( 'right' ),
 				'description'      => esc_html__( 'Right position', 'joywp-testimonials-wpbakery-addons' ),
@@ -44,8 +42,7 @@ class Position extends AbstractParamsCollection {
 			],
 			[
 				'type'             => 'joywp_number',
-				'value'            => '0',
-				'step'             => '1',
+				'step'             => '0.1',
 				'heading'          => esc_html__( 'Bottom', 'joywp-testimonials-wpbakery-addons' ),
 				'param_name'       => $this->collection->get_param_slug( 'bottom' ),
 				'description'      => esc_html__( 'Bottom position', 'joywp-testimonials-wpbakery-addons' ),
@@ -53,8 +50,7 @@ class Position extends AbstractParamsCollection {
 			],
 			[
 				'type'             => 'joywp_number',
-				'value'            => '0',
-				'step'             => '1',
+				'step'             => '0.1',
 				'heading'          => esc_html__( 'Left', 'joywp-testimonials-wpbakery-addons' ),
 				'param_name'       => $this->collection->get_param_slug( 'left' ),
 				'description'      => esc_html__( 'Left position', 'joywp-testimonials-wpbakery-addons' ),
