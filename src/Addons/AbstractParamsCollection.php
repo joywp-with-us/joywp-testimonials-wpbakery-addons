@@ -95,6 +95,7 @@ abstract class AbstractParamsCollection {
 				'box_shadow'  => '#6b7280',
 				'button'      => '#5c4db1',
 				'font_family' => '#2c2c2c',
+				'position'    => '#2dd4bf',
 			]
 		);
 	}
