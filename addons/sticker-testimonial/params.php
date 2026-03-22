@@ -32,6 +32,20 @@ $params = array_merge(
 				'use_media'   => 'false',
 			],
 		],
+	],
+	$config
+		->get_collection( 'background', 'main' )
+		->set_switcher()
+		->set_gap( 20 )
+		->set_color()
+		->get_params(),
+	$config
+		->get_collection( 'box-shadow', 'main' )
+		->set_switcher()
+		->set_gap( 20 )
+		->set_color()
+		->get_params(),
+	[
 		[
 			'type'        => 'joywp_switcher',
 			'param_name'  => 'add_quotes',
@@ -186,7 +200,80 @@ $params = array_merge(
 				'value'   => 'true',
 			]
 		)
-		->get_params()
+		->get_params(),
+	[
+		[
+			'type'        => 'joywp_switcher',
+			'param_name'  => 'add_frame',
+			'heading'     => esc_html__( 'Add Frame', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => esc_html__( 'Add testimonial frame.', 'joywp-testimonials-wpbakery-addons' ),
+			'options'     => [
+				'true' => [
+					'label' => '',
+					'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
+					'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
+				],
+			],
+			'group'       => esc_html__( 'Frame', 'joywp-testimonials-wpbakery-addons' ),
+		],
+	],
+	$config
+		->get_collection( 'border', 'frame' )
+		->set_additional_params( [ 'group' => __( 'Frame', 'joywp-testimonials-wpbakery-addons' ) ] )
+		->set_dependency(
+			[
+				'element' => 'add_frame',
+				'value'   => 'true',
+			]
+		)
+		->get_params(),
+	[
+		[
+			'type'        => 'joywp_switcher',
+			'param_name'  => 'add_triangle',
+			'heading'     => esc_html__( 'Add Frame Triangle', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => esc_html__( 'Add frame triangle.', 'joywp-testimonials-wpbakery-addons' ),
+			'options'     => [
+				'true' => [
+					'label' => '',
+					'on'    => __( 'Yes', 'joywp-testimonials-wpbakery-addons' ),
+					'off'   => __( 'No', 'joywp-testimonials-wpbakery-addons' ),
+				],
+			],
+			'group'       => esc_html__( 'Frame', 'joywp-testimonials-wpbakery-addons' ),
+			'dependency'  => [
+				'element' => 'add_frame',
+				'value'   => 'true',
+			],
+		],
+		[
+			'type'        => 'colorpicker',
+			'heading'     => esc_html__( 'Frame Triangle Color', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'  => 'triangle_color',
+			'description' => esc_html__( 'Select color for frame triangle.', 'joywp-testimonials-wpbakery-addons' ),
+			'group'       => esc_html__( 'Frame', 'joywp-testimonials-wpbakery-addons' ),
+			'dependency'  => [
+				'element' => 'add_triangle',
+				'value'   => 'true',
+			],
+		],
+		[
+			'type'        => 'joywp_number',
+			'heading'     => esc_html__( 'Triangle Size', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'  => 'triangle_size',
+			'description' => esc_html__( 'Enter size for frame triangle.', 'joywp-testimonials-wpbakery-addons' ),
+			'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
+			'value'       => '70',
+			'min'         => '10',
+			'max'         => '500',
+			'step'        => '1',
+			'group'       => esc_html__( 'Frame', 'joywp-testimonials-wpbakery-addons' ),
+			'dependency'  => [
+				'element' => 'add_triangle',
+				'value'   => 'true',
+			],
+		],
+	],
 );
 
 return $params;

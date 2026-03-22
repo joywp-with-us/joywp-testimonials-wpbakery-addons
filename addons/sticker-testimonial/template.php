@@ -133,7 +133,54 @@ defined( 'ABSPATH' ) || exit;
 		}
 		<?php
 	endif;
+	?>
+	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial {
+		<?php $addon->get_collection( 'background', 'main' )->render( $atts ); ?>
+		<?php $addon->get_collection( 'box-shadow', 'main' )->render( $atts ); ?>
+	}
+	<?php
+	if ( 'true' === $atts['add_triangle'] ) :
+		$addon->output_style_shortcode_id();
+		?>
+		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial::before {
+			content: "";
 
+			position: absolute;
+			top: calc(100% + var(--border-overflow));
+			left: calc(10% + 50px);
+
+
+			z-index: 1;
+			width: 0;
+			height: 0;
+
+			border-style: solid;
+			border-width: var(--triangle-height) min(calc(var(--triangle-height) * 3 / 2), 40cqw) 0 0;
+
+			border-color: <?php echo esc_attr( $atts['triangle_color'] ); ?> transparent transparent transparent;
+		}
+		<?php
+	endif;
+	if ( 'true' === $atts['add_frame'] ) :
+		$addon->output_style_shortcode_id();
+		?>
+		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial::after {
+			content: "";
+
+			<?php $addon->get_collection( 'border', 'frame' )->render( $atts ); ?>
+
+
+			height: calc(100% + var(--border-overflow) * 2);
+			width: 90%;
+
+			top: calc(0px - var(--border-overflow));
+			left: 5%;
+
+			position: absolute;
+			z-index: -1;
+		}
+		<?php
+	endif;
 	?>
 </style>
 
@@ -145,11 +192,11 @@ defined( 'ABSPATH' ) || exit;
 		font-family: "Montserrat", sans-serif;
 	}
 
+
 	.joywp-sticker-testimonial-wrapper {
 		--border-overflow: 30px;
-		--border-width: 8px;
 		--border-radius: 50px;
-		--triangle-height: 70px;
+		--triangle-height: <?php echo esc_attr( $atts['triangle_size'] ); ?>px;
 
 		padding-top: var(--border-overflow);
 		padding-bottom: calc(var(--border-overflow) + var(--triangle-height));
@@ -159,51 +206,12 @@ defined( 'ABSPATH' ) || exit;
 
 	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial {
 		width: 100%;
-		background: #ffca52;
 
 		padding: 4em 3em;
 		position: relative;
 		display: flex;
 		align-items: flex-end;
 		flex-wrap: wrap;
-
-		box-shadow: 0 2px 2px hsl(0deg 0% 0% / 0.075),
-		0 3px 3px hsl(0deg 0% 0% / 0.075),
-		0 5px 5px hsl(0deg 0% 0% / 0.075),
-		0 9px 9px hsl(0deg 0% 0% / 0.075),
-		0 17px 17px hsl(0deg 0% 0% / 0.075);
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial::after {
-		content: "";
-
-		border: var(--border-width) solid navy;
-		border-radius: var(--border-radius);
-
-		height: calc(100% + var(--border-overflow) * 2);
-		width: 90%;
-
-		top: calc(0px - var(--border-overflow));
-		left: 5%;
-
-		position: absolute;
-		z-index: -1;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial::before {
-		content: "";
-
-		position: absolute;
-		top: calc(100% + var(--border-overflow));
-		left: calc(10% + var(--border-radius));
-
-		z-index: 1;
-		width: 0;
-		height: 0;
-
-		border-style: solid;
-		border-width: var(--triangle-height) min(calc(var(--triangle-height) * 3 / 2), 40cqw) 0 0;
-		border-color: navy transparent transparent transparent;
 	}
 
 	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__quote--open {
