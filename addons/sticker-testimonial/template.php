@@ -52,6 +52,11 @@ defined( 'ABSPATH' ) || exit;
 </div>
 
 <style>
+	.joywp-sticker-testimonial-wrapper {
+		--border-overflow: 30px;
+		--border-radius: 50px;
+		--triangle-height: <?php echo esc_attr( $atts['triangle_size'] ); ?>px;
+	}
 	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial {
 		<?php $addon->get_collection( 'background', 'main' )->render( $atts ); ?>
 		<?php $addon->get_collection( 'box-shadow', 'main' )->render( $atts ); ?>
@@ -181,95 +186,4 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 	endif;
 	?>
-</style>
-
-<style>
-	.joywp-sticker-testimonial-wrapper *,
-	.joywp-sticker-testimonial-wrapper *::before,
-	.joywp-sticker-testimonial-wrapper *::after {
-		box-sizing: border-box;
-		font-family: "Montserrat", sans-serif;
-	}
-
-
-	.joywp-sticker-testimonial-wrapper {
-		--border-overflow: 30px;
-		--border-radius: 50px;
-		--triangle-height: <?php echo esc_attr( $atts['triangle_size'] ); ?>px;
-
-		padding-top: var(--border-overflow);
-		padding-bottom: calc(var(--border-overflow) + var(--triangle-height));
-
-		container-type: inline-size;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial {
-		width: 100%;
-
-		padding: 4em 3em;
-		position: relative;
-		display: flex;
-		align-items: flex-end;
-		flex-wrap: wrap;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__quote--open {
-		top: 0;
-		left: 0;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__quote--close {
-		bottom: 0;
-		right: 0;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__text {
-		width: 60%;
-		min-width: 3ch;
-		display: inline-block;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__source {
-		width: 40%;
-		height: 100%;
-		position: relative;
-	}
-
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__source-label {
-		display: inline-block;
-		position: relative;
-		margin-left: 1rem;
-	}
-
-	@container (max-width: 450px) {
-		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial {
-			--triangle-height: 40px;
-			--border-radius: 20px;
-
-			padding: 100px 1em 3.5em 1em;
-			flex-direction: column;
-			align-items: flex-start;
-		}
-
-		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__image {
-			transform-origin: top right;
-			transform: scale(0.7) translateX(0.5em) rotate(-5deg);
-		}
-
-		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__clip {
-			top: -20%;
-		}
-
-		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__text {
-			word-break: break-all;
-		}
-
-		.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial__source-label {
-			margin-left: 0;
-			margin-top: 1em;
-			font-size: 0.9em;
-			text-align: left;
-			word-break: break-all;
-		}
-	}
 </style>
