@@ -14,6 +14,7 @@
   "template": "template.php",
   "params": "params.php",
   "icon": "icon.svg",
+  "defaults": "defaults.php",
   "assets": {
     "inner": {
       "css": {
