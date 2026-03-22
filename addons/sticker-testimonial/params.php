@@ -40,6 +40,13 @@ $params = array_merge(
 		->set_color()
 		->get_params(),
 	$config
+		->get_collection( 'border', 'main' )
+		->set_switcher()
+		->set_gap( 20 )
+		->set_color()
+		->set_exclude( [ 'main_border_radius' ] )
+		->get_params(),
+	$config
 		->get_collection( 'box-shadow', 'main' )
 		->set_switcher()
 		->set_gap( 20 )

@@ -52,6 +52,11 @@ defined( 'ABSPATH' ) || exit;
 </div>
 
 <style>
+	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial {
+		<?php $addon->get_collection( 'background', 'main' )->render( $atts ); ?>
+		<?php $addon->get_collection( 'box-shadow', 'main' )->render( $atts ); ?>
+		<?php $addon->get_collection( 'border', 'main' )->render( $atts ); ?>
+	}
 	<?php
 	if ( 'true' === $atts['add_quotes'] ) :
 		$addon->output_style_shortcode_id();
@@ -133,12 +138,6 @@ defined( 'ABSPATH' ) || exit;
 		}
 		<?php
 	endif;
-	?>
-	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial {
-		<?php $addon->get_collection( 'background', 'main' )->render( $atts ); ?>
-		<?php $addon->get_collection( 'box-shadow', 'main' )->render( $atts ); ?>
-	}
-	<?php
 	if ( 'true' === $atts['add_triangle'] ) :
 		$addon->output_style_shortcode_id();
 		?>
