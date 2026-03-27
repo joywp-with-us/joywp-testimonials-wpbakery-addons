@@ -25,6 +25,12 @@ class BoxShadow extends AbstractParamsCollection {
 	public function get_collection_params(): array {
 		return [
 			[
+				'type'        => 'colorpicker',
+				'heading'     => esc_html__( 'Color', 'joywp-testimonials-wpbakery-addons' ),
+				'param_name'  => $this->collection->get_param_slug( 'color' ),
+				'description' => esc_html__( 'Select custom color for box shadow.', 'joywp-testimonials-wpbakery-addons' ),
+			],
+			[
 				'type'        => 'joywp_number_slider',
 				'value'       => '0',
 				'min'         => '0',
@@ -67,12 +73,6 @@ class BoxShadow extends AbstractParamsCollection {
 				'param_name'  => $this->collection->get_param_slug( 'spread' ),
 				'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description' => esc_html__( 'Set custom spread radius for box shadow.', 'joywp-testimonials-wpbakery-addons' ),
-			],
-			[
-				'type'        => 'colorpicker',
-				'heading'     => esc_html__( 'Color', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->collection->get_param_slug( 'color' ),
-				'description' => esc_html__( 'Select custom color for box shadow.', 'joywp-testimonials-wpbakery-addons' ),
 			],
 		];
 	}

@@ -80,9 +80,15 @@ class Collector {
 				continue;
 			}
 
+			$config_path = $addon_folder . '/' . $this->get_config_file_name( $addon_name, $addon_folder );
+			if ( ! file_exists( $config_path ) ) {
+				// no config no addon it a rule.
+				continue;
+			}
+
 			$addons[ $addon_name ]['base_dir'] = $addon_folder;
 
-			$addons[ $addon_name ]['config'] = $addon_folder . '/' . $this->get_config_file_name( $addon_name, $addon_folder );
+			$addons[ $addon_name ]['config'] = $config_path;
 		}
 
 		return $addons;

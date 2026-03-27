@@ -26,12 +26,14 @@ class Border extends AbstractAddonCollection {
 	 * @since 1.0
 	 */
 	public function get_render_output( array $atts ): string {
-		return sprintf(
-			'border-width: %spx; border-style: %s; border-color: %s; border-radius: %spx;',
-			esc_attr( $atts[ $this->collection->get_param_slug( 'width' ) ] ),
-			esc_attr( $atts[ $this->collection->get_param_slug( 'style' ) ] ),
-			esc_attr( $atts[ $this->collection->get_param_slug( 'color' ) ] ),
-			esc_attr( $atts[ $this->collection->get_param_slug( 'radius' ) ] )
+		return joywptestimonialswpb_get_template(
+			'collections/border.php',
+			[
+				'width'  => $atts[ $this->collection->get_param_slug( 'width' ) ] ?? '',
+				'style'  => $atts[ $this->collection->get_param_slug( 'style' ) ] ?? '',
+				'color'  => $atts[ $this->collection->get_param_slug( 'color' ) ] ?? '',
+				'radius' => $atts[ $this->collection->get_param_slug( 'radius' ) ] ?? '',
+			]
 		);
 	}
 }

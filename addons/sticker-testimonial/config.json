@@ -1,0 +1,25 @@
+{
+  "name": {
+    "text": "Sticker Testimonial",
+    "translate": "true",
+    "text_domain": "joywp-testimonials-wpbakery-addons"
+  },
+  "base": "joywp_sticker_testimonial",
+  "category": "JoyWP",
+  "description": {
+    "text": "Testimonial with sticker style.",
+    "translate": "true",
+    "text_domain": "joywp-testimonials-wpbakery-addons"
+  },
+  "template": "template.php",
+  "params": "params.php",
+  "icon": "icon.svg",
+  "defaults": "defaults.php",
+  "assets": {
+    "inner": {
+      "css": {
+        "file": "assets/css/addon.css"
+      }
+    }
+  }
+}
