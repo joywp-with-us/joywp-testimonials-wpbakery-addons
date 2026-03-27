@@ -8,14 +8,14 @@
 namespace JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Collection;
 
 use JoywpTestimonialsWpb\Addons\AbstractAddonCollection;
-use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Addon\Addon;
+use JoywpTestimonialsWpb\Addons\Builders\Wpbakery\Collection\Position as PositionCollection;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Class Position
  *
- * @extends AbstractAddonCollection<Addon>
+ * @property PositionCollection $collection
  *
  * @since 1.0
  */
