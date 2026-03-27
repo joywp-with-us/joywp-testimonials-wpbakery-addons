@@ -12,22 +12,22 @@
 
 defined( 'ABSPATH' ) || exit;
 
-if ( $top ) {
+if ( '' !== $top ) {
 	?>
 	top: <?php echo esc_attr( $top ) . esc_attr( $unit ); ?>;
 	<?php
 }
-if ( $bottom ) {
+if ( '' !== $bottom ) {
 	?>
 	bottom: <?php echo esc_attr( $bottom ) . esc_attr( $unit ); ?>;
 	<?php
 }
-if ( $right ) {
+if ( '' !== $right ) {
 	?>
 	right: <?php echo esc_attr( $right ) . esc_attr( $unit ); ?>;
 	<?php
 }
-if ( $left ) {
+if ( '' !== $left ) {
 	?>
 	left: <?php echo esc_attr( $left ) . esc_attr( $unit ); ?>;
 	<?php

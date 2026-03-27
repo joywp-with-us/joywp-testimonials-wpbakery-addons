@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <div class="joywp-sticker-testimonial-wrapper">
-	<div class="joywp-sticker-testimonial" role="figure" aria-label="Testimonial">
+	<div class="joywp-sticker-testimonial" role="figure" aria-label="<?php echo esc_attr__( 'Testimonial', 'joywp-testimonials-wpbakery-addons' ); ?> )?>">
 		<?php
 		if ( 'true' === $atts['add_quotes'] ) :
 			?>
@@ -52,11 +52,17 @@ defined( 'ABSPATH' ) || exit;
 </div>
 
 <style>
+	<?php
+	$addon->output_style_shortcode_id();
+	?>
 	.joywp-sticker-testimonial-wrapper {
 		--border-overflow: 30px;
 		--border-radius: 50px;
 		--triangle-height: <?php echo esc_attr( $atts['triangle_size'] ); ?>px;
 	}
+	<?php
+	$addon->output_style_shortcode_id();
+	?>
 	.joywp-sticker-testimonial-wrapper .joywp-sticker-testimonial {
 		<?php $addon->get_collection( 'background', 'main' )->render( $atts ); ?>
 		<?php $addon->get_collection( 'box-shadow', 'main' )->render( $atts ); ?>

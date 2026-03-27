@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-if ( $width ) {
+if ( '' !== $width ) {
 	?>
 	border-width: <?php echo esc_attr( $width ); ?>px;
 	<?php
@@ -26,7 +26,7 @@ if ( $color ) {
 	border-color: <?php echo esc_attr( $color ); ?>;
 	<?php
 }
-if ( $radius ) {
+if ( '' !== $radius ) {
 	?>
 	border-radius: <?php echo esc_attr( $radius ); ?>px;
 	<?php
