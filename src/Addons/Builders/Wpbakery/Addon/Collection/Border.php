@@ -29,10 +29,10 @@ class Border extends AbstractAddonCollection {
 		return joywptestimonialswpb_get_template(
 			'collections/border.php',
 			[
-				'width'  => $atts[ $this->collection->get_param_slug( 'width' ) ],
-				'style'  => $atts[ $this->collection->get_param_slug( 'style' ) ],
-				'color'  => $atts[ $this->collection->get_param_slug( 'color' ) ],
-				'radius' => $atts[ $this->collection->get_param_slug( 'radius' ) ],
+				'width'  => $atts[ $this->collection->get_param_slug( 'width' ) ] ?? '',
+				'style'  => $atts[ $this->collection->get_param_slug( 'style' ) ] ?? '',
+				'color'  => $atts[ $this->collection->get_param_slug( 'color' ) ] ?? '',
+				'radius' => $atts[ $this->collection->get_param_slug( 'radius' ) ] ?? '',
 			]
 		);
 	}

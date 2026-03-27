@@ -26,13 +26,15 @@ class BoxShadow extends AbstractAddonCollection {
 	 * @since 1.0
 	 */
 	public function get_render_output( array $atts ): string {
-		return sprintf(
-			'box-shadow: %spx %spx %spx %spx %s;',
-			esc_attr( $atts[ $this->collection->get_param_slug( 'horizontal' ) ] ),
-			esc_attr( $atts[ $this->collection->get_param_slug( 'vertical' ) ] ),
-			esc_attr( $atts[ $this->collection->get_param_slug( 'blur' ) ] ),
-			esc_attr( $atts[ $this->collection->get_param_slug( 'spread' ) ] ),
-			esc_attr( $atts[ $this->collection->get_param_slug( 'color' ) ] )
+		return joywptestimonialswpb_get_template(
+			'collections/box-shadow.php',
+			[
+				'horizontal' => $atts[ $this->collection->get_param_slug( 'horizontal' ) ] ?? '0',
+				'vertical'   => $atts[ $this->collection->get_param_slug( 'vertical' ) ] ?? '0',
+				'blur'       => $atts[ $this->collection->get_param_slug( 'blur' ) ] ?? '0',
+				'spread'     => $atts[ $this->collection->get_param_slug( 'spread' ) ] ?? '0',
+				'color'      => $atts[ $this->collection->get_param_slug( 'color' ) ] ?? '',
+			]
 		);
 	}
 }
