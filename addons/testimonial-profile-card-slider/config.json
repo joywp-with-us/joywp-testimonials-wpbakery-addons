@@ -12,5 +12,6 @@
     "text_domain": "joywp-testimonials-wpbakery-addons"
   },
   "template": "template.php",
-  "params": "params.php"
+  "params": "params.php",
+  "icon": "icon.svg"
 }
