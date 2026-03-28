@@ -170,10 +170,8 @@ defined( 'ABSPATH' ) || exit;
 		width: <?php echo esc_attr( $atts['slider_controls_width'] ); ?>px;
 		height: <?php echo esc_attr( $atts['slider_controls_height'] ); ?>px;
 		<?php $addon->get_collection( 'border', 'slider_controls' )->render( $atts ); ?>
-
-		background: #fff;
-
-		cursor: pointer;
+		<?php $addon->get_collection( 'cursor', 'slider_controls' )->render( $atts ); ?>
+		<?php $addon->get_collection( 'background', 'slider_controls' )->render( $atts ); ?>
 	}
 
 	<?php $addon->output_style_shortcode_id(); ?>.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation-button.active {

@@ -68,6 +68,38 @@ return array_merge(
 		)
 		->get_params(),
 	$config
+		->get_collection( 'cursor', 'slider_controls' )
+		->set_gap( 20 )
+		->set_switcher(
+			[
+				'heading'     => __( 'Enable Controls Cursor', 'joywp-testimonials-wpbakery-addons' ),
+				'description' => __( 'Activate custom cursor for controls.', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
+		->set_color()
+		->set_additional_params(
+			[
+				'group' => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
+		->get_params(),
+	$config
+		->get_collection( 'background', 'slider_controls' )
+		->set_gap( 20 )
+		->set_switcher(
+			[
+				'heading'     => __( 'Enable Controls Background', 'joywp-testimonials-wpbakery-addons' ),
+				'description' => __( 'Activate custom background for controls.', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
+		->set_color()
+		->set_additional_params(
+			[
+				'group' => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
+		->get_params(),
+	$config
 		->get_collection( 'box-shadow', 'main' )
 		->set_gap( 20 )
 		->set_switcher()
