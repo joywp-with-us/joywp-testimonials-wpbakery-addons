@@ -153,7 +153,15 @@ defined( 'ABSPATH' ) || exit;
 		}
 		<?php
 	endif;
+	$addon->output_style_shortcode_id();
 	?>
+	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider {
+		min-height: <?php echo esc_attr( $atts['height'] ); ?>px;
+	}
+
+	.joywp-testimonial-profile-card-slider-wrapper {
+		<?php $addon->get_collection( 'box-shadow', 'main' )->render( $atts ); ?>
+	}
 </style>
 
 <style>
@@ -183,7 +191,6 @@ defined( 'ABSPATH' ) || exit;
 		position: relative;
 		flex: 0 0 100%;
 		width: 100%;
-		min-height: 400px;
 		overflow: hidden;
 	}
 
@@ -220,7 +227,6 @@ defined( 'ABSPATH' ) || exit;
 		min-height: 270px;
 		max-height: 100%;
 
-		color: #4d4352;
 		background: rgba(255, 255, 255, 0.7);
 		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 		backdrop-filter: blur(4.5px);
@@ -272,7 +278,6 @@ defined( 'ABSPATH' ) || exit;
 		font-size: 1.5rem;
 		font-weight: 600;
 		margin-top: 35px;
-		color: #4d4352;
 	}
 
 	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation {

@@ -313,7 +313,7 @@ abstract class AbstractAddon {
 	 * @since 1.0
 	 */
 	public function output_style_shortcode_id(): void {
-		echo $this->get_style_shortcode_id();
+		echo $this->get_style_shortcode_id(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

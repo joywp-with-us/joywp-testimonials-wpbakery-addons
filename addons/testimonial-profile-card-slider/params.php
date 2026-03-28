@@ -13,6 +13,14 @@ defined( 'ABSPATH' ) || exit;
 return array_merge(
 	[
 		[
+			'type'        => 'joywp_number_slider',
+			'param_name'  => 'height',
+			'heading'     => __( 'Min Height', 'joywp-testimonials-wpb' ),
+			'description' => __( 'Enter the minimum height of whole block', 'joywp-testimonials-wpb' ),
+			'value'       => 400,
+			'max'         => 5000,
+		],
+		[
 			'type'        => 'joywp_switcher',
 			'param_name'  => 'is_fancy_background',
 			'heading'     => esc_html__( 'Fancy Background', 'joywp-testimonials-wpbakery-addons' ),
@@ -24,5 +32,11 @@ return array_merge(
 				],
 			],
 		],
-	]
+	],
+	$config
+		->get_collection( 'box-shadow', 'main' )
+		->set_gap( 20 )
+		->set_switcher()
+		->set_color()
+		->get_params(),
 );
