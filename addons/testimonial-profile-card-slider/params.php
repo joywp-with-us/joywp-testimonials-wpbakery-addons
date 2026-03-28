@@ -54,7 +54,12 @@ return array_merge(
 	$config
 		->get_collection( 'border', 'slider_controls' )
 		->set_gap( 20 )
-		->set_switcher()
+		->set_switcher(
+			[
+				'heading'     => __( 'Enable Controls Border', 'joywp-testimonials-wpbakery-addons' ),
+				'description' => __( 'Activate configurations for controls border.', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
 		->set_color()
 		->set_additional_params(
 			[
