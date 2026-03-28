@@ -4,7 +4,7 @@
     "translate": "true",
     "text_domain": "joywp-testimonials-wpbakery-addons"
   },
-  "base": "joywp_testimonial_profile_card_slider_wrapper",
+  "base": "joywp_testimonial_profile_card_slider",
   "category": "JoyWP",
   "description": {
     "text": "",
@@ -13,5 +13,16 @@
   },
   "template": "template.php",
   "params": "params.php",
-  "icon": "icon.svg"
+  "icon": "icon.svg",
+
+  "assets": {
+    "inner": {
+      "css": {
+        "file": "assets/css/addon.css"
+      },
+      "js": {
+        "file": "assets/js/addon.js"
+      }
+    }
+  }
 }
