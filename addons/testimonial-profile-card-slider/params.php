@@ -32,7 +32,36 @@ return array_merge(
 				],
 			],
 		],
+		[
+			'type'        => 'joywp_number_slider',
+			'param_name'  => 'slider_controls_width',
+			'heading'     => __( 'Controls Width', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => __( 'Enter the width of slider controls', 'joywp-testimonials-wpbakery-addons' ),
+			'value'       => 15,
+			'max'         => 100,
+			'group'       => __( 'Slider', 'joywp-testimonials-wpb' ),
+		],
+		[
+			'type'        => 'joywp_number_slider',
+			'param_name'  => 'slider_controls_height',
+			'heading'     => __( 'Controls Height', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => __( 'Enter the height of slider controls', 'joywp-testimonials-wpbakery-addons' ),
+			'value'       => 15,
+			'max'         => 100,
+			'group'       => __( 'Slider', 'joywp-testimonials-wpb' ),
+		],
 	],
+	$config
+		->get_collection( 'border', 'slider_controls' )
+		->set_gap( 20 )
+		->set_switcher()
+		->set_color()
+		->set_additional_params(
+			[
+				'group' => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
+		->get_params(),
 	$config
 		->get_collection( 'box-shadow', 'main' )
 		->set_gap( 20 )

@@ -158,9 +158,26 @@ defined( 'ABSPATH' ) || exit;
 	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider {
 		min-height: <?php echo esc_attr( $atts['height'] ); ?>px;
 	}
-
-	.joywp-testimonial-profile-card-slider-wrapper {
+	<?php $addon->output_style_shortcode_id(); ?>.joywp-testimonial-profile-card-slider-wrapper {
 		<?php $addon->get_collection( 'box-shadow', 'main' )->render( $atts ); ?>
+	}
+
+	<?php $addon->output_style_shortcode_id(); ?>.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation-button {
+		margin: 4px;
+		display: inline-block;
+		transition: all 0.5s ease-in-out;
+
+		width: <?php echo esc_attr( $atts['slider_controls_width'] ); ?>px;
+		height: <?php echo esc_attr( $atts['slider_controls_height'] ); ?>px;
+		<?php $addon->get_collection( 'border', 'slider_controls' )->render( $atts ); ?>
+
+		background: #fff;
+
+		cursor: pointer;
+	}
+
+	<?php $addon->output_style_shortcode_id(); ?>.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation-button.active {
+		width: 30px;
 	}
 </style>
 
@@ -284,21 +301,6 @@ defined( 'ABSPATH' ) || exit;
 		display: flex;
 		justify-content: center;
 		margin-top: 4rem;
-	}
-
-	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation-button {
-		display: inline-block;
-		height: 15px;
-		width: 15px;
-		margin: 4px;
-		border-radius: 15px;
-		background: #fff;
-		cursor: pointer;
-		transition: all 0.5s ease-in-out;
-	}
-
-	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation-button.active {
-		width: 30px;
 	}
 
 	@container (max-width: 500px) {

@@ -304,7 +304,7 @@ abstract class AbstractAddon {
 	 * @since 1.0
 	 */
 	public function get_style_shortcode_id(): string {
-		return '[' . esc_attr( $this->get_data_attribute_id() ) . '="' . esc_attr( $this->id ) . '"]';
+		return '[' . esc_attr( $this->get_data_attribute_id() ) . '="' . esc_attr( $this->id ) . '"] ';
 	}
 
 	/**
