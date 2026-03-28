@@ -338,33 +338,35 @@ defined( 'ABSPATH' ) || exit;
 </style>
 
 <script>
-	const sliders = document.querySelectorAll('.joywp-testimonial-profile-card-slider-slider')
+	(function() {
+		const sliders = document.querySelectorAll('.joywp-testimonial-profile-card-slider-slider')
 
-	sliders.forEach(slider => {
-		const sliderCards = document.querySelector(".joywp-testimonial-profile-card-slider__cards")
-		const navigationButtons = document.querySelectorAll(".joywp-testimonial-profile-card-slider__navigation-button")
+		sliders.forEach(slider => {
+			const sliderCards = document.querySelector(".joywp-testimonial-profile-card-slider__cards")
+			const navigationButtons = document.querySelectorAll(".joywp-testimonial-profile-card-slider__navigation-button")
 
-		let currentIndex = 0
+			let currentIndex = 0
 
-		function updateSlide() {
-			const sliderWidth = slider.getBoundingClientRect().width
-			const translatedDistance = sliderWidth * currentIndex
-			sliderCards.style.transform = `translateX(-${translatedDistance}px)`
+			function updateSlide() {
+				const sliderWidth = slider.getBoundingClientRect().width
+				const translatedDistance = sliderWidth * currentIndex
+				sliderCards.style.transform = `translateX(-${translatedDistance}px)`
+
+				navigationButtons.forEach((btn, index) => {
+					btn.classList.toggle("active", index === currentIndex)
+				})
+			}
 
 			navigationButtons.forEach((btn, index) => {
-				btn.classList.toggle("active", index === currentIndex)
+				btn.addEventListener("click", () => {
+					currentIndex = index
+					updateSlide()
+				})
 			})
-		}
 
-		navigationButtons.forEach((btn, index) => {
-			btn.addEventListener("click", () => {
-				currentIndex = index
+			window.addEventListener("resize", () => {
 				updateSlide()
 			})
 		})
-
-		window.addEventListener("resize", () => {
-			updateSlide()
-		})
-	})
+	})();
 </script>
