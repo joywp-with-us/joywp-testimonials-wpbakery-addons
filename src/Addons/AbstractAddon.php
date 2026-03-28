@@ -299,12 +299,30 @@ abstract class AbstractAddon {
 	}
 
 	/**
-	 * Output uniq id with data attribute that we can use in our styles.
+	 * Get uniq id with the data attribute that we can use in our styles.
+	 *
+	 * @since 1.0
+	 */
+	public function get_style_shortcode_id(): string {
+		return '[' . esc_attr( $this->get_data_attribute_id() ) . '="' . esc_attr( $this->id ) . '"]';
+	}
+
+	/**
+	 * Output uniq id with the data attribute that we can use in our style.
 	 *
 	 * @since 1.0
 	 */
 	public function output_style_shortcode_id(): void {
-		echo '[' . esc_attr( $this->get_data_attribute_id() ) . '="' . esc_attr( $this->id ) . '"]';
+		echo $this->get_style_shortcode_id();
+	}
+
+	/**
+	 * Output uniq id with the data attribute that we can use in our scripts.
+	 *
+	 * @since 1.0
+	 */
+	public function output_script_shortcode_id(): void {
+		echo wp_json_encode( $this->get_style_shortcode_id() );
 	}
 
 	/**

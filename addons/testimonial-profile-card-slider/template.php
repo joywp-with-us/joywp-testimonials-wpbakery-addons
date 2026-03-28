@@ -339,34 +339,46 @@ defined( 'ABSPATH' ) || exit;
 
 <script>
 	(function() {
-		const sliders = document.querySelectorAll('.joywp-testimonial-profile-card-slider-slider')
+		const root = document.querySelector(<?php $addon->output_script_shortcode_id(); ?>);
+		if (!root) {
+			return;
+		}
+
+		const sliders = root.querySelectorAll('.joywp-testimonial-profile-card-slider-slider');
 
 		sliders.forEach(slider => {
-			const sliderCards = document.querySelector(".joywp-testimonial-profile-card-slider__cards")
-			const navigationButtons = document.querySelectorAll(".joywp-testimonial-profile-card-slider__navigation-button")
+			const sliderCards = slider.querySelector('.joywp-testimonial-profile-card-slider__cards');
+			const wrapper = slider.closest('.joywp-testimonial-profile-card-slider-wrapper');
+			const navigationButtons = wrapper
+				? wrapper.querySelectorAll('.joywp-testimonial-profile-card-slider__navigation-button')
+				: [];
 
-			let currentIndex = 0
+			if (!sliderCards || !navigationButtons.length) {
+				return;
+			}
+
+			let currentIndex = 0;
 
 			function updateSlide() {
-				const sliderWidth = slider.getBoundingClientRect().width
-				const translatedDistance = sliderWidth * currentIndex
-				sliderCards.style.transform = `translateX(-${translatedDistance}px)`
+				const sliderWidth = slider.getBoundingClientRect().width;
+				const translatedDistance = sliderWidth * currentIndex;
+				sliderCards.style.transform = `translateX(-${translatedDistance}px)`;
 
 				navigationButtons.forEach((btn, index) => {
-					btn.classList.toggle("active", index === currentIndex)
-				})
+					btn.classList.toggle('active', index === currentIndex);
+				});
 			}
 
 			navigationButtons.forEach((btn, index) => {
-				btn.addEventListener("click", () => {
-					currentIndex = index
-					updateSlide()
-				})
-			})
+				btn.addEventListener('click', () => {
+					currentIndex = index;
+					updateSlide();
+				});
+			});
 
-			window.addEventListener("resize", () => {
-				updateSlide()
-			})
-		})
+			window.addEventListener('resize', () => {
+				updateSlide();
+			});
+		});
 	})();
 </script>
