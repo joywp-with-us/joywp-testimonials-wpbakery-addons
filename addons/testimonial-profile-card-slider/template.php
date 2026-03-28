@@ -135,6 +135,28 @@ defined( 'ABSPATH' ) || exit;
 </div>
 
 <style>
+	<?php
+	if ( 'true' === $atts['is_fancy_background'] ) :
+		$addon->output_style_shortcode_id();
+		?>
+		.joywp-testimonial-profile-card-slider-wrapper {
+			background-image: radial-gradient(at 40% 20%,
+			rgb(255, 184, 122) 0px,
+			transparent 50%),
+			radial-gradient(at 80% 0%, rgb(31, 221, 255) 0px, transparent 50%),
+			radial-gradient(at 0% 50%, rgb(255, 219, 222) 0px, transparent 50%),
+			radial-gradient(at 80% 50%, rgb(255, 133, 173) 0px, transparent 50%),
+			radial-gradient(at 0% 100%, rgb(255, 181, 138) 0px, transparent 50%),
+			radial-gradient(at 80% 100%, rgb(107, 102, 255) 0px, transparent 50%),
+			radial-gradient(at 0% 0%, rgb(255, 133, 167) 0px, transparent 50%);
+			background-repeat: no-repeat;
+		}
+		<?php
+	endif;
+	?>
+</style>
+
+<style>
 	.joywp-testimonial-profile-card-slider-wrapper * {
 		padding: 0;
 		margin: 0;
@@ -143,19 +165,7 @@ defined( 'ABSPATH' ) || exit;
 
 	.joywp-testimonial-profile-card-slider-wrapper {
 		width: 100%;
-		font-family: 'Poppins', sans-serif;
 		container-type: inline-size;
-
-		background-image: radial-gradient(at 40% 20%,
-		rgb(255, 184, 122) 0px,
-		transparent 50%),
-		radial-gradient(at 80% 0%, rgb(31, 221, 255) 0px, transparent 50%),
-		radial-gradient(at 0% 50%, rgb(255, 219, 222) 0px, transparent 50%),
-		radial-gradient(at 80% 50%, rgb(255, 133, 173) 0px, transparent 50%),
-		radial-gradient(at 0% 100%, rgb(255, 181, 138) 0px, transparent 50%),
-		radial-gradient(at 80% 100%, rgb(107, 102, 255) 0px, transparent 50%),
-		radial-gradient(at 0% 0%, rgb(255, 133, 167) 0px, transparent 50%);
-		background-repeat: no-repeat;
 	}
 
 	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider-slider {

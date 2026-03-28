@@ -71,8 +71,9 @@ endforeach;
 <style>
 	<?php
 	if ( 'fancy' === $atts['select_button'] ) :
+		$addon->output_style_shortcode_id();
 		?>
-		<?php $addon->output_style_shortcode_id(); ?> .joywp-horizontal-testimonial-card__btn-rotate {
+		.joywp-horizontal-testimonial-card__btn-rotate {
 			position: relative;
 			margin-top: 30px;
 			display: block;
