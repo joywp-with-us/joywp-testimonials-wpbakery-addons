@@ -175,7 +175,11 @@ defined( 'ABSPATH' ) || exit;
 	}
 
 	<?php $addon->output_style_shortcode_id(); ?>.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation-button.active {
-		width: 30px;
+		width: <?php echo esc_attr( $atts['slider_active_control_width'] ); ?>px;
+		height: <?php echo esc_attr( $atts['slider_active_control_height'] ); ?>px;
+		<?php $addon->get_collection( 'border', 'slider_active_control' )->render( $atts ); ?>
+		<?php $addon->get_collection( 'cursor', 'slider_active_control' )->render( $atts ); ?>
+		<?php $addon->get_collection( 'background', 'slider_active_control' )->render( $atts ); ?>
 	}
 </style>
 

@@ -32,6 +32,15 @@ return array_merge(
 				],
 			],
 		],
+	],
+	$config
+		->get_collection( 'box-shadow', 'main' )
+		->set_gap( 20 )
+		->set_switcher()
+		->set_color()
+		->get_params(),
+	[
+
 		[
 			'type'        => 'joywp_number_slider',
 			'param_name'  => 'slider_controls_width',
@@ -99,10 +108,72 @@ return array_merge(
 			]
 		)
 		->get_params(),
+	[
+		[
+			'type'        => 'joywp_number_slider',
+			'param_name'  => 'slider_active_controls_width',
+			'heading'     => __( 'Active Control Width', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => __( 'Enter the width of slider active control', 'joywp-testimonials-wpbakery-addons' ),
+			'value'       => 15,
+			'max'         => 100,
+			'group'       => __( 'Slider', 'joywp-testimonials-wpb' ),
+		],
+		[
+			'type'        => 'joywp_number_slider',
+			'param_name'  => 'slider_active_controls_height',
+			'heading'     => __( 'Active Control Height', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => __( 'Enter the height of slider active control', 'joywp-testimonials-wpbakery-addons' ),
+			'value'       => 15,
+			'max'         => 100,
+			'group'       => __( 'Slider', 'joywp-testimonials-wpb' ),
+		],
+	],
 	$config
-		->get_collection( 'box-shadow', 'main' )
+		->get_collection( 'border', 'slider_active_control' )
 		->set_gap( 20 )
-		->set_switcher()
+		->set_switcher(
+			[
+				'heading'     => __( 'Enable Active Control Border', 'joywp-testimonials-wpbakery-addons' ),
+				'description' => __( 'Activate configurations for active control border.', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
 		->set_color()
+		->set_additional_params(
+			[
+				'group' => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
+		->get_params(),
+	$config
+		->get_collection( 'cursor', 'slider_active_control' )
+		->set_gap( 20 )
+		->set_switcher(
+			[
+				'heading'     => __( 'Enable Active Control Cursor', 'joywp-testimonials-wpbakery-addons' ),
+				'description' => __( 'Activate custom cursor for active control.', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
+		->set_color()
+		->set_additional_params(
+			[
+				'group' => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
+		->get_params(),
+	$config
+		->get_collection( 'background', 'slider_active_control' )
+		->set_gap( 20 )
+		->set_switcher(
+			[
+				'heading'     => __( 'Enable Active Control Background', 'joywp-testimonials-wpbakery-addons' ),
+				'description' => __( 'Activate custom background for active control.', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
+		->set_color()
+		->set_additional_params(
+			[
+				'group' => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
+			]
+		)
 		->get_params(),
 );
