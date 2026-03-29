@@ -18,7 +18,7 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 			<?php
 			foreach ( $items as $item ) {
 				?>
-				<div class="joywp-testimonial-profile-card-slider">
+				<div class="joywp-testimonial-profile-card-slider" data-item-id="<?php echo esc_attr( $item['id'] ); ?>">
 					<div class="joywp-testimonial-profile-card-slider__content">
 						<div class="joywp-testimonial-profile-card-slider__text">
 							<?php
@@ -27,9 +27,9 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 						</div>
 					</div>
 					<div class="joywp-testimonial-profile-card-slider__hero">
-						<img
-								src="https://user-images.githubusercontent.com/13468728/234031693-6bbaba7d-632c-4d7d-965f-75a76a549ce2.jpg"
-								alt="avatar">
+						<?php
+						$addon->get_collection( 'image', 'testimonial' )->render( $item );
+						?>
 					</div>
 				</div>
 				<?php
@@ -39,10 +39,14 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 	</div>
 
 	<div class="joywp-testimonial-profile-card-slider__navigation">
-		<div class="joywp-testimonial-profile-card-slider__navigation-button active"></div>
-<!--		<div class="joywp-testimonial-profile-card-slider__navigation-button"></div>-->
-<!--		<div class="joywp-testimonial-profile-card-slider__navigation-button"></div>-->
-<!--		<div class="joywp-testimonial-profile-card-slider__navigation-button"></div>-->
+		<?php
+		foreach ( $items as $index => $item ) {
+			$active = 0 === $index ? 'active' : '';
+			?>
+				<div class="joywp-testimonial-profile-card-slider__navigation-button <?php echo esc_attr( $active ); ?>"></div>
+			<?php
+		}
+		?>
 	</div>
 </div>
 
@@ -89,14 +93,28 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 		<?php $addon->get_collection( 'cursor', 'slider_active_control' )->render( $atts ); ?>
 		<?php $addon->get_collection( 'background', 'slider_active_control' )->render( $atts ); ?>
 	}
-	<?php $addon->output_style_shortcode_id(); ?>.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content {
-		min-height: <?php echo esc_attr( $item['min_height'] ); ?>px;
 
-		<?php $addon->get_collection( 'border', 'testimonial' )->render( $item ); ?>
-		<?php $addon->get_collection( 'background', 'testimonial' )->render( $item ); ?>
-		<?php $addon->get_collection( 'box-shadow', 'testimonial' )->render( $item ); ?>
-		<?php $addon->get_collection( 'backdrop-filter', 'testimonial' )->render( $item ); ?>
-	}
+	<?php
+	foreach ( $items as $index => $item ) :
+		$addon->output_style_shortcode_id();
+		?>
+			[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"] .joywp-testimonial-profile-card-slider__content {
+				min-height: <?php echo esc_attr( $item['min_height'] ); ?>px;
+
+				<?php $addon->get_collection( 'border', 'testimonial' )->render( $item ); ?>
+				<?php $addon->get_collection( 'background', 'testimonial' )->render( $item ); ?>
+				<?php $addon->get_collection( 'box-shadow', 'testimonial' )->render( $item ); ?>
+				<?php $addon->get_collection( 'backdrop-filter', 'testimonial' )->render( $item ); ?>
+			}
+		<?php
+		$addon->output_style_shortcode_id();
+		?>
+			[data-item-id="<?php echo esc_attr( $item['id'] ); ?>"] .joywp-testimonial-profile-card-slider__hero {
+				width: <?php echo esc_attr( $item['image_width'] ); ?>%;
+			}
+		<?php
+	endforeach;
+	?>
 </style>
 
 <style>
@@ -134,13 +152,11 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 		top: 0;
 		right: 0;
 		height: 100%;
-		width: 40%;
 
 		display: flex;
 		align-items: center;
 		justify-content: center;
 
-		border-radius: 10px;
 		overflow: hidden;
 	}
 

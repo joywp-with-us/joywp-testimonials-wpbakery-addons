@@ -24,8 +24,8 @@ return array_merge(
 			],
 		],
 		[
-			'type'        => 'joywp_number_slider',
-			'heading'     => esc_html__( 'Min Height', 'joywp-testimonials-wpbakery-addons' ),
+			'type'        => 'joywp_number',
+			'heading'     => esc_html__( 'Testimonial Min Height', 'joywp-testimonials-wpbakery-addons' ),
 			'param_name'  => 'min_height',
 			'description' => esc_html__( 'Enter the minimum height of the testimonial card.', 'joywp-testimonials-wpbakery-addons' ),
 			'title'       => 'px',
@@ -34,7 +34,29 @@ return array_merge(
 			'max'         => '5000',
 			'step'        => '1',
 		],
+		[
+			'type'        => 'joywp_number',
+			'heading'     => esc_html__( 'Image Width', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name'  => 'image_width',
+			'description' => esc_html__( 'Enter the width of the image.', 'joywp-testimonials-wpbakery-addons' ),
+			'title'       => '%',
+			'value'       => '40',
+			'min'         => '0',
+			'max'         => '100',
+			'step'        => '1',
+		],
 	],
+	$config
+		->get_collection( 'image', 'testimonial' )
+		->set_gap( 20 )
+		->set_color()
+		->set_exclude(
+			[
+				'testimonial_image_alignment',
+				'testimonial_image_add_caption',
+			]
+		)
+		->get_params(),
 	$config
 		->get_collection( 'border', 'testimonial' )
 		->set_gap( 20 )
