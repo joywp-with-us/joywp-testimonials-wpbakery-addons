@@ -1,6 +1,6 @@
 <?php
 /**
- * Params for joywp_testimonial_profile_card_slider_wrapper testimonial param group.
+ * Params for joywp_testimonial_profile_card_slider testimonial param group.
  *
  * @var ConfigManager $config
  * @since 1.0

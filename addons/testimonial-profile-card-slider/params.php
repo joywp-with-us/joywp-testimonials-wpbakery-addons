@@ -120,7 +120,7 @@ return array_merge(
 	[
 		[
 			'type'        => 'joywp_number_slider',
-			'param_name'  => 'slider_active_controls_width',
+			'param_name'  => 'slider_active_control_width',
 			'heading'     => __( 'Active Control Width', 'joywp-testimonials-wpbakery-addons' ),
 			'description' => __( 'Enter the width of slider active control', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => 15,
@@ -129,7 +129,7 @@ return array_merge(
 		],
 		[
 			'type'        => 'joywp_number_slider',
-			'param_name'  => 'slider_active_controls_height',
+			'param_name'  => 'slider_active_control_height',
 			'heading'     => __( 'Active Control Height', 'joywp-testimonials-wpbakery-addons' ),
 			'description' => __( 'Enter the height of slider active control', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => 15,
