@@ -102,7 +102,7 @@ abstract class AbstractParamsCollection {
 				'font_family'     => '#2c2c2c',
 				'position'        => '#2dd4bf',
 				'cursor'          => '#14b8a6',
-				'backdrop_filter' => '#d8ccff66',
+				'backdrop_filter' => '#facc15',
 			]
 		);
 	}

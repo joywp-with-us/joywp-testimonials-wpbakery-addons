@@ -95,9 +95,7 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 		<?php $addon->get_collection( 'border', 'testimonial' )->render( $item ); ?>
 		<?php $addon->get_collection( 'background', 'testimonial' )->render( $item ); ?>
 		<?php $addon->get_collection( 'box-shadow', 'testimonial' )->render( $item ); ?>
-
-		backdrop-filter: blur(4.5px);
-		-webkit-backdrop-filter: blur(4.5px);
+		<?php $addon->get_collection( 'backdrop-filter', 'testimonial' )->render( $item ); ?>
 	}
 </style>
 

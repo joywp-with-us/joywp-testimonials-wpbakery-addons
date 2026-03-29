@@ -54,7 +54,7 @@ return array_merge(
 		->set_color()
 		->get_params(),
 	$config
-		->get_collection( 'box-shadow', 'testimonial' )
+		->get_collection( 'backdrop-filter', 'testimonial' )
 		->set_gap( 20 )
 		->set_switcher()
 		->set_color()
