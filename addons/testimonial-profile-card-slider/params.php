@@ -40,6 +40,15 @@ return array_merge(
 		->set_color()
 		->get_params(),
 	[
+		[
+			'type'       => 'param_group',
+			'group'      => esc_html__( 'Testimonials', 'joywp-testimonials-wpbakery-addons' ),
+			'heading'    => esc_html__( 'Testimonials Items', 'joywp-testimonials-wpbakery-addons' ),
+			'param_name' => 'items',
+			'params'     => $config->get_additional_params( 'group.php' ),
+		],
+	],
+	[
 
 		[
 			'type'        => 'joywp_number_slider',

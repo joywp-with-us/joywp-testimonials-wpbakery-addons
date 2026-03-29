@@ -8,129 +8,41 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+$items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 ?>
 
 <div class="joywp-testimonial-profile-card-slider-wrapper">
 	<div class="joywp-testimonial-profile-card-slider-slider">
 		<div class="joywp-testimonial-profile-card-slider__cards">
-			<div class="joywp-testimonial-profile-card-slider">
-				<div class="joywp-testimonial-profile-card-slider__content">
-					<div class="joywp-testimonial-profile-card-slider__text">
-						Zen Doan is a business analyst, entrepreneur and media proprietor, and investor. She also known as the
-						best selling book author.
-					</div>
-					<div class="joywp-testimonial-profile-card-slider__author">
-						<div class="joywp-testimonial-profile-card-slider__name">Zen</div>
-						<div class="joywp-testimonial-profile-card-slider__role">Author</div>
-					</div>
-				</div>
-				<div class="joywp-testimonial-profile-card-slider__hero">
-					<img
-							src="https://user-images.githubusercontent.com/13468728/234031693-6bbaba7d-632c-4d7d-965f-75a76a549ce2.jpg"
-							alt="avatar">
-				</div>
-			</div>
 
-			<div class="joywp-testimonial-profile-card-slider">
-				<div class="joywp-testimonial-profile-card-slider__content">
-					<div class="joywp-testimonial-profile-card-slider__text">
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores veniam maiores quaerat ut earum
-						molestiae
-						commodi, repellat voluptas ad eligendi eveniet doloremque aliquam tempora consectetur eaque. Repellat
-						ratione iste
-						dicta!
-						Sapiente, soluta id tempora sunt vel cumque quis repellendus dolore. Possimus animi consequatur voluptate
-						expedita ex
-						magni eos doloremque labore sed repellat. Quos soluta facere inventore doloribus nostrum asperiores
-						provident!
-						Adipisci, enim quibusdam! Dolores, minus reprehenderit tempora ratione quia quam natus vel earum delectus
-						voluptatibus
-						eius soluta praesentium facere, exercitationem cupiditate qui accusamus iste! Fugiat neque deleniti
-						pariatur minima
-						aspernatur!
-						Nostrum fuga iusto voluptate aliquid, deserunt possimus! Magnam laudantium molestiae exercitationem neque
-						veniam,
-						placeat obcaecati cum, dolore architecto officiis culpa ipsum eius iusto adipisci dignissimos similique
-						quasi, beatae
-						maiores! Eos.
-						Tempora laudantium dolores sunt fugit dignissimos in enim nam ullam animi magnam molestiae aperiam tempore
-						modi
-						perferendis similique amet qui, delectus, repellat et perspiciatis dolor tenetur hic maxime libero. Iste.
-						Aspernatur, illum. Dignissimos eligendi facilis quibusdam voluptas perspiciatis, quaerat odio pariatur,
-						excepturi
-						quasi nemo reiciendis possimus molestiae maxime quas amet maiores aperiam est commodi culpa? Nesciunt, in.
-						Ipsam,
-						optio assumenda!
-						Ratione sed ex dolor natus fuga ullam corrupti! Impedit harum temporibus similique dolor distinctio ipsam
-						deserunt,
-						necessitatibus voluptates perspiciatis? Consectetur tenetur, eveniet eligendi ex odio pariatur recusandae
-						iure minus
-						impedit.
-						Quis doloremque officiis omnis recusandae sed earum rerum autem! Enim vel nisi sunt aliquam sequi illo
-						quis quas
-						inventore excepturi vero eos aspernatur, deleniti voluptates nulla quo sed ex. Aliquam.
-						Libero quisquam repellat, officiis aspernatur accusamus quos pariatur! Nesciunt nihil quis similique?
-						Provident vel
-						fugiat assumenda deserunt minima nulla? Ab, atque! Natus et amet esse? Est distinctio dicta quo suscipit.
-						Sit odio, enim deleniti eum dicta voluptatibus veniam quas error unde quaerat cumque quisquam, facilis
-						temporibus.
-						Numquam reiciendis soluta ex repellat. Quaerat sunt atque nesciunt et tempora tempore, sequi voluptatibus?
+			<?php
+			foreach ( $items as $item ) {
+				?>
+				<div class="joywp-testimonial-profile-card-slider">
+					<div class="joywp-testimonial-profile-card-slider__content">
+						<div class="joywp-testimonial-profile-card-slider__text">
+							<?php
+							echo wp_kses_post( $item['testimonial'] );
+							?>
+						</div>
 					</div>
-					<div class="joywp-testimonial-profile-card-slider__author">
-						<span class="joywp-testimonial-profile-card-slider__name">Jonathan</span>
-						<span class="joywp-testimonial-profile-card-slider__role">Treymont Inc.</span>
+					<div class="joywp-testimonial-profile-card-slider__hero">
+						<img
+								src="https://user-images.githubusercontent.com/13468728/234031693-6bbaba7d-632c-4d7d-965f-75a76a549ce2.jpg"
+								alt="avatar">
 					</div>
 				</div>
-				<div class="joywp-testimonial-profile-card-slider__hero">
-					<img
-							src="https://user-images.githubusercontent.com/13468728/234031617-2dfb19ea-01d0-4370-b63b-bb6bdfb4f78e.jpg"
-							alt="avatar">
-				</div>
-			</div>
-
-			<div class="joywp-testimonial-profile-card-slider">
-				<div class="joywp-testimonial-profile-card-slider__content">
-					<div class="joywp-testimonial-profile-card-slider__text">
-						Charlie Green is an European entrepreneur and media consultant, and investor. He is the founder of the
-						Hallmark Inc.
-					</div>
-					<div class="joywp-testimonial-profile-card-slider__author">
-						<div class="joywp-testimonial-profile-card-slider__name">Charlie</div>
-						<div class="joywp-testimonial-profile-card-slider__role">Hallmark Inc.</div>
-					</div>
-				</div>
-				<div class="joywp-testimonial-profile-card-slider__hero">
-					<img
-							src="https://user-images.githubusercontent.com/13468728/234031646-10533999-39e5-4c7b-ab54-d0299b13ce74.jpg"
-							alt="avatar">
-				</div>
-			</div>
-
-			<div class="joywp-testimonial-profile-card-slider">
-				<div class="joywp-testimonial-profile-card-slider__content">
-					<div class="joywp-testimonial-profile-card-slider__text">
-						Sarah Dam is an American internet entrepreneur and media proprietor, and investor. She is the founder of
-						the multi-national technology company Zara.
-					</div>
-					<div class="joywp-testimonial-profile-card-slider__author">
-						<div class="joywp-testimonial-profile-card-slider__name">Sarah</div>
-						<div class="joywp-testimonial-profile-card-slider__role">Zara Inc.</div>
-					</div>
-				</div>
-				<div class="joywp-testimonial-profile-card-slider__hero">
-					<img src="https://github.com/ecemgo/ecemgo/assets/13468728/55116c98-5f9a-4b0a-9fdb-4911b52d5ef3"
-						alt="avatar">
-				</div>
-			</div>
-
+				<?php
+			}
+			?>
 		</div>
 	</div>
 
 	<div class="joywp-testimonial-profile-card-slider__navigation">
 		<div class="joywp-testimonial-profile-card-slider__navigation-button active"></div>
-		<div class="joywp-testimonial-profile-card-slider__navigation-button"></div>
-		<div class="joywp-testimonial-profile-card-slider__navigation-button"></div>
-		<div class="joywp-testimonial-profile-card-slider__navigation-button"></div>
+<!--		<div class="joywp-testimonial-profile-card-slider__navigation-button"></div>-->
+<!--		<div class="joywp-testimonial-profile-card-slider__navigation-button"></div>-->
+<!--		<div class="joywp-testimonial-profile-card-slider__navigation-button"></div>-->
 	</div>
 </div>
 
@@ -163,10 +75,6 @@ defined( 'ABSPATH' ) || exit;
 	}
 
 	<?php $addon->output_style_shortcode_id(); ?>.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation-button {
-		margin: 4px;
-		display: inline-block;
-		transition: all 0.5s ease-in-out;
-
 		width: <?php echo esc_attr( $atts['slider_controls_width'] ); ?>px;
 		height: <?php echo esc_attr( $atts['slider_controls_height'] ); ?>px;
 		<?php $addon->get_collection( 'border', 'slider_controls' )->render( $atts ); ?>
@@ -180,6 +88,16 @@ defined( 'ABSPATH' ) || exit;
 		<?php $addon->get_collection( 'border', 'slider_active_control' )->render( $atts ); ?>
 		<?php $addon->get_collection( 'cursor', 'slider_active_control' )->render( $atts ); ?>
 		<?php $addon->get_collection( 'background', 'slider_active_control' )->render( $atts ); ?>
+	}
+	<?php $addon->output_style_shortcode_id(); ?>.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content {
+		min-height: <?php echo esc_attr( $item['min_height'] ); ?>px;
+
+		<?php $addon->get_collection( 'border', 'testimonial' )->render( $item ); ?>
+		<?php $addon->get_collection( 'background', 'testimonial' )->render( $item ); ?>
+		<?php $addon->get_collection( 'box-shadow', 'testimonial' )->render( $item ); ?>
+
+		backdrop-filter: blur(4.5px);
+		-webkit-backdrop-filter: blur(4.5px);
 	}
 </style>
 
@@ -236,30 +154,25 @@ defined( 'ABSPATH' ) || exit;
 		user-select: none;
 	}
 
+	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation-button {
+		margin: 4px;
+		display: inline-block;
+		transition: all 0.5s ease-in-out;
+	}
+
 	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content {
 		position: absolute;
 		left: 0;
 		top: 50%;
 		transform: translateY(-50%);
-
-		width: 70%;
-		min-height: 270px;
 		max-height: 100%;
-
-		background: rgba(255, 255, 255, 0.7);
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(4.5px);
-		-webkit-backdrop-filter: blur(4.5px);
-		border-radius: 10px;
 		padding: 45px;
 		z-index: 2;
-		user-select: none;
-
 		overflow-x: hidden;
 		overflow-y: auto;
-
 		scrollbar-width: thin;
 		scrollbar-color: #999 transparent;
+		width: 70%;
 	}
 
 	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content::-webkit-scrollbar {
@@ -280,12 +193,6 @@ defined( 'ABSPATH' ) || exit;
 
 	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content::-webkit-scrollbar-thumb:hover {
 		background: linear-gradient(180deg, #aaa, #666);
-	}
-
-	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__text {
-		font-size: 1.25rem;
-		font-weight: 400;
-		line-height: 1.3;
 	}
 
 	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__author {
