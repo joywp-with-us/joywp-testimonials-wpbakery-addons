@@ -59,7 +59,7 @@ return array_merge(
 		[
 			'type'                 => 'joywp_switcher',
 			'param_name'           => 'add_quot',
-			'heading'              => esc_html__( 'Add Quot', 'joywp-testimonials-wpbakery-addons' ),
+			'heading'              => esc_html__( 'Add Quote', 'joywp-testimonials-wpbakery-addons' ),
 			'description'          => esc_html__( 'Add quotation mark to the testimonial card.', 'joywp-testimonials-wpbakery-addons' ),
 			'options'              => [
 				'true' => [

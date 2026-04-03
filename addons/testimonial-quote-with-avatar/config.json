@@ -7,7 +7,7 @@
   "base": "joywp_testimonial_quote_with_avatar",
   "category": "JoyWP",
   "description": {
-    "text": "Testimonial Quote With Avatar",
+    "text": "Testimonial quote with avatar addon.",
     "translate": "true",
     "text_domain": "joywp-testimonials-wpbakery-addons"
   },
