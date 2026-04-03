@@ -126,8 +126,8 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 
 		const slides = root.querySelectorAll('.joywp-testimonial-profile-card-slider-slider');
 
-        if ( typeof window.joywpTestimonialProfileCardSliderProcessSlides === 'function' ) {
-             window.joywpTestimonialProfileCardSliderProcessSlides(slides);
-        }
+		if ( typeof window.joywpTestimonialProfileCardSliderProcessSlides === 'function' ) {
+			window.joywpTestimonialProfileCardSliderProcessSlides(slides);
+		}
 	})();
 </script>
