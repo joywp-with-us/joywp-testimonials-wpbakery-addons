@@ -32,7 +32,6 @@
 	top: 0;
 	right: 0;
 	height: 100%;
-    width: 40%;
 
 	display: flex;
 	align-items: center;
@@ -43,7 +42,6 @@
 
 .joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__hero img {
 	height: 100%;
-	width: 100%;
 	object-fit: cover;
 	pointer-events: none;
 	user-select: none;
@@ -102,10 +100,10 @@
 		flex-direction: column;
 	}
 
-	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__hero {
+	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider-slider .joywp-testimonial-profile-card-slider__cards .joywp-testimonial-profile-card-slider__hero {
 		position: static;
 		width: 100%;
-		min-width: 0px;
+		min-width: 0;
 		flex: 0 0 400px;
 		margin-bottom: 300px;
 	}
