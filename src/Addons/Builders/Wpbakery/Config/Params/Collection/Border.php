@@ -25,6 +25,13 @@ class Border extends AbstractParamsCollection {
 	public function get_collection_params(): array {
 		return [
 			[
+				'type'        => 'colorpicker',
+				'heading'     => esc_html__( 'Border color', 'joywp-testimonials-wpbakery-addons' ),
+				'param_name'  => $this->collection->get_param_slug( 'color' ),
+				'description' => esc_html__( 'Select custom color for border.', 'joywp-testimonials-wpbakery-addons' ),
+				'value'       => '#cccccc00',
+			],
+			[
 				'type'        => 'dropdown',
 				'param_name'  => $this->collection->get_param_slug( 'style' ),
 				'value'       => [
@@ -50,13 +57,6 @@ class Border extends AbstractParamsCollection {
 				'param_name'  => $this->collection->get_param_slug( 'width' ),
 				'title'       => esc_html__( 'px', 'joywp-testimonials-wpbakery-addons' ),
 				'description' => esc_html__( 'Set custom border width in px from 0 to 10.', 'joywp-testimonials-wpbakery-addons' ),
-			],
-			[
-				'type'        => 'colorpicker',
-				'heading'     => esc_html__( 'Border color', 'joywp-testimonials-wpbakery-addons' ),
-				'param_name'  => $this->collection->get_param_slug( 'color' ),
-				'description' => esc_html__( 'Select custom color for border.', 'joywp-testimonials-wpbakery-addons' ),
-				'value'       => '#cccccc00',
 			],
 			[
 				'type'        => 'joywp_number_slider',

@@ -71,6 +71,7 @@ endforeach;
 <style>
 	<?php
 	if ( 'fancy' === $atts['select_button'] ) :
+		$addon->output_style_shortcode_id();
 		?>
 		.joywp-horizontal-testimonial-card__btn-rotate {
 			position: relative;
@@ -92,12 +93,12 @@ endforeach;
 			animation: joywp-fadeIn 1s ease 1s forwards;
 		}
 
-		.joywp-horizontal-testimonial-card__btn-rotate:hover {
+		<?php $addon->output_style_shortcode_id(); ?> .joywp-horizontal-testimonial-card__btn-rotate:hover {
 			transform: scale(1.05);
 			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 		}
 
-		.joywp-horizontal-testimonial-card__btn-rotate:focus {
+		<?php $addon->output_style_shortcode_id(); ?> .joywp-horizontal-testimonial-card__btn-rotate:focus {
 			outline: 2px solid white;
 			outline-offset: 2px;
 		}
@@ -133,7 +134,7 @@ endforeach;
 			<?php $addon->output_style_shortcode_id(); ?> .joywp-horizontal-testimonial-card__header-title {
 				font-size: 1.8rem;
 			}
-			.joywp-horizontal-testimonial-card__header-description {
+			<?php $addon->output_style_shortcode_id(); ?> .joywp-horizontal-testimonial-card__header-description {
 				font-size: 0.9rem;
 			}
 		}

@@ -18,6 +18,13 @@ defined( 'ABSPATH' ) || exit;
  */
 abstract class AbstractParamsCollection {
 	/**
+	 * Collection specific params.
+	 *
+	 * @since 1.0
+	 */
+	abstract public function get_collection_params(): array;
+
+	/**
 	 * The collection instance.
 	 *
 	 * @since 1.0
@@ -74,11 +81,9 @@ abstract class AbstractParamsCollection {
 	protected bool $is_color = false;
 
 	/**
-	 * Collection specific params.
-	 *
-	 * @since 1.0
+	 * Params specific to collection switcher.
 	 */
-	abstract public function get_collection_params(): array;
+	protected array $switcher_params = [];
 
 	/**
 	 * Get the library of collections colors.
@@ -89,13 +94,15 @@ abstract class AbstractParamsCollection {
 		return apply_filters(
 			'joywp_testimonials_get_color_lib_collection',
 			[
-				'background'  => '#d8ccff',
-				'border'      => '#1c1e21',
-				'image'       => '#8b0000',
-				'box_shadow'  => '#6b7280',
-				'button'      => '#5c4db1',
-				'font_family' => '#2c2c2c',
-				'position'    => '#2dd4bf',
+				'background'      => '#d8ccff',
+				'border'          => '#1c1e21',
+				'image'           => '#8b0000',
+				'box_shadow'      => '#6b7280',
+				'button'          => '#5c4db1',
+				'font_family'     => '#2c2c2c',
+				'position'        => '#2dd4bf',
+				'cursor'          => '#14b8a6',
+				'backdrop_filter' => '#facc15',
 			]
 		);
 	}
@@ -133,8 +140,9 @@ abstract class AbstractParamsCollection {
 	 *
 	 * @since 1.0
 	 */
-	public function set_switcher(): self {
-		$this->is_switcher = true;
+	public function set_switcher( array $params = [] ): self {
+		$this->switcher_params = $params;
+		$this->is_switcher     = true;
 		return $this;
 	}
 
@@ -218,11 +226,13 @@ abstract class AbstractParamsCollection {
 	 * @since 1.0
 	 */
 	public function get_switcher_param(): array {
-		$switcher = [
+		$heading     = $this->switcher_params['heading'] ?? esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->collection->get_name() );
+		$description = $this->switcher_params['description'] ?? esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->collection->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' );
+		$switcher    = [
 			'type'        => 'joywp_switcher',
 			'param_name'  => $this->collection->get_switcher_slug(),
-			'heading'     => esc_html__( 'Enable ', 'joywp-testimonials-wpbakery-addons' ) . ucfirst( $this->collection->get_name() ),
-			'description' => esc_html__( 'Activate ', 'joywp-testimonials-wpbakery-addons' ) . $this->collection->get_name() . esc_html__( ' configurations.', 'joywp-testimonials-wpbakery-addons' ),
+			'heading'     => $heading,
+			'description' => $description,
 			'value'       => 'false',
 			'default_set' => 'false',
 			'options'     => [

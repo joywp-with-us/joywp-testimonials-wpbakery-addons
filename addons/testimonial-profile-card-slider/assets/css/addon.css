@@ -1,0 +1,127 @@
+.joywp-testimonial-profile-card-slider-wrapper * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper {
+	width: 100%;
+	container-type: inline-size;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider-slider {
+	width: 100%;
+	overflow: hidden;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__cards {
+	width: 100%;
+	display: flex;
+	transition: 0.5s;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider {
+	position: relative;
+	flex: 0 0 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__hero {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	overflow: hidden;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__hero img {
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation-button {
+	margin: 4px;
+	display: inline-block;
+	transition: all 0.5s ease-in-out;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	max-height: 100%;
+	padding: 45px;
+	z-index: 2;
+	overflow-x: hidden;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: #999 transparent;
+	width: 70%;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 8px;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content::-webkit-scrollbar-thumb {
+	background: #999;
+	border-radius: 8px;
+	transition: 0.3s;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(180deg, #aaa, #666);
+}
+
+.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation {
+	display: flex;
+	justify-content: center;
+	margin-top: 4rem;
+}
+
+@container (max-width: 500px) {
+	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider-slider .joywp-testimonial-profile-card-slider__cards .joywp-testimonial-profile-card-slider__hero {
+		position: static;
+		width: 100%;
+		min-width: 0;
+		flex: 0 0 400px;
+		margin-bottom: 300px;
+	}
+
+	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content {
+		top: 300px;
+		transform: none;
+
+		width: 100%;
+		max-height: 400px;
+		padding: 15px;
+	}
+
+	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__text {
+		font-size: 0.85em;
+	}
+
+	.joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__navigation {
+		margin-top: 30px;
+	}
+}
