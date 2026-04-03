@@ -8,23 +8,23 @@ The WPBakery Page Builder plugin must be installed and activated to use this plu
 
 ### 1. Interactive Shuffling Testimonials.
 
-![Interactive Shuffling Testimonials](assets/images/github-reame/screen-1.png)
+![Interactive Shuffling Testimonials](assets/images/github-readme/screen-1.png)
 
 ### 2. Sticker Testimonial.
 
-![Sticker Testimonial](assets/images/github-reame/screen-2.png)
+![Sticker Testimonial](assets/images/github-readme/screen-2.png)
 
 ### 3. Testimonial Card With Image.
 
-![Testimonial Card With Image](assets/images/github-reame/screen-3.png)
+![Testimonial Card With Image](assets/images/github-readme/screen-3.png)
 
 ### 4. Testimonial Profile Card Slider.
 
-![Testimonial Profile Card Slider](assets/images/github-reame/screen-4.png)
+![Testimonial Profile Card Slider](assets/images/github-readme/screen-4.png)
 
 ### 5. Testimonial Quote With Avatar.
 
-![Testimonial Quote With Avatar](assets/images/github-reame/screen-5.png)
+![Testimonial Quote With Avatar](assets/images/github-readme/screen-5.png)
 
 ## Installation
 You can directly install the plugin from the GitHub repository.
@@ -33,7 +33,7 @@ You can directly install the plugin from the GitHub repository.
 
 That's it! If you go to any WPBakery Page Builder editor, you'll find new elements under the 'JoyWP' tab in the 'Add Element' WPBakery popup.
 
-![](assets/images/github-reame/screen-6.png)
+![](assets/images/github-readme/screen-6.png)
 
 ## Requirements
 1. WPBakery Page Builder version 5.0+
