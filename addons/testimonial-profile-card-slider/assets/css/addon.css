@@ -51,6 +51,13 @@
 	margin: 4px;
 	display: inline-block;
 	transition: all 0.5s ease-in-out;
+	outline: none;
+}
+
+.joywp-testimonial-profile-card-slider-wrapper
+.joywp-testimonial-profile-card-slider__navigation-button:focus-visible {
+	outline: 2px solid #000;
+	outline-offset: 2px;
 }
 
 .joywp-testimonial-profile-card-slider-wrapper .joywp-testimonial-profile-card-slider__content {

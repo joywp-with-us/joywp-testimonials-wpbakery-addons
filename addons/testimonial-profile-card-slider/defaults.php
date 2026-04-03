@@ -1,6 +1,6 @@
 <?php
 /**
- * Default params values for interactive-shuffling-testimonials addon.
+ * Default params values for joywp_testimonial_profile_card_slider_wrapper addon.
  *
  * @since 1.0
  */
@@ -17,8 +17,6 @@ return [
 	'slider_active_control_height'           => '15',
 	'slider_active_control_add_background'   => 'true',
 	'slider_active_control_background_color' => '#FFFFFF',
-	'slider_active_controls_width'           => '21',
-	'slider_active_controls_height'          => '20',
 	'is_fancy_background'                    => 'true',
 	'items'                                  => rawurlencode(
 		wp_json_encode(

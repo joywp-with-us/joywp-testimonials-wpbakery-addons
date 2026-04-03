@@ -43,7 +43,7 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 		foreach ( $items as $index => $item ) {
 			$active = 0 === $index ? 'active' : '';
 			?>
-				<div class="joywp-testimonial-profile-card-slider__navigation-button <?php echo esc_attr( $active ); ?>"></div>
+				<button class="joywp-testimonial-profile-card-slider__navigation-button <?php echo esc_attr( $active ); ?>"></button>
 			<?php
 		}
 		?>
@@ -126,6 +126,8 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 
 		const slides = root.querySelectorAll('.joywp-testimonial-profile-card-slider-slider');
 
-		window.joywpTestimonialProfileCardSliderProcessSlides(slides);
+        if ( typeof window.joywpTestimonialProfileCardSliderProcessSlides === 'function' ) {
+             window.joywpTestimonialProfileCardSliderProcessSlides(slides);
+        }
 	})();
 </script>
