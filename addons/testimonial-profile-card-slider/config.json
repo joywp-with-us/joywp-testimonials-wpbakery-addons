@@ -7,7 +7,7 @@
   "base": "joywp_testimonial_profile_card_slider",
   "category": "JoyWP",
   "description": {
-    "text": "",
+    "text": "Testimonial profile card slider addon.",
     "translate": "true",
     "text_domain": "joywp-testimonials-wpbakery-addons"
   },

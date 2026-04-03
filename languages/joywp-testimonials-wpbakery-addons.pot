@@ -1,0 +1,1106 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: JoyWP Testimonials Addons For WPBakery Page Builder\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-03 09:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.3; wp-6.9.1; php-7.4.33\n"
+"X-Domain: joywp-testimonials-wpbakery-addons"
+
+#: src/Addons/AbstractParamsCollection.php:230
+msgid " configurations."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:47
+#: addons/testimonial-quote-with-avatar/params.php:173
+#: addons/testimonial-card-with-image/params.php:193
+msgid "%"
+msgstr ""
+
+#: src/Addons/AbstractParamsCollection.php:230
+msgid "Activate "
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:146
+msgid "Activate configurations for active control border."
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:78
+msgid "Activate configurations for controls border."
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:178
+msgid "Activate custom background for active control."
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:110
+msgid "Activate custom background for controls."
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:162
+msgid "Activate custom cursor for active control."
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:94
+msgid "Activate custom cursor for controls."
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:133
+msgid "Active Control Height"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:124
+msgid "Active Control Width"
+msgstr ""
+
+#: addons/testimonial-card-with-image/params.php:106
+msgid "Add block with name and surname."
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:158
+msgid "Add Clip"
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:215
+msgid "Add Frame"
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:241
+msgid "Add Frame Triangle"
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:242
+msgid "Add frame triangle."
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:153
+msgid "Add Hover Effect"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:154
+msgid "Add hover effect to the testimonial card."
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:159
+msgid "Add image clip."
+msgstr ""
+
+#: addons/testimonial-card-with-image/params.php:105
+msgid "Add Name"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:128
+#: addons/testimonial-card-with-image/params.php:148
+msgid "Add Pointer"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:129
+#: addons/testimonial-card-with-image/params.php:149
+msgid "Add pointer arrow to the testimonial image from testimonial text."
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:62
+msgid "Add Quot"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:63
+msgid "Add quotation mark to the testimonial card."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:67
+#: addons/sticker-testimonial/params.php:59
+#: addons/testimonial-card-with-image/params.php:45
+msgid "Add Quotes"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:68
+#: addons/sticker-testimonial/params.php:60
+#: addons/testimonial-card-with-image/params.php:46
+msgid "Add quotes before and after testimonial text."
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:216
+msgid "Add testimonial frame."
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:19
+msgid "Add the testimonial content."
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:29
+msgid "Add the testimonial source."
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:90
+msgid "Add Top Accent"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:91
+msgid "Add top accent to the testimonial card."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/BuilderBootstrapper.php:113
+msgid "Advanced"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/BuilderBootstrapper.php:114
+msgid "Advanced addon settings section"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:28
+msgid "Animation"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:31
+msgid "Auto"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:42
+msgid "Backdrop Filter"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:51
+msgid "Backdrop Filter Value"
+msgstr ""
+
+#: addons/testimonial-card-with-image/params.php:135
+msgid "Background"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:62
+msgid "Background Color"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:32
+msgid "Blur"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:61
+msgid "Blur Effect"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:29
+msgid "Border color"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:67
+msgid "Border Radius"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:47
+msgid "Border Style"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:56
+msgid "Border Width"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Position.php:46
+msgid "Bottom"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Position.php:48
+msgid "Bottom position"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:33
+msgid "Brightness"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:45
+msgid "Builder"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:19
+msgid "Card size"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:43
+msgid "Choose a backdrop filter type."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:64
+msgid "Choose background color."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:48
+msgid "Choose border style."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:47
+msgid "Choose cursor style on hover."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:52
+msgid "Choose the ending color of the gradient."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:40
+msgid "Choose the starting color of the gradient."
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:64
+msgid "Click Burst"
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:167
+#: addons/sticker-testimonial/params.php:172
+#: addons/sticker-testimonial/params.php:185
+msgid "Clip"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:97
+#: addons/testimonial-quote-with-avatar/params.php:158
+#: addons/sticker-testimonial/params.php:88
+#: addons/testimonial-card-with-image/params.php:75
+#: addons/testimonial-card-with-image/params.php:178
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:29
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:31
+msgid "Color"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:78
+msgid "Color of quotation marks"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:34
+msgid "Contrast"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:65
+msgid "Controls Height"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:56
+msgid "Controls Width"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:34
+msgid "Crosshair"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/BuilderBootstrapper.php:136
+msgid "CSS box"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:46
+msgid "Cursor"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:39
+msgid "Dashed"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:32
+msgid "Default"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/BuilderBootstrapper.php:138
+msgid "Design Options"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:40
+msgid "Dotted"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:41
+msgid "Double"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/BuilderBootstrapper.php:119
+msgid "Element ID"
+msgstr ""
+
+#: src/Addons/AbstractParamsCollection.php:229
+msgid "Enable "
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:177
+msgid "Enable Active Control Background"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:145
+msgid "Enable Active Control Border"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:161
+msgid "Enable Active Control Cursor"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:29
+msgid "Enable animation for testimonial module."
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:65
+msgid "Enable burst animation for button click."
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:109
+msgid "Enable Controls Background"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:77
+msgid "Enable Controls Border"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:93
+msgid "Enable Controls Cursor"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:27
+msgid "Enable special fancy background."
+msgstr ""
+
+#. %1$s: link to w3c specification, %2$s: closing anchor tag.
+#: src/Addons/Builders/Wpbakery/BuilderBootstrapper.php:122
+#, php-format
+msgid ""
+"Enter element ID (Note: make sure it is unique and valid according to "
+"%1$sw3c specification%2$s)."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:139
+msgid "Enter image height in px."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:128
+msgid "Enter image width in pixels."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:172
+#: addons/testimonial-card-with-image/params.php:192
+msgid "Enter positioning for pointer (from left side)."
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:271
+msgid "Enter size for frame triangle."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:144
+#: addons/testimonial-card-with-image/params.php:164
+msgid "Enter size for pointer."
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:125
+msgid "Enter size for quotes background."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:83
+#: addons/sticker-testimonial/params.php:74
+#: addons/testimonial-card-with-image/params.php:61
+msgid "Enter size for quotes."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:28
+#: addons/testimonial-card-with-image/params.php:120
+msgid "Enter testimonial author name."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:18
+#: addons/testimonial-profile-card-slider/group.php:18
+#: addons/testimonial-card-with-image/params.php:16
+msgid "Enter testimonial text."
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:134
+msgid "Enter the height of slider active control"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:66
+msgid "Enter the height of slider controls"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/group.php:30
+msgid "Enter the minimum height of the testimonial card."
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:19
+msgid "Enter the minimum height of whole block"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:125
+msgid "Enter the width of slider active control"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:57
+msgid "Enter the width of slider controls"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/group.php:41
+msgid "Enter the width of the image."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:46
+#: addons/testimonial-card-with-image/params.php:35
+msgid "Enter width for testimonial card."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:77
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:99
+msgid "External link"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/BuilderBootstrapper.php:128
+msgid "Extra class name"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:44
+msgid "Fancy"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:26
+msgid "Fancy Background"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/FontFamily.php:41
+msgid "Font Family"
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:224
+#: addons/sticker-testimonial/params.php:229
+#: addons/sticker-testimonial/params.php:250
+#: addons/sticker-testimonial/params.php:261
+#: addons/sticker-testimonial/params.php:277
+msgid "Frame"
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:258
+msgid "Frame Triangle Color"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:38
+msgid "From"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:55
+msgid "Gap"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:57
+msgid "Gap between testimonial text and avatar."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:41
+msgid "Grab"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:42
+msgid "Grabbing"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:32
+msgid "Gradient"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:35
+msgid "Grayscale"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:42
+msgid "Groove"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:38
+msgid "Help"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:39
+msgid "Horizontal Size"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/joywp-with-us/joywp-testimonials-wpbakery-addons"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://joywp.com"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:36
+msgid "Hue Rotate"
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:18
+msgid ""
+"If you have a moment, please let us know why you are deactivating this "
+"plugin."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/BuilderBootstrapper.php:130
+msgid ""
+"If you wish to style particular content element differently, then use this "
+"field to add a class name and then refer to it in your css file."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:121
+#: addons/sticker-testimonial/params.php:197
+#: addons/sticker-testimonial/params.php:202
+#: addons/testimonial-card-with-image/params.php:98
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:33
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:88
+msgid "Image"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:137
+msgid "Image Height"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:149
+msgid "Image position"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:171
+msgid "Image repeat"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:109
+msgid "Image Size"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:73
+msgid "Image source"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/group.php:39
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:125
+msgid "Image Width"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:44
+msgid "Inset"
+msgstr ""
+
+#. This file is auto-generated for json translation only
+#: languages/json-localizer.php:3
+msgid "Interactive Shuffling Testimonials"
+msgstr ""
+
+#: languages/json-localizer.php:4
+msgid "Interactive shuffling testimonials module."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:37
+msgid "Invert"
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:26
+msgid "It's a temporary deactivation."
+msgstr ""
+
+#. Author of the plugin
+msgid "joyWP"
+msgstr ""
+
+#. Name of the plugin
+msgid "JoyWP Testimonials Addons For WPBakery Page Builder"
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:55
+msgid "Kindly share what didn't work so we can fix it for future users"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:23
+msgid "Large"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Position.php:54
+msgid "Left"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Position.php:56
+msgid "Left position"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:76
+msgid "Media library"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:22
+msgid "Medium"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:18
+msgid "Min Height"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:35
+msgid "Move"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:27
+#: addons/testimonial-card-with-image/params.php:115
+#: addons/testimonial-card-with-image/params.php:119
+#: addons/testimonial-card-with-image/params.php:131
+#: addons/testimonial-card-with-image/params.php:143
+msgid "Name"
+msgstr ""
+
+#: src/Addons/AbstractParamsCollection.php:242
+#: addons/testimonial-quote-with-avatar/params.php:73
+#: addons/testimonial-quote-with-avatar/params.php:134
+#: addons/interactive-shuffling-testimonials/group.php:68
+#: addons/interactive-shuffling-testimonials/group.php:96
+#: addons/interactive-shuffling-testimonials/group.php:159
+#: addons/interactive-shuffling-testimonials/params.php:33
+#: addons/interactive-shuffling-testimonials/params.php:69
+#: addons/testimonial-profile-card-slider/params.php:31
+#: addons/sticker-testimonial/params.php:65
+#: addons/sticker-testimonial/params.php:164
+#: addons/sticker-testimonial/params.php:221
+#: addons/sticker-testimonial/params.php:247
+#: addons/testimonial-card-with-image/params.php:51
+#: addons/testimonial-card-with-image/params.php:111
+#: addons/testimonial-card-with-image/params.php:154
+msgid "No"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:43
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:40
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:31
+msgid "None"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:39
+msgid "Not Allowed"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:38
+msgid "Opacity"
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:60
+msgid "Other"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:45
+msgid "Outset"
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:34
+msgid "Please describe the missing addon."
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:62
+msgid "Please specify"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:138
+#: addons/testimonial-quote-with-avatar/params.php:150
+#: addons/testimonial-quote-with-avatar/params.php:162
+#: addons/testimonial-quote-with-avatar/params.php:178
+#: addons/testimonial-card-with-image/params.php:158
+#: addons/testimonial-card-with-image/params.php:170
+#: addons/testimonial-card-with-image/params.php:182
+#: addons/testimonial-card-with-image/params.php:198
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:33
+msgid "Pointer"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:170
+#: addons/testimonial-card-with-image/params.php:190
+msgid "Positioning"
+msgstr ""
+
+#. Description of the plugin
+msgid "Power your WPBakery Page Builder with well-crafted testimonials addons."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:58
+#: addons/testimonial-quote-with-avatar/params.php:84
+#: addons/testimonial-quote-with-avatar/params.php:145
+#: addons/sticker-testimonial/params.php:75
+#: addons/sticker-testimonial/params.php:126
+#: addons/sticker-testimonial/params.php:272
+#: addons/testimonial-card-with-image/params.php:36
+#: addons/testimonial-card-with-image/params.php:62
+#: addons/testimonial-card-with-image/params.php:165
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:41
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:52
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:63
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:74
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:58
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:69
+msgid "px"
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:15
+msgid "Quick Feedback"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:77
+#: addons/testimonial-quote-with-avatar/params.php:89
+#: addons/testimonial-quote-with-avatar/params.php:100
+#: addons/testimonial-quote-with-avatar/params.php:110
+#: addons/sticker-testimonial/params.php:68
+#: addons/sticker-testimonial/params.php:80
+#: addons/sticker-testimonial/params.php:91
+#: addons/sticker-testimonial/params.php:100
+#: addons/sticker-testimonial/params.php:110
+#: addons/sticker-testimonial/params.php:131
+#: addons/sticker-testimonial/params.php:147
+#: addons/testimonial-card-with-image/params.php:55
+#: addons/testimonial-card-with-image/params.php:67
+#: addons/testimonial-card-with-image/params.php:78
+#: addons/testimonial-card-with-image/params.php:87
+msgid "Quotes"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:53
+msgid "Regulate filter effect with filter value."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:43
+msgid "Ridge"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Position.php:38
+msgid "Right"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Position.php:40
+msgid "Right position"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:39
+msgid "Saturate"
+msgstr ""
+
+#: addons/testimonial-card-with-image/params.php:137
+msgid "Select background color for name block."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:39
+#: addons/testimonial-card-with-image/params.php:28
+msgid "Select background color for testimonial block."
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:260
+msgid "Select color for frame triangle."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:160
+#: addons/testimonial-card-with-image/params.php:180
+msgid "Select color for pointer."
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:99
+#: addons/sticker-testimonial/params.php:90
+#: addons/testimonial-card-with-image/params.php:77
+msgid "Select color for quotes."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:31
+msgid "Select custom color for border."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:31
+msgid "Select custom color for box shadow."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:101
+msgid "Select external link."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/FontFamily.php:42
+msgid "Select font family."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:91
+msgid "Select image from media library."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:151
+msgid "Select image position."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:173
+msgid "Select image repeat."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:111
+msgid "Select image size."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:80
+msgid "Select image source."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BackdropFilter.php:40
+msgid "Sepia"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:64
+msgid "Set custom blur effect for box shadow."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:70
+msgid "Set custom border radius in px from 0 to 100."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:59
+msgid "Set custom border width in px from 0 to 10."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:42
+msgid "Set custom horizontal size for box shadow."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:75
+msgid "Set custom spread radius for box shadow."
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:53
+msgid "Set custom vertical size for box shadow."
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:39
+msgid "Shuffle Button"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:81
+#: addons/testimonial-quote-with-avatar/params.php:142
+#: addons/interactive-shuffling-testimonials/group.php:18
+#: addons/sticker-testimonial/params.php:72
+#: addons/sticker-testimonial/params.php:123
+#: addons/testimonial-card-with-image/params.php:59
+#: addons/testimonial-card-with-image/params.php:162
+msgid "Size"
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:69
+msgid "Skip & Deactivate"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/params.php:60
+#: addons/testimonial-profile-card-slider/params.php:69
+#: addons/testimonial-profile-card-slider/params.php:84
+#: addons/testimonial-profile-card-slider/params.php:100
+#: addons/testimonial-profile-card-slider/params.php:116
+#: addons/testimonial-profile-card-slider/params.php:128
+#: addons/testimonial-profile-card-slider/params.php:137
+#: addons/testimonial-profile-card-slider/params.php:152
+#: addons/testimonial-profile-card-slider/params.php:168
+#: addons/testimonial-profile-card-slider/params.php:184
+msgid "Slider"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:21
+msgid "Small"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Border.php:38
+msgid "Solid"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:72
+msgid "Spread Radius"
+msgstr ""
+
+#: languages/json-localizer.php:5
+msgid "Sticker Testimonial"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:37
+msgid "Sub title of testimonial, here you can put the job title of the person"
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:67
+msgid "Submit & Deactivate"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:36
+msgid "Subtitle"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:17
+#: addons/interactive-shuffling-testimonials/group.php:42
+#: addons/testimonial-profile-card-slider/group.php:17
+#: addons/sticker-testimonial/params.php:18
+#: addons/sticker-testimonial/template.php:14
+#: addons/testimonial-card-with-image/params.php:15
+msgid "Testimonial"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:37
+#: addons/testimonial-card-with-image/params.php:26
+msgid "Testimonial Background"
+msgstr ""
+
+#: languages/json-localizer.php:7
+msgid "Testimonial Card With Image"
+msgstr ""
+
+#: languages/json-localizer.php:8
+msgid "Testimonial card with image addon"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:43
+msgid "Testimonial content"
+msgstr ""
+
+#: addons/testimonial-profile-card-slider/group.php:28
+msgid "Testimonial Min Height"
+msgstr ""
+
+#: languages/json-localizer.php:9
+msgid "Testimonial Profile Card Slider"
+msgstr ""
+
+#: languages/json-localizer.php:10
+msgid "Testimonial profile card slider addon."
+msgstr ""
+
+#: languages/json-localizer.php:11
+msgid "Testimonial Quote With Avatar"
+msgstr ""
+
+#: languages/json-localizer.php:12
+msgid "Testimonial quote with avatar addon."
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:28
+msgid "Testimonial Source"
+msgstr ""
+
+#: languages/json-localizer.php:6
+msgid "Testimonial with sticker style addon."
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:109
+#: addons/interactive-shuffling-testimonials/template.php:51
+#: addons/testimonial-profile-card-slider/params.php:45
+msgid "Testimonials"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:110
+#: addons/testimonial-profile-card-slider/params.php:46
+msgid "Testimonials Items"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:52
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:36
+msgid "Text"
+msgstr ""
+
+#. 1: plugin name, 2: list of requirements
+#: src/Utils/Requirement.php:149
+#, php-format
+msgid "The %1$s plugin minimum requirements are not met:"
+msgstr ""
+
+#: src/Utils/Api.php:65
+msgid "The API endpoint is invalid."
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:39
+msgid "The plugin didn't work as expected."
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:46
+msgid "The plugin is missing a specific feature."
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:32
+msgid "The plugin is missing a specific WPBakery addon."
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:53
+msgid "The plugin is not working."
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:29
+msgid "Title"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/group.php:31
+msgid "Title of testimonial, here you can put the name of the person"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Background.php:50
+msgid "To"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Position.php:30
+msgid "Top"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:18
+msgid "Top Heading"
+msgstr ""
+
+#: addons/interactive-shuffling-testimonials/params.php:19
+msgid "Top heading above testimonials"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Position.php:32
+msgid "Top position"
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:269
+msgid "Triangle Size"
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:141
+msgid "Vertical Align"
+msgstr ""
+
+#: addons/sticker-testimonial/params.php:143
+msgid "Vertical align content inside block quotes"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/BoxShadow.php:50
+msgid "Vertical Size"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:37
+msgid "Wait"
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:41
+msgid "What did you expected."
+msgstr ""
+
+#: templates/settings/deactivation-popup.php:48
+msgid "What feature?"
+msgstr ""
+
+#: addons/testimonial-quote-with-avatar/params.php:44
+#: addons/testimonial-card-with-image/params.php:33
+msgid "Width"
+msgstr ""
+
+#: src/Addons/AbstractParamsCollection.php:241
+#: addons/testimonial-quote-with-avatar/params.php:72
+#: addons/testimonial-quote-with-avatar/params.php:133
+#: addons/interactive-shuffling-testimonials/group.php:67
+#: addons/interactive-shuffling-testimonials/group.php:95
+#: addons/interactive-shuffling-testimonials/group.php:158
+#: addons/interactive-shuffling-testimonials/params.php:32
+#: addons/interactive-shuffling-testimonials/params.php:68
+#: addons/testimonial-profile-card-slider/params.php:30
+#: addons/sticker-testimonial/params.php:64
+#: addons/sticker-testimonial/params.php:163
+#: addons/sticker-testimonial/params.php:220
+#: addons/sticker-testimonial/params.php:246
+#: addons/testimonial-card-with-image/params.php:50
+#: addons/testimonial-card-with-image/params.php:110
+#: addons/testimonial-card-with-image/params.php:153
+msgid "Yes"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:43
+msgid "Zoom In"
+msgstr ""
+
+#: src/Addons/Builders/Wpbakery/Config/Params/Collection/Cursor.php:44
+msgid "Zoom Out"
+msgstr ""

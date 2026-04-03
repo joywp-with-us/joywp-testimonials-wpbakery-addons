@@ -7,7 +7,7 @@
   "base": "joywp_sticker_testimonial",
   "category": "JoyWP",
   "description": {
-    "text": "Testimonial with sticker style.",
+    "text": "Testimonial with sticker style addon.",
     "translate": "true",
     "text_domain": "joywp-testimonials-wpbakery-addons"
   },

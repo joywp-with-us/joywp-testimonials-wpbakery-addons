@@ -7,7 +7,7 @@
   "base": "joywp_testimonial_card_with_image",
   "category": "JoyWP",
   "description": {
-    "text": "Testimonial Card With Image",
+    "text": "Testimonial card with image addon",
     "translate": "true",
     "text_domain": "joywp-testimonials-wpbakery-addons"
   },
