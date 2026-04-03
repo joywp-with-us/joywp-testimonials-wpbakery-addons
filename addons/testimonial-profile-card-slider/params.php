@@ -15,8 +15,8 @@ return array_merge(
 		[
 			'type'        => 'joywp_number_slider',
 			'param_name'  => 'height',
-			'heading'     => __( 'Min Height', 'joywp-testimonials-wpb' ),
-			'description' => __( 'Enter the minimum height of whole block', 'joywp-testimonials-wpb' ),
+			'heading'     => __( 'Min Height', 'joywp-testimonials-wpbakery-addons' ),
+			'description' => __( 'Enter the minimum height of whole block', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => 400,
 			'max'         => 5000,
 		],
@@ -57,7 +57,7 @@ return array_merge(
 			'description' => __( 'Enter the width of slider controls', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => 15,
 			'max'         => 100,
-			'group'       => __( 'Slider', 'joywp-testimonials-wpb' ),
+			'group'       => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
 		],
 		[
 			'type'        => 'joywp_number_slider',
@@ -66,7 +66,7 @@ return array_merge(
 			'description' => __( 'Enter the height of slider controls', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => 15,
 			'max'         => 100,
-			'group'       => __( 'Slider', 'joywp-testimonials-wpb' ),
+			'group'       => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
 		],
 	],
 	$config
@@ -125,7 +125,7 @@ return array_merge(
 			'description' => __( 'Enter the width of slider active control', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => 15,
 			'max'         => 100,
-			'group'       => __( 'Slider', 'joywp-testimonials-wpb' ),
+			'group'       => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
 		],
 		[
 			'type'        => 'joywp_number_slider',
@@ -134,7 +134,7 @@ return array_merge(
 			'description' => __( 'Enter the height of slider active control', 'joywp-testimonials-wpbakery-addons' ),
 			'value'       => 15,
 			'max'         => 100,
-			'group'       => __( 'Slider', 'joywp-testimonials-wpb' ),
+			'group'       => __( 'Slider', 'joywp-testimonials-wpbakery-addons' ),
 		],
 	],
 	$config
