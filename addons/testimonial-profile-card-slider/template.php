@@ -119,15 +119,23 @@ $items = $addon->get_collection( 'param-group', 'main' )->get_items( $atts );
 
 <script>
 	(function() {
-		const root = document.querySelector(<?php $addon->output_script_shortcode_id(); ?>);
-		if (!root) {
-			return;
+		function init() {
+			const root = document.querySelector(<?php $addon->output_script_shortcode_id(); ?>);
+			if (!root) {
+				return;
+			}
+
+			const slides = root.querySelectorAll('.joywp-testimonial-profile-card-slider-slider');
+
+			if ( typeof window.joywpTestimonialProfileCardSliderProcessSlides === 'function' ) {
+				window.joywpTestimonialProfileCardSliderProcessSlides(slides);
+			}
 		}
 
-		const slides = root.querySelectorAll('.joywp-testimonial-profile-card-slider-slider');
-
-		if ( typeof window.joywpTestimonialProfileCardSliderProcessSlides === 'function' ) {
-			window.joywpTestimonialProfileCardSliderProcessSlides(slides);
+		if ( document.readyState === 'complete' ) {
+			init();
+		} else {
+			window.addEventListener('load', init);
 		}
 	})();
 </script>
