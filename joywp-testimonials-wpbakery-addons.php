@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/joywp-with-us/joywp-testimonials-wpbakery-addons
  * Description:       Power your WPBakery Page Builder with well-crafted testimonials addons.
  * Author:            joyWP
- * Author URI:        https://joywp.com
+ * Author URI:        https://github.com/joywp-with-us
  * Text Domain:       joywp-testimonials-wpbakery-addons
  * Domain Path:       /languages
  * Version:           1.0

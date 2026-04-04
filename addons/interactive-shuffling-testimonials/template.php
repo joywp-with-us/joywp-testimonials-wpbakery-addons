@@ -189,108 +189,116 @@ endforeach;
 	(function() {
 		'use strict';
 
-		const addonId = <?php echo wp_json_encode( $addon->id ); ?>;
-		const dataAttr = <?php echo wp_json_encode( $addon->get_data_attribute_id() ); ?>;
-		const root = document.querySelector('[' + dataAttr + '="' + addonId + '"]');
-		if (!root) return;
+		function init() {
+			const addonId = <?php echo wp_json_encode( $addon->id ); ?>;
+			const dataAttr = <?php echo wp_json_encode( $addon->get_data_attribute_id() ); ?>;
+			const root = document.querySelector('[' + dataAttr + '="' + addonId + '"]');
+			if (!root) return;
 
-		const testimonials = <?php echo wp_json_encode( $testimonial_list ); ?>;
+			const testimonials = <?php echo wp_json_encode( $testimonial_list ); ?>;
 
-		const grid = root.querySelector('.joywp-horizontal-testimonial-card__grid');
-		const particlesContainer = root.querySelector('.joywp-horizontal-testimonial-card__particles');
-		const rotateBtn = root.querySelector('.joywp-horizontal-testimonial-card__btn-rotate') || root.querySelector('.joywp-horizontal-testimonial-card__container button, .joywp-horizontal-testimonial-card__container a');
+			const grid = root.querySelector('.joywp-horizontal-testimonial-card__grid');
+			const particlesContainer = root.querySelector('.joywp-horizontal-testimonial-card__particles');
+			const rotateBtn = root.querySelector('.joywp-horizontal-testimonial-card__btn-rotate') || root.querySelector('.joywp-horizontal-testimonial-card__container button, .joywp-horizontal-testimonial-card__container a');
 
-		if (!grid || !particlesContainer) return;
+			if (!grid || !particlesContainer) return;
 
-		window.joywpInteractiveShufflingTestimonialsRenderTestimonials(root, grid, testimonials);
-		window.joywpInteractiveShufflingTestimonialsAttachMousemove(root);
-		<?php
-		if ( 'true' === $atts['is_animated'] ) :
-			?>
-			const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
-
-			for (let i = 0; i < 15; i++) {
-				const particle = document.createElement('div');
-				particle.className = 'joywp-horizontal-testimonial-card__particle';
-
-				const size = Math.random() * 8 + 3;
-				particle.style.width = size + 'px';
-				particle.style.height = size + 'px';
-				particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-				particle.style.left = Math.random() * 100 + '%';
-				particle.style.top = Math.random() * 100 + '%';
-				particle.style.animationDelay = Math.random() * 5 + 's';
-
-				particlesContainer.appendChild(particle);
-			}
+			window.joywpInteractiveShufflingTestimonialsRenderTestimonials(root, grid, testimonials);
+			window.joywpInteractiveShufflingTestimonialsAttachMousemove(root);
 			<?php
-		endif;
-		if ( 'none' !== $atts['select_button'] ) :
-			?>
-			rotateBtn.addEventListener('click', function() {
-				const cards = grid.querySelectorAll('.joywp-horizontal-testimonial-card__card');
-				cards.forEach(function(card, index) {
-					setTimeout(function() {
-						card.style.opacity = '0';
-						card.style.transform = 'translateY(30px) scale(0.95)';
-					}, index * 50);
-				});
-
-				setTimeout(function() {
-					grid.innerHTML = '';
-					window.joywpInteractiveShufflingTestimonialsRenderTestimonials(root, grid, testimonials);
-					<?php
-					if ( 'true' === $atts['is_button_animated'] ) :
-						?>
-					createParticleBurst();
-						<?php
-					endif;
-					?>
-				}, cards.length * 50 + 300);
-			});
-			<?php
-			if ( 'true' === $atts['is_button_animated'] ) :
+			if ( 'true' === $atts['is_animated'] ) :
 				?>
-				function createParticleBurst() {
-					const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
+				const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
 
-					for (let i = 0; i < 20; i++) {
-						const particle = document.createElement('div');
-						particle.className = 'joywp-horizontal-testimonial-card__particle';
+				for (let i = 0; i < 15; i++) {
+					const particle = document.createElement('div');
+					particle.className = 'joywp-horizontal-testimonial-card__particle';
 
-						const size = Math.random() * 10 + 5;
-						particle.style.width = size + 'px';
-						particle.style.height = size + 'px';
-						particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-						particle.style.left = '50%';
-						particle.style.top = '50%';
-						particle.style.animation = 'none';
-						particle.style.opacity = '0.8';
+					const size = Math.random() * 8 + 3;
+					particle.style.width = size + 'px';
+					particle.style.height = size + 'px';
+					particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+					particle.style.left = Math.random() * 100 + '%';
+					particle.style.top = Math.random() * 100 + '%';
+					particle.style.animationDelay = Math.random() * 5 + 's';
 
-						const angle = Math.random() * Math.PI * 2;
-						const distance = 100 + Math.random() * 100;
-						const duration = 1 + Math.random() * 2;
-
-						particlesContainer.appendChild(particle);
-
-						(function(p, a, d, dur) {
-							setTimeout(function() {
-								p.style.transition = 'all ' + dur + 's ease-out';
-								p.style.transform = 'translate(' + (Math.cos(a) * d) + 'px, ' + (Math.sin(a) * d) + 'px) rotate(' + (Math.random() * 360) + 'deg)';
-								p.style.opacity = '0';
-							}, 10);
-
-							setTimeout(function() {
-								if (p.parentNode) {
-									p.parentNode.removeChild(p);
-								}
-							}, dur * 1000 + 100);
-						})(particle, angle, distance, duration);
-					}
+					particlesContainer.appendChild(particle);
 				}
 				<?php
 			endif;
-		endif;
-		?>
+			if ( 'none' !== $atts['select_button'] ) :
+				?>
+				rotateBtn.addEventListener('click', function() {
+					const cards = grid.querySelectorAll('.joywp-horizontal-testimonial-card__card');
+					cards.forEach(function(card, index) {
+						setTimeout(function() {
+							card.style.opacity = '0';
+							card.style.transform = 'translateY(30px) scale(0.95)';
+						}, index * 50);
+					});
+
+					setTimeout(function() {
+						grid.innerHTML = '';
+						window.joywpInteractiveShufflingTestimonialsRenderTestimonials(root, grid, testimonials);
+						<?php
+						if ( 'true' === $atts['is_button_animated'] ) :
+							?>
+						createParticleBurst();
+							<?php
+						endif;
+						?>
+					}, cards.length * 50 + 300);
+				});
+				<?php
+				if ( 'true' === $atts['is_button_animated'] ) :
+					?>
+					function createParticleBurst() {
+						const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#6a0572', '#1a2a6c'];
+
+						for (let i = 0; i < 20; i++) {
+							const particle = document.createElement('div');
+							particle.className = 'joywp-horizontal-testimonial-card__particle';
+
+							const size = Math.random() * 10 + 5;
+							particle.style.width = size + 'px';
+							particle.style.height = size + 'px';
+							particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+							particle.style.left = '50%';
+							particle.style.top = '50%';
+							particle.style.animation = 'none';
+							particle.style.opacity = '0.8';
+
+							const angle = Math.random() * Math.PI * 2;
+							const distance = 100 + Math.random() * 100;
+							const duration = 1 + Math.random() * 2;
+
+							particlesContainer.appendChild(particle);
+
+							(function(p, a, d, dur) {
+								setTimeout(function() {
+									p.style.transition = 'all ' + dur + 's ease-out';
+									p.style.transform = 'translate(' + (Math.cos(a) * d) + 'px, ' + (Math.sin(a) * d) + 'px) rotate(' + (Math.random() * 360) + 'deg)';
+									p.style.opacity = '0';
+								}, 10);
+
+								setTimeout(function() {
+									if (p.parentNode) {
+										p.parentNode.removeChild(p);
+									}
+								}, dur * 1000 + 100);
+							})(particle, angle, distance, duration);
+						}
+					}
+					<?php
+				endif;
+			endif;
+			?>
+		} // end init()
+
+		if ( document.readyState === 'complete' ) {
+			init();
+		} else {
+			window.addEventListener('load', init);
+		}
 	})();
 </script>

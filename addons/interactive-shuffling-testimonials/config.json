@@ -22,7 +22,10 @@
         "file": "assets/css/addon.css"
       },
       "js": {
-        "file": "assets/js/addon.js"
+        "file": "assets/js/addon.js",
+        "args": {
+          "in_footer": "true"
+        }
       }
     }
   }
