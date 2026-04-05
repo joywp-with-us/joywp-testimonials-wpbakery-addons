@@ -1,4 +1,4 @@
-=== JowWP Testimonials Addons For WPBakery Page Builder ===
+=== JoyWP Testimonials Addons For WPBakery Page Builder ===
 Contributors: DanilaStrogov
 Tags: WPBakery, wpbakery addons, wpbakery page builder, wpbakery page builder addons
 Tested up to: 7.0
