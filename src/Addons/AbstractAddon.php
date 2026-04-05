@@ -154,10 +154,13 @@ abstract class AbstractAddon {
 	/**
 	 * Render addon.
 	 *
+	 * @param array|string $atts
+	 *
 	 * @since 1.0
 	 */
-	public function render_addon( array $atts ): string {
+	public function render_addon( $atts ): string {
 		$addon = $this;
+		$atts  = is_array( $atts ) ? $atts : [];
 		$atts  = apply_filters( 'joywp_testimonials_atts_render_addon', $atts, $addon );
 
 		$addon->atts = $atts;
