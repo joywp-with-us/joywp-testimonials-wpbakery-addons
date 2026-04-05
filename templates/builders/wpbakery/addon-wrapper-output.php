@@ -8,6 +8,8 @@
  * @since 1.0
  */
 
+defined( 'ABSPATH' ) || exit;
+
 ?>
 
 <div <?php $addon->output_addon_wrapper_attributes( [ 'class' => $element_class ] ); ?>>

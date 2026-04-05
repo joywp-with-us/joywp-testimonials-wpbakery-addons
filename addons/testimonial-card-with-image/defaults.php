@@ -5,6 +5,8 @@
  * @since 1.0
  */
 
+defined( 'ABSPATH' ) || exit;
+
 return [
 	'testimonial'                => '<p><span style="font-size: 12px; color: #333333;"><em>Sometimes I think the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us.</em></span></p>',
 	'add_quotes'                 => 'true',

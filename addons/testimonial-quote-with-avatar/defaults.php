@@ -5,6 +5,8 @@
  * @since 1.0
  */
 
+defined( 'ABSPATH' ) || exit;
+
 return [
 	'testimonial'                  => '<span style="font-size: 12px;"><em>Thank you. before I begin, I\'d like everyone to notice that my report is in a professional, clear plastic binder...When a report looks this good, you know it\'ll get an A. That\'s a tip kids. Write it down.</em></span>',
 	'name'                         => '<div><strong><span style="color: #333333;">Eleanor Faint</span></strong></div><div><span style="font-size: 12px;">LIttleSnippets.net</span></div>',

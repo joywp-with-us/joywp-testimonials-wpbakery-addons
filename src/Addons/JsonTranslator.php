@@ -42,7 +42,7 @@ class JsonTranslator {
 		$file_path = $this->get_php_file_localizer_path();
 		$lines     = $this->recursive_extract_strings( $data );
 
-		$content = "<?php\n// This file is auto-generated for json translation only\n";
+		$content = "// This file is auto-generated for json translation only\n";
 		// check if file exists and not empty.
 		if ( ! file_exists( $file_path ) ) {
 			joywptestimonialswpb_file_put_contents( $content, $file_path );

@@ -5,6 +5,8 @@
  * @since 1.0
  */
 
+defined( 'ABSPATH' ) || exit;
+
 return [
 	'height'                                 => '400',
 	'slider_controls_width'                  => '15',

@@ -5,6 +5,8 @@
  * @since 1.0
  */
 
+defined( 'ABSPATH' ) || exit;
+
 return [
 	'select_button'      => 'fancy',
 	'top_heading'        => '<div class="joywp-horizontal-testimonial-card__header"><div class="joywp-horizontal-testimonial-card__header-title">What Clients <span class="joywp-horizontal-testimonial-card__accent-1">Say</span> About My <span class="joywp-horizontal-testimonial-card__accent-2">Work</span></div><div class="joywp-horizontal-testimonial-card__header-description">From branding to web design, I\'ve had the pleasure of collaborating with amazing clients across industries</div></div>',
