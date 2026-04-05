@@ -141,11 +141,11 @@ class Wpbackery_Custom_Param_Collection {
 	 */
 	public function init(): void {
 		// Before init action.
-		do_action( 'before_wpb_custom_param_collection' );
+		do_action( 'wpb_custom_param_collection_before' );
 		// Set up localization.
 		$this->load_plugin_textdomain();
 		// After init action.
-		do_action( 'after_wpb_custom_param_collection' );
+		do_action( 'wpb_custom_param_collection_after' );
 	}
 
 	/**

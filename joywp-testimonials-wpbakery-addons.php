@@ -139,11 +139,11 @@ class Joywp_Wpb_Testimonials {
 	 */
 	public function init(): void {
 		// Before init action.
-		do_action( 'before_joywp_testimonials_wpbakery_addons' );
+		do_action( 'joywp_testimonials_wpbakery_addons_before' );
 		// Set up localization.
 		$this->load_plugin_textdomain();
 		// After init action.
-		do_action( 'after_joywp_testimonials_wpbakery_addons' );
+		do_action( 'joywp_testimonials_wpbakery_addons_after' );
 	}
 
 	/**
